@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heal House — Alternative Assessment: Without Green P</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #FAF7F2;
+  --bg-secondary: #F5F0EB;
+  --bg-card: #FFFFFF;
+  --bg-dark: #2B2B2B;
+  --accent-gold: #C9A96E;
+  --accent-bronze: #C4975A;
+  --accent-sage: #8B9E7C;
+  --accent-dark-green: #4A5D3E;
+  --text-primary: #2B2B2B;
+  --text-secondary: #5A5A5A;
+  --text-light: #6B6B6B;
+  --border: #D2C4B0;
+  --warning: #C4975A;
+  --danger: #8B3A3A;
+  --success: #4A5D3E;
+  --orange-glow: rgba(201,169,110,0.12);
+  --green-bg: rgba(74,93,62,0.12);
+  --yellow-bg: rgba(196,151,90,0.12);
+  --red-bg: rgba(139,58,58,0.12);
+  --alt-blue: #4A6FA5;
+  --alt-blue-bg: rgba(74,111,165,0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D4;
+  padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(43,43,43,0.06);
+}
+.logo-area { display: flex; flex-direction: column; }
+.logo-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: #2D2A26; letter-spacing: 0.12em; line-height: 1;
+}
+.logo-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 400;
+  color: var(--alt-blue); letter-spacing: 0.22em;
+  text-transform: uppercase; margin-top: 5px;
+}
+.header-right { display: flex; align-items: center; gap: 16px; }
+.tagline { font-size: 11px; color: #8FA77A; letter-spacing: 0.1em; font-style: italic; }
+.conf-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px; font-weight: 600;
+  background: var(--bg-dark); color: var(--accent-gold);
+  padding: 4px 10px; border-radius: 3px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+.deck { max-width: 980px; margin: 0 auto; padding: 32px 24px; }
+
+.slide {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 10px rgba(43,43,43,0.05);
+  position: relative; overflow: hidden;
+  page-break-inside: avoid;
+}
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--alt-blue));
+}
+.slide-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.slide h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 6px;
+}
+.slide h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--accent-bronze);
+  margin: 20px 0 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.slide p { margin-bottom: 10px; color: var(--text-secondary); }
+.slide ul { list-style: none; padding: 0; margin-bottom: 12px; }
+.slide ul li { padding: 5px 0 5px 18px; position: relative; color: var(--text-secondary); }
+.slide ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-gold); font-weight: 700; }
+.sl { font-weight: 600; color: var(--text-primary); }
+.subtitle { font-size: 12px; color: var(--text-secondary); font-style: italic; margin-bottom: 16px; }
+
+.slide.title {
+  text-align: center; padding: 72px 40px;
+  background: linear-gradient(135deg, #FAF7F2, #EDE8E0);
+}
+.slide.title h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700;
+  color: var(--text-primary); letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.slide.title .deck-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
+.slide.title .meta { font-size: 11px; color: var(--text-light); letter-spacing: 0.08em; }
+
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+.hero-stats.three { grid-template-columns: repeat(3, 1fr); }
+.hero-stats.two { grid-template-columns: repeat(2, 1fr); }
+.hero-stat {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px; text-align: center;
+}
+.hero-stat .hs-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--accent-gold); line-height: 1;
+}
+.hero-stat .hs-label {
+  font-size: 10px; color: var(--text-light);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px;
+}
+.hero-stat.blue .hs-val { color: var(--alt-blue); }
+.hero-stat.red .hs-val { color: var(--danger); }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 14px 0; }
+th {
+  text-align: left; font-size: 10px; font-weight: 600;
+  color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 8px 12px; border-bottom: 2px solid var(--border); background: var(--bg-secondary);
+}
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-family: 'Space Grotesk', sans-serif; }
+td:first-child { font-family: 'Inter', sans-serif; color: var(--text-secondary); font-weight: 500; }
+tr:last-child td { border-bottom: none; }
+tr.row-highlight { background: var(--orange-glow); }
+tr.row-blue { background: var(--alt-blue-bg); }
+
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 4px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+}
+.badge-green { background: rgba(74,93,62,0.15); color: var(--success); }
+.badge-yellow { background: rgba(196,151,90,0.15); color: var(--warning); }
+.badge-gold { background: var(--orange-glow); color: var(--accent-gold); }
+.badge-blue { background: var(--alt-blue-bg); color: var(--alt-blue); }
+.badge-red { background: rgba(139,58,58,0.15); color: var(--danger); }
+
+.callout {
+  background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(74,111,165,0.08));
+  border: 2px solid var(--accent-gold); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout h3 { color: var(--accent-gold); margin-top: 0; }
+
+.callout-blue {
+  background: linear-gradient(135deg, rgba(74,111,165,0.06), rgba(74,93,62,0.06));
+  border: 2px solid var(--alt-blue); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout-blue h3 { color: var(--alt-blue); margin-top: 0; }
+
+.callout-red {
+  background: linear-gradient(135deg, rgba(139,58,58,0.06), rgba(196,151,90,0.06));
+  border: 2px solid var(--danger); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout-red h3 { color: var(--danger); margin-top: 0; }
+
+.caveat {
+  background: var(--yellow-bg); border-left: 3px solid var(--warning);
+  padding: 10px 14px; border-radius: 0 6px 6px 0;
+  font-size: 12px; color: var(--text-secondary); margin-top: 14px;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.noi-row {
+  display: flex; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+}
+.noi-row:last-child { border-bottom: none; }
+.noi-label { color: var(--text-secondary); }
+.noi-val { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--text-primary); }
+.noi-row.total .noi-label { font-weight: 600; color: var(--text-primary); }
+.noi-row.total .noi-val { color: var(--accent-gold); font-size: 14px; }
+.noi-row.blue .noi-val { color: var(--alt-blue); }
+.noi-row.red .noi-val { color: var(--danger); font-weight: 700; }
+
+.vs-box {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center;
+  margin: 20px 0;
+}
+.vs-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px; font-weight: 700; color: var(--text-light);
+  text-align: center;
+}
+
+footer {
+  background: #2E2E20; border-top: 2px solid #C9A96E;
+  padding: 18px 32px; text-align: center;
+  font-size: 10px; color: #D6CEAE; letter-spacing: 0.12em;
+}
+
+@media print {
+  header, footer { position: static; }
+  .slide { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  body { background: #fff; }
+}
+</style>
+
+<script>
+// ═══════════════════════════════════════════
+// ALTERNATIVE SCENARIO: NO GREEN P
+// Just the two lots on their own
+// ═══════════════════════════════════════════
+
+const LOT_2294 = {
+  address: '2294/2294A Lakeshore Blvd W',
+  lotSizeSF: 6499,
+  lotSizeM2: 603.81,
+  frontage: '39.62m (130 ft)',
+  depth: '15.24m (50 ft)',
+  currentUse: '2-storey brick dwellings (2 units)',
+  zoning: 'Residential — pending mid-rise approval',
+  targetUnits: 30,
+  floors: 6,
+};
+
+const LOT_2304 = {
+  address: '2304 Lakeshore Blvd W',
+  lotSizeSF: 7965,
+  frontage: '61.25 ft (on Lakeshore)',
+  depth: '130 ft',
+  currentUse: 'Non-residential (commercial)',
+  lastSale: 2650000,
+  lastSaleDate: 'Jul 2021',
+  existingMortgage: 1552500,
+  mortgagee: 'Equitable Bank',
+  owner: '2304 Lake Shore Blvd West Holding Corp',
+  zoning: 'Mixed-use — pending mid-rise approval',
+  targetUnits: 60,
+  floors: 10,
+};
+
+function calc() {
+  // ═══ LOT 2294: 30 UNITS, 6 FLOORS ═══
+  const L1 = LOT_2294;
+  const l1_gfa = L1.lotSizeSF * L1.floors * 0.85; // 85% coverage ratio for smaller lot
+  const l1_netGFA = l1_gfa * 0.82;
+  const l1_avgUnit = l1_netGFA / L1.targetUnits;
+
+  // Unit mix for 30 units (smaller building)
+  const l1_units = {
+    studio: { count: 8, rent: 1650 },
+    oneBR: { count: 12, rent: 2100 },
+    oneBRDen: { count: 5, rent: 2400 },
+    twoBR: { count: 4, rent: 2850 },
+    threeBR: { count: 1, rent: 3500 },
+  };
+  let l1_annualRent = 0;
+  for (const u of Object.values(l1_units)) {
+    l1_annualRent += u.count * u.rent * 12;
+  }
+  l1_annualRent *= 0.97; // 3% vacancy
+
+  const l1_hardCost = l1_gfa * 325;
+  const l1_softCost = l1_hardCost * 0.18;
+  const l1_landAcq = 3500000; // estimated current market value for 2294/2294A
+  const l1_totalCost = l1_hardCost + l1_softCost + l1_landAcq;
+  const l1_opex = l1_annualRent * 0.35;
+  const l1_noi = l1_annualRent - l1_opex;
+  const l1_propValue = l1_noi / 0.0475;
+  const l1_costPerUnit = l1_totalCost / L1.targetUnits;
+  const l1_costPerSF = l1_totalCost / l1_gfa;
+  const l1_rentPerSF = (l1_annualRent / l1_netGFA);
+
+  // ═══ LOT 2304: 60 UNITS, 10 FLOORS ═══
+  const L2 = LOT_2304;
+  const l2_gfa = L2.lotSizeSF * L2.floors * 0.80; // 80% coverage
+  const l2_netGFA = l2_gfa * 0.82;
+  const l2_avgUnit = l2_netGFA / L2.targetUnits;
+
+  const l2_units = {
+    studio: { count: 14, rent: 1650 },
+    oneBR: { count: 24, rent: 2100 },
+    oneBRDen: { count: 10, rent: 2400 },
+    twoBR: { count: 9, rent: 2850 },
+    threeBR: { count: 3, rent: 3500 },
+  };
+  let l2_annualRent = 0;
+  for (const u of Object.values(l2_units)) {
+    l2_annualRent += u.count * u.rent * 12;
+  }
+  l2_annualRent *= 0.97;
+
+  const l2_hardCost = l2_gfa * 325;
+  const l2_softCost = l2_hardCost * 0.18;
+  const l2_landAcq = L2.lastSale; // $2.65M last sale — but we know mortgage is $1.55M
+  const l2_totalCost = l2_hardCost + l2_softCost + l2_landAcq;
+  const l2_opex = l2_annualRent * 0.35;
+  const l2_noi = l2_annualRent - l2_opex;
+  const l2_propValue = l2_noi / 0.0475;
+  const l2_costPerUnit = l2_totalCost / L2.targetUnits;
+  const l2_costPerSF = l2_totalCost / l2_gfa;
+  const l2_rentPerSF = (l2_annualRent / l2_netGFA);
+
+  // ═══ COMBINED (BOTH LOTS) ═══
+  const c_totalUnits = L1.targetUnits + L2.targetUnits;
+  const c_totalGFA = l1_gfa + l2_gfa;
+  const c_totalCost = l1_totalCost + l2_totalCost;
+  const c_totalRent = l1_annualRent + l2_annualRent;
+  const c_totalNOI = l1_noi + l2_noi;
+  const c_totalValue = l1_propValue + l2_propValue;
+
+  // ═══ VS MAIN DEAL (220 UNITS) ═══
+  // From the Ubuntu deck
+  const main_units = 220;
+  const main_totalCost = 131000000; // approximate from the main model
+  const main_noi = 7100000; // approximate
+  const main_propValue = main_noi / 0.0475;
+  const main_costPerUnit = main_totalCost / main_units;
+
+  return {
+    // Lot 2294
+    l1_gfa, l1_netGFA, l1_avgUnit, l1_annualRent, l1_hardCost, l1_softCost, l1_landAcq,
+    l1_totalCost, l1_opex, l1_noi, l1_propValue, l1_costPerUnit, l1_costPerSF, l1_rentPerSF,
+    // Lot 2304
+    l2_gfa, l2_netGFA, l2_avgUnit, l2_annualRent, l2_hardCost, l2_softCost, l2_landAcq,
+    l2_totalCost, l2_opex, l2_noi, l2_propValue, l2_costPerUnit, l2_costPerSF, l2_rentPerSF,
+    // Combined
+    c_totalUnits, c_totalGFA, c_totalCost, c_totalRent, c_totalNOI, c_totalValue,
+    // Main deal comparison
+    main_units, main_totalCost, main_noi, main_propValue, main_costPerUnit,
+  };
+}
+
+function fmt(n) {
+  if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+  if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+  return '$' + n.toFixed(0);
+}
+function fmtFull(n) { return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 }); }
+function pct(n) { return (n * 100).toFixed(1) + '%'; }
+function commas(n) { return n.toLocaleString('en-US', { maximumFractionDigits: 0 }); }
+
+function populate() {
+  const r = calc();
+  const ids = {
+    // Heroes
+    'hero-units': (LOT_2294.targetUnits + LOT_2304.targetUnits).toString(),
+    'hero-cost': fmt(r.c_totalCost),
+    'hero-noi': fmt(r.c_totalNOI),
+    'hero-value': fmt(r.c_totalValue),
+
+    // Lot 2294
+    'l1-gfa': commas(Math.round(r.l1_gfa)) + ' SF',
+    'l1-netgfa': commas(Math.round(r.l1_netGFA)) + ' SF',
+    'l1-avgunit': Math.round(r.l1_avgUnit) + ' SF',
+    'l1-rent': fmtFull(Math.round(r.l1_annualRent)),
+    'l1-hard': fmtFull(Math.round(r.l1_hardCost)),
+    'l1-soft': fmtFull(Math.round(r.l1_softCost)),
+    'l1-land': fmtFull(r.l1_landAcq),
+    'l1-total': fmt(r.l1_totalCost),
+    'l1-opex': fmtFull(Math.round(r.l1_opex)),
+    'l1-noi': fmtFull(Math.round(r.l1_noi)),
+    'l1-value': fmt(r.l1_propValue),
+    'l1-cpu': fmtFull(Math.round(r.l1_costPerUnit)),
+    'l1-cpsf': '$' + Math.round(r.l1_costPerSF),
+
+    // Lot 2304
+    'l2-gfa': commas(Math.round(r.l2_gfa)) + ' SF',
+    'l2-netgfa': commas(Math.round(r.l2_netGFA)) + ' SF',
+    'l2-avgunit': Math.round(r.l2_avgUnit) + ' SF',
+    'l2-rent': fmtFull(Math.round(r.l2_annualRent)),
+    'l2-hard': fmtFull(Math.round(r.l2_hardCost)),
+    'l2-soft': fmtFull(Math.round(r.l2_softCost)),
+    'l2-land': fmtFull(r.l2_landAcq),
+    'l2-total': fmt(r.l2_totalCost),
+    'l2-opex': fmtFull(Math.round(r.l2_opex)),
+    'l2-noi': fmtFull(Math.round(r.l2_noi)),
+    'l2-value': fmt(r.l2_propValue),
+    'l2-cpu': fmtFull(Math.round(r.l2_costPerUnit)),
+    'l2-cpsf': '$' + Math.round(r.l2_costPerSF),
+
+    // Combined
+    'c-units': r.c_totalUnits,
+    'c-gfa': commas(Math.round(r.c_totalGFA)) + ' SF',
+    'c-cost': fmt(r.c_totalCost),
+    'c-rent': fmtFull(Math.round(r.c_totalRent)),
+    'c-noi': fmt(r.c_totalNOI),
+    'c-value': fmt(r.c_totalValue),
+    'c-cpu': fmtFull(Math.round(r.c_totalCost / r.c_totalUnits)),
+
+    // Comparison
+    'vs-alt-units': r.c_totalUnits,
+    'vs-alt-cost': fmt(r.c_totalCost),
+    'vs-alt-noi': fmt(r.c_totalNOI),
+    'vs-alt-value': fmt(r.c_totalValue),
+    'vs-alt-cpu': fmtFull(Math.round(r.c_totalCost / r.c_totalUnits)),
+    'vs-main-units': r.main_units,
+    'vs-main-cost': fmt(r.main_totalCost),
+    'vs-main-noi': fmt(r.main_noi),
+    'vs-main-value': fmt(r.main_propValue),
+    'vs-main-cpu': fmtFull(Math.round(r.main_costPerUnit)),
+  };
+
+  for (const [id, val] of Object.entries(ids)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+}
+
+window.addEventListener('DOMContentLoaded', populate);
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-area">
+    <div class="logo-name">HEAL HOUSE</div>
+    <div class="logo-sub">Alternative Assessment — Without Green P</div>
+  </div>
+  <div class="header-right">
+    <span class="tagline">Highest &amp; Best Use Analysis</span>
+    <span class="conf-badge">Confidential</span>
+  </div>
+</header>
+
+<div class="deck">
+
+  <!-- ═══════ SLIDE 1: TITLE ═══════ -->
+  <div class="slide title">
+    <div class="slide-num">Alternative Scenario Assessment</div>
+    <h1>What If There's No Green P?</h1>
+    <div class="deck-sub">Highest &amp; Best Use Analysis for 2294/2294A &amp; 2304 Lakeshore Blvd W<br>Standalone Development Without Green P Contribution</div>
+    <div class="meta">
+      Prepared by K0RE &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Confidential
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 2: THE SCENARIO ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Scenario Overview</div>
+    <h2>Developing the Two Lots Independently</h2>
+    <p>If the Green P parcel is not available, Heal House can still develop the two existing lots on the site. This assessment evaluates the <strong>highest and best use</strong> for each lot independently and combined.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat blue"><div class="hs-val" id="hero-units">—</div><div class="hs-label">Total Units</div></div>
+      <div class="hero-stat"><div class="hs-val" id="hero-cost">—</div><div class="hs-label">Total Dev Cost</div></div>
+      <div class="hero-stat"><div class="hs-val" id="hero-noi">—</div><div class="hs-label">Combined NOI</div></div>
+      <div class="hero-stat"><div class="hs-val" id="hero-value">—</div><div class="hs-label">Combined Value</div></div>
+    </div>
+
+    <div class="callout-blue">
+      <h3>Key Difference</h3>
+      <p>Without the Green P's $6M in-kind contribution, there is <strong>no free land</strong>. Both lots must be acquired or already owned. The development is smaller (90 units vs 220), there's no hotel component, and the 40% forgivable loan structure may not apply at the same scale.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 3: LOT 2294 ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Lot Analysis — 2294/2294A Lakeshore Blvd W</div>
+    <h2>The Smaller Lot: 30 Units</h2>
+
+    <div class="two-col">
+      <div>
+        <h3>Property Details</h3>
+        <div class="noi-row"><span class="noi-label">Address</span><span class="noi-val">2294/2294A Lakeshore Blvd W</span></div>
+        <div class="noi-row"><span class="noi-label">Lot Size</span><span class="noi-val">6,499 SF (603.8 m²)</span></div>
+        <div class="noi-row"><span class="noi-label">Frontage</span><span class="noi-val">130 ft (39.62m)</span></div>
+        <div class="noi-row"><span class="noi-label">Depth</span><span class="noi-val">50 ft (15.24m)</span></div>
+        <div class="noi-row"><span class="noi-label">Current Use</span><span class="noi-val">2-storey brick (2 units)</span></div>
+      </div>
+      <div>
+        <h3>Proposed Development</h3>
+        <div class="noi-row"><span class="noi-label">Target Units</span><span class="noi-val">30</span></div>
+        <div class="noi-row"><span class="noi-label">Floors</span><span class="noi-val">6</span></div>
+        <div class="noi-row"><span class="noi-label">GFA</span><span class="noi-val" id="l1-gfa">—</span></div>
+        <div class="noi-row"><span class="noi-label">Net Leasable</span><span class="noi-val" id="l1-netgfa">—</span></div>
+        <div class="noi-row"><span class="noi-label">Avg Unit Size</span><span class="noi-val" id="l1-avgunit">—</span></div>
+      </div>
+    </div>
+
+    <h3>Financial Summary</h3>
+    <div class="noi-row"><span class="noi-label">Hard Costs ($325/SF)</span><span class="noi-val" id="l1-hard">—</span></div>
+    <div class="noi-row"><span class="noi-label">Soft Costs (18%)</span><span class="noi-val" id="l1-soft">—</span></div>
+    <div class="noi-row"><span class="noi-label">Land Acquisition</span><span class="noi-val" id="l1-land">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Total Development Cost</span><span class="noi-val" id="l1-total">—</span></div>
+    <div class="noi-row"><span class="noi-label">Cost per Unit</span><span class="noi-val" id="l1-cpu">—</span></div>
+    <div class="noi-row"><span class="noi-label">Cost per SF (GFA)</span><span class="noi-val" id="l1-cpsf">—</span></div>
+
+    <h3>Revenue &amp; NOI</h3>
+    <div class="noi-row"><span class="noi-label">Annual Gross Revenue (97% occ)</span><span class="noi-val" id="l1-rent">—</span></div>
+    <div class="noi-row"><span class="noi-label">Operating Expenses (35%)</span><span class="noi-val" id="l1-opex">—</span></div>
+    <div class="noi-row total"><span class="noi-label">NOI</span><span class="noi-val" id="l1-noi">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Property Value (4.75% Cap)</span><span class="noi-val" id="l1-value">—</span></div>
+  </div>
+
+  <!-- ═══════ SLIDE 4: LOT 2304 ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Lot Analysis — 2304 Lakeshore Blvd W</div>
+    <h2>The Bigger Lot: 60 Units</h2>
+
+    <div class="two-col">
+      <div>
+        <h3>Property Details</h3>
+        <div class="noi-row"><span class="noi-label">Address</span><span class="noi-val">2304 Lakeshore Blvd W</span></div>
+        <div class="noi-row"><span class="noi-label">Lot Size</span><span class="noi-val">7,965 SF</span></div>
+        <div class="noi-row"><span class="noi-label">Frontage</span><span class="noi-val">61.25 ft (Lakeshore)</span></div>
+        <div class="noi-row"><span class="noi-label">Depth</span><span class="noi-val">130 ft</span></div>
+        <div class="noi-row"><span class="noi-label">Current Use</span><span class="noi-val">Non-residential (commercial)</span></div>
+        <div class="noi-row"><span class="noi-label">Owner</span><span class="noi-val" style="font-size:10px;">2304 LSB West Holding Corp</span></div>
+      </div>
+      <div>
+        <h3>Proposed Development</h3>
+        <div class="noi-row"><span class="noi-label">Target Units</span><span class="noi-val">60</span></div>
+        <div class="noi-row"><span class="noi-label">Floors</span><span class="noi-val">10</span></div>
+        <div class="noi-row"><span class="noi-label">GFA</span><span class="noi-val" id="l2-gfa">—</span></div>
+        <div class="noi-row"><span class="noi-label">Net Leasable</span><span class="noi-val" id="l2-netgfa">—</span></div>
+        <div class="noi-row"><span class="noi-label">Avg Unit Size</span><span class="noi-val" id="l2-avgunit">—</span></div>
+        <div class="noi-row"><span class="noi-label">Existing Mortgage</span><span class="noi-val">$1,552,500 (Equitable)</span></div>
+      </div>
+    </div>
+
+    <h3>Sales History</h3>
+    <table>
+      <thead><tr><th>Date</th><th>Sale Price</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Jul 2021</td><td>$2,650,000</td><td>Current owner acquired</td></tr>
+        <tr><td>May 2019</td><td>$1,825,000</td><td>Prior transfer</td></tr>
+        <tr><td>Dec 1991</td><td>$575,000</td><td>Power of sale</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Financial Summary</h3>
+    <div class="noi-row"><span class="noi-label">Hard Costs ($325/SF)</span><span class="noi-val" id="l2-hard">—</span></div>
+    <div class="noi-row"><span class="noi-label">Soft Costs (18%)</span><span class="noi-val" id="l2-soft">—</span></div>
+    <div class="noi-row"><span class="noi-label">Land (at last sale)</span><span class="noi-val" id="l2-land">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Total Development Cost</span><span class="noi-val" id="l2-total">—</span></div>
+    <div class="noi-row"><span class="noi-label">Cost per Unit</span><span class="noi-val" id="l2-cpu">—</span></div>
+    <div class="noi-row"><span class="noi-label">Cost per SF (GFA)</span><span class="noi-val" id="l2-cpsf">—</span></div>
+
+    <h3>Revenue &amp; NOI</h3>
+    <div class="noi-row"><span class="noi-label">Annual Gross Revenue (97% occ)</span><span class="noi-val" id="l2-rent">—</span></div>
+    <div class="noi-row"><span class="noi-label">Operating Expenses (35%)</span><span class="noi-val" id="l2-opex">—</span></div>
+    <div class="noi-row total"><span class="noi-label">NOI</span><span class="noi-val" id="l2-noi">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Property Value (4.75% Cap)</span><span class="noi-val" id="l2-value">—</span></div>
+  </div>
+
+  <!-- ═══════ SLIDE 5: COMBINED ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Combined Assessment — Both Lots</div>
+    <h2>90 Units Across Two Buildings</h2>
+    <p class="subtitle">What the deal looks like if they develop both lots without the Green P</p>
+
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>2294 (30 units)</th><th>2304 (60 units)</th><th>Combined</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total GFA</td><td id="c-l1-gfa">—</td><td id="c-l2-gfa">—</td><td id="c-gfa">—</td></tr>
+        <tr><td>Total Dev Cost</td><td id="c-l1-cost">—</td><td id="c-l2-cost">—</td><td id="c-cost">—</td></tr>
+        <tr><td>Annual Revenue</td><td id="c-l1-rent">—</td><td id="c-l2-rent">—</td><td id="c-rent">—</td></tr>
+        <tr class="row-highlight"><td>NOI</td><td id="c-l1-noi">—</td><td id="c-l2-noi">—</td><td id="c-noi">—</td></tr>
+        <tr class="row-highlight"><td>Property Value</td><td id="c-l1-value">—</td><td id="c-l2-value">—</td><td id="c-value">—</td></tr>
+        <tr><td>Cost per Unit</td><td id="c-l1-cpu">—</td><td id="c-l2-cpu">—</td><td id="c-cpu">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════ SLIDE 6: VS MAIN DEAL ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Comparison — Alt Scenario vs. Full Ubuntu Deal</div>
+    <h2>90 Units (No Green P) vs. 220 Units (Full Deal)</h2>
+
+    <table>
+      <thead>
+        <tr><th>Metric</th><th><span class="badge badge-blue">ALT: 90 Units</span></th><th><span class="badge badge-green">FULL: 220 Units</span></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total Units</td><td id="vs-alt-units">—</td><td id="vs-main-units">—</td></tr>
+        <tr><td>Total Dev Cost</td><td id="vs-alt-cost">—</td><td id="vs-main-cost">—</td></tr>
+        <tr><td>Cost per Unit</td><td id="vs-alt-cpu">—</td><td id="vs-main-cpu">—</td></tr>
+        <tr class="row-highlight"><td>Stabilized NOI</td><td id="vs-alt-noi">—</td><td id="vs-main-noi">—</td></tr>
+        <tr class="row-highlight"><td>Property Value (4.75% Cap)</td><td id="vs-alt-value">—</td><td id="vs-main-value">—</td></tr>
+        <tr><td>Green P (In-Kind)</td><td><span class="badge badge-red">NOT AVAILABLE</span></td><td><span class="badge badge-green">$6M FREE</span></td></tr>
+        <tr><td>Hotel Component</td><td><span class="badge badge-red">NONE</span></td><td><span class="badge badge-green">48 KEYS</span></td></tr>
+        <tr><td>40% Forgivable Loan</td><td><span class="badge badge-yellow">REDUCED</span></td><td><span class="badge badge-green">FULL</span></td></tr>
+        <tr><td>Ubuntu Land Trust</td><td><span class="badge badge-yellow">POSSIBLE</span></td><td><span class="badge badge-green">OPTIMAL</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-red">
+      <h3>⚠ What You Lose Without Green P</h3>
+      <ul>
+        <li><span class="sl">$6M in free land</span> — gone. Every dollar must be financed or equity-funded.</li>
+        <li><span class="sl">130 fewer units</span> — significantly reduced revenue base and NOI.</li>
+        <li><span class="sl">No hotel revenue</span> — loses the high-yield diversified income stream.</li>
+        <li><span class="sl">Weaker forgivable loan position</span> — smaller project may not qualify for the same 40% level.</li>
+        <li><span class="sl">Reduced investor bump</span> — less land to refinance, smaller equity creation at close.</li>
+        <li><span class="sl">Higher cost per unit</span> — smaller buildings lose economies of scale.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 7: RECOMMENDATION ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Assessment Conclusion</div>
+    <h2>Highest &amp; Best Use Recommendation</h2>
+
+    <div class="callout">
+      <h3>The Full Deal with Green P is Significantly Superior</h3>
+      <p style="font-size:14px;">The alternative scenario produces a viable development — but it delivers <strong>substantially less value</strong> on every metric. The Green P contribution is a force multiplier that unlocks scale, hotel revenue, stronger government funding eligibility, and a more compelling investor story.</p>
+    </div>
+
+    <h3>However, if Green P Falls Through:</h3>
+    <ul>
+      <li><span class="sl">2304 (60 units)</span> is the stronger standalone play — larger lot, more density, lower cost per unit</li>
+      <li><span class="sl">2294 (30 units)</span> works as a smaller infill project but has tight margins at 6 floors on a narrow lot</li>
+      <li><span class="sl">Combined (90 units)</span> still represents a meaningful mid-rise development on Lakeshore — but without the hotel or Green P, the non-profit structure loses much of its advantage</li>
+      <li>Consider pursuing the <strong>$6M new lot acquisition</strong> regardless — it pairs well with 2304 even without Green P</li>
+    </ul>
+
+    <div class="caveat">
+      <strong>Bottom Line:</strong> Get the Green P. The entire deal economics shift dramatically in your favor. Without it, you're building a decent mid-rise. With it, you're building a legacy.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  HEAL HOUSE &nbsp;·&nbsp; ALTERNATIVE ASSESSMENT &nbsp;·&nbsp; WITHOUT GREEN P &nbsp;·&nbsp; CONFIDENTIAL &nbsp;·&nbsp; APRIL 2026
+</footer>
+
+<script>
+// Populate combined table
+window.addEventListener('DOMContentLoaded', function() {
+  const r = calc();
+  const set = (id, v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+  set('c-l1-gfa', commas(Math.round(r.l1_gfa)) + ' SF');
+  set('c-l2-gfa', commas(Math.round(r.l2_gfa)) + ' SF');
+  set('c-l1-cost', fmt(r.l1_totalCost));
+  set('c-l2-cost', fmt(r.l2_totalCost));
+  set('c-l1-rent', fmtFull(Math.round(r.l1_annualRent)));
+  set('c-l2-rent', fmtFull(Math.round(r.l2_annualRent)));
+  set('c-l1-noi', fmt(r.l1_noi));
+  set('c-l2-noi', fmt(r.l2_noi));
+  set('c-l1-value', fmt(r.l1_propValue));
+  set('c-l2-value', fmt(r.l2_propValue));
+  set('c-l1-cpu', fmtFull(Math.round(r.l1_costPerUnit)));
+  set('c-l2-cpu', fmtFull(Math.round(r.l2_costPerUnit)));
+});
+</script>
+</body>
+</html>

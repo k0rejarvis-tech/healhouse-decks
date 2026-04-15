@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heal House × Ubuntu Land Trust — Investor Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #FAF7F2;
+  --bg-secondary: #F5F0EB;
+  --bg-card: #FFFFFF;
+  --bg-dark: #2B2B2B;
+  --accent-gold: #C9A96E;
+  --accent-bronze: #C4975A;
+  --accent-sage: #8B9E7C;
+  --accent-dark-green: #4A5D3E;
+  --text-primary: #2B2B2B;
+  --text-secondary: #5A5A5A;
+  --text-light: #6B6B6B;
+  --border: #D2C4B0;
+  --warning: #C4975A;
+  --danger: #8B3A3A;
+  --success: #4A5D3E;
+  --orange-glow: rgba(201,169,110,0.12);
+  --green-bg: rgba(74,93,62,0.12);
+  --yellow-bg: rgba(196,151,90,0.12);
+  --red-bg: rgba(139,58,58,0.12);
+  --nonprofit-teal: #3A7D7B;
+  --nonprofit-teal-bg: rgba(58,125,123,0.10);
+  --land-amber: #B8860B;
+  --land-amber-bg: rgba(184,134,11,0.10);
+  --bump-purple: #6B5B95;
+  --bump-purple-bg: rgba(107,91,149,0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D4;
+  padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(43,43,43,0.06);
+}
+.logo-area { display: flex; flex-direction: column; }
+.logo-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: #2D2A26; letter-spacing: 0.12em; line-height: 1;
+}
+.logo-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 400;
+  color: var(--nonprofit-teal); letter-spacing: 0.22em;
+  text-transform: uppercase; margin-top: 5px;
+}
+.header-right { display: flex; align-items: center; gap: 16px; }
+.tagline { font-size: 11px; color: #8FA77A; letter-spacing: 0.1em; font-style: italic; }
+.conf-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px; font-weight: 600;
+  background: var(--bg-dark); color: var(--accent-gold);
+  padding: 4px 10px; border-radius: 3px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+.deck { max-width: 980px; margin: 0 auto; padding: 32px 24px; }
+
+.slide {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 10px rgba(43,43,43,0.05);
+  position: relative; overflow: hidden;
+  page-break-inside: avoid;
+}
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--nonprofit-teal));
+}
+.slide-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.slide h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 6px;
+}
+.slide h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--accent-bronze);
+  margin: 20px 0 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.slide p { margin-bottom: 10px; color: var(--text-secondary); }
+.slide ul { list-style: none; padding: 0; margin-bottom: 12px; }
+.slide ul li { padding: 5px 0 5px 18px; position: relative; color: var(--text-secondary); }
+.slide ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-gold); font-weight: 700; }
+.sl { font-weight: 600; color: var(--text-primary); }
+.subtitle { font-size: 12px; color: var(--text-secondary); font-style: italic; margin-bottom: 16px; }
+
+.slide.title {
+  text-align: center; padding: 72px 40px;
+  background: linear-gradient(135deg, #FAF7F2, #F0EBE3);
+}
+.slide.title h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 30px; font-weight: 700;
+  color: var(--text-primary); letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.slide.title .deck-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
+.slide.title .meta { font-size: 11px; color: var(--text-light); letter-spacing: 0.08em; }
+
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+.hero-stats.three { grid-template-columns: repeat(3, 1fr); }
+.hero-stat {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px; text-align: center;
+}
+.hero-stat .hs-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--accent-gold); line-height: 1;
+}
+.hero-stat .hs-label {
+  font-size: 10px; color: var(--text-light);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px;
+}
+.hero-stat.teal .hs-val { color: var(--nonprofit-teal); }
+.hero-stat.amber .hs-val { color: var(--land-amber); }
+.hero-stat.purple .hs-val { color: var(--bump-purple); }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 14px 0; }
+th {
+  text-align: left; font-size: 10px; font-weight: 600;
+  color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 8px 12px; border-bottom: 2px solid var(--border); background: var(--bg-secondary);
+}
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-family: 'Space Grotesk', sans-serif; }
+td:first-child { font-family: 'Inter', sans-serif; color: var(--text-secondary); font-weight: 500; }
+tr:last-child td { border-bottom: none; }
+tr.row-highlight { background: var(--orange-glow); }
+tr.row-teal { background: var(--nonprofit-teal-bg); }
+tr.row-purple { background: var(--bump-purple-bg); }
+
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 4px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+}
+.badge-green { background: rgba(74,93,62,0.15); color: var(--success); }
+.badge-yellow { background: rgba(196,151,90,0.15); color: var(--warning); }
+.badge-gold { background: var(--orange-glow); color: var(--accent-gold); }
+.badge-teal { background: var(--nonprofit-teal-bg); color: var(--nonprofit-teal); }
+.badge-purple { background: var(--bump-purple-bg); color: var(--bump-purple); }
+
+.callout {
+  background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(58,125,123,0.08));
+  border: 2px solid var(--accent-gold); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout h3 { color: var(--accent-gold); margin-top: 0; }
+
+.callout-teal {
+  background: linear-gradient(135deg, rgba(58,125,123,0.06), rgba(74,93,62,0.06));
+  border: 2px solid var(--nonprofit-teal); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout-teal h3 { color: var(--nonprofit-teal); margin-top: 0; }
+
+.callout-amber {
+  background: linear-gradient(135deg, rgba(184,134,11,0.06), rgba(201,169,110,0.06));
+  border: 2px solid var(--land-amber); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout-amber h3 { color: var(--land-amber); margin-top: 0; }
+
+.callout-purple {
+  background: linear-gradient(135deg, rgba(107,91,149,0.06), rgba(201,169,110,0.06));
+  border: 2px solid var(--bump-purple); border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.callout-purple h3 { color: var(--bump-purple); margin-top: 0; }
+
+.caveat {
+  background: var(--yellow-bg); border-left: 3px solid var(--warning);
+  padding: 10px 14px; border-radius: 0 6px 6px 0;
+  font-size: 12px; color: var(--text-secondary); margin-top: 14px;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.noi-row {
+  display: flex; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+}
+.noi-row:last-child { border-bottom: none; }
+.noi-label { color: var(--text-secondary); }
+.noi-val { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--text-primary); }
+.noi-row.total .noi-label { font-weight: 600; color: var(--text-primary); }
+.noi-row.total .noi-val { color: var(--accent-gold); font-size: 14px; }
+.noi-row.teal .noi-val { color: var(--nonprofit-teal); }
+.noi-row.amber .noi-val { color: var(--land-amber); font-weight: 700; }
+.noi-row.purple .noi-val { color: var(--bump-purple); font-weight: 700; }
+
+.split-bar {
+  display: flex; border-radius: 6px; overflow: hidden; height: 32px; margin: 16px 0;
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600;
+}
+.split-bar .investor-share {
+  background: var(--accent-gold); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.split-bar .nonprofit-share {
+  background: var(--nonprofit-teal); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.loan-bar {
+  display: flex; border-radius: 6px; overflow: hidden; height: 32px; margin: 16px 0;
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600;
+}
+.loan-bar .forgivable {
+  background: var(--success); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.loan-bar .repayable {
+  background: var(--accent-bronze); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Land stack bar */
+.land-bar {
+  display: flex; border-radius: 6px; overflow: hidden; height: 36px; margin: 16px 0;
+  font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600;
+}
+.land-bar > div {
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; padding: 0 6px;
+}
+.land-bar .lb-existing { background: var(--accent-gold); }
+.land-bar .lb-new { background: var(--accent-bronze); }
+.land-bar .lb-greenp { background: var(--success); }
+.land-bar .lb-uplift { background: var(--bump-purple); }
+
+footer {
+  background: #2E2E20; border-top: 2px solid #C9A96E;
+  padding: 18px 32px; text-align: center;
+  font-size: 10px; color: #D6CEAE; letter-spacing: 0.12em;
+}
+
+@media print {
+  header, footer { position: static; }
+  .slide { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  body { background: #fff; }
+}
+</style>
+
+<script>
+const MODEL = {
+  floors: 13,
+  floorPlate_sf: 19422,
+  netGrossEfficiency: 0.82,
+  residentialPct: 0.80,
+  hotelPct: 0.20,
+  affordablePct: 0.30,
+
+  units: {
+    studio:   { count: 52,  avgSF: 420,  marketRent: 1650, affordRent: 1150 },
+    oneBR:    { count: 78,  avgSF: 550,  marketRent: 2100, affordRent: 1450 },
+    oneBRDen: { count: 36,  avgSF: 650,  marketRent: 2400, affordRent: 1650 },
+    twoBR:    { count: 42,  avgSF: 800,  marketRent: 2850, affordRent: 1950 },
+    threeBR:  { count: 12,  avgSF: 1050, marketRent: 3500, affordRent: 2400 }
+  },
+
+  hotelKeys: 48,
+  hotelADR: 189,
+  hotelOccupancy: 0.72,
+
+  hardCostPSF: 325,
+  softCostPct: 0.18,
+
+  // ═══ CORRECTED LAND STRUCTURE ═══
+  existingParcelsValue: 5000000,    // Existing parcels current value
+  existingDebt: 3000000,            // Existing mortgage debt on parcels
+  newAcquisition: 6000000,          // New lot purchase
+  greenPValue: 6000000,             // Green P — received in-kind (free)
+  approvalUplift: 3000000,          // Value uplift from development approvals
+  landFinancingLTV: 0.95,           // 95% financing on land
+
+  // Ubuntu / Build Canada Homes
+  forgivableLoanPct: 0.40,
+  investorIncomeShare: 0.60,
+  nonprofitIncomeShare: 0.40,
+  investmentHorizon: 20,
+
+  // Financing
+  cmhcRate: 0.0340,
+  cmhcAmort: 50,
+  cmhcLTV: 0.95,
+  convRate: 0.0565,
+  convAmort: 25,
+  convLTV: 0.75,
+  mezzRate: 0.09,
+
+  opexRatio: 0.35,
+  vacancyRes: 0.03,
+  capRate: 0.0475,
+  rentGrowth: 0.025,
+  landAppreciation: 0.035,
+};
+
+function calc() {
+  const M = MODEL;
+  const totalUnits = Object.values(M.units).reduce((s, u) => s + u.count, 0);
+  const affordUnits = Math.round(totalUnits * M.affordablePct);
+  const marketUnits = totalUnits - affordUnits;
+
+  const totalGFA = M.floors * M.floorPlate_sf;
+  const resGFA = totalGFA * M.residentialPct;
+  const hotelGFA = totalGFA * M.hotelPct;
+  const netResGFA = resGFA * M.netGrossEfficiency;
+
+  // ═══ LAND STRUCTURE ═══
+  // Total land value going INTO the deal
+  const totalLandValue = M.existingParcelsValue + M.newAcquisition + M.greenPValue + M.approvalUplift; // $20M
+  // Existing equity (before refi)
+  const existingNetEquity = M.existingParcelsValue - M.existingDebt; // $17M
+  // Land financing at 95%
+  const landFinancing = totalLandValue * M.landFinancingLTV; // ~$31.35M
+  // Uses of land financing proceeds
+  const payoffExistingDebt = M.existingDebt;       // $3M — retire existing mortgages
+  const fundNewAcquisition = M.newAcquisition;      // $6M — buy new property
+  // Green P is in-kind, no cash needed
+  // Remaining = investor bump (cash out / equity credit)
+  const investorBump = landFinancing - payoffExistingDebt - fundNewAcquisition - (totalLandValue - M.existingParcelsValue - M.greenPValue);
+  // Simpler: total financing minus uses
+  const landProceeds = landFinancing;
+  const landUses = payoffExistingDebt + fundNewAcquisition; // $9M
+  const netLandCashOut = landProceeds - landUses; // excess goes as equity credit / bump
+  // The bump to existing investors: they put in equity for $20M parcel, now get credit at 95% of $33M
+  const existingInvestorEquityBefore = existingNetEquity; // $17M
+  const existingInvestorEquityAfter = totalLandValue - landFinancing; // $1.65M (5% of $33M)
+  const cashOutAvailable = existingInvestorEquityBefore - existingInvestorEquityAfter; // ~$15.35M proceeds
+  // But the new acquisition costs $6M from those proceeds, and debt retired $3M
+  const netBumpToInvestors = cashOutAvailable - fundNewAcquisition; // actual cash/equity bump
+  // Or more simply: land refi proceeds - existing debt payoff - new acq = net bump
+  const simpleBump = landProceeds - payoffExistingDebt - fundNewAcquisition;
+
+  // Revenue
+  let totalMarketRent = 0, totalAffordRent = 0;
+  let affordRemaining = affordUnits;
+  for (const u of Object.values(M.units)) {
+    const aCount = Math.min(Math.round(u.count * M.affordablePct), affordRemaining);
+    const mCount = u.count - aCount;
+    affordRemaining -= aCount;
+    totalMarketRent += mCount * u.marketRent * 12;
+    totalAffordRent += aCount * u.affordRent * 12;
+  }
+  const grossResRev = (totalMarketRent + totalAffordRent) * (1 - M.vacancyRes);
+  const hotelGrossRev = M.hotelKeys * M.hotelADR * 365 * M.hotelOccupancy;
+  const totalGrossRev = grossResRev + hotelGrossRev;
+
+  // Hard/soft costs (on building, not land)
+  const hardCost = totalGFA * M.hardCostPSF;
+  const softCost = hardCost * M.softCostPct;
+  const constructionCost = hardCost + softCost;
+  const totalDevCost = constructionCost + totalLandValue; // total project cost
+
+  // NOI
+  const totalOpex = totalGrossRev * M.opexRatio;
+  const noi = totalGrossRev - totalOpex;
+  const propertyValue = noi / M.capRate;
+
+  // ═══ UBUNTU / BUILD CANADA HOMES ═══
+  // Forgivable loan on construction costs (not land — land is separately financed)
+  const forgivableLoan = constructionCost * M.forgivableLoanPct;
+  const remainingConstruction = constructionCost - forgivableLoan;
+
+  // Split Stack on remaining construction cost
+  const affordShare = 0.35;
+  const affordValue = propertyValue * affordShare;
+  const cmhcDebt = Math.min(affordValue * M.cmhcLTV, remainingConstruction * 0.50);
+  const convDebt = (remainingConstruction - cmhcDebt) * 0.75;
+  const mezzDebt = (remainingConstruction - cmhcDebt) * 0.15;
+  const constructionDebt = cmhcDebt + convDebt + mezzDebt;
+  const constructionEquity = remainingConstruction - constructionDebt;
+
+  // Total debt = land financing + construction debt
+  const totalDebt = landFinancing + constructionDebt;
+  const totalEquity = constructionEquity + (totalLandValue - landFinancing); // construction equity + land equity (5%)
+
+  // Debt service
+  const ds_land = pmt(M.convRate, 25, landFinancing); // land loan at conventional rate
+  const ds_cmhc = pmt(M.cmhcRate, M.cmhcAmort, cmhcDebt);
+  const ds_conv = pmt(M.convRate, M.convAmort, convDebt);
+  const ds_mezz = pmt(M.mezzRate, M.convAmort, mezzDebt);
+  const totalDS = ds_land + ds_cmhc + ds_conv + ds_mezz;
+
+  const blendedRate = totalDebt > 0
+    ? (landFinancing * M.convRate + cmhcDebt * M.cmhcRate + convDebt * M.convRate + mezzDebt * M.mezzRate) / totalDebt
+    : 0;
+
+  const dcr = noi / totalDS;
+  const ltv = totalDebt / propertyValue;
+
+  // Income split
+  const cashFlowBeforeSplit = noi - totalDS;
+  const investorCashFlow = cashFlowBeforeSplit * M.investorIncomeShare;
+  const nonprofitCashFlow = cashFlowBeforeSplit * M.nonprofitIncomeShare;
+  const investorCoC = totalEquity > 0 ? investorCashFlow / totalEquity : 0;
+
+  // ═══ 20-YEAR PROJECTIONS WITH PRINCIPAL PAYDOWN ═══
+  let landBal = landFinancing, cmhcBal = cmhcDebt, convBal = convDebt, mezzBal = mezzDebt;
+  let cum_investor = 0, cum_nonprofit = 0;
+  const yearlyProjections = [];
+
+  for (let yr = 1; yr <= 20; yr++) {
+    const growthFactor = Math.pow(1 + M.rentGrowth, yr - 1);
+    const yr_grossRev = totalGrossRev * growthFactor;
+    const yr_opex = yr_grossRev * M.opexRatio;
+    const yr_noi = yr_grossRev - yr_opex;
+    const yr_cf = yr_noi - totalDS;
+    const yr_investor = yr_cf * M.investorIncomeShare;
+    const yr_nonprofit = yr_cf * M.nonprofitIncomeShare;
+    cum_investor += yr_investor;
+    cum_nonprofit += yr_nonprofit;
+
+    // Principal paydown
+    const li = landBal * M.convRate; landBal = Math.max(0, landBal - (ds_land - li));
+    const ci = cmhcBal * M.cmhcRate; cmhcBal = Math.max(0, cmhcBal - (ds_cmhc - ci));
+    const cvi = convBal * M.convRate; convBal = Math.max(0, convBal - (ds_conv - cvi));
+    const mi = mezzBal * M.mezzRate; mezzBal = Math.max(0, mezzBal - (ds_mezz - mi));
+
+    const totalRemaining = landBal + cmhcBal + convBal + mezzBal;
+    const totalPaidDown = totalDebt - totalRemaining;
+
+    yearlyProjections.push({
+      year: yr, noi: yr_noi, cf: yr_cf,
+      investor: yr_investor, nonprofit: yr_nonprofit,
+      cum_investor, cum_nonprofit,
+      debtRemaining: totalRemaining,
+      principalPaidDown: totalPaidDown,
+    });
+  }
+
+  // ═══ 20-YEAR EXIT ═══
+  const yr20 = yearlyProjections[19];
+  const totalPrincipalPaidDown = yr20.principalPaidDown;
+  const debtRemainingAtExit = yr20.debtRemaining;
+  const yr20_noi = yr20.noi;
+  const exitPropertyValue = yr20_noi / M.capRate;
+  const exitEquity = exitPropertyValue - debtRemainingAtExit;
+  const investorExitShare = exitEquity * M.investorIncomeShare;
+  const nonprofitExitShare = exitEquity * M.nonprofitIncomeShare;
+
+  // ═══ LAND APPRECIATION ═══
+  const landValueYr20 = totalLandValue * Math.pow(1 + M.landAppreciation, 20);
+  const landAppreciationGain = landValueYr20 - totalLandValue;
+  const investorLandDraw = landAppreciationGain * M.investorIncomeShare;
+  const nonprofitLandDraw = landAppreciationGain * M.nonprofitIncomeShare;
+  const landYr5 = totalLandValue * Math.pow(1 + M.landAppreciation, 5);
+  const landYr10 = totalLandValue * Math.pow(1 + M.landAppreciation, 10);
+  const landYr15 = totalLandValue * Math.pow(1 + M.landAppreciation, 15);
+
+  // ═══ INVESTOR RETURN: equity back + principal paydown + cumulative cash flow ═══
+  // No property sale. No equity split. Asset goes to the non-profit as legacy.
+  const investorReturn_equityBack = totalEquity;
+  const investorReturn_principalPaydown = totalPrincipalPaidDown; // their share of debt reduction
+  const investorReturn_cashFlow = cum_investor; // 20yr of 60% net income
+  const totalInvestorReturn = investorReturn_equityBack + investorReturn_principalPaydown + investorReturn_cashFlow;
+  const investorMultiple = totalEquity > 0 ? totalInvestorReturn / totalEquity : 0;
+  const avgAnnualReturn = totalInvestorReturn / 20;
+  const approxIRR = totalEquity > 0 ? avgAnnualReturn / totalEquity : 0;
+
+  return {
+    totalUnits, affordUnits, marketUnits,
+    totalGFA, resGFA, hotelGFA,
+    grossResRev, hotelGrossRev, totalGrossRev,
+    constructionCost, hardCost, softCost,
+    totalDevCost, totalLandValue,
+    totalOpex, noi, propertyValue,
+    // Land
+    existingNetEquity,
+    landFinancing, payoffExistingDebt, fundNewAcquisition,
+    simpleBump, netLandCashOut,
+    // Ubuntu
+    forgivableLoan, remainingConstruction,
+    cmhcDebt, convDebt, mezzDebt, constructionDebt, constructionEquity,
+    totalDebt, totalEquity,
+    ds_land, ds_cmhc, ds_conv, ds_mezz, totalDS,
+    blendedRate, dcr, ltv,
+    cashFlowBeforeSplit, investorCashFlow, nonprofitCashFlow, investorCoC,
+    yearlyProjections,
+    totalPrincipalPaidDown, debtRemainingAtExit,
+    exitPropertyValue, exitEquity,
+    investorReturn_equityBack, investorReturn_principalPaydown, investorReturn_cashFlow,
+    landValueYr20, landAppreciationGain,
+    landYr5, landYr10, landYr15,
+    totalInvestorReturn, investorMultiple, approxIRR,
+    cum_investor, cum_nonprofit,
+    yr1: yearlyProjections[0],
+    yr5: yearlyProjections[4],
+    yr10: yearlyProjections[9],
+    yr15: yearlyProjections[14],
+    yr20: yearlyProjections[19],
+  };
+}
+
+function pmt(rate, years, principal) {
+  return principal * (rate * Math.pow(1 + rate, years)) / (Math.pow(1 + rate, years) - 1);
+}
+
+function fmt(n) {
+  if (Math.abs(n) >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+  if (Math.abs(n) >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+  return '$' + n.toFixed(0);
+}
+function fmtFull(n) { return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 }); }
+function pct(n) { return (n * 100).toFixed(1) + '%'; }
+function x(n) { return n.toFixed(2) + '×'; }
+
+function populate() {
+  const r = calc();
+  const ids = {
+    'hero-totalCost': fmt(r.totalDevCost),
+    'hero-forgivable': fmt(r.forgivableLoan),
+    'hero-noi': fmt(r.noi),
+    'hero-units': r.totalUnits.toString(),
+
+    'v-totalGFA': fmtFull(r.totalGFA) + ' SF',
+    'v-resGFA': fmtFull(r.resGFA) + ' SF',
+    'v-hotelGFA': fmtFull(r.hotelGFA) + ' SF',
+    'v-totalUnits': r.totalUnits,
+    'v-marketUnits': r.marketUnits,
+    'v-affordUnits': r.affordUnits,
+
+    'v-resRev': fmtFull(r.grossResRev),
+    'v-hotelRev': fmtFull(r.hotelGrossRev),
+    'v-totalRev': fmtFull(r.totalGrossRev),
+    'v-opex': fmtFull(r.totalOpex),
+    'v-noi': fmtFull(r.noi),
+
+    'v-hardCost': fmtFull(r.hardCost),
+    'v-softCost': fmtFull(r.softCost),
+    'v-constructionCost': fmtFull(r.constructionCost),
+    'v-totalLandValue': fmtFull(r.totalLandValue),
+    'v-totalDevCost': fmtFull(r.totalDevCost),
+    'v-propValue': fmtFull(r.propertyValue),
+
+    // Land slide
+    'v-existingValue': fmtFull(MODEL.existingParcelsValue),
+    'v-existingDebt': fmtFull(MODEL.existingDebt),
+    'v-existingEquity': fmtFull(r.existingNetEquity),
+    'v-newAcq': fmtFull(MODEL.newAcquisition),
+    'v-greenP': fmtFull(MODEL.greenPValue),
+    'v-uplift': fmtFull(MODEL.approvalUplift),
+    'v-totalLand': fmtFull(r.totalLandValue),
+    'v-landFin': fmtFull(r.landFinancing),
+    'v-landEquity': fmtFull(r.totalLandValue - r.landFinancing),
+    'v-payoffDebt': fmtFull(r.payoffExistingDebt),
+    'v-fundNewAcq': fmtFull(r.fundNewAcquisition),
+    'v-bump': fmtFull(r.simpleBump),
+
+    // Ubuntu structure
+    'v-forgivable': fmtFull(r.forgivableLoan),
+    'v-remaining': fmtFull(r.remainingConstruction),
+    'v-cmhcDebt': fmt(r.cmhcDebt),
+    'v-convDebt': fmt(r.convDebt),
+    'v-mezzDebt': fmt(r.mezzDebt),
+    'v-constructionDebt': fmt(r.constructionDebt),
+    'v-totalDebt': fmt(r.totalDebt),
+    'v-totalEquity': fmt(r.totalEquity),
+    'v-blended': pct(r.blendedRate),
+    'v-dsLand': fmtFull(r.ds_land),
+    'v-dsConstruction': fmtFull(r.ds_cmhc + r.ds_conv + r.ds_mezz),
+    'v-totalDS': fmtFull(r.totalDS),
+    'v-dcr': x(r.dcr),
+    'v-ltv': pct(r.ltv),
+
+    'v-cfBefore': fmtFull(r.cashFlowBeforeSplit),
+    'v-investorCF': fmtFull(r.investorCashFlow),
+    'v-nonprofitCF': fmtFull(r.nonprofitCashFlow),
+    'v-investorCoC': pct(r.investorCoC),
+
+    'v-yr1-noi': fmt(r.yr1.noi), 'v-yr1-inv': fmt(r.yr1.investor), 'v-yr1-np': fmt(r.yr1.nonprofit), 'v-yr1-pd': fmt(r.yr1.principalPaidDown),
+    'v-yr5-noi': fmt(r.yr5.noi), 'v-yr5-inv': fmt(r.yr5.investor), 'v-yr5-np': fmt(r.yr5.nonprofit), 'v-yr5-pd': fmt(r.yr5.principalPaidDown),
+    'v-yr10-noi': fmt(r.yr10.noi), 'v-yr10-inv': fmt(r.yr10.investor), 'v-yr10-np': fmt(r.yr10.nonprofit), 'v-yr10-pd': fmt(r.yr10.principalPaidDown),
+    'v-yr15-noi': fmt(r.yr15.noi), 'v-yr15-inv': fmt(r.yr15.investor), 'v-yr15-np': fmt(r.yr15.nonprofit), 'v-yr15-pd': fmt(r.yr15.principalPaidDown),
+    'v-yr20-noi': fmt(r.yr20.noi), 'v-yr20-inv': fmt(r.yr20.investor), 'v-yr20-np': fmt(r.yr20.nonprofit), 'v-yr20-pd': fmt(r.yr20.principalPaidDown),
+
+    'v-cum-inv': fmt(r.cum_investor),
+    'v-cum-np': fmt(r.cum_nonprofit),
+
+    'v-principalPaid': fmt(r.totalPrincipalPaidDown),
+    'v-debtRemaining': fmt(r.debtRemainingAtExit),
+    // Return components
+    'v-retEquity': fmt(r.investorReturn_equityBack),
+    'v-retPrincipal': fmt(r.investorReturn_principalPaydown),
+    'v-retCashFlow': fmt(r.investorReturn_cashFlow),
+    'v-totalReturn': fmt(r.totalInvestorReturn),
+    'v-multiple': x(r.investorMultiple),
+    'v-irr': pct(r.approxIRR),
+
+    // Exit / legacy
+    'v-exitPropValue': fmt(r.exitPropertyValue),
+    'v-principalPaid': fmt(r.totalPrincipalPaidDown),
+    'v-debtRemaining': fmt(r.debtRemainingAtExit),
+
+    // Land appreciation (context)
+    'v-landOriginal': fmtFull(r.totalLandValue),
+    'v-landYr5': fmt(r.landYr5),
+    'v-landYr10': fmt(r.landYr10),
+    'v-landYr15': fmt(r.landYr15),
+    'v-landYr20': fmt(r.landValueYr20),
+    'v-landGain': fmt(r.landAppreciationGain),
+
+    'v-totalReturn2': fmt(r.totalInvestorReturn),
+    'v-totalEquity2': fmt(r.totalEquity),
+    'v-totalDebt2': fmt(r.totalDebt),
+    'v-landFin2': fmt(r.landFinancing),
+  };
+
+  for (const [id, val] of Object.entries(ids)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+
+  const dcrEl = document.getElementById('v-dcr');
+  if (dcrEl) {
+    dcrEl.style.fontWeight = '700';
+    if (r.dcr >= 1.25) dcrEl.style.color = '#4A5D3E';
+    else if (r.dcr >= 1.10) dcrEl.style.color = '#C4975A';
+    else dcrEl.style.color = '#8B3A3A';
+  }
+
+  // Land bar widths
+  const ep = (MODEL.existingParcelsValue / r.totalLandValue * 100).toFixed(0);
+  const np = (MODEL.newAcquisition / r.totalLandValue * 100).toFixed(0);
+  const gp = (MODEL.greenPValue / r.totalLandValue * 100).toFixed(0);
+  const up = (MODEL.approvalUplift / r.totalLandValue * 100).toFixed(0);
+  document.querySelector('.lb-existing').style.width = ep + '%';
+  document.querySelector('.lb-new').style.width = np + '%';
+  document.querySelector('.lb-greenp').style.width = gp + '%';
+  document.querySelector('.lb-uplift').style.width = up + '%';
+}
+
+window.addEventListener('DOMContentLoaded', populate);
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-area">
+    <div class="logo-name">HEAL HOUSE × UBUNTU</div>
+    <div class="logo-sub">Ubuntu Land Trust · Build Canada Homes</div>
+  </div>
+  <div class="header-right">
+    <span class="tagline">2300 Lakeshore Blvd W, Etobicoke</span>
+    <span class="conf-badge">Confidential</span>
+  </div>
+</header>
+
+<div class="deck">
+
+  <!-- ═══════ SLIDE 1: TITLE ═══════ -->
+  <div class="slide title">
+    <div class="slide-num">Slide 01</div>
+    <h1>Heal House × Ubuntu Land Trust</h1>
+    <div class="deck-sub">Non-Profit Collaboration &amp; Build Canada Homes<br>40% Forgivable Loan · 50-Year CMHC · Land Equity Bump · 20-Year Return</div>
+    <div class="meta">
+      Prepared by K0RE &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Confidential — For Intended Recipients Only
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 2: THE OPPORTUNITY ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 02 — The Opportunity</div>
+    <h2>Why This Structure Wins</h2>
+    <p>Heal House partners with a co-owned non-profit under the <strong>Ubuntu Land Trust</strong>, unlocking a <strong>40% forgivable government loan</strong> through Build Canada Homes. The combined <strong>$20M land position</strong> (existing $5M + Green P $6M + new lot $6M + $3M approval uplift) is refinanced at <strong>95% LTV</strong>, creating an immediate <strong>equity bump</strong> for existing investors.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hs-val" id="hero-totalCost">—</div>
+        <div class="hs-label">Total Project Cost</div>
+      </div>
+      <div class="hero-stat teal">
+        <div class="hs-val" id="hero-forgivable">—</div>
+        <div class="hs-label">40% Forgivable Loan</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-val" id="hero-noi">—</div>
+        <div class="hs-label">Stabilized NOI</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-val" id="hero-units">—</div>
+        <div class="hs-label">Total Units</div>
+      </div>
+    </div>
+
+    <ul>
+      <li><span class="sl">Structure:</span> Heal House co-owns with non-profit via Ubuntu Land Trust</li>
+      <li><span class="sl">Government Incentive:</span> 40% forgivable loan on construction — never repaid</li>
+      <li><span class="sl">Land Financing:</span> 95% LTV on $20M combined land value</li>
+      <li><span class="sl">Investor Bump:</span> Existing investors receive equity credit from land refi</li>
+      <li><span class="sl">Income Split:</span> 60% investors / 40% non-profit</li>
+      <li><span class="sl">CMHC:</span> 50-year amortization on affordable block</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ SLIDE 3: LAND STRUCTURE ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 03 — Land Assembly &amp; Equity Bump</div>
+    <h2>The Land Stack</h2>
+    <p class="subtitle">Four value components combine into a $20M land position — financed at 95% with an immediate investor bump</p>
+
+    <p style="font-size:11px;color:var(--text-light);margin-bottom:4px;">LAND COMPOSITION</p>
+    <div class="land-bar">
+      <div class="lb-existing" style="width:25%;">EXISTING $5M</div>
+      <div class="lb-new" style="width:30%;">NEW LOT $6M</div>
+      <div class="lb-greenp" style="width:30%;">GREEN P $6M</div>
+      <div class="lb-uplift" style="width:15%;">UPLIFT $3M</div>
+    </div>
+
+    <h3>Land Sources</h3>
+    <div class="noi-row"><span class="noi-label">Existing Parcels (2 properties)</span><span class="noi-val" id="v-existingValue">—</span></div>
+    <div class="noi-row"><span class="noi-label">Less: Existing Debt</span><span class="noi-val" id="v-existingDebt">—</span></div>
+    <div class="noi-row"><span class="noi-label">= Net Equity Before Refi</span><span class="noi-val" id="v-existingEquity">—</span></div>
+    <div class="noi-row"><span class="noi-label">New Lot Acquisition</span><span class="noi-val" id="v-newAcq">—</span></div>
+    <div class="noi-row"><span class="noi-label">Green P (In-Kind — Free)</span><span class="noi-val" id="v-greenP">—</span></div>
+    <div class="noi-row"><span class="noi-label">Uplift from Development Approvals</span><span class="noi-val" id="v-uplift">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Total Land Value Entering Deal</span><span class="noi-val" id="v-totalLand">—</span></div>
+
+    <h3>95% Land Financing</h3>
+    <div class="noi-row"><span class="noi-label">Land Loan (95% LTV)</span><span class="noi-val" id="v-landFin">—</span></div>
+    <div class="noi-row"><span class="noi-label">Land Equity (5%)</span><span class="noi-val" id="v-landEquity">—</span></div>
+
+    <h3>Uses of Land Financing Proceeds</h3>
+    <div class="noi-row"><span class="noi-label">→ Retire Existing Debt ($3M)</span><span class="noi-val" id="v-payoffDebt">—</span></div>
+    <div class="noi-row"><span class="noi-label">→ Fund New Acquisition ($6M)</span><span class="noi-val" id="v-fundNewAcq">—</span></div>
+    <div class="noi-row purple total"><span class="noi-label">→ NET BUMP TO EXISTING INVESTORS</span><span class="noi-val" id="v-bump">—</span></div>
+
+    <div class="callout-purple">
+      <h3>💰 The Investor Bump — Value Created Before Construction</h3>
+      <p>Existing investors held $2M net equity in the parcels ($5M value − $3M debt). By assembling all land — adding the $6M Green P in-kind, the $6M new lot, and $3M approval uplift — the total land position reaches <strong>$20M</strong>. Refinancing at 95% generates proceeds that retire the old debt, fund the new acquisition, and create an <strong>immediate equity credit</strong> for existing investors before a shovel hits the ground.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 4: UBUNTU STRUCTURE ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 04 — Ubuntu Land Trust &amp; Build Canada Homes</div>
+    <h2>Non-Profit Collaboration</h2>
+
+    <div class="callout-teal">
+      <h3>The Ubuntu Model</h3>
+      <p>Heal House establishes a <strong>co-owned non-profit</strong> that participates in the Ubuntu Land Trust. This structure qualifies for <strong>Build Canada Homes</strong> — a 40% forgivable government loan on construction costs, never repaid if the affordable mandate is maintained for 20 years.</p>
+    </div>
+
+    <h3>Construction Capital Stack</h3>
+    <p style="font-size:11px;color:var(--text-light);margin-bottom:4px;">CONSTRUCTION FINANCING (EXCLUDING LAND)</p>
+    <div class="loan-bar">
+      <div class="forgivable" style="width:40%;">40% FORGIVABLE</div>
+      <div class="repayable" style="width:60%;">60% FINANCED + EQUITY</div>
+    </div>
+
+    <div class="noi-row"><span class="noi-label">Hard Costs ($325/SF)</span><span class="noi-val" id="v-hardCost">—</span></div>
+    <div class="noi-row"><span class="noi-label">Soft Costs (18%)</span><span class="noi-val" id="v-softCost">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Total Construction Cost</span><span class="noi-val" id="v-constructionCost">—</span></div>
+    <div class="noi-row teal"><span class="noi-label">40% Forgivable Loan</span><span class="noi-val" id="v-forgivable">—</span></div>
+    <div class="noi-row"><span class="noi-label">Remaining to Finance (60%)</span><span class="noi-val" id="v-remaining">—</span></div>
+  </div>
+
+  <!-- ═══════ SLIDE 5: PROJECT SPECS ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 05 — Project Overview</div>
+    <h2>Development Specifications</h2>
+    <div class="two-col">
+      <div>
+        <h3>Building</h3>
+        <div class="noi-row"><span class="noi-label">Location</span><span class="noi-val">2300 Lakeshore Blvd W</span></div>
+        <div class="noi-row"><span class="noi-label">Storeys</span><span class="noi-val">13</span></div>
+        <div class="noi-row"><span class="noi-label">Floor Plate</span><span class="noi-val">19,422 SF</span></div>
+        <div class="noi-row"><span class="noi-label">Total GFA</span><span class="noi-val" id="v-totalGFA">—</span></div>
+        <div class="noi-row"><span class="noi-label">Residential GFA</span><span class="noi-val" id="v-resGFA">—</span></div>
+        <div class="noi-row"><span class="noi-label">Hotel GFA</span><span class="noi-val" id="v-hotelGFA">—</span></div>
+      </div>
+      <div>
+        <h3>Unit Mix</h3>
+        <div class="noi-row"><span class="noi-label">Total Units</span><span class="noi-val" id="v-totalUnits">—</span></div>
+        <div class="noi-row"><span class="noi-label">Market Rate</span><span class="noi-val" id="v-marketUnits">—</span></div>
+        <div class="noi-row"><span class="noi-label">Affordable (30%)</span><span class="noi-val" id="v-affordUnits">—</span></div>
+        <div class="noi-row"><span class="noi-label">Hotel Keys</span><span class="noi-val">48</span></div>
+        <div class="noi-row"><span class="noi-label">Hotel ADR</span><span class="noi-val">$189</span></div>
+        <div class="noi-row"><span class="noi-label">Occupancy</span><span class="noi-val">72%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 6: REVENUE ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 06 — Revenue &amp; NOI</div>
+    <h2>Stabilized Income (Year 1)</h2>
+    <div class="noi-row"><span class="noi-label">Gross Residential Revenue</span><span class="noi-val" id="v-resRev">—</span></div>
+    <div class="noi-row"><span class="noi-label">Gross Hotel Revenue</span><span class="noi-val" id="v-hotelRev">—</span></div>
+    <div class="noi-row total"><span class="noi-label">Total Gross Revenue</span><span class="noi-val" id="v-totalRev">—</span></div>
+    <div class="noi-row"><span class="noi-label">Operating Expenses (35%)</span><span class="noi-val" id="v-opex">—</span></div>
+    <div class="noi-row total" style="border-top:2px solid var(--accent-gold);padding-top:12px;margin-top:4px;">
+      <span class="noi-label">Net Operating Income (NOI)</span><span class="noi-val" id="v-noi">—</span>
+    </div>
+    <div style="margin-top:16px;">
+      <div class="noi-row"><span class="noi-label">Total Land Value</span><span class="noi-val" id="v-totalLandValue">—</span></div>
+      <div class="noi-row total"><span class="noi-label">Total Project Cost (Land + Construction)</span><span class="noi-val" id="v-totalDevCost">—</span></div>
+      <div class="noi-row total"><span class="noi-label">Stabilized Property Value (4.75% Cap)</span><span class="noi-val" id="v-propValue">—</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 7: FULL DEBT STRUCTURE ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 07 — Complete Debt Structure</div>
+    <h2>Land Financing + Construction Financing</h2>
+    <p class="subtitle">Two-layer debt: land loan at 95% LTV + split-stack construction financing with 50-year CMHC</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-val" id="v-totalDebt">—</div><div class="hs-label">Total Debt</div></div>
+      <div class="hero-stat"><div class="hs-val" id="v-totalEquity">—</div><div class="hs-label">Total Equity</div></div>
+      <div class="hero-stat"><div class="hs-val" id="v-dcr">—</div><div class="hs-label">DCR</div></div>
+      <div class="hero-stat"><div class="hs-val" id="v-investorCoC">—</div><div class="hs-label">Investor CoC</div></div>
+    </div>
+
+    <h3>Layer 1: Land Loan</h3>
+    <div class="noi-row"><span class="noi-label">Land Loan (95% of $33M, 5.65%, 25yr)</span><span class="noi-val" id="v-landFin2">—</span></div>
+    <div class="noi-row"><span class="noi-label">Annual Debt Service — Land</span><span class="noi-val" id="v-dsLand">—</span></div>
+
+    <h3>Layer 2: Construction Debt (on remaining 60%)</h3>
+    <div class="noi-row"><span class="noi-label">CMHC Tranche (3.40%, 50yr amort)</span><span class="noi-val" id="v-cmhcDebt">—</span></div>
+    <div class="noi-row"><span class="noi-label">Conventional Tranche (5.65%, 25yr)</span><span class="noi-val" id="v-convDebt">—</span></div>
+    <div class="noi-row"><span class="noi-label">Mezzanine Tranche (9.00%, 25yr)</span><span class="noi-val" id="v-mezzDebt">—</span></div>
+    <div class="noi-row"><span class="noi-label">Annual Debt Service — Construction</span><span class="noi-val" id="v-dsConstruction">—</span></div>
+
+    <div style="border-top:2px solid var(--accent-gold);margin-top:12px;padding-top:12px;">
+      <div class="noi-row"><span class="noi-label">Blended Rate</span><span class="noi-val" id="v-blended">—</span></div>
+      <div class="noi-row total"><span class="noi-label">Total Annual Debt Service</span><span class="noi-val" id="v-totalDS">—</span></div>
+      <div class="noi-row"><span class="noi-label">LTV (total debt / property value)</span><span class="noi-val" id="v-ltv">—</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 8: INCOME SPLIT ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 08 — Income Distribution</div>
+    <h2>60/40 Income Split</h2>
+    <p class="subtitle">After all debt service, net cash flow is split: 60% to investors, 40% to the non-profit</p>
+
+    <div class="split-bar">
+      <div class="investor-share" style="width:60%;">60% INVESTORS</div>
+      <div class="nonprofit-share" style="width:40%;">40% NON-PROFIT</div>
+    </div>
+
+    <div class="noi-row total"><span class="noi-label">Annual Cash Flow (after debt service)</span><span class="noi-val" id="v-cfBefore">—</span></div>
+    <div class="noi-row"><span class="noi-label">→ Investor Share (60%)</span><span class="noi-val" id="v-investorCF">—</span></div>
+    <div class="noi-row teal"><span class="noi-label">→ Non-Profit Share (40%)</span><span class="noi-val" id="v-nonprofitCF">—</span></div>
+
+    <div class="callout-teal">
+      <h3>Non-Profit Allocation</h3>
+      <p>The 40% non-profit share funds <strong>community programming</strong>, <strong>tenant services</strong>, and <strong>affordable housing preservation</strong> — creating a self-sustaining social impact engine within the Ubuntu Land Trust framework.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 9: 20-YEAR PROJECTIONS ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 09 — 20-Year Cash Flow &amp; Principal Paydown</div>
+    <h2>Growth Trajectory (2.5% Annual Rent Escalation)</h2>
+    <table>
+      <thead>
+        <tr><th>Year</th><th>NOI</th><th>Investor CF</th><th>Non-Profit CF</th><th>Principal Paid</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Year 1</td><td id="v-yr1-noi">—</td><td id="v-yr1-inv">—</td><td id="v-yr1-np">—</td><td id="v-yr1-pd">—</td></tr>
+        <tr><td>Year 5</td><td id="v-yr5-noi">—</td><td id="v-yr5-inv">—</td><td id="v-yr5-np">—</td><td id="v-yr5-pd">—</td></tr>
+        <tr><td>Year 10</td><td id="v-yr10-noi">—</td><td id="v-yr10-inv">—</td><td id="v-yr10-np">—</td><td id="v-yr10-pd">—</td></tr>
+        <tr><td>Year 15</td><td id="v-yr15-noi">—</td><td id="v-yr15-inv">—</td><td id="v-yr15-np">—</td><td id="v-yr15-pd">—</td></tr>
+        <tr class="row-highlight"><td>Year 20</td><td id="v-yr20-noi">—</td><td id="v-yr20-inv">—</td><td id="v-yr20-np">—</td><td id="v-yr20-pd">—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="two-col" style="margin-top:16px;">
+      <div class="noi-row total"><span class="noi-label">20yr Cumulative — Investors</span><span class="noi-val" id="v-cum-inv">—</span></div>
+      <div class="noi-row total teal"><span class="noi-label">20yr Cumulative — Non-Profit</span><span class="noi-val" id="v-cum-np">—</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 10: LAND APPRECIATION (LEGACY CONTEXT) ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 10 — Land Value Growth &amp; Legacy Asset</div>
+    <h2>Land Appreciation Builds the Legacy</h2>
+    <p class="subtitle">The $20M land position appreciates over 20 years — this growing value is what makes the legacy gift to the non-profit so powerful</p>
+
+    <h3>Land Value Trajectory (3.5% Annual)</h3>
+    <div class="noi-row"><span class="noi-label">Original Combined Land Value</span><span class="noi-val" id="v-landOriginal">—</span></div>
+    <div class="noi-row"><span class="noi-label">Year 5</span><span class="noi-val" id="v-landYr5">—</span></div>
+    <div class="noi-row"><span class="noi-label">Year 10</span><span class="noi-val" id="v-landYr10">—</span></div>
+    <div class="noi-row"><span class="noi-label">Year 15</span><span class="noi-val" id="v-landYr15">—</span></div>
+    <div class="noi-row total amber"><span class="noi-label">Year 20</span><span class="noi-val" id="v-landYr20">—</span></div>
+    <div class="noi-row total amber"><span class="noi-label">Total Appreciation</span><span class="noi-val" id="v-landGain">—</span></div>
+
+    <div class="callout-teal">
+      <h3>🏛️ The Legacy Promise</h3>
+      <p>At the end of the 20-year term, this entire asset — the building, the land, the community — is <strong>gifted to the non-profit</strong>. Investors have already received their full return through cash flow and principal paydown. What remains is a <strong>permanent, self-sustaining affordable housing community</strong> that belongs to the people it serves. That’s the legacy.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 11: 20-YEAR INVESTOR RETURN ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 11 — 20-Year Investor Return &amp; Legacy</div>
+    <h2>What Investors Receive</h2>
+    <p class="subtitle">Return = original equity back + 20 years of principal paydown + 20 years of 60% net income. Then the asset becomes the legacy.</p>
+
+    <div class="hero-stats three">
+      <div class="hero-stat"><div class="hs-val" id="v-totalReturn">—</div><div class="hs-label">Total Investor Return</div></div>
+      <div class="hero-stat"><div class="hs-val" id="v-multiple">—</div><div class="hs-label">Equity Multiple</div></div>
+      <div class="hero-stat"><div class="hs-val" id="v-irr">—</div><div class="hs-label">Avg Annual Return</div></div>
+    </div>
+
+    <h3>The Three Components of Investor Return</h3>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Description</th><th>Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>① Original Equity Returned</td><td>Investors get back their initial equity contribution</td><td id="v-retEquity">—</td></tr>
+        <tr><td>② 20yr Principal Paydown</td><td>Mortgage payments build equity over 20 years — returned to investors</td><td id="v-retPrincipal">—</td></tr>
+        <tr class="row-highlight"><td>③ 20yr Cash Flow (60%)</td><td>60% of net income after debt service, every year for 20 years</td><td id="v-retCashFlow">—</td></tr>
+        <tr class="row-highlight"><td><strong>TOTAL RETURN</strong></td><td></td><td><strong id="v-totalReturn2">—</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Principal Paydown Detail</h3>
+    <div class="noi-row"><span class="noi-label">Total Debt at Inception</span><span class="noi-val" id="v-totalDebt2">—</span></div>
+    <div class="noi-row"><span class="noi-label">Principal Paid Down (20 years)</span><span class="noi-val" id="v-principalPaid">—</span></div>
+    <div class="noi-row"><span class="noi-label">Remaining Mortgage Balance at Year 20</span><span class="noi-val" id="v-debtRemaining">—</span></div>
+    <div class="noi-row"><span class="noi-label">Year 20 Property Value</span><span class="noi-val" id="v-exitPropValue">—</span></div>
+
+    <div class="callout" style="text-align:center;margin-top:20px;">
+      <h3>🏠 The Legacy</h3>
+      <p style="font-size:14px;">After 20 years, investors have received <strong id="v-totalReturn3">—</strong> on <strong id="v-totalEquity2">—</strong> invested.</p>
+      <p style="font-size:14px;margin-top:8px;">The building, the land, the community — <strong>all of it is left as a permanent legacy with the non-profit.</strong></p>
+      <p style="font-size:13px;margin-top:12px;color:var(--nonprofit-teal);">This is how you build generational wealth <em>and</em> generational impact.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 12: RISK ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 12 — Risk &amp; Mitigation</div>
+    <h2>Risk Assessment</h2>
+    <ul>
+      <li><span class="sl">Government Program:</span> Build Canada Homes terms may evolve.<br><em>Mitigation: Lock contribution agreement at closing.</em></li>
+      <li><span class="sl">50-Year CMHC:</span> Slower principal paydown on CMHC tranche.<br><em>Mitigation: Lower debt service = higher cash flow and DCR coverage.</em></li>
+      <li><span class="sl">Land Refi Risk:</span> 95% LTV on $20M leaves thin equity cushion.<br><em>Mitigation: Lakeshore corridor has strong upward trajectory; $3M uplift from approvals already baked in; Green P adds $6M with no acquisition cost.</em></li>
+      <li><span class="sl">Non-Profit Governance:</span> Co-ownership requires clear operating agreements.<br><em>Mitigation: Ubuntu Land Trust provides established legal framework.</em></li>
+      <li><span class="sl">20-Year Horizon:</span> Longer commitment.<br><em>Mitigation: Quarterly distributions from Year 1; investor bump provides day-one value.</em></li>
+    </ul>
+
+    <div class="callout-teal">
+      <h3>Why Ubuntu Wins</h3>
+      <p>The combination of a <strong>40% forgivable loan</strong>, <strong>95% financing on a $20M land position</strong>, and the <strong>$6M Green P in-kind</strong> creates a structure where investors get an <strong>immediate equity bump</strong>, <strong>quarterly cash flow</strong>, and a <strong>20-year exit</strong> backed by principal paydown and land appreciation — all while creating permanent affordable housing.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 13: SOCIAL IMPACT ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 13 — Social Impact</div>
+    <h2>More Than Returns</h2>
+    <div class="two-col">
+      <div>
+        <h3>Housing Impact</h3>
+        <ul>
+          <li><span class="sl">66 affordable units</span> maintained 20+ years</li>
+          <li>Below-market rents for families, seniors, essential workers</li>
+          <li>Permanent affordability via Ubuntu Land Trust</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Community Impact</h3>
+        <ul>
+          <li>Non-profit funded by 40% income — self-sustaining</li>
+          <li>On-site wellness and community services</li>
+          <li>Hotel creates local employment</li>
+          <li>ESG-aligned for institutional LPs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ SLIDE 14: CALL TO ACTION ═══════ -->
+  <div class="slide">
+    <div class="slide-num">Slide 14 — Next Steps</div>
+    <h2>Call to Action</h2>
+
+    <h3>Phase 1 — Structure (Immediate)</h3>
+    <ul>
+      <li>Finalize Ubuntu Land Trust co-ownership with Heal House non-profit</li>
+      <li>Execute 95% land refi on combined $20M position</li>
+      <li>Submit Build Canada Homes application for 40% forgivable loan</li>
+      <li>Distribute investor bump from land refi proceeds</li>
+    </ul>
+
+    <h3>Phase 2 — Capital Formation</h3>
+    <ul>
+      <li>Prepare LP subscription documents (20-year term)</li>
+      <li>Engage CMHC MLI Select — 50-year amortization</li>
+      <li>Finalize conventional and mezzanine tranches</li>
+    </ul>
+
+    <h3>Phase 3 — Execution</h3>
+    <ul>
+      <li>Close financing and break ground</li>
+      <li>Begin quarterly investor distributions from Year 1</li>
+    </ul>
+
+    <div class="callout" style="text-align:center;margin-top:24px;">
+      <h3 style="margin-bottom:6px;">Invest in Canada's Future</h3>
+      <p style="font-size:14px;">Heal House × Ubuntu delivers <strong>immediate equity value, institutional returns, and permanent affordable housing</strong> — powered by Build Canada Homes and the Ubuntu Land Trust.</p>
+      <p style="margin-top:12px;font-size:12px;color:var(--text-light);">Contact: Jason &amp; KJ &nbsp;·&nbsp; K0RE</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  HEAL HOUSE × UBUNTU LAND TRUST &nbsp;·&nbsp; BUILD CANADA HOMES &nbsp;·&nbsp; 50-YR CMHC &nbsp;·&nbsp; CONFIDENTIAL &nbsp;·&nbsp; APRIL 2026
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  const r = calc();
+  const el = document.getElementById('v-totalReturn3');
+  if (el) el.textContent = '$' + (r.totalInvestorReturn / 1e6).toFixed(1) + 'M';
+});
+</script>
+</body>
+</html>
