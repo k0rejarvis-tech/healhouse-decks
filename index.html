@@ -602,10 +602,12 @@ function modelS1(){
   const opex = egi * P.opexPct;
   const noi = egi - opex;
 
-  const convLoan = totalCost * 0.75;
-  const convRate = 0.0565, convAmort = 25;
-  const ds = annualDebtService(convLoan, convRate, convAmort);
-  const equity = totalCost - convLoan;
+  // All CMHC MLI only — 3.40%, 50yr, 95% LTV
+  const cmhcLoan = totalCost * 0.95;
+  const cmhcRate = 0.034, cmhcAmort = 50;
+  const convLoan = 0, convRate = 0, convAmort = 50;
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
+  const equity = totalCost - cmhcLoan;
 
   const cashFlow = noi - ds;
   const propValue = noi / P.capRate;
@@ -618,16 +620,16 @@ function modelS1(){
     const yNoi = noi * Math.pow(1+P.rentGrowth, y-1);
     cumCF += yNoi - ds;
   }
-  const prinPaid = principalPaidYear(convLoan, convRate, convAmort, 20);
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
   const totalReturn20 = cumCF + prinPaid + equity;
   const eqMult = totalReturn20 / equity;
 
   return {
-    name:'S1: Mid-Rise Only', tag:'Conventional', tagClass:'tag--conv',
+    name:'S1: Mid-Rise, CMHC MLI', tag:'CMHC MLI', tagClass:'tag--bch',
     units:90, gfa, hotel:false, land, totalConstruction, totalCost,
-    forgivable:0, convLoan, convRate, convAmort, mezzLoan:0, mezzRate:0, mezzAmort:0,
-    cmhcLoan:0, cmhcRate:0, cmhcAmort:0,
-    totalDebt: convLoan, equity, existingDebt,
+    forgivable:0, convLoan:0, convRate:0, convAmort:50, mezzLoan:0, mezzRate:0, mezzAmort:0,
+    cmhcLoan, cmhcRate, cmhcAmort,
+    totalDebt: cmhcLoan, equity, existingDebt,
     revMarket: rev.market, revAfford: 0, revHotel: 0, egi, opex, noi, ds,
     cashFlow, investorCF: cashFlow, nfpCF: 0,
     propValue, dcr, coc, cumCF20: cumCF, prinPaid20: prinPaid,
@@ -650,22 +652,16 @@ function modelS2(){
   const opex = egi * P.opexPct;
   const noi = egi - opex;
 
-  // CMHC on affordable block (30% of net construction)
-  const cmhcLoan = netConstruction * 0.30;
+  // All CMHC MLI only — 3.40%, 50yr, 95% LTV on net cost after forgivable
+  const cmhcLoan = (totalCost - forgivable) * 0.95;
   const cmhcRate = 0.034, cmhcAmort = 50;
-  // Conv on remaining 70% of net + land
-  const convLoan = (netConstruction * 0.70 + land) * 0.75;
-  const convRate = 0.0565, convAmort = 25;
-  // Mezz
-  const mezzLoan = (netConstruction * 0.70 + land) * 0.10;
-  const mezzRate = 0.09, mezzAmort = 25;
+  const convLoan = 0, convRate = 0, convAmort = 50;
+  const mezzLoan = 0, mezzRate = 0, mezzAmort = 50;
 
-  const totalDebt = cmhcLoan + convLoan + mezzLoan;
+  const totalDebt = cmhcLoan;
   const equity = totalCost - forgivable - totalDebt;
 
-  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort) +
-             annualDebtService(convLoan, convRate, convAmort) +
-             annualDebtService(mezzLoan, mezzRate, mezzAmort);
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
 
   const cashFlow = noi - ds;
   const investorCF = cashFlow * 0.60;
@@ -681,17 +677,15 @@ function modelS2(){
     cumInv += yCF * 0.60;
     cumNfp += yCF * 0.40;
   }
-  const prinPaid = principalPaidYear(cmhcLoan,cmhcRate,cmhcAmort,20) +
-                   principalPaidYear(convLoan,convRate,convAmort,20) +
-                   principalPaidYear(mezzLoan,mezzRate,mezzAmort,20);
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
   const totalReturn20 = cumInv + prinPaid + equity;
   const eqMult = totalReturn20 / equity;
 
   return {
     name:'S2: Mid-Rise + BCH', tag:'BCH + NFP', tagClass:'tag--bch',
     units:90, gfa, hotel:false, land, totalConstruction, totalCost,
-    forgivable, convLoan, convRate, convAmort,
-    mezzLoan, mezzRate, mezzAmort,
+    forgivable, convLoan:0, convRate:0, convAmort:50,
+    mezzLoan:0, mezzRate:0, mezzAmort:50,
     cmhcLoan, cmhcRate, cmhcAmort,
     totalDebt, equity, existingDebt,
     revMarket: rev.market, revAfford: rev.afford, revHotel: 0, egi, opex, noi, ds,
@@ -715,16 +709,17 @@ function modelS3(){
   const opex = egi * P.opexPct;
   const noi = egi - opex;
 
+  // All CMHC MLI only — 3.40%, 50yr, 95% LTV on total cost
+  // Hotel note: hotel structured as leased amenity for CMHC eligibility
   const landFinanced = land * 0.95;
-  const convLoan = (totalConstruction + landFinanced) * 0.70;
-  const convRate = 0.055, convAmort = 25;
-  const mezzLoan = (totalConstruction + landFinanced) * 0.12;
-  const mezzRate = 0.09, mezzAmort = 25;
-  const totalDebt = convLoan + mezzLoan;
-  const equity = totalCost - totalDebt;
+  const cmhcLoan = totalCost * 0.95;
+  const cmhcRate = 0.034, cmhcAmort = 50;
+  const convLoan = 0, convRate = 0, convAmort = 50;
+  const mezzLoan = 0, mezzRate = 0, mezzAmort = 50;
+  const totalDebt = cmhcLoan;
+  const equity = totalCost - cmhcLoan;
 
-  const ds = annualDebtService(convLoan, convRate, convAmort) +
-             annualDebtService(mezzLoan, mezzRate, mezzAmort);
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
 
   const cashFlow = noi - ds;
   const propValue = noi / P.capRate;
@@ -739,17 +734,16 @@ function modelS3(){
     const yNoi = yEgi - yEgi*P.opexPct;
     cumCF += yNoi - ds;
   }
-  const prinPaid = principalPaidYear(convLoan,convRate,convAmort,20) +
-                   principalPaidYear(mezzLoan,mezzRate,mezzAmort,20);
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
   const totalReturn20 = cumCF + prinPaid + equity;
   const eqMult = totalReturn20 / equity;
 
   return {
-    name:'S3: Full Build-Out', tag:'Conventional', tagClass:'tag--conv',
+    name:'S3: Full Build-Out, CMHC MLI', tag:'CMHC MLI', tagClass:'tag--bch',
     units:220, gfa, hotel:true, land, totalConstruction, totalCost,
-    forgivable:0, convLoan, convRate, convAmort,
-    mezzLoan, mezzRate, mezzAmort,
-    cmhcLoan:0, cmhcRate:0, cmhcAmort:0,
+    forgivable:0, convLoan:0, convRate:0, convAmort:50,
+    mezzLoan:0, mezzRate:0, mezzAmort:50,
+    cmhcLoan, cmhcRate, cmhcAmort,
     totalDebt, equity,
     revMarket: rev.market, revAfford: 0, revHotel: hotelRev, egi, opex, noi, ds,
     cashFlow, investorCF: cashFlow, nfpCF: 0,
@@ -774,20 +768,17 @@ function modelS4(){
   const opex = egi * P.opexPct;
   const noi = egi - opex;
 
+  // All CMHC MLI only — 3.40%, 50yr, 95% LTV on net cost after forgivable
   const landFinanced = land * 0.95;
-  const cmhcLoan = netConstruction * 0.35;
+  const cmhcLoan = (totalCost - forgivable) * 0.95;
   const cmhcRate = 0.034, cmhcAmort = 50;
-  const convLoan = (netConstruction * 0.65 + landFinanced) * 0.70;
-  const convRate = 0.055, convAmort = 25;
-  const mezzLoan = (netConstruction * 0.65 + landFinanced) * 0.10;
-  const mezzRate = 0.09, mezzAmort = 25;
+  const convLoan = 0, convRate = 0, convAmort = 50;
+  const mezzLoan = 0, mezzRate = 0, mezzAmort = 50;
 
-  const totalDebt = cmhcLoan + convLoan + mezzLoan;
+  const totalDebt = cmhcLoan;
   const equity = totalCost - forgivable - totalDebt;
 
-  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort) +
-             annualDebtService(convLoan, convRate, convAmort) +
-             annualDebtService(mezzLoan, mezzRate, mezzAmort);
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
 
   const cashFlow = noi - ds;
   const investorCF = cashFlow * 0.60;
@@ -806,17 +797,15 @@ function modelS4(){
     cumInv += yCF * 0.60;
     cumNfp += yCF * 0.40;
   }
-  const prinPaid = principalPaidYear(cmhcLoan,cmhcRate,cmhcAmort,20) +
-                   principalPaidYear(convLoan,convRate,convAmort,20) +
-                   principalPaidYear(mezzLoan,mezzRate,mezzAmort,20);
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
   const totalReturn20 = cumInv + prinPaid + equity;
   const eqMult = totalReturn20 / equity;
 
   return {
     name:'S4: Full Build-Out + BCH', tag:'★ Recommended', tagClass:'tag--rec',
     units:220, gfa, hotel:true, land, totalConstruction, totalCost,
-    forgivable, convLoan, convRate, convAmort,
-    mezzLoan, mezzRate, mezzAmort,
+    forgivable, convLoan:0, convRate:0, convAmort:50,
+    mezzLoan:0, mezzRate:0, mezzAmort:50,
     cmhcLoan, cmhcRate, cmhcAmort,
     totalDebt, equity,
     revMarket: rev.market, revAfford: rev.afford, revHotel: hotelRev, egi, opex, noi, ds,
