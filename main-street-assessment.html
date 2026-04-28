@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heal House Main Street — Retirement Assessment</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--espresso:#1E1A14;--charcoal:#2A2118;--cream:#F5F0E8;--gold:#C9A84C;--gold2:#E2C97E;--teal:#3A7D7B}
+body{background:var(--espresso);color:var(--cream);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+.slide{min-height:100vh;padding:80px 56px;display:flex;align-items:center;border-bottom:1px solid rgba(201,168,76,.12);position:relative;overflow:hidden}
+.slide:nth-child(even){background:var(--charcoal)}
+.inner{max-width:1180px;margin:0 auto;width:100%;position:relative;z-index:2}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22}
+.overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,15,8,.9),rgba(20,15,8,.58))}
+.label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,168,76,.45);display:inline-block;margin-bottom:22px;padding-bottom:4px}
+h1,h2,h3{font-family:Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(48px,8vw,104px);font-style:italic}
+h2{font-size:clamp(34px,5vw,64px)}
+h3{font-size:26px;color:var(--gold2);margin-bottom:12px}
+p{max-width:820px;color:rgba(245,240,232,.82);font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:32px 0}
+.card{background:rgba(42,33,24,.78);border:1px solid rgba(201,168,76,.24);padding:24px}
+.card .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.card .v{font-family:Georgia,serif;font-size:34px;margin-top:8px;color:var(--cream)}
+.card .s{font-size:13px;color:rgba(245,240,232,.62);margin-top:8px}
+.imggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px}
+.imggrid img{width:100%;height:280px;object-fit:cover;border:1px solid rgba(201,168,76,.22)}
+.tablewrap{overflow:auto;border:1px solid rgba(201,168,76,.22);margin-top:24px;max-height:65vh}
+table{width:100%;border-collapse:collapse;min-width:980px;font-size:12px}
+th{position:sticky;top:0;background:#2A2118;color:var(--gold);padding:10px;text-align:left;border-bottom:1px solid rgba(201,168,76,.35)}
+td{padding:9px 10px;border-bottom:1px solid rgba(201,168,76,.12);color:rgba(245,240,232,.86)}
+tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+.positive{color:#9FE6B8!important}.negative{color:#FF9E9E!important}
+.note{font-size:13px;color:rgba(245,240,232,.58);margin-top:18px}
+pre{white-space:pre-wrap;background:rgba(0,0,0,.25);border:1px solid rgba(201,168,76,.18);padding:18px;max-height:55vh;overflow:auto;font-size:11px;color:rgba(245,240,232,.72)}
+</style>
+</head>
+<body>
+
+<section class="slide">
+ <div class="bg" style="background-image:url('assets/main-street/ppt-media/image5.png')"></div><div class="overlay"></div>
+ <div class="inner">
+  <div class="label">Heal House · Main Street</div>
+  <h1>Retirement Living Assessment</h1>
+  <p style="margin-top:24px">A retirement-focused development assessment using Joe’s deck for program economics and visual direction, verified against architect drawings for GFA, site math, and suite count.</p>
+ </div>
+</section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Source Hierarchy</div><h2>Numbers tied back to source.</h2>
+ <div class="grid">
+  <div class="card"><div class="k">Architect PDF</div><div class="v">Source of Truth</div><div class="s">GFA, floor/site math, suite count, area schedules.</div></div>
+  <div class="card"><div class="k">Joe Deck</div><div class="v">Economics</div><div class="s">Construction cost, monthly retirement rent, expenses, visuals.</div></div>
+  <div class="card"><div class="k">Model</div><div class="v">BCH vs No BCH</div><div class="s">After mortgage cash flow, investor payout, NFP payout.</div></div>
+ </div>
+</div></section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Verified Program</div><h2>Main Street retirement program.</h2>
+ <div class="grid" id="programCards"></div>
+ <p class="note">Please verify extracted values against the architect PDF. If a number needs correction, update the model constants in the page script.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Visual Direction</div><h2>Joe deck imagery and site material.</h2>
+ <div class="imggrid"><img src="assets/main-street/ppt-media/image5.png"><img src="assets/main-street/ppt-media/image1.png"><img src="assets/main-street/ppt-media/image2.png"><img src="assets/main-street/ppt-media/image3.png"><img src="assets/main-street/ppt-media/image4.png"></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Architect Reference</div><h2>Drawing pages used for verification.</h2>
+ <div class="imggrid"><img src="assets/main-street/architect-page-1.jpg"><img src="assets/main-street/architect-page-2.jpg"></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Scenario Comparison</div><h2>Retirement: BCH vs No BCH.</h2>
+ <div id="scenarioCards" class="grid"></div>
+ <div class="tablewrap"><table id="yearTable"></table></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Decision Read</div><h2>What this tells the team.</h2>
+ <div id="decisionCards" class="grid"></div>
+ <p class="note">BCH scenario shows the mission-aligned version: reduced debt burden and annual split between investors and NFP after mortgage payment. No BCH shows conventional investor-only cash flow pressure.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+ <div class="label">Appendix</div><h2>Extracted source text for verification.</h2>
+ <h3>Architect PDF extraction</h3><pre>--- PDF PAGE 1 ---
+STAIRS
+MAIN STREET WEST
+TWO-WAY DRIVE AISLE
+TWO-WAY DRIVE AISLE
+22401
+12593
+18415
+21836
+27184
+19674
+EXISTING SIDEWALK
+EXISTING SIDEWALK
+4146
+BLDG LINE ABOVE
+BLDG LINE ABOVE
+BLDG LINE ABOVE
+RESIDENTIAL BUILDING
+5 STOREYS 2670SM
+±49UNITS (94 BEDS)
+6000
+6000
+5500
+2700
+2700
+5500
+TWO-WAY DRIVE AISLE
+1707
+1500
+1500
+1500
+5500
+6000
+5500
+2700
+2700
+20400
+7198
+6000
+5500
+3400
+5500
+1500
+2700
+5500
+2700
+4437
+2609
+5845
+R3005
+3000
+ELEV.
+M
+EL
+C
+GARBAGE
+ROOM
+SERVICE
+ROOM
+STAIRS
+R9000
+R500
+R500
+R3000
+R500
+R500
+27530
+17550
+8000
+8000
+8000
+3330
+5845
+1200
+4752
+PART OF EXIST.
+HILL HOUSE TO
+BE PRESERVED
+10500
+BLDG SETBACK
+15
+LS SET
+12450
+BLDG SETBACK
+1500
+LS SETBACK
+1500
+LS SETBACK
+1500
+LS SETBACK
+1500
+LS SETBACK
+3960
+EX. BLDG SETBACK
+5650
+BLDG SETBACK
+2684
+EX. BLDG SETBACK
+6000
+BLDG SETBACK
+6000
+BLDG SETBACK
+6000
+BLDG SETBACK
+5650
+EXISTING. HEAL HOUSE
+LOBBY AND AMENITY
+SPACE
+±2,889 SF
+SHEET
+2026.01.20
+TOR25-0000-00
+Conceptual Site Plan
+455, 469 &amp; 483 Main St W
+scheme: 01
+Listowel, ON N4W 1A7
+1
+NORTH
+0
+2.5m
+5m
+10m
+1:100
+1m
+
+--- PDF PAGE 2 ---
+21836
+27184
+19674
+4146
+4146
+MAIN STREET WEST
+2684
+12470
+UNIT (3B)
+±575 SF
+UNIT (1B)
+±330 SF
+UNIT (2B)
+±472 SF
+UNIT (2B)
+±484 SF
+UNIT (2B)
+±447 SF
+UNIT (3B)
+±513 SF
+UNIT (2B)
+±503 SF
+UNIT (2B)
+±503 SF
+UNIT (2B)
+±503 SF
+UNIT (1B)
+±222 SF
+STAIRS
+STAIRS
+ELEV.
+M EL
+C
+RESIDENTIAL BUILDING
+5 STOREYS 2670SM
+±49UNITS (94 BEDS)
+22401
+12593
+18415
+19674
+44880
+12891
+5650
+5845
+1200
+5845
+8000
+8000
+8000
+8000
+8000
+4880
+12450
+BLDG SETBACK
+4160
+BLDG SETBACK
+UNIT (2B)
+±478 SF
+UNIT (2B)
+±438 SF
+SHEET
+2026.01.20
+TOR25-0000-00
+Conceptual Typ. (2nd-4th) Floor Plan
+455, 469 &amp; 483 Main St W
+scheme: 01
+Listowel, ON N4W 1A7
+2
+NORTH
+0
+2.5m
+5m
+10m
+1:100
+1m
+</pre>
+ <h3 style="margin-top:24px">Joe PPT extraction</h3><pre>--- JOE PPT SLIDE 1 ---
+HEAL
+HOUSE
+LISTOWEL · ONTARIO
+Senior Independent Living  ·  Wellness-Led  ·  Boutique
+INVESTOR PRESENTATION  ·  APRIL 2026  ·  CONFIDENTIAL
+C$10.0M
+EQUITY RAISE
+49 / 94
+SUITES / BEDS
+±3,000 sf
+WELLNESS HUB
+C$3.8M
+YEAR 5 REVENUE
+C$1.14M
+YEAR 5 NOI
+~13%
+BASE IRR (5-YR)
+Measure. Optimize. Thrive.
+--- JOE PPT SLIDE 2 ---
+EXECUTIVE SUMMARY
+A C$10M Equity Opportunity in Premium Senior Living
+HEAL HOUSE reimagines senior independent living as a hospitality-grade, wellness-centred residence — differentiated by Aman-inspired design, community, and preventive health programming.
+THE PROJECT
+5-storey, purpose-built residence
+469 Main St W, Listowel, Ontario
+49 suites · 94 beds · ±25,000 sf
+WELLNESS HUB
+±3,000 sf Heal House amenity hub
+Recovery · diagnostics · longevity
+Ancillary revenue engine on ground floor
+THE DEMAND
+North Perth 65+ = 18.7% of population
+Ontario seniors → 4.4M by 2046
+Retirement occupancy recovering to 95%+
+THE PRODUCT
+Licensed independent-supportive living
+Aman-inspired quiet luxury design language
+Prevention-first wellness operating model
+THE FINANCIALS
+C$3.80M Year 5 total revenue
+C$1.14M Year 5 NOI · 30% margin
+Base case 5-yr equity IRR: ~13%
+THE EXIT
+Stabilize → Recap → Replicate
+Proof-of-concept Ontario platform
+Sale or portfolio scale post Year 5
+All financial projections are concept-stage illustrations only. Not investment advice. Past performance of comparable assets is for reference purposes.
+--- JOE PPT SLIDE 3 ---
+THE ASSET — 469 MAIN STREET WEST, LISTOWEL ONTARIO
+A Boutique Wellness Residence for Independent Seniors
+THE ASSET — 469 MAIN STREET WEST, LISTOWEL ONTARIO
+A Boutique
+Wellness Residence
+for Independent Seniors
+Live Well. Age Well. Belong.
+ADDRESS
+469 Main St W, Listowel
+MUNICIPALITY
+North Perth, Ontario
+BUILDING
+5-Storey Purpose-Built
+TOTAL AREA
+±25,000 sf
+SUITES
+49 Independent Units
+BEDS
+94 Total Beds
+WELLNESS HUB
+±3,000 sf Ground Floor
+REG. PATH
+RHRA Licensed
+GROUND FLOOR
+Wellness · Café · Lounge
+UPPER FLOORS
+Residential Suites
+--- JOE PPT SLIDE 4 ---
+MARKET OPPORTUNITY
+Aging Demand Meets a Critical Product Gap
+18%+
+NORTH PERTH POP. GROWTH
+2016 → 2021 CENSUS
+18.7%
+NORTH PERTH RESIDENTS
+AGED 65 AND OVER
+4.4M
+ONTARIO SENIORS
+PROJECTED BY 2046
+SECTOR OCCUPANCY RECOVERY
+Sector Pricing Benchmark
+Waterloo: C$3,886/mo · Ajax: C$3,731/mo
+Thornhill: C$4,396/mo studio w/ meals &amp; services
+Wellness Real Estate Boom
+GWI: US$438.2B market · 18.1% CAGR 2019–2023
+Forecast: continued rapid expansion through 2028
+Ontario Seniors Housing
+67,399 spaces · 749 residences · 5.0% capture rate
+Demand growing faster than supply pipeline
+The Product Gap
+No mid-market, hospitality-grade, wellness-led option
+exists in smaller Ontario communities like Listowel
+--- JOE PPT SLIDE 5 ---
+COMPETITIVE POSITIONING
+Between Institutional and Luxury — A New Category
+STANDARD RETIREMENT HOME
+Institutional design language
+Corridor-centric layouts
+Limited wellness programming
+Reactive care model
+Generic shared amenities
+Price: C$3,200–C$3,800/mo
+HEAL HOUSE LISTOWEL
+Hospitality-grade quiet luxury
+Biophilic wellness architecture
+Integrated D·PILLARS protocols
+Prevention-first operations
+10 signature experiential spaces
+Price: C$3,650–C$5,995/mo
+LUXURY WELLNESS RESORT
+Destination-only, not residential
+C$500–C$1,500+ per night
+No long-term care component
+Not scalable to smaller markets
+Ultra-high capital requirement
+Price: N/A for permanent living
+◀   HEAL HOUSE SWEET SPOT   ▶
+--- JOE PPT SLIDE 6 ---
+THE EXPERIENCE — TEN SIGNATURE SPACES
+Every space is designed to justify premium pricing, elevate retention, and generate revenue.
+01 · LOBBY + CONCIERGE  ·  Arrival · Conversion · Trust
+03 · NERVOUS-SYSTEM ROOM
+02 · WELLNESS HUB
+09 · LIBRARY + READING ROOM
+08 · COURTYARD / ATRIUM
+05 · SOCIAL LOUNGE
+09 · PRIVATE SUITE
+ADDITIONAL SIGNATURE SPACES
+04  Dining + Longevity Kitchen
+06  Fitness + Mobility Studio
+07  Street-Facing Café
+10  Outdoor Terrace / Courtyard
+Each space generates revenue, deepens belonging, and supports the preventive wellness thesis.
+--- JOE PPT SLIDE 7 ---
+SIGNATURE SPACES — DESIGN &amp; REVENUE LOGIC
+Hospitality-grade environments that command premium pricing and drive long-term retention.
+NERVOUS-SYSTEM ROOM
+Brand signature · Sound healing · Deep rest · High perceived value per sf
+LOBBY + COMMUNITY HUB
+Arrival · Belonging · Social connection · Daily life anchor · Leasing conversion
+LIBRARY + READING ROOM
+Premium quiet cue · Educated downsizer · Retention driver · Daily sanctuary
+COURTYARD + ATRIUM
+Biophilic restorative space · Brand imagery · Family appeal · Leasing conversion
+--- JOE PPT SLIDE 8 ---
+PRIVATE SUITES + STREET-FACING CAFÉ
+The Product Residents Lease. The Experience That Leases Them.
+PRIVATE SUITES  ·  330–575 sf  ·  Warm oak · Limestone · Accessible washrooms · Large windows
+LIBRARY + WELLNESS LOUNGE  ·  Reading nook · Biophilic design · Community connection · Daily sanctuary
+--- JOE PPT SLIDE 9 ---
+WELLNESS HUB — REVENUE ENGINE
+The Heal House Hub: A Differentiator That Pays
+±3,000 SF · PEMF · Red Light · Diagnostics · Nervous-System Room · Fitness · Recovery Lounge
+YEAR 5 WELLNESS &amp; ANCILLARY REVENUE
+C$830,000
+Total Year 5 ancillary &amp; wellness revenue
+Resident Wellness Packages
+55–65% attach rate · C$150–350/mo per resident
+C$330,000
+External Memberships
+75+ community members at stabilization
+C$170,000
+Café / Guest Meals / Events
+Public-facing wellness café, street presence
+C$170,000
+Ancillary Fees &amp; Services
+Second-person, parking, care add-ons
+C$160,000
+--- JOE PPT SLIDE 10 ---
+SUITE MIX &amp; REVENUE PRICING
+Right-Sized Suites. Premium Private-Pay Pricing.
+SUITE TYPE
+SIZE (SF)
+UNITS
+SHARE
+MONTHLY RENT
+TARGET RESIDENT
+Accessible 1BR Micro
+220–260
+6
+12%
+C$3,650
+Budget-sensitive independent resident
+1 Bedroom
+330–575
+12
+24%
+C$4,150
+Solo independent resident
+2 Bedroom
+438–503
+26
+53%
+C$4,995
+Couple or solo wanting den/guest room
+3 Bedroom Premium
+513–575
+5
+10%
+C$5,995
+Couple / premium proximity
+TOTAL  ·  49 SUITES  ·  94 BEDS  ·  BLENDED AVERAGE C$4,580/MO  ·  STABILISED OCCUPANCY: 95%
+ADD-ON REVENUE PER SUITE
+Second-person fee: C$1,100–C$1,400/month
+Resident wellness package: C$150–C$350/month
+External membership: C$129–C$199/month
+--- JOE PPT SLIDE 11 ---
+FINANCIAL MODEL — FIVE-YEAR P&amp;L
+Illustrative Concept-Stage Pro Forma
+All figures in C$. To be re-confirmed by quantity surveyor and operating partner prior to formal distribution.
+YEAR 1
+YEAR 2
+YEAR 3
+YEAR 4
+YEAR 5
+Occupancy
+82%
+89%
+93%
+94%
+95%
+Residential Rent
+2,278,403
+2,547,088
+2,741,410
+2,854,015
+2,970,908
+Resident Wellness Pkg
+120,000
+180,000
+250,000
+290,000
+330,000
+External Memberships
+45,000
+80,000
+120,000
+145,000
+170,000
+Café / Guest Meals
+60,000
+95,000
+130,000
+150,000
+170,000
+Ancillary Fees
+50,000
+75,000
+110,000
+135,000
+160,000
+TOTAL REVENUE
+2,553,403
+2,977,088
+3,351,410
+3,574,015
+3,800,908
+Payroll &amp; Benefits
+(1,170,000)
+(1,280,000)
+(1,360,000)
+(1,410,000)
+(1,460,000)
+Food Cost
+(110,000)
+(145,000)
+(180,000)
+(200,000)
+(220,000)
+Wellness Ops &amp; Supplies
+(120,000)
+(150,000)
+(180,000)
+(200,000)
+(220,000)
+Housekeeping &amp; Laundry
+(130,000)
+(140,000)
+(150,000)
+(155,000)
+(160,000)
+Utilities / R&amp;M
+(200,000)
+(215,000)
+(230,000)
+(240,000)
+(250,000)
+G&amp;A / Ins / Prop Tax
+(220,000)
+(240,000)
+(250,000)
+(265,000)
+(280,000)
+Sales &amp; Marketing
+(130,000)
+(110,000)
+(90,000)
+(80,000)
+(70,000)
+TOTAL OPEX
+(2,080,000)
+(2,280,000)
+(2,440,000)
+(2,550,000)
+(2,660,000)
+NET OPERATING INCOME
+473,403
+697,088
+911,410
+1,024,015
+1,140,908
+NOI Margin
+18.5%
+23.4%
+27.2%
+28.7%
+30.0%
+--- JOE PPT SLIDE 12 ---
+REVENUE &amp; NOI TRAJECTORY
+Five-Year Growth to Stabilized NOI
+KEY MILESTONES
+Year 1
+REVENUE
+C$2.55M
+NOI
+C$473K
+MARGIN
+18.5%
+OCCUPANCY
+82%
+Year 3
+REVENUE
+C$3.35M
+NOI
+C$911K
+MARGIN
+27.2%
+OCCUPANCY
+93%
+Year 5
+REVENUE
+C$3.80M
+NOI
+C$1.14M
+MARGIN
+30.0%
+OCCUPANCY
+95%
+--- JOE PPT SLIDE 13 ---
+INVESTOR RETURNS — SCENARIO ANALYSIS
+5-Year Equity IRR: Three Scenarios
+DOWNSIDE
+~6%
+5-Year Equity IRR
+Equity Multiple: ~1.33×
+Slower rent growth
+92% Year 5 occupancy
+Lower wellness uptake
+Exit cap: 6.50–6.75%
+BASE CASE
+~13%
+5-Year Equity IRR
+Equity Multiple: ~1.79×
+95% Year 5 occupancy
+Moderate ancillary build
+Moderate wellness attach
+Exit cap: 6.25%
+UPSIDE
+~21%
+5-Year Equity IRR
+Equity Multiple: ~2.42×
+Faster lease-up
+Strong memberships/packages
+Premium rent growth
+Tighter exit cap
+Assumptions: C$3.5M senior debt ~6.25% I/O equivalent · 6.25% base exit cap · Year 5 forward NOI valuation · Excludes tax effects · Concept-stage only
+--- JOE PPT SLIDE 14 ---
+CAPITAL DEPLOYMENT — C$10M EQUITY RAISE
+Disciplined Use of Proceeds
+Equity tranche only — alongside senior construction/stabilisation debt and CMHC-compatible programmes.
+Hard Cost — Shell, Core &amp; Interiors
+C$6.70M  ·  67.0%
+FF&amp;E, Wellness Equipment &amp; Signage
+C$1.23M  ·  12.3%
+Professional Fees &amp; Permits
+C$0.95M  ·   9.5%
+Pre-Opening, Hiring &amp; Training
+C$0.35M  ·   3.5%
+Marketing, Leasing &amp; Content
+C$0.22M  ·   2.2%
+Working Capital &amp; Reserve
+C$0.55M  ·   5.5%
+TOTAL EQUITY RAISE: C$10,000,000
+--- JOE PPT SLIDE 15 ---
+OPERATIONS &amp; REGULATORY PATH
+Lean Hospitality + Partnered Clinical Services
+LICENSED MODEL
+Licensed Independent-Supportive Living under Ontario RHRA. Minimum 2 regulated care services made available: meals + medication/nursing oversight.
+OPERATIONAL CORE
+In-house hospitality management: GM, concierge, culinary, housekeeping, maintenance. Lean team of ~14–16 FTE at stabilisation.
+CLINICAL LAYER
+Contracted/sessional NP, RN, physiotherapist, massage therapist, nutrition — clinical depth without full inpatient staffing cost.
+RESIDENT RIGHTS
+Ontario RHRA framework: independence, privacy, autonomy, safety and comfort embedded in design and operations throughout.
+STAFFING MODEL (INDICATIVE)
+General Manager
+In-house
+1.0
+Director of Wellness &amp; Resident Exp.
+In-house
+1.0
+Concierge / Reception
+In-house
+2–3
+Culinary Lead + Kitchen Team
+In-house
+3–4
+Housekeeping + Maintenance
+In-house
+4–5
+Fitness / Mobility Coach
+In-house / Contract
+1.0
+Wellness Practitioners
+Contracted
+Mix
+Clinical Nursing / Medication
+Partnered
+PT
+Labour </pre>
+</div></section>
+
+<script>
+const model = {"gfa": 2889, "suites": 94, "cost_sf": 383.5, "monthly_rent": 3886.0, "expense_ratio": 0.42, "occupancy": 0.9, "growth": 0.025, "bch_forgivable": 0.4, "bch_rate": 0.0415, "bch_am": 50, "conv_rate": 0.0499, "conv_am": 30, "investor_split": 0.6, "nfp_split": 0.4, "pdf_imgs": ["assets/main-street/architect-page-1.jpg", "assets/main-street/architect-page-2.jpg"], "ppt_imgs": ["assets/main-street/ppt-media/image5.png", "assets/main-street/ppt-media/image1.png", "assets/main-street/ppt-media/image2.png", "assets/main-street/ppt-media/image3.png", "assets/main-street/ppt-media/image4.png"], "pdf_source": "--- PDF PAGE 1 ---\nSTAIRS\nMAIN STREET WEST\nTWO-WAY DRIVE AISLE\nTWO-WAY DRIVE AISLE\n22401\n12593\n18415\n21836\n27184\n19674\nEXISTING SIDEWALK\nEXISTING SIDEWALK\n4146\nBLDG LINE ABOVE\nBLDG LINE ABOVE\nBLDG LINE ABOVE\nRESIDENTIAL BUILDING\n5 STOREYS 2670SM\n\u00b149UNITS (94 BEDS)\n6000\n6000\n5500\n2700\n2700\n5500\nTWO-WAY DRIVE AISLE\n1707\n1500\n1500\n1500\n5500\n6000\n5500\n2700\n2700\n20400\n7198\n6000\n5500\n3400\n5500\n1500\n2700\n5500\n2700\n4437\n2609\n5845\nR3005\n3000\nELEV.\nM\nEL\nC\nGARBAGE\nROOM\nSERVICE\nROOM\nSTAIRS\nR9000\nR500\nR500\nR3000\nR500\nR500\n27530\n17550\n8000\n8000\n8000\n3330\n5845\n1200\n4752\nPART OF EXIST.\nHILL HOUSE TO\nBE PRESERVED\n10500\nBLDG SETBACK\n15\nLS SET\n12450\nBLDG SETBACK\n1500\nLS SETBACK\n1500\nLS SETBACK\n1500\nLS SETBACK\n1500\nLS SETBACK\n3960\nEX. BLDG SETBACK\n5650\nBLDG SETBACK\n2684\nEX. BLDG SETBACK\n6000\nBLDG SETBACK\n6000\nBLDG SETBACK\n6000\nBLDG SETBACK\n5650\nEXISTING. HEAL HOUSE\nLOBBY AND AMENITY\nSPACE\n\u00b12,889 SF\nSHEET\n2026.01.20\nTOR25-0000-00\nConceptual Site Plan\n455, 469 & 483 Main St W\nscheme: 01\nListowel, ON N4W 1A7\n1\nNORTH\n0\n2.5m\n5m\n10m\n1:100\n1m\n\n--- PDF PAGE 2 ---\n21836\n27184\n19674\n4146\n4146\nMAIN STREET WEST\n2684\n12470\nUNIT (3B)\n\u00b1575 SF\nUNIT (1B)\n\u00b1330 SF\nUNIT (2B)\n\u00b1472 SF\nUNIT (2B)\n\u00b1484 SF\nUNIT (2B)\n\u00b1447 SF\nUNIT (3B)\n\u00b1513 SF\nUNIT (2B)\n\u00b1503 SF\nUNIT (2B)\n\u00b1503 SF\nUNIT (2B)\n\u00b1503 SF\nUNIT (1B)\n\u00b1222 SF\nSTAIRS\nSTAIRS\nELEV.\nM EL\nC\nRESIDENTIAL BUILDING\n5 STOREYS 2670SM\n\u00b149UNITS (94 BEDS)\n22401\n12593\n18415\n19674\n44880\n12891\n5650\n5845\n1200\n5845\n8000\n8000\n8000\n8000\n8000\n4880\n12450\nBLDG SETBACK\n4160\nBLDG SETBACK\nUNIT (2B)\n\u00b1478 SF\nUNIT (2B)\n\u00b1438 SF\nSHEET\n2026.01.20\nTOR25-0000-00\nConceptual Typ. (2nd-4th) Floor Plan\n455, 469 & 483 Main St W\nscheme: 01\nListowel, ON N4W 1A7\n2\nNORTH\n0\n2.5m\n5m\n10m\n1:100\n1m\n", "ppt_source": "--- JOE PPT SLIDE 1 ---\nHEAL\nHOUSE\nLISTOWEL \u00b7 ONTARIO\nSenior Independent Living  \u00b7  Wellness-Led  \u00b7  Boutique\nINVESTOR PRESENTATION  \u00b7  APRIL 2026  \u00b7  CONFIDENTIAL\nC$10.0M\nEQUITY RAISE\n49 / 94\nSUITES / BEDS\n\u00b13,000 sf\nWELLNESS HUB\nC$3.8M\nYEAR 5 REVENUE\nC$1.14M\nYEAR 5 NOI\n~13%\nBASE IRR (5-YR)\nMeasure. Optimize. Thrive.\n--- JOE PPT SLIDE 2 ---\nEXECUTIVE SUMMARY\nA C$10M Equity Opportunity in Premium Senior Living\nHEAL HOUSE reimagines senior independent living as a hospitality-grade, wellness-centred residence \u2014 differentiated by Aman-inspired design, community, and preventive health programming.\nTHE PROJECT\n5-storey, purpose-built residence\n469 Main St W, Listowel, Ontario\n49 suites \u00b7 94 beds \u00b7 \u00b125,000 sf\nWELLNESS HUB\n\u00b13,000 sf Heal House amenity hub\nRecovery \u00b7 diagnostics \u00b7 longevity\nAncillary revenue engine on ground floor\nTHE DEMAND\nNorth Perth 65+ = 18.7% of population\nOntario seniors \u2192 4.4M by 2046\nRetirement occupancy recovering to 95%+\nTHE PRODUCT\nLicensed independent-supportive living\nAman-inspired quiet luxury design language\nPrevention-first wellness operating model\nTHE FINANCIALS\nC$3.80M Year 5 total revenue\nC$1.14M Year 5 NOI \u00b7 30% margin\nBase case 5-yr equity IRR: ~13%\nTHE EXIT\nStabilize \u2192 Recap \u2192 Replicate\nProof-of-concept Ontario platform\nSale or portfolio scale post Year 5\nAll financial projections are concept-stage illustrations only. Not investment advice. Past performance of comparable assets is for reference purposes.\n--- JOE PPT SLIDE 3 ---\nTHE ASSET \u2014 469 MAIN STREET WEST, LISTOWEL ONTARIO\nA Boutique Wellness Residence for Independent Seniors\nTHE ASSET \u2014 469 MAIN STREET WEST, LISTOWEL ONTARIO\nA Boutique\nWellness Residence\nfor Independent Seniors\nLive Well. Age Well. Belong.\nADDRESS\n469 Main St W, Listowel\nMUNICIPALITY\nNorth Perth, Ontario\nBUILDING\n5-Storey Purpose-Built\nTOTAL AREA\n\u00b125,000 sf\nSUITES\n49 Independent Units\nBEDS\n94 Total Beds\nWELLNESS HUB\n\u00b13,000 sf Ground Floor\nREG. PATH\nRHRA Licensed\nGROUND FLOOR\nWellness \u00b7 Caf\u00e9 \u00b7 Lounge\nUPPER FLOORS\nResidential Suites\n--- JOE PPT SLIDE 4 ---\nMARKET OPPORTUNITY\nAging Demand Meets a Critical Product Gap\n18%+\nNORTH PERTH POP. GROWTH\n2016 \u2192 2021 CENSUS\n18.7%\nNORTH PERTH RESIDENTS\nAGED 65 AND OVER\n4.4M\nONTARIO SENIORS\nPROJECTED BY 2046\nSECTOR OCCUPANCY RECOVERY\nSector Pricing Benchmark\nWaterloo: C$3,886/mo \u00b7 Ajax: C$3,731/mo\nThornhill: C$4,396/mo studio w/ meals & services\nWellness Real Estate Boom\nGWI: US$438.2B market \u00b7 18.1% CAGR 2019\u20132023\nForecast: continued rapid expansion through 2028\nOntario Seniors Housing\n67,399 spaces \u00b7 749 residences \u00b7 5.0% capture rate\nDemand growing faster than supply pipeline\nThe Product Gap\nNo mid-market, hospitality-grade, wellness-led option\nexists in smaller Ontario communities like Listowel\n--- JOE PPT SLIDE 5 ---\nCOMPETITIVE POSITIONING\nBetween Institutional and Luxury \u2014 A New Category\nSTANDARD RETIREMENT HOME\nInstitutional design language\nCorridor-centric layouts\nLimited wellness programming\nReactive care model\nGeneric shared amenities\nPrice: C$3,200\u2013C$3,800/mo\nHEAL HOUSE LISTOWEL\nHospitality-grade quiet luxury\nBiophilic wellness architecture\nIntegrated D\u00b7PILLARS protocols\nPrevention-first operations\n10 signature experiential spaces\nPrice: C$3,650\u2013C$5,995/mo\nLUXURY WELLNESS RESORT\nDestination-only, not residential\nC$500\u2013C$1,500+ per night\nNo long-term care component\nNot scalable to smaller markets\nUltra-high capital requirement\nPrice: N/A for permanent living\n\u25c0   HEAL HOUSE SWEET SPOT   \u25b6\n--- JOE PPT SLIDE 6 ---\nTHE EXPERIENCE \u2014 TEN SIGNATURE SPACES\nEvery space is designed to justify premium pricing, elevate retention, and generate revenue.\n01 \u00b7 LOBBY + CONCIERGE  \u00b7  Arrival \u00b7 Conversion \u00b7 Trust\n03 \u00b7 NERVOUS-SYSTEM ROOM\n02 \u00b7 WELLNESS HUB\n09 \u00b7 LIBRARY + READING ROOM\n08 \u00b7 COURTYARD / ATRIUM\n05 \u00b7 SOCIAL LOUNGE\n09 \u00b7 PRIVATE SUITE\nADDITIONAL SIGNATURE SPACES\n04  Dining + Longevity Kitchen\n06  Fitness + Mobility Studio\n07  Street-Facing Caf\u00e9\n10  Outdoor Terrace / Courtyard\nEach space generates revenue, deepens belonging, and supports the preventive wellness thesis.\n--- JOE PPT SLIDE 7 ---\nSIGNATURE SPACES \u2014 DESIGN & REVENUE LOGIC\nHospitality-grade environments that command premium pricing and drive long-term retention.\nNERVOUS-SYSTEM ROOM\nBrand signature \u00b7 Sound healing \u00b7 Deep rest \u00b7 High perceived value per sf\nLOBBY + COMMUNITY HUB\nArrival \u00b7 Belonging \u00b7 Social connection \u00b7 Daily life anchor \u00b7 Leasing conversion\nLIBRARY + READING ROOM\nPremium quiet cue \u00b7 Educated downsizer \u00b7 Retention driver \u00b7 Daily sanctuary\nCOURTYARD + ATRIUM\nBiophilic restorative space \u00b7 Brand imagery \u00b7 Family appeal \u00b7 Leasing conversion\n--- JOE PPT SLIDE 8 ---\nPRIVATE SUITES + STREET-FACING CAF\u00c9\nThe Product Residents Lease. The Experience That Leases Them.\nPRIVATE SUITES  \u00b7  330\u2013575 sf  \u00b7  Warm oak \u00b7 Limestone \u00b7 Accessible washrooms \u00b7 Large windows\nLIBRARY + WELLNESS LOUNGE  \u00b7  Reading nook \u00b7 Biophilic design \u00b7 Community connection \u00b7 Daily sanctuary\n--- JOE PPT SLIDE 9 ---\nWELLNESS HUB \u2014 REVENUE ENGINE\nThe Heal House Hub: A Differentiator That Pays\n\u00b13,000 SF \u00b7 PEMF \u00b7 Red Light \u00b7 Diagnostics \u00b7 Nervous-System Room \u00b7 Fitness \u00b7 Recovery Lounge\nYEAR 5 WELLNESS & ANCILLARY REVENUE\nC$830,000\nTotal Year 5 ancillary & wellness revenue\nResident Wellness Packages\n55\u201365% attach rate \u00b7 C$150\u2013350/mo per resident\nC$330,000\nExternal Memberships\n75+ community members at stabilization\nC$170,000\nCaf\u00e9 / Guest Meals / Events\nPublic-facing wellness caf\u00e9, street presence\nC$170,000\nAncillary Fees & Services\nSecond-person, parking, care add-ons\nC$160,000\n--- JOE PPT SLIDE 10 ---\nSUITE MIX & REVENUE PRICING\nRight-Sized Suites. Premium Private-Pay Pricing.\nSUITE TYPE\nSIZE (SF)\nUNITS\nSHARE\nMONTHLY RENT\nTARGET RESIDENT\nAccessible 1BR Micro\n220\u2013260\n6\n12%\nC$3,650\nBudget-sensitive independent resident\n1 Bedroom\n330\u2013575\n12\n24%\nC$4,150\nSolo independent resident\n2 Bedroom\n438\u2013503\n26\n53%\nC$4,995\nCouple or solo wanting den/guest room\n3 Bedroom Premium\n513\u2013575\n5\n10%\nC$5,995\nCouple / premium proximity\nTOTAL  \u00b7  49 SUITES  \u00b7  94 BEDS  \u00b7  BLENDED AVERAGE C$4,580/MO  \u00b7  STABILISED OCCUPANCY: 95%\nADD-ON REVENUE PER SUITE\nSecond-person fee: C$1,100\u2013C$1,400/month\nResident wellness package: C$150\u2013C$350/month\nExternal membership: C$129\u2013C$199/month\n--- JOE PPT SLIDE 11 ---\nFINANCIAL MODEL \u2014 FIVE-YEAR P&L\nIllustrative Concept-Stage Pro Forma\nAll figures in C$. To be re-confirmed by quantity surveyor and operating partner prior to formal distribution.\nYEAR 1\nYEAR 2\nYEAR 3\nYEAR 4\nYEAR 5\nOccupancy\n82%\n89%\n93%\n94%\n95%\nResidential Rent\n2,278,403\n2,547,088\n2,741,410\n2,854,015\n2,970,908\nResident Wellness Pkg\n120,000\n180,000\n250,000\n290,000\n330,000\nExternal Memberships\n45,000\n80,000\n120,000\n145,000\n170,000\nCaf\u00e9 / Guest Meals\n60,000\n95,000\n130,000\n150,000\n170,000\nAncillary Fees\n50,000\n75,000\n110,000\n135,000\n160,000\nTOTAL REVENUE\n2,553,403\n2,977,088\n3,351,410\n3,574,015\n3,800,908\nPayroll & Benefits\n(1,170,000)\n(1,280,000)\n(1,360,000)\n(1,410,000)\n(1,460,000)\nFood Cost\n(110,000)\n(145,000)\n(180,000)\n(200,000)\n(220,000)\nWellness Ops & Supplies\n(120,000)\n(150,000)\n(180,000)\n(200,000)\n(220,000)\nHousekeeping & Laundry\n(130,000)\n(140,000)\n(150,000)\n(155,000)\n(160,000)\nUtilities / R&M\n(200,000)\n(215,000)\n(230,000)\n(240,000)\n(250,000)\nG&A / Ins / Prop Tax\n(220,000)\n(240,000)\n(250,000)\n(265,000)\n(280,000)\nSales & Marketing\n(130,000)\n(110,000)\n(90,000)\n(80,000)\n(70,000)\nTOTAL OPEX\n(2,080,000)\n(2,280,000)\n(2,440,000)\n(2,550,000)\n(2,660,000)\nNET OPERATING INCOME\n473,403\n697,088\n911,410\n1,024,015\n1,140,908\nNOI Margin\n18.5%\n23.4%\n27.2%\n28.7%\n30.0%\n--- JOE PPT SLIDE 12 ---\nREVENUE & NOI TRAJECTORY\nFive-Year Growth to Stabilized NOI\nKEY MILESTONES\nYear 1\nREVENUE\nC$2.55M\nNOI\nC$473K\nMARGIN\n18.5%\nOCCUPANCY\n82%\nYear 3\nREVENUE\nC$3.35M\nNOI\nC$911K\nMARGIN\n27.2%\nOCCUPANCY\n93%\nYear 5\nREVENUE\nC$3.80M\nNOI\nC$1.14M\nMARGIN\n30.0%\nOCCUPANCY\n95%\n--- JOE PPT SLIDE 13 ---\nINVESTOR RETURNS \u2014 SCENARIO ANALYSIS\n5-Year Equity IRR: Three Scenarios\nDOWNSIDE\n~6%\n5-Year Equity IRR\nEquity Multiple: ~1.33\u00d7\nSlower rent growth\n92% Year 5 occupancy\nLower wellness uptake\nExit cap: 6.50\u20136.75%\nBASE CASE\n~13%\n5-Year Equity IRR\nEquity Multiple: ~1.79\u00d7\n95% Year 5 occupancy\nModerate ancillary build\nModerate wellness attach\nExit cap: 6.25%\nUPSIDE\n~21%\n5-Year Equity IRR\nEquity Multiple: ~2.42\u00d7\nFaster lease-up\nStrong memberships/packages\nPremium rent growth\nTighter exit cap\nAssumptions: C$3.5M senior debt ~6.25% I/O equivalent \u00b7 6.25% base exit cap \u00b7 Year 5 forward NOI valuation \u00b7 Excludes tax effects \u00b7 Concept-stage only\n--- JOE PPT SLIDE 14 ---\nCAPITAL DEPLOYMENT \u2014 C$10M EQUITY RAISE\nDisciplined Use of Proceeds\nEquity tranche only \u2014 alongside senior construction/stabilisation debt and CMHC-compatible programmes.\nHard Cost \u2014 Shell, Core & Interiors\nC$6.70M  \u00b7  67.0%\nFF&E, Wellness Equipment & Signage\nC$1.23M  \u00b7  12.3%\nProfessional Fees & Permits\nC$0.95M  \u00b7   9.5%\nPre-Opening, Hiring & Training\nC$0.35M  \u00b7   3.5%\nMarketing, Leasing & Content\nC$0.22M  \u00b7   2.2%\nWorking Capital & Reserve\nC$0.55M  \u00b7   5.5%\nTOTAL EQUITY RAISE: C$10,000,000\n--- JOE PPT SLIDE 15 ---\nOPERATIONS & REGULATORY PATH\nLean Hospitality + Partnered Clinical Services\nLICENSED MODEL\nLicensed Independent-Supportive Living under Ontario RHRA. Minimum 2 regulated care services made available: meals + medication/nursing oversight.\nOPERATIONAL CORE\nIn-house hospitality management: GM, concierge, culinary, housekeeping, maintenance. Lean team of ~14\u201316 FTE at stabilisation.\nCLINICAL LAYER\nContracted/sessional NP, RN, physiotherapist, massage therapist, nutrition \u2014 clinical depth without full inpatient staffing cost.\nRESIDENT RIGHTS\nOntario RHRA framework: independence, privacy, autonomy, safety and comfort embedded in design and operations throughout.\nSTAFFING MODEL (INDICATIVE)\nGeneral Manager\nIn-house\n1.0\nDirector of Wellness & Resident Exp.\nIn-house\n1.0\nConcierge / Reception\nIn-house\n2\u20133\nCulinary Lead + Kitchen Team\nIn-house\n3\u20134\nHousekeeping + Maintenance\nIn-house\n4\u20135\nFitness / Mobility Coach\nIn-house / Contract\n1.0\nWellness Practitioners\nContracted\nMix\nClinical Nursing / Medication\nPartnered\nPT\nLabour "};
+function fmt(n){let neg=n<0;n=Math.abs(n);let v=n>=1e6?'$'+(n/1e6).toFixed(2)+'M':'$'+Math.round(n/1000)+'K';return neg?'-'+v:v}
+function cls(n){return n<0?'negative':'positive'}
+function debt(p,r,y){let m=r/12,n=y*12;return p*(m*Math.pow(1+m,n))/(Math.pow(1+m,n)-1)*12}
+function run(bch, year){
+ const cost=model.gfa*model.cost_sf;
+ const principal=bch?cost*(1-model.bch_forgivable):cost;
+ const ds=debt(principal,bch?model.bch_rate:model.conv_rate,bch?model.bch_am:model.conv_am);
+ const revenue=model.suites*model.monthly_rent*12*model.occupancy*Math.pow(1+model.growth,year-1);
+ const expense=revenue*model.expense_ratio;
+ const noi=revenue-expense;
+ const cf=noi-ds;
+ return {cost,principal,ds,revenue,expense,noi,cf,inv:cf>0?(bch?cf*model.investor_split:cf):0,nfp:cf>0&&bch?cf*model.nfp_split:0};
+}
+document.getElementById('programCards').innerHTML = `
+ <div class="card"><div class="k">GFA · Architect PDF</div><div class="v">${model.gfa?model.gfa.toLocaleString():'VERIFY'}</div><div class="s">Gross floor area / area schedule</div></div>
+ <div class="card"><div class="k">Suites · Architect PDF</div><div class="v">${model.suites?model.suites.toLocaleString():'VERIFY'}</div><div class="s">Retirement suites / beds</div></div>
+ <div class="card"><div class="k">Cost · Joe Deck</div><div class="v">$${model.cost_sf.toLocaleString()}/SF</div><div class="s">Construction cost assumption</div></div>
+ <div class="card"><div class="k">Monthly Rent · Joe Deck</div><div class="v">$${model.monthly_rent.toLocaleString()}</div><div class="s">Per suite/month</div></div>
+ <div class="card"><div class="k">Expense Ratio · Joe Deck</div><div class="v">${Math.round(model.expense_ratio*100)}%</div><div class="s">Retirement operating expense</div></div>
+`;
+let y20b=run(true,20), y20n=run(false,20);
+document.getElementById('scenarioCards').innerHTML = `
+ <div class="card"><div class="k">BCH · Year 20 After Mortgage</div><div class="v ${cls(y20b.cf)}">${fmt(y20b.cf)}</div><div class="s">Investor ${fmt(y20b.inv)} · NFP ${fmt(y20b.nfp)}</div></div>
+ <div class="card"><div class="k">No BCH · Year 20 After Mortgage</div><div class="v ${cls(y20n.cf)}">${fmt(y20n.cf)}</div><div class="s">Investor ${fmt(y20n.inv)} · NFP $0</div></div>
+ <div class="card"><div class="k">Total Project Cost</div><div class="v">${fmt(y20b.cost)}</div><div class="s">GFA × cost/SF</div></div>
+`;
+let html='<thead><tr><th>Year</th><th>Scenario</th><th>Revenue</th><th>Expenses</th><th>NOI</th><th>Mortgage</th><th>After Mortgage</th><th>Investor</th><th>NFP</th></tr></thead><tbody>';
+for(let y=1;y<=20;y++){[true,false].forEach(b=>{let r=run(b,y);html+=`<tr><td>${y}</td><td>${b?'BCH 40% forgivable / 50yr CMHC':'No BCH / 30yr conventional'}</td><td>${fmt(r.revenue)}</td><td>${fmt(r.expense)}</td><td>${fmt(r.noi)}</td><td>${fmt(r.ds)}</td><td class="${cls(r.cf)}">${fmt(r.cf)}</td><td>${fmt(r.inv)}</td><td>${fmt(r.nfp)}</td></tr>`})}
+html+='</tbody>';document.getElementById('yearTable').innerHTML=html;
+document.getElementById('decisionCards').innerHTML = `
+ <div class="card"><div class="k">Preferred Structure</div><div class="v">BCH</div><div class="s">Lower mortgage load and creates NFP participation.</div></div>
+ <div class="card"><div class="k">Investor/NFP Logic</div><div class="v">60 / 40</div><div class="s">Applied only after mortgage payment.</div></div>
+ <div class="card"><div class="k">Verify Next</div><div class="v">Inputs</div><div class="s">GFA, suite count, rent, cost/SF, expense ratio.</div></div>
+`;
+</script>
+</body></html>
