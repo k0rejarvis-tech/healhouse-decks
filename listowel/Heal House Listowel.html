@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1A1612">
+<title>Heal House × Listowel — Investor Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="finance.js"></script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   HEAL HOUSE LISTOWEL — RESPONSIVE INVESTOR DECK
+   Mobile-first · Lakeshore cinematic · 14 sections
+   ══════════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#1A1612;
+  --bg-alt:#1E1A14;
+  --bg-deep:#0F0C09;
+  --card-bg:rgba(30,26,20,0.92);
+  --card-border:rgba(201,168,76,.14);
+  --line-soft:rgba(237,229,216,.08);
+  --cream:#EDE5D8;
+  --cream-dim:rgba(237,229,216,.62);
+  --gold:#C9A84C;
+  --gold-bright:#E0BE5C;
+  --gold-dim:rgba(201,168,76,.22);
+  --teal:#3A7D7B;
+  --teal-bright:#4FA39F;
+  --rose:#B76E52;
+  --green:#7DA87A;
+
+  --pad-x:24px;
+  --pad-y:64px;
+}
+
+@media (min-width:768px){
+  :root{ --pad-x:48px; --pad-y:80px; }
+}
+@media (min-width:1200px){
+  :root{ --pad-x:80px; --pad-y:100px; }
+}
+
+html,body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Inter',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;color:var(--cream);line-height:1.1}
+h1{font-size:clamp(48px,12vw,128px);letter-spacing:-.01em}
+h2{font-size:clamp(34px,7vw,72px);line-height:1.05}
+h3{font-size:clamp(22px,4vw,36px)}
+h4{font-size:clamp(18px,3vw,28px)}
+
+.italic{font-style:italic}
+.gold{color:var(--gold)}
+.gold-bright{color:var(--gold-bright)}
+.teal{color:var(--teal-bright)}
+.rose{color:var(--rose)}
+.cream{color:var(--cream)}
+.dim{color:var(--cream-dim)}
+.serif{font-family:'Cormorant Garamond',serif}
+.tnum,.mono{font-variant-numeric:tabular-nums}
+.mono{font-family:'SF Mono',Consolas,Menlo,monospace}
+
+.eyebrow{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);
+}
+@media (min-width:768px){ .eyebrow{font-size:13px} }
+
+.gold-divider{width:60px;height:1.5px;background:var(--gold);opacity:.7;margin:20px 0}
+.gold-divider--lg{width:100px}
+.gold-divider--center{margin-left:auto;margin-right:auto}
+
+p{font-size:clamp(15px,2.4vw,18px);line-height:1.7}
+.lead{font-size:clamp(17px,3vw,22px);line-height:1.65}
+.small{font-size:clamp(13px,2vw,15px)}
+.tiny{font-size:12px}
+
+/* ── SLIDE BASE ─────────────────────────────────────────────── */
+.slide{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  padding:var(--pad-y) var(--pad-x);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  scroll-snap-align:start;
+}
+.slide--alt{background:var(--bg-alt)}
+.slide--deep{background:var(--bg-deep)}
+.slide--full{padding:0;justify-content:center;align-items:center;text-align:center}
+
+.slide-tag,.slide-num{
+  position:absolute;bottom:24px;
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:.32em;color:var(--cream-dim);text-transform:uppercase;
+}
+.slide-tag{left:var(--pad-x)}
+.slide-num{right:var(--pad-x)}
+@media (min-width:768px){
+  .slide-tag,.slide-num{font-size:12px;bottom:32px}
+}
+
+/* Content max widths */
+.content{width:100%;max-width:1500px;margin:0 auto;flex:1;display:flex;flex-direction:column}
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.hero{
+  position:relative;width:100%;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:#000;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('images/atrium.jpg');
+  background-size:cover;background-position:center;
+  filter:brightness(.5) saturate(.85);
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(26,22,18,.45) 0%, rgba(26,22,18,.78) 100%);
+}
+.hero-mark{
+  position:absolute;top:24px;left:var(--pad-x);
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;letter-spacing:.32em;color:var(--cream);
+  z-index:3;
+}
+@media (min-width:768px){ .hero-mark{top:40px;font-size:16px} }
+
+.hero-inner{
+  position:relative;z-index:2;
+  text-align:center;width:100%;max-width:1300px;
+  padding:80px var(--pad-x) 80px;
+}
+.hero-eyebrow{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:11px;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+}
+@media (min-width:768px){ .hero-eyebrow{font-size:14px;margin-bottom:32px} }
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,11vw,128px);
+  letter-spacing:-.005em;line-height:.95;
+  color:var(--cream);
+}
+.hero-location{
+  font-family:'Inter',sans-serif;font-weight:400;
+  font-size:clamp(11px,2.5vw,16px);
+  letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold);margin-top:18px;
+}
+.hero-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(28px,6vw,54px);
+  color:var(--gold-bright);
+  line-height:1.2;margin-top:32px;
+}
+.hero-meta{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(10px,2vw,14px);
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--cream-dim);margin-top:24px;
+}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:48px;
+  padding-top:36px;
+  border-top:1px solid rgba(201,168,76,.3);
+  max-width:560px;
+  margin-left:auto;margin-right:auto;
+}
+@media (min-width:768px){
+  .hero-stats{grid-template-columns:repeat(4,1fr);gap:40px;margin-top:64px;max-width:1100px}
+}
+.hero-stat .stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,7vw,56px);
+  color:var(--gold);line-height:1;
+}
+.hero-stat .stat-lbl{
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:400;
+  letter-spacing:.24em;text-transform:uppercase;
+  color:var(--cream-dim);margin-top:10px;
+}
+@media (min-width:768px){ .hero-stat .stat-lbl{font-size:12px} }
+
+/* ── SPLIT ──────────────────────────────────────────────────── */
+.split{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;width:100%;flex:1;
+  min-height:100vh;
+}
+.split-img{
+  height:280px;
+  background-size:cover;background-position:center;
+  position:relative;
+}
+.split-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 0%, rgba(26,22,18,.4) 100%);
+}
+.split-text{
+  padding:56px var(--pad-x);
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--bg);
+}
+@media (min-width:900px){
+  .split{grid-template-columns:2fr 3fr}
+  .split--60-40{grid-template-columns:3fr 2fr}
+  .split-img{height:auto;min-height:100vh}
+  .split-img::after{
+    background:linear-gradient(90deg, rgba(26,22,18,.35) 0%, transparent 30%);
+  }
+  .split-text{padding:80px var(--pad-x)}
+}
+
+/* ── CARDS ──────────────────────────────────────────────────── */
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:8px;
+  padding:24px;
+}
+@media (min-width:768px){ .card{padding:32px} }
+
+.card--gold{border-color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,.10)}
+.card--rose{border-color:rgba(183,110,82,.4)}
+.card--teal{border-color:var(--teal-bright);background:rgba(58,125,123,.08)}
+
+.tag{
+  display:inline-block;
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  padding:5px 12px;border-radius:3px;margin-bottom:14px;
+}
+@media (min-width:768px){ .tag{font-size:11px;padding:5px 14px} }
+.tag--bch{background:rgba(201,168,76,.16);color:var(--gold)}
+.tag--trad{background:rgba(183,110,82,.18);color:var(--rose)}
+.tag--rec{background:var(--gold);color:var(--bg);font-weight:600}
+
+/* ── KV ROWS ────────────────────────────────────────────────── */
+.kv-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:11px 0;
+  border-bottom:1px solid var(--line-soft);
+  font-size:clamp(14px,2.4vw,18px);
+}
+.kv-row.tot{
+  border-top:1px solid var(--gold-dim);
+  border-bottom:none;
+  margin-top:8px;padding-top:14px;
+  font-weight:500;
+}
+.kv-row .k{color:var(--cream-dim);flex:1;min-width:0}
+.kv-row .v{font-family:'SF Mono',Consolas,monospace;font-variant-numeric:tabular-nums;color:var(--cream);text-align:right;white-space:nowrap}
+.kv-row .v.gold{color:var(--gold);font-weight:500}
+.kv-row .v.rose{color:var(--rose)}
+.kv-row .v.teal{color:var(--teal-bright)}
+
+/* ── KPI ────────────────────────────────────────────────────── */
+.kpi-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,7vw,54px);
+  color:var(--gold);line-height:1;
+}
+.kpi-num--lg{font-size:clamp(48px,9vw,80px)}
+.kpi-num--sm{font-size:clamp(28px,5vw,38px)}
+.kpi-lbl{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);
+  margin-top:8px;
+}
+
+/* ── TABLE ──────────────────────────────────────────────────── */
+.table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:0 calc(var(--pad-x) * -1);
+  padding:0 var(--pad-x);
+}
+.dtable{
+  width:100%;
+  border-collapse:collapse;
+  font-size:clamp(13px,2.2vw,18px);
+  min-width:520px;
+}
+.dtable th{
+  text-align:left;padding:12px 14px;
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  border-bottom:1px solid var(--gold-dim);
+  white-space:nowrap;
+}
+.dtable td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:middle;
+}
+.dtable .num{
+  text-align:right;
+  font-family:'SF Mono',Consolas,monospace;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.dtable .total td{
+  border-top:1px solid var(--gold-dim);
+  background:rgba(201,168,76,.05);
+  font-weight:500;color:var(--cream);
+}
+.dtable .pos{color:var(--green)}
+.dtable .neg{color:var(--rose)}
+
+/* ── STACK BARS ─────────────────────────────────────────────── */
+.stack-row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:6px;
+  margin-bottom:14px;
+}
+.stack-row-label{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cream-dim);
+}
+.stack-row-amount{
+  font-family:'SF Mono',Consolas,monospace;
+  font-size:13px;color:var(--cream);
+  font-variant-numeric:tabular-nums;
+  text-align:right;
+}
+.stack-bar-wrap{
+  height:32px;background:rgba(0,0,0,.3);
+  border-radius:4px;position:relative;overflow:hidden;
+  grid-column:1/-1;
+}
+.stack-bar{
+  height:100%;display:flex;align-items:center;
+  padding:0 12px;color:var(--bg);
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.04em;
+}
+@media (min-width:600px){
+  .stack-row{
+    grid-template-columns:120px 1fr 130px;
+    align-items:center;gap:14px;
+  }
+  .stack-bar-wrap{grid-column:auto;height:38px}
+  .stack-row-amount{text-align:right}
+  .stack-bar{font-size:12px;padding:0 16px}
+}
+@media (min-width:900px){
+  .stack-row{grid-template-columns:160px 1fr 160px}
+  .stack-bar{font-size:12px;padding:0 16px}
+}
+.b-forgive{background:#7DA87A}
+.b-cmhc{background:var(--gold)}
+.b-eq{background:var(--gold-bright)}
+.b-munic{background:var(--teal-bright)}
+.b-conv{background:var(--rose)}
+.b-eq-trad{background:var(--cream)}
+.b-empty{
+  width:100%;height:100%;
+  border:1px dashed rgba(237,229,216,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--cream-dim);letter-spacing:.18em;
+}
+
+/* ── CHART CARD ─────────────────────────────────────────────── */
+.chart-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:8px;padding:20px;
+}
+@media (min-width:768px){ .chart-card{padding:28px 32px} }
+.chart-card h3{
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:16px;padding-bottom:14px;
+  border-bottom:1px solid var(--gold-dim);
+}
+.chart-box{position:relative;width:100%;height:260px}
+@media (min-width:768px){ .chart-box{height:340px} }
+@media (min-width:1200px){ .chart-box{height:420px} }
+
+/* ── GALLERY ────────────────────────────────────────────────── */
+.gallery{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;margin-top:24px;
+}
+@media (min-width:600px){ .gallery{grid-template-columns:1fr 1fr} }
+@media (min-width:900px){ .gallery{grid-template-columns:repeat(3,1fr);gap:18px} }
+.gimg{
+  height:220px;
+  background-size:cover;background-position:center;
+  border-radius:6px;position:relative;overflow:hidden;
+}
+@media (min-width:768px){ .gimg{height:300px} }
+@media (min-width:1200px){ .gimg{height:380px} }
+.gimg .glabel{
+  position:absolute;bottom:0;left:0;right:0;padding:14px 18px;
+  background:linear-gradient(0deg, rgba(15,12,9,.95) 0%, transparent 100%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(16px,2.5vw,22px);color:var(--cream);
+}
+
+/* ── PROGRAM TILES (hero) ──────────────────────────────── */
+.program-tile{
+  background:rgba(30,26,20,.7);
+  border:1px solid var(--gold-dim);
+  border-radius:6px;
+  padding:18px 16px;
+  text-align:left;
+  backdrop-filter:blur(4px);
+}
+.program-tile .pt-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,6vw,42px);
+  color:var(--gold);line-height:1;
+}
+.program-tile .pt-lbl{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cream-dim);margin-top:8px;
+}
+@media (min-width:768px){
+  .program-tile{padding:22px 24px}
+  .program-tile .pt-lbl{font-size:11px;letter-spacing:.22em}
+}
+
+/* ── GRIDS ──────────────────────────────────────────────── */
+.grid-2{display:grid;grid-template-columns:1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:768px){
+  .grid-2{grid-template-columns:1fr 1fr;gap:32px}
+  .grid-3{grid-template-columns:repeat(3,1fr);gap:24px}
+}
+@media (min-width:1100px){
+  .grid-2{gap:48px}
+  .grid-3{gap:32px}
+}
+
+/* ── VS DIVIDER (only desktop) ──────────────────────────── */
+.vs-stack{display:grid;grid-template-columns:1fr;gap:24px;align-items:stretch}
+@media (min-width:900px){
+  .vs-stack{grid-template-columns:1fr auto 1fr;gap:32px}
+}
+.vs-divider{
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(20px,3vw,32px);color:var(--gold);
+}
+@media (min-width:900px){
+  .vs-divider{
+    flex-direction:column;position:relative;width:60px;
+  }
+  .vs-divider::before{
+    content:'';position:absolute;top:0;bottom:0;width:1px;
+    background:linear-gradient(180deg, transparent, var(--gold-dim), transparent);
+  }
+  .vs-divider span{
+    background:var(--bg-alt);position:relative;z-index:1;padding:8px 0;
+  }
+}
+
+/* ── NUMBERED LIST ──────────────────────────────────────── */
+.num-item{
+  display:flex;gap:14px;align-items:flex-start;
+  margin-bottom:18px;
+}
+.num-item-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,5vw,42px);
+  color:var(--gold);line-height:1;
+  min-width:42px;flex-shrink:0;
+}
+.num-item h4{margin-bottom:4px}
+.num-item p{font-size:14px;line-height:1.6;color:var(--cream-dim)}
+@media (min-width:768px){
+  .num-item-num{min-width:54px}
+  .num-item p{font-size:15px}
+}
+
+/* ── BLOCKQUOTE / CALLOUT ───────────────────────────────── */
+.callout{
+  padding:18px 20px;
+  background:rgba(58,125,123,.10);
+  border-left:3px solid var(--teal-bright);
+  font-size:14px;color:var(--cream);line-height:1.7;
+}
+.callout-gold{
+  background:rgba(201,168,76,.06);
+  border-left-color:var(--gold);
+}
+
+/* ── SCROLL NAV ─────────────────────────────────────────── */
+.scroll-nav{
+  position:fixed;
+  bottom:env(safe-area-inset-bottom, 16px);
+  left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;
+  background:rgba(30,26,20,.92);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--gold-dim);
+  border-radius:100px;
+  padding:6px;
+  z-index:50;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.scroll-nav button{
+  width:36px;height:36px;border-radius:50%;
+  background:transparent;border:none;color:var(--gold);
+  font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+  font-family:'Inter',sans-serif;
+}
+.scroll-nav button:hover{background:rgba(201,168,76,.15)}
+.scroll-nav button:disabled{opacity:.3;cursor:default}
+.scroll-nav .nav-counter{
+  display:flex;align-items:center;
+  padding:0 14px;
+  font-family:'Inter',sans-serif;font-size:11px;
+  letter-spacing:.18em;color:var(--cream-dim);
+  font-variant-numeric:tabular-nums;
+}
+@media (min-width:768px){
+  .scroll-nav{bottom:24px}
+  .scroll-nav button{width:42px;height:42px;font-size:20px}
+  .scroll-nav .nav-counter{font-size:12px;padding:0 18px}
+}
+
+/* ── PRINT ─────────────────────────────────────────────── */
+@media print{
+  .scroll-nav{display:none}
+  .slide{page-break-after:always;min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#1A1612"/>
+  <g transform="translate(200,150)" text-anchor="middle" font-family="Georgia, serif" fill="#C9A84C">
+    <text y="-10" font-size="22" letter-spacing="6">HEAL HOUSE</text>
+    <text y="20" font-size="12" letter-spacing="4" fill="#EDE5D8">LISTOWEL · ONTARIO</text>
+    <line x1="-40" y1="38" x2="40" y2="38" stroke="#C9A84C" stroke-width="1"/>
+    <text y="60" font-size="10" letter-spacing="2" fill="#EDE5D8" opacity="0.6">INVESTOR DECK</text>
+  </g>
+</svg>
+</template>
+
+<main id="deck">
+
+<!-- ════════════════════════════════════════════════════════════
+     01 · HERO
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--full" data-screen-label="01 Hero" id="s1">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-mark">HEAL HOUSE × NFP</div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Investment Opportunity · Confidential</p>
+      <h1 class="hero-title">HEAL HOUSE</h1>
+      <p class="hero-location">Listowel · Ontario</p>
+      <div class="gold-divider gold-divider--lg gold-divider--center" style="margin-top:32px;margin-bottom:32px"></div>
+      <p class="hero-tagline">A new model for senior wellness living.</p>
+      <p class="hero-meta">Build Canada Homes · NFP Partnership · April 2026</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="stat-num">49</div>
+          <div class="stat-lbl">Suites · 94 Beds</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">±25K</div>
+          <div class="stat-lbl">SF Total GFA</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">±3K</div>
+          <div class="stat-lbl">SF Wellness Hub</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">5</div>
+          <div class="stat-lbl">Storeys · Boutique</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     02 · EXECUTIVE SUMMARY
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--alt" data-screen-label="02 Executive Summary" id="s2">
+  <div class="content">
+    <p class="eyebrow">Executive Summary</p>
+    <h2 class="italic" style="margin-top:14px">A C$22M project. Two paths. One clearly works.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="grid-2" style="margin-top:32px;flex:1">
+      <div>
+        <p class="lead" style="color:var(--cream)">
+          Heal House Listowel is a 49-unit boutique senior independent living residence at 469 Main St W, structured as a <strong style="color:var(--gold);font-weight:500">non-profit-partnered, BCH-financed</strong> asset.
+        </p>
+        <p style="color:var(--cream-dim);margin-top:18px">
+          Without the BCH program, the building does not pencil at boutique scale. With it, the same operating pro forma generates a <span class="gold" style="font-weight:500">2.18× DCR by Year 5</span> on a 5% equity contribution — and a financeable, replicable Ontario prototype.
+        </p>
+
+        <div style="margin-top:32px">
+          <p class="eyebrow" style="margin-bottom:18px">The Capital Question</p>
+          <div class="kv-row"><span class="k">Total Project Cost</span><span class="v">$22.0M</span></div>
+          <div class="kv-row"><span class="k">Stabilized NOI (Y5)</span><span class="v">$1.14M</span></div>
+          <div class="kv-row"><span class="k">Stabilized Margin</span><span class="v">30.0%</span></div>
+          <div class="kv-row tot"><span class="k">Question</span><span class="v gold">Can NOI service conventional debt?</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="card card--gold">
+          <span class="tag tag--rec">★ Recommended · BCH Path</span>
+          <h3 style="color:var(--gold)">5% Owner Equity</h3>
+          <p class="small dim" style="margin-top:6px">$1.10M in · 40% forgivable · 50% MLI Select 50yr @ 4.15%</p>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--gold-dim)">
+            <div class="kv-row" style="border:none;padding:6px 0"><span class="k">Year 5 DCR</span><span class="v gold">2.18×</span></div>
+            <div class="kv-row" style="border:none;padding:6px 0"><span class="k">5-yr Equity Multiple</span><span class="v gold">8.4×</span></div>
+            <div class="kv-row" style="border:none;padding:6px 0"><span class="k">5-yr IRR</span><span class="v gold">~57%</span></div>
+          </div>
+        </div>
+        <div class="card card--rose">
+          <span class="tag tag--trad">Traditional Path</span>
+          <h3 class="rose">25% Owner Equity</h3>
+          <p class="small dim" style="margin-top:6px">$5.50M in · 75% conventional 30yr @ 5.99%</p>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(183,110,82,.3)">
+            <div class="kv-row" style="border:none;padding:6px 0"><span class="k">Year 5 DCR</span><span class="v rose">0.96×</span></div>
+            <div class="kv-row" style="border:none;padding:6px 0"><span class="k">Years 1–5 Cash Flow</span><span class="v rose">−$1.68M</span></div>
+            <div class="kv-row" style="border:none;padding:6px 0"><span class="k">5-yr IRR</span><span class="v rose">Negative</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">02 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     03 · THE ASSET
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide" style="padding:0;min-height:100vh" data-screen-label="03 The Asset" id="s3">
+  <div class="split">
+    <div class="split-text">
+      <p class="eyebrow">The Asset</p>
+      <h2 class="italic" style="margin-top:14px">469 Main Street West.</h2>
+      <p class="serif italic gold" style="font-size:clamp(20px,4vw,30px);margin-top:6px">A boutique residence for independent seniors.</p>
+      <div class="gold-divider"></div>
+
+      <div style="margin-top:18px">
+        <div class="kv-row"><span class="k">Address</span><span class="v">469 Main St W, Listowel</span></div>
+        <div class="kv-row"><span class="k">Municipality</span><span class="v">North Perth, ON</span></div>
+        <div class="kv-row"><span class="k">Building</span><span class="v">5-storey purpose-built</span></div>
+        <div class="kv-row"><span class="k">Total Area</span><span class="v">±25,000 SF</span></div>
+        <div class="kv-row"><span class="k">Suites</span><span class="v">49 independent</span></div>
+        <div class="kv-row"><span class="k">Beds</span><span class="v">94 total</span></div>
+        <div class="kv-row"><span class="k">Wellness Hub</span><span class="v">±3,000 SF</span></div>
+        <div class="kv-row tot"><span class="k">Regulatory Path</span><span class="v gold">RHRA Licensed</span></div>
+      </div>
+
+      <p class="tiny dim italic" style="margin-top:24px;line-height:1.7">
+        Conceptual site &amp; floor plans verified against architectural drawings dated 2026.01.20 (TOR25-0000-00).
+      </p>
+    </div>
+    <div class="split-img" style="background-image:url('images/board-overview.jpg')"></div>
+  </div>
+  <span class="slide-tag" style="z-index:5">Heal House · Listowel</span>
+  <span class="slide-num" style="z-index:5">03 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     04 · SUITE MIX
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide" data-screen-label="04 Suite Mix" id="s4">
+  <div class="content">
+    <p class="eyebrow">Suite Mix · Verified from Architectural Drawings</p>
+    <h2 class="italic" style="margin-top:14px">49 suites. 94 beds. Right-sized for the market.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="table-wrap" style="margin-top:24px">
+      <table class="dtable">
+        <thead>
+          <tr>
+            <th>Suite Type</th>
+            <th class="num">Size (SF)</th>
+            <th class="num">Units</th>
+            <th class="num">Share</th>
+            <th class="num">Monthly</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1BR Accessible</td><td class="num">222</td><td class="num">6</td><td class="num">12%</td><td class="num">$3,650</td></tr>
+          <tr><td>1 Bedroom</td><td class="num">330–575</td><td class="num">12</td><td class="num">24%</td><td class="num">$4,150</td></tr>
+          <tr><td>2 Bedroom</td><td class="num">438–503</td><td class="num">26</td><td class="num">53%</td><td class="num">$4,995</td></tr>
+          <tr><td>3 Bedroom Premium</td><td class="num">513–575</td><td class="num">5</td><td class="num">10%</td><td class="num">$5,995</td></tr>
+          <tr class="total"><td>TOTAL</td><td class="num">—</td><td class="num">49</td><td class="num">100%</td><td class="num gold">$4,580</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-3" style="margin-top:32px">
+      <div class="card" style="text-align:center"><div class="kpi-num kpi-num--sm">95%</div><div class="kpi-lbl">Stabilized Occupancy</div></div>
+      <div class="card" style="text-align:center"><div class="kpi-num kpi-num--sm">$3.80M</div><div class="kpi-lbl">Year 5 Revenue</div></div>
+      <div class="card" style="text-align:center"><div class="kpi-num kpi-num--sm">30.0%</div><div class="kpi-lbl">Year 5 NOI Margin</div></div>
+    </div>
+
+    <div class="callout" style="margin-top:24px">
+      <strong class="teal" style="font-weight:500">Wellness hub revenue:</strong> $830K of Year 5 total — a meaningful ancillary engine. Add-ons include 2nd-person fees ($1,100–$1,400/mo), resident wellness packages ($150–$350/mo), and external memberships ($129–$199/mo).
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">04 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     05 · THE EXPERIENCE
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--alt" data-screen-label="05 The Experience" id="s5">
+  <div class="content">
+    <p class="eyebrow">The Experience</p>
+    <h2 class="italic" style="margin-top:14px">Hospitality-grade environments. Ten signature spaces.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="gallery">
+      <div class="gimg" style="background-image:url('images/lobby.jpg')"><div class="glabel">Lobby &amp; Concierge</div></div>
+      <div class="gimg" style="background-image:url('images/wellness.jpg')"><div class="glabel">Wellness &amp; Recovery</div></div>
+      <div class="gimg" style="background-image:url('images/social-lounge.jpg')"><div class="glabel">Social Lounge</div></div>
+      <div class="gimg" style="background-image:url('images/dining.jpg')"><div class="glabel">Longevity Kitchen</div></div>
+      <div class="gimg" style="background-image:url('images/fitness-2.jpg')"><div class="glabel">Movement Studio</div></div>
+      <div class="gimg" style="background-image:url('images/nervous-system.jpg')"><div class="glabel">Nervous-System Room</div></div>
+    </div>
+
+    <p class="serif italic" style="margin-top:32px;font-size:clamp(15px,2.5vw,18px);color:var(--cream-dim);max-width:1100px">
+      Every signature space is engineered to justify premium rent, deepen retention, and operate as a revenue surface — not just an amenity.
+    </p>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">05 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     06 · THE FRAMING QUESTION
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--deep" data-screen-label="06 The Question" id="s6">
+  <div class="content" style="justify-content:center">
+    <p class="eyebrow">The Capital Question</p>
+    <h2 class="italic" style="margin-top:18px;max-width:1500px">
+      At $22M total cost, can a 49-unit boutique senior building service <span class="gold">conventional 30-year debt?</span>
+    </h2>
+    <div class="gold-divider gold-divider--lg" style="margin:36px 0"></div>
+
+    <div class="grid-3" style="margin-top:24px">
+      <div>
+        <p class="eyebrow tiny">Verified Inputs</p>
+        <h4 style="margin-top:10px">The pro forma is set.</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.7">
+          Year 5 NOI of $1.14M at 30% margin and 95% occupancy is achievable. Suite mix and revenue verified from architectural plans and operator pro forma.
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow tiny" style="color:var(--rose)">The Arithmetic Problem</p>
+        <h4 style="margin-top:10px">A small building has small NOI.</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.7">
+          $1.14M cannot service a $16.5M conventional loan over 30 years at 5.99%. Annual debt service: $1.19M. <strong class="rose" style="font-weight:500">DCR: 0.96×.</strong>
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow tiny" style="color:var(--gold)">The BCH Answer</p>
+        <h4 style="margin-top:10px">A different stack.</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.7">
+          40% forgivable, 50% MLI Select 50yr @ 4.15%, 5% owner, 5% municipality. Same NOI, debt service: $522K. <strong class="gold" style="font-weight:500">DCR: 2.18×.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">06 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     07 · TWO CAPITAL STACKS
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--alt" data-screen-label="07 Capital Stacks" id="s7">
+  <div class="content">
+    <p class="eyebrow">The Two Capital Stacks</p>
+    <h2 class="italic" style="margin-top:14px">$22M, two different ways.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="vs-stack" style="margin-top:32px">
+      <div class="card card--gold">
+        <span class="tag tag--rec">★ BCH Stack</span>
+        <h3 class="gold">Recommended</h3>
+        <p class="small dim" style="margin-top:6px;margin-bottom:20px">Build Canada Homes · NFP-aligned</p>
+
+        <div class="stack-row">
+          <span class="stack-row-label">Forgivable</span>
+          <div class="stack-bar-wrap"><div class="stack-bar b-forgive" style="width:100%">40% · BCH FORGIVABLE</div></div>
+          <span class="stack-row-amount">$8,800,000</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-row-label">CMHC MLI Select</span>
+          <div class="stack-bar-wrap"><div class="stack-bar b-cmhc" style="width:100%">50% · 50yr @ 4.15%</div></div>
+          <span class="stack-row-amount">$11,000,000</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-row-label">Owner Equity</span>
+          <div class="stack-bar-wrap"><div class="stack-bar b-eq" style="width:50%">5%</div></div>
+          <span class="stack-row-amount gold">$1,100,000</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-row-label">Municipality</span>
+          <div class="stack-bar-wrap"><div class="stack-bar b-munic" style="width:50%">5%</div></div>
+          <span class="stack-row-amount">$1,100,000</span>
+        </div>
+
+        <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--gold-dim)">
+          <div class="kv-row tot" style="margin:0;padding:0;border:none"><span class="k">Annual Debt Service</span><span class="v gold">$522,315</span></div>
+          <div class="kv-row" style="border:none;padding-top:8px"><span class="k">Owner Equity Required</span><span class="v gold">$1.10M</span></div>
+        </div>
+      </div>
+
+      <div class="vs-divider"><span>vs</span></div>
+
+      <div class="card card--rose">
+        <span class="tag tag--trad">Traditional Stack</span>
+        <h3 class="rose">Conventional</h3>
+        <p class="small dim" style="margin-top:6px;margin-bottom:20px">75% LTC · standard market financing</p>
+
+        <div class="stack-row">
+          <span class="stack-row-label">Conventional</span>
+          <div class="stack-bar-wrap"><div class="stack-bar b-conv" style="width:100%;color:#fff">75% · 30yr @ 5.99%</div></div>
+          <span class="stack-row-amount">$16,500,000</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-row-label">Owner Equity</span>
+          <div class="stack-bar-wrap"><div class="stack-bar b-eq-trad" style="width:100%">25% · OWNER EQUITY</div></div>
+          <span class="stack-row-amount rose">$5,500,000</span>
+        </div>
+        <div class="stack-row" style="opacity:.4">
+          <span class="stack-row-label">No Forgivable</span>
+          <div class="stack-bar-wrap"><div class="b-empty">— NOT AVAILABLE —</div></div>
+          <span class="stack-row-amount">$0</span>
+        </div>
+        <div class="stack-row" style="opacity:.4">
+          <span class="stack-row-label">No Municipality</span>
+          <div class="stack-bar-wrap"><div class="b-empty">— NOT AVAILABLE —</div></div>
+          <span class="stack-row-amount">$0</span>
+        </div>
+
+        <div style="margin-top:24px;padding-top:18px;border-top:1px solid rgba(183,110,82,.3)">
+          <div class="kv-row tot" style="margin:0;padding:0;border:none"><span class="k">Annual Debt Service</span><span class="v rose">$1,185,837</span></div>
+          <div class="kv-row" style="border:none;padding-top:8px"><span class="k">Owner Equity Required</span><span class="v rose">$5.50M (5×)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">07 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     08 · DEBT SERVICE GAP
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide" data-screen-label="08 Debt Service Gap" id="s8">
+  <div class="content">
+    <p class="eyebrow">The Debt Service Gap</p>
+    <h2 class="italic" style="margin-top:14px">$663K of annual savings — just from the stack.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="grid-2" style="margin-top:28px">
+      <div class="chart-card">
+        <h3>NOI vs Annual Debt Service · Years 1–10</h3>
+        <div class="chart-box" style="height:380px"><canvas id="chartDS"></canvas></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="card card--gold">
+          <p class="eyebrow tiny" style="color:var(--gold)">BCH Annual Debt Service</p>
+          <div class="kpi-num kpi-num--lg" style="margin-top:10px">$522K</div>
+          <p class="small dim" style="margin-top:8px;line-height:1.6">$11M loan · 50-year amortization · 4.15% MLI Select rate</p>
+        </div>
+        <div class="card card--rose">
+          <p class="eyebrow tiny" style="color:var(--rose)">Conventional Annual Debt Service</p>
+          <div class="kpi-num kpi-num--lg rose" style="margin-top:10px">$1.19M</div>
+          <p class="small dim" style="margin-top:8px;line-height:1.6">$16.5M loan · 30-year amortization · 5.99% conventional rate</p>
+        </div>
+        <div class="card card--teal">
+          <p class="eyebrow tiny" style="color:var(--teal-bright)">Annual Savings · BCH Advantage</p>
+          <div class="kpi-num kpi-num--lg teal" style="margin-top:10px">$663K</div>
+          <p class="small dim" style="margin-top:8px;line-height:1.6">Compounded over 5 years: $3.32M · over 20 years: $13.27M of cumulative cash-flow advantage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">08 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     09 · DCR
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--alt" data-screen-label="09 DCR Comparison" id="s9">
+  <div class="content">
+    <p class="eyebrow">Debt Coverage Ratio · Year by Year</p>
+    <h2 class="italic" style="margin-top:14px">BCH covers from Year 2. Conventional doesn't cover until Year 11.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="grid-2" style="margin-top:28px">
+      <div class="chart-card">
+        <h3>DCR · NOI ÷ Annual Debt Service</h3>
+        <div class="chart-box" style="height:380px"><canvas id="chartDCR"></canvas></div>
+        <p class="tiny dim italic" style="margin-top:12px;line-height:1.6">
+          A DCR below 1.00 means NOI doesn't cover debt service. CMHC MLI Select requires 1.10 minimum; senior debt typically 1.20–1.30.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="card"><p class="eyebrow tiny">BCH · Year 1 DCR</p><div class="kpi-num kpi-num--sm" style="margin-top:8px">0.91×</div><p class="small dim" style="margin-top:6px">Covered by reserve through lease-up</p></div>
+        <div class="card card--gold"><p class="eyebrow tiny" style="color:var(--gold)">BCH · Year 5 DCR</p><div class="kpi-num kpi-num--sm gold" style="margin-top:8px">2.18×</div><p class="small dim" style="margin-top:6px">Comfortably above 1.30 financeable threshold</p></div>
+        <div class="card card--rose"><p class="eyebrow tiny" style="color:var(--rose)">Conventional · Year 5 DCR</p><div class="kpi-num kpi-num--sm rose" style="margin-top:8px">0.96×</div><p class="small dim" style="margin-top:6px">Below 1.00 — building does not service its own debt</p></div>
+        <div class="card card--rose"><p class="eyebrow tiny" style="color:var(--rose)">Conventional · Crossover Year</p><div class="kpi-num kpi-num--sm rose" style="margin-top:8px">Year 11</div><p class="small dim" style="margin-top:6px">First year DCR exceeds 1.10 — a decade of equity calls before</p></div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">09 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     10 · CUMULATIVE CASH FLOW
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide" data-screen-label="10 Cumulative Cash Flow" id="s10">
+  <div class="content">
+    <p class="eyebrow">20-Year Cumulative Cash Flow After Debt Service</p>
+    <h2 class="italic" style="margin-top:14px">The compounded gap is $13.3M.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="grid-2" style="margin-top:28px">
+      <div class="chart-card">
+        <h3>Cumulative Cash Flow After Debt Service · 20 Years</h3>
+        <div class="chart-box" style="height:380px"><canvas id="chartCum"></canvas></div>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:14px">Cumulative · Selected Years</p>
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead><tr><th>Year</th><th class="num">BCH</th><th class="num">Trad</th><th class="num">Δ</th></tr></thead>
+            <tbody id="cumBody"></tbody>
+          </table>
+        </div>
+
+        <div class="card card--gold" style="margin-top:20px">
+          <p class="eyebrow tiny" style="color:var(--gold)">20-Year BCH Advantage</p>
+          <div class="kpi-num gold" style="margin-top:8px;font-size:clamp(40px,7vw,64px)">$13.27M</div>
+          <p class="small dim" style="margin-top:8px;line-height:1.6">Cumulative cash-flow advantage over the full hold.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">10 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     11 · INVESTOR RETURNS
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--alt" data-screen-label="11 Investor Returns" id="s11">
+  <div class="content">
+    <p class="eyebrow">Investor Returns · 5-Year Hold</p>
+    <h2 class="italic" style="margin-top:14px">8.4× on 5% equity. Negative on 25%.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="table-wrap" style="margin-top:28px">
+      <table class="dtable">
+        <thead>
+          <tr><th>Metric</th><th class="num">BCH Stack</th><th class="num">Conventional</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Owner Equity Required</td><td class="num gold">$1,100,000</td><td class="num">$5,500,000</td></tr>
+          <tr><td>Year 5 NOI</td><td class="num">$1,140,908</td><td class="num">$1,140,908</td></tr>
+          <tr><td>Annual Debt Service</td><td class="num">$522,315</td><td class="num">$1,185,837</td></tr>
+          <tr><td>Year 5 DCR</td><td class="num pos">2.18×</td><td class="num neg">0.96×</td></tr>
+          <tr><td>Years 1–5 Cumulative CF</td><td class="num pos">$1,635,000</td><td class="num neg">−$1,682,000</td></tr>
+          <tr><td>Year 5 Exit Value (6.25% cap)</td><td class="num">$18,254,528</td><td class="num">$18,254,528</td></tr>
+          <tr><td>Year 5 Loan Balance</td><td class="num">$10,635,000</td><td class="num">$15,352,000</td></tr>
+          <tr><td>Net Sale Proceeds</td><td class="num">$7,620,000</td><td class="num">$2,902,000</td></tr>
+          <tr class="total"><td>Total 5-yr Return</td><td class="num gold">$9,255,000</td><td class="num neg">$1,220,000</td></tr>
+          <tr class="total"><td>Equity Multiple</td><td class="num gold" style="font-size:1.2em">8.4×</td><td class="num neg" style="font-size:1.2em">0.22×</td></tr>
+          <tr class="total"><td>5-Year IRR</td><td class="num gold" style="font-size:1.2em">~57%</td><td class="num neg" style="font-size:1.2em">Negative</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiny dim italic" style="margin-top:24px;line-height:1.7;max-width:1500px">
+      Concept-stage illustrative pro forma. NOI sourced from HealHouse_Investor_v3 pro forma (Y1–5: $473K → $1,141K). Y6–20 grown at 2.5% p.a. Exit value at Year 5 NOI capped at 6.25%. BCH 40% forgivable assumed retained through hold under program rules. Past performance is not indicative of future results.
+    </p>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">11 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     12 · WHY THIS STRUCTURE
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide" style="padding:0;min-height:100vh" data-screen-label="12 Why This Structure" id="s12">
+  <div class="split split--60-40">
+    <div class="split-text">
+      <p class="eyebrow">Why This Structure Exists</p>
+      <h2 class="italic" style="margin-top:14px">Build Canada Homes was designed for buildings exactly like this.</h2>
+      <div class="gold-divider"></div>
+      <p class="lead" style="margin-top:8px;color:var(--cream);max-width:680px">
+        Small-format, mission-aligned residential assets in growing-but-not-urban Ontario towns sit in a structural financing gap.
+      </p>
+
+      <div style="margin-top:28px">
+        <div class="num-item">
+          <div class="num-item-num">01</div>
+          <div>
+            <h4>Too small for institutional debt</h4>
+            <p>$22M total cost is below the threshold most senior-housing REITs and pension funds will underwrite as a single asset.</p>
+          </div>
+        </div>
+        <div class="num-item">
+          <div class="num-item-num">02</div>
+          <div>
+            <h4>Too NOI-thin for conventional 30-year amort</h4>
+            <p>Stabilized NOI of $1.14M can't service market-rate 30-year debt on the construction cost it requires.</p>
+          </div>
+        </div>
+        <div class="num-item">
+          <div class="num-item-num">03</div>
+          <div>
+            <h4>Exactly the asset class BCH targets</h4>
+            <p>Affordable housing for vulnerable populations, in mid-sized Ontario communities, with NFP alignment and municipal partnership.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="split-img" style="background-image:url('images/suite.jpg')"></div>
+  </div>
+  <span class="slide-tag" style="z-index:5">Heal House · Listowel</span>
+  <span class="slide-num" style="z-index:5">12 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     13 · RISKS
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--alt" data-screen-label="13 Risks" id="s13">
+  <div class="content">
+    <p class="eyebrow">Risks &amp; Considerations</p>
+    <h2 class="italic" style="margin-top:14px">What we are still verifying.</h2>
+    <div class="gold-divider"></div>
+
+    <div class="grid-2" style="margin-top:28px">
+      <div class="card">
+        <p class="eyebrow tiny rose">BCH Eligibility</p>
+        <h4 style="margin-top:8px">Program qualification not yet confirmed</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.6">BCH 40% forgivable requires NFP sponsor, deep affordability covenant, and program approval. Mitigation: structure NFP partnership early; engage CMHC and BCH at concept stage.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow tiny rose">Total Project Cost</p>
+        <h4 style="margin-top:8px">$22M is a working assumption</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.6">Detailed QS estimate required. Boutique senior living in small-market Ontario typically prices $750–$950/SF all-in. Mitigation: lock GMP procurement.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow tiny rose">Forgiveness Mechanics</p>
+        <h4 style="margin-top:8px">Forgivable timeline is program-dependent</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.6">Returns model assumes BCH forgivable portion remains forgiven through 5-yr hold. If forgiveness vests over 20 years, early sale may trigger partial repayment.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow tiny rose">Lease-Up Pace</p>
+        <h4 style="margin-top:8px">Year 1 BCH DCR is 0.91×</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.6">Lease-up reserve required. Y1 occupancy of 82% must be defended with referral pipeline (physicians, hospital discharge planners).</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow tiny rose">Affordability Covenant</p>
+        <h4 style="margin-top:8px">BCH may require below-market set-aside</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.6">If 30%+ of units must be at affordable rates, blended rent of $4,580/mo will compress. Mitigation: model affordable variant with discount on a portion of suites.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow tiny rose">Regulatory Path</p>
+        <h4 style="margin-top:8px">RHRA licensing locks operating model</h4>
+        <p class="small dim" style="margin-top:10px;line-height:1.6">Licensed Independent-Supportive requires 2+ regulated services (meals + medication oversight). Mitigation: confirm path before construction docs.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-tag">Heal House · Listowel</span>
+  <span class="slide-num">13 / 14</span>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     14 · THE ASK
+     ════════════════════════════════════════════════════════════ -->
+<section class="slide slide--full" style="padding:0;position:relative" data-screen-label="14 The Ask" id="s14">
+  <div style="position:absolute;inset:0;background-image:url('images/atrium.jpg');background-size:cover;background-position:center;filter:brightness(.4) saturate(.85)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,22,18,.55) 0%, rgba(26,22,18,.85) 100%)"></div>
+
+  <div style="position:relative;z-index:2;width:100%;max-width:1300px;margin:0 auto;padding:80px var(--pad-x);text-align:center">
+    <p class="eyebrow">The Ask</p>
+    <h2 class="italic" style="margin-top:18px">Approve the BCH path.<br><span class="gold">Replicate the prototype.</span></h2>
+    <div class="gold-divider gold-divider--lg gold-divider--center" style="margin:32px auto"></div>
+
+    <div style="background:rgba(30,26,20,.85);backdrop-filter:blur(10px);border:1px solid var(--gold);border-radius:10px;padding:32px 24px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 50px rgba(201,168,76,.12);max-width:1100px;margin:0 auto">
+      <div class="grid-2" style="text-align:left;gap:20px">
+        <div class="kv-row" style="font-size:clamp(15px,2.5vw,20px)"><span class="k">Path Forward</span><span class="v gold">BCH · NFP-Partnered</span></div>
+        <div class="kv-row" style="font-size:clamp(15px,2.5vw,20px)"><span class="k">Owner Equity</span><span class="v gold">$1.10M (5%)</span></div>
+        <div class="kv-row" style="font-size:clamp(15px,2.5vw,20px)"><span class="k">Total Project Cost</span><span class="v">$22.0M</span></div>
+        <div class="kv-row" style="font-size:clamp(15px,2.5vw,20px)"><span class="k">Year 5 IRR (target)</span><span class="v gold">~57%</span></div>
+        <div class="kv-row" style="font-size:clamp(15px,2.5vw,20px)"><span class="k">Year 5 DCR</span><span class="v gold">2.18×</span></div>
+        <div class="kv-row" style="font-size:clamp(15px,2.5vw,20px)"><span class="k">5-yr Equity Multiple</span><span class="v gold">8.4×</span></div>
+      </div>
+
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--gold-dim)">
+        <p class="serif italic" style="font-size:clamp(20px,3.5vw,32px);color:var(--cream);line-height:1.5">
+          Listowel is asset #1 of a repeatable Ontario wellness-living platform.<br>
+          <span class="gold">Prove. Stabilise. Replicate.</span>
+        </p>
+      </div>
+    </div>
+
+    <p class="hero-meta" style="margin-top:36px">healhouse.ca · Confidential · April 2026</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ── SCROLL NAV ── -->
+<nav class="scroll-nav" aria-label="Slide navigation">
+  <button id="navPrev" aria-label="Previous">‹</button>
+  <span class="nav-counter"><span id="navCur">1</span>&nbsp;/&nbsp;14</span>
+  <button id="navNext" aria-label="Next">›</button>
+</nav>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   NAVIGATION + CHARTS
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prev = document.getElementById('navPrev');
+  const next = document.getElementById('navNext');
+  const cur = document.getElementById('navCur');
+
+  function currentIdx(){
+    const y = window.scrollY + window.innerHeight/2;
+    let best = 0;
+    slides.forEach((s, i) => {
+      if (s.offsetTop <= y) best = i;
+    });
+    return best;
+  }
+  function update(){
+    const i = currentIdx();
+    cur.textContent = i + 1;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  }
+  function go(i){
+    i = Math.max(0, Math.min(slides.length-1, i));
+    slides[i].scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  prev.addEventListener('click', () => go(currentIdx() - 1));
+  next.addEventListener('click', () => go(currentIdx() + 1));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(currentIdx() + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp')   { e.preventDefault(); go(currentIdx() - 1); }
+  });
+  let raf;
+  window.addEventListener('scroll', () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(update);
+  }, {passive:true});
+  update();
+})();
+
+/* ── CHARTS ── */
+window.addEventListener('load', function(){
+  if (typeof Chart === 'undefined' || !window.HHFinance) return;
+
+  const C = {
+    gold:'#C9A84C', goldBright:'#E0BE5C', rose:'#B76E52',
+    cream:'#EDE5D8', teal:'#4FA39F', green:'#7DA87A',
+    grid:'rgba(237,229,216,.08)', label:'rgba(237,229,216,.55)',
+  };
+  Chart.defaults.font.family = "'Inter', sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = C.label;
+
+  const r = HHFinance.compute();
+  const proj = r.projection;
+  const noi = proj.map(p => Math.round(p.noi));
+
+  // NOI vs DS
+  const ds = document.getElementById('chartDS');
+  if (ds) new Chart(ds, {
+    type:'bar',
+    data:{
+      labels: proj.slice(0,10).map(p => 'Y'+p.year),
+      datasets:[
+        { label:'NOI', data:noi.slice(0,10), backgroundColor:C.cream, borderRadius:3, order:3 },
+        { label:'BCH DS', type:'line', data:Array(10).fill(Math.round(r.bch.ds)), borderColor:C.gold, borderWidth:3, pointRadius:0, order:1 },
+        { label:'Conventional DS', type:'line', data:Array(10).fill(Math.round(r.trad.ds)), borderColor:C.rose, borderWidth:3, borderDash:[6,4], pointRadius:0, order:2 },
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'top',labels:{color:C.cream,padding:14,font:{size:12}}},
+        tooltip:{backgroundColor:'rgba(30,26,20,.98)',borderColor:C.gold,borderWidth:1,titleColor:C.gold,bodyColor:C.cream,padding:10,
+          callbacks:{label:c=>c.dataset.label+': $'+(c.parsed.y/1000).toFixed(0)+'K'}}
+      },
+      scales:{
+        y:{grid:{color:C.grid},ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'K',color:C.label}},
+        x:{grid:{display:false},ticks:{color:C.label}}
+      }
+    }
+  });
+
+  // DCR
+  const dcr = document.getElementById('chartDCR');
+  if (dcr) new Chart(dcr, {
+    type:'line',
+    data:{
+      labels: proj.map(p=>'Y'+p.year),
+      datasets:[
+        { label:'BCH DCR', data:proj.map(p=>+p.bchDCR.toFixed(2)), borderColor:C.gold, backgroundColor:'rgba(201,168,76,.12)', fill:true, tension:.35, pointRadius:3, borderWidth:3 },
+        { label:'Conventional DCR', data:proj.map(p=>+p.tradDCR.toFixed(2)), borderColor:C.rose, backgroundColor:'rgba(183,110,82,.10)', fill:true, tension:.35, pointRadius:3, borderWidth:3, borderDash:[6,4] },
+        { label:'Break-even (1.00)', data:Array(20).fill(1), borderColor:'rgba(237,229,216,.4)', borderWidth:1.5, borderDash:[2,4], pointRadius:0 },
+        { label:'CMHC Min (1.10)', data:Array(20).fill(1.10), borderColor:'rgba(125,168,122,.6)', borderWidth:1.5, borderDash:[2,4], pointRadius:0 },
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'top',labels:{color:C.cream,padding:12,font:{size:11}}},
+        tooltip:{backgroundColor:'rgba(30,26,20,.98)',borderColor:C.gold,borderWidth:1,titleColor:C.gold,bodyColor:C.cream,padding:10,
+          callbacks:{label:c=>c.dataset.label+': '+c.parsed.y.toFixed(2)+'×'}}
+      },
+      scales:{
+        y:{min:0,suggestedMax:3.5,grid:{color:C.grid},ticks:{callback:v=>v.toFixed(1)+'×',color:C.label}},
+        x:{grid:{display:false},ticks:{color:C.label,maxRotation:0}}
+      }
+    }
+  });
+
+  // Cumulative
+  const cum = document.getElementById('chartCum');
+  if (cum) new Chart(cum, {
+    type:'line',
+    data:{
+      labels: proj.map(p=>'Y'+p.year),
+      datasets:[
+        { label:'BCH Cumulative', data:proj.map(p=>Math.round(p.bchCum)), borderColor:C.gold, backgroundColor:'rgba(201,168,76,.18)', fill:true, tension:.25, pointRadius:3, borderWidth:3 },
+        { label:'Conventional Cumulative', data:proj.map(p=>Math.round(p.tradCum)), borderColor:C.rose, backgroundColor:'rgba(183,110,82,.12)', fill:true, tension:.25, pointRadius:3, borderWidth:3, borderDash:[6,4] },
+        { label:'Break-even', data:Array(20).fill(0), borderColor:'rgba(237,229,216,.4)', borderWidth:1.5, borderDash:[2,4], pointRadius:0, fill:false },
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'top',labels:{color:C.cream,padding:12,font:{size:11}}},
+        tooltip:{backgroundColor:'rgba(30,26,20,.98)',borderColor:C.gold,borderWidth:1,titleColor:C.gold,bodyColor:C.cream,padding:10,
+          callbacks:{label:c=>c.dataset.label+': '+(c.parsed.y<0?'-':'')+'$'+Math.abs(c.parsed.y/1e6).toFixed(2)+'M'}}
+      },
+      scales:{
+        y:{grid:{color:C.grid},ticks:{callback:v=>'$'+(v/1e6).toFixed(0)+'M',color:C.label}},
+        x:{grid:{display:false},ticks:{color:C.label,maxRotation:0}}
+      }
+    }
+  });
+
+  // Cum table
+  const cumBody = document.getElementById('cumBody');
+  if (cumBody){
+    function f(n){
+      const neg = n < 0; const a = Math.abs(n);
+      const s = a >= 1e6 ? '$'+(a/1e6).toFixed(2)+'M' : '$'+Math.round(a/1000)+'K';
+      return neg ? '−'+s : s;
+    }
+    cumBody.innerHTML = [1,5,10,15,20].map(y => {
+      const p = proj[y-1];
+      const d = p.bchCum - p.tradCum;
+      return `<tr>
+        <td>Y${y}</td>
+        <td class="num ${p.bchCum < 0 ? 'neg' : 'pos'}">${f(p.bchCum)}</td>
+        <td class="num ${p.tradCum < 0 ? 'neg' : 'pos'}">${f(p.tradCum)}</td>
+        <td class="num gold">${f(d)}</td>
+      </tr>`;
+    }).join('');
+  }
+});
+</script>
+
+</body>
+</html>

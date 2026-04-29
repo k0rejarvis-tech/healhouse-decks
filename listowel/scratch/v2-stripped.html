@@ -1,0 +1,2410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEAL HOUSE × NFP — Elite Investor Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   HEAL HOUSE — ELITE INVESTOR DECK
+   Institutional-grade, interactive, cinematic.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;scroll-snap-type:y proximity}
+body{
+  font-family:'Inter',system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  font-weight:300;
+  background:#1A1612;color:#EDE5D8;line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ── PALETTE ── */
+:root{
+  --bg:#1A1612;
+  --bg-alt:#1E1A14;
+  --charcoal:#2A2118;
+  --card-bg:rgba(30,26,20,0.95);
+  --card-border:rgba(201,168,76,.12);
+  --cream:#EDE5D8;
+  --gold:#C9A84C;
+  --gold-bright:#E0BE5C;
+  --teal:#3A7D7B;
+  --teal-bright:#4FA39F;
+  --gold-dim:rgba(201,168,76,.2);
+  --gold-glow:rgba(201,168,76,.08);
+  --rose:#B76E52;
+}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-weight:400;color:var(--cream)}
+h1{font-size:3.4rem;line-height:1.15}
+h2{font-size:2.2rem;line-height:1.25}
+h3{font-size:1.3rem}
+.section-label{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.75rem;
+  display:inline-block;
+}
+.italic{font-style:italic}
+.gold{color:var(--gold)}
+.teal{color:var(--teal)}
+.cream{color:var(--cream)}
+.dim{opacity:.6}
+.small{font-size:.85rem}
+.mono{font-family:'SF Mono',Consolas,monospace;font-size:.82rem}
+
+/* ── FADE-IN ANIMATION ── */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── PROGRESS INDICATOR ── */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:0%;z-index:300;
+  background:linear-gradient(90deg,var(--gold) 0%,var(--gold-bright) 100%);
+  box-shadow:0 0 8px rgba(201,168,76,.5);
+  transition:width .1s linear;
+}
+
+/* ── TOP NAV BAR ── */
+.top-nav{
+  position:fixed;top:3px;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 2.5rem;
+  background:linear-gradient(180deg,rgba(26,22,18,0.9) 0%,rgba(26,22,18,0) 100%);
+  pointer-events:none;
+}
+.top-nav *{pointer-events:auto}
+.top-nav-logo{
+  font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;
+  letter-spacing:.12em;color:var(--cream);opacity:.7;
+}
+.top-nav-logo span{color:var(--gold)}
+.top-nav-dots{display:flex;gap:.5rem;align-items:center}
+.top-nav-dot{
+  position:relative;
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(237,229,216,.2);border:none;cursor:pointer;
+  transition:all .3s ease;padding:0;
+}
+.top-nav-dot.active{background:var(--gold);transform:scale(1.5)}
+.top-nav-dot:hover{background:rgba(201,168,76,.6)}
+.top-nav-dot .tooltip{
+  position:absolute;top:18px;right:50%;transform:translateX(50%) translateY(-4px);
+  background:rgba(30,26,20,.98);color:var(--cream);
+  font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;
+  padding:.45rem .8rem;border-radius:4px;border:1px solid var(--gold-dim);
+  white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s ease, transform .2s ease;
+}
+.top-nav-dot:hover .tooltip{opacity:1;transform:translateX(50%) translateY(0)}
+
+/* ── SLIDE ── */
+.slide{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+  scroll-snap-align:start;
+  overflow:hidden;
+}
+.slide--padded{padding:6rem 4rem 4rem}
+.slide:nth-child(odd) .slide--padded-bg{background:var(--bg)}
+.slide:nth-child(even) .slide--padded-bg{background:var(--bg-alt)}
+.slide-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:2}
+
+/* ── KEN BURNS BACKGROUND ── */
+.kb-bg{
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+}
+.kb-bg::before{
+  content:'';position:absolute;inset:-4%;
+  background-size:cover;background-position:center;
+  animation:kenBurns 28s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.kb-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(26,22,18,.7),rgba(26,22,18,.72));
+}
+.kb-origin-tl::before{transform-origin:top left}
+.kb-origin-tr::before{transform-origin:top right}
+.kb-origin-bl::before{transform-origin:bottom left}
+.kb-origin-br::before{transform-origin:bottom right}
+.kb-origin-c::before{transform-origin:center center}
+@keyframes kenBurns{
+  0%{transform:scale(1.0) translate3d(0,0,0)}
+  100%{transform:scale(1.08) translate3d(-1%,-0.8%,0)}
+}
+
+/* ── GOLD DIVIDER ── */
+.gold-divider{
+  width:60px;height:1.5px;background:var(--gold);opacity:.6;
+  margin:1.5rem 0;
+}
+.gold-divider--center{margin:1.5rem auto}
+
+/* ── SPLIT LAYOUT ── */
+.split-layout{
+  display:grid;grid-template-columns:1fr 1fr;min-height:100vh;
+  position:relative;
+}
+.split-layout--40-60{grid-template-columns:2fr 3fr}
+.split-layout--60-40{grid-template-columns:3fr 2fr}
+.split-text{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 4rem;background:var(--bg);
+  position:relative;z-index:2;
+}
+.split-image{
+  background-size:cover;background-position:center;
+  min-height:100%;
+  will-change:transform;
+}
+.split-image--parallax{
+  transform:translate3d(0,0,0);
+  transition:transform .08s linear;
+}
+
+/* ── HERO ── */
+.slide--hero{
+  text-align:center;padding:6rem 3rem;
+}
+.slide--hero .kb-bg::before{
+  background-image:url('[BASE64_IMAGE]');
+}
+
+/* ── GRID HELPERS ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem}
+
+/* ── CARD ── */
+.card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:8px;padding:1.8rem;
+  transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+.card:hover{border-color:rgba(201,168,76,.25);box-shadow:0 0 30px var(--gold-glow);transform:translateY(-2px)}
+.card--recommended{border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,.12)}
+.card h3{font-size:1.2rem;margin-bottom:.7rem}
+.card .tag{
+  display:inline-block;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;
+  padding:3px 10px;border-radius:3px;margin-bottom:.6rem;
+}
+.tag--conv{background:rgba(201,168,76,.12);color:var(--gold)}
+.tag--bch{background:rgba(58,125,123,.15);color:var(--teal)}
+.tag--rec{background:var(--gold);color:var(--bg);font-weight:600}
+.tag--risk{background:rgba(183,110,82,.15);color:var(--rose)}
+
+/* ── TABLE ── */
+.data-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.data-table th{
+  text-align:left;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);padding:.6rem .7rem;border-bottom:1px solid var(--gold-dim);
+}
+.data-table td{
+  padding:.5rem .7rem;border-bottom:1px solid rgba(237,229,216,.04);
+  vertical-align:top;
+}
+.data-table tr.highlight td{background:rgba(201,168,76,.06);font-weight:500}
+.data-table .num{text-align:right;font-family:'SF Mono',Consolas,monospace;font-size:.8rem}
+.data-table .rec-col{background:rgba(201,168,76,.04)}
+
+/* ── DEEP DIVE SPLIT ── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.split-col{border:1px solid var(--card-border);border-radius:8px;padding:1.8rem;background:var(--card-bg)}
+.split-col h3{font-size:1.1rem;margin-bottom:.8rem;border-bottom:1px solid var(--gold-dim);padding-bottom:.6rem}
+.line-item{display:flex;justify-content:space-between;padding:.3rem 0;font-size:.84rem;border-bottom:1px solid rgba(237,229,216,.04)}
+.line-item.subtotal{border-top:1px solid var(--gold-dim);font-weight:500;margin-top:.4rem;padding-top:.5rem}
+.line-item .label{opacity:.75}
+.line-item .val{font-family:'SF Mono',Consolas,monospace;color:var(--cream)}
+.cf-split{margin-top:1rem;padding:1rem;border-radius:6px;background:rgba(58,125,123,.08);border:1px solid rgba(58,125,123,.2)}
+.cf-split h4{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--teal);margin-bottom:.5rem}
+
+/* ── PROGRESS BARS ── */
+.bar-wrap{height:24px;border-radius:5px;overflow:hidden;display:flex;margin:.6rem 0;background:rgba(0,0,0,.3)}
+.bar-seg{display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em}
+.bar-inv{background:var(--gold);color:var(--bg)}
+.bar-nfp{background:var(--teal);color:#fff}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;align-items:center;justify-content:space-between;position:relative;margin:2.5rem 0}
+.timeline::before{content:'';position:absolute;top:9px;left:5%;right:5%;height:1.5px;background:var(--gold-dim)}
+.tl-node{text-align:center;position:relative;z-index:1;flex:1}
+.tl-dot{width:18px;height:18px;border-radius:50%;background:var(--gold);margin:0 auto .6rem;border:3px solid var(--bg)}
+.tl-label{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--gold)}
+.tl-text{font-size:.85rem;color:var(--cream);margin-top:.3rem;font-weight:300}
+
+/* ── GALLERY ── */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:220px;
+  gap:12px;
+  margin-top:2rem;
+}
+.gallery-grid .gallery-item:nth-child(1){grid-row:span 2}
+.gallery-grid .gallery-item:nth-child(4){grid-row:span 2}
+.gallery-item{
+  position:relative;overflow:hidden;border-radius:8px;cursor:pointer;
+  border:1px solid rgba(201,168,76,.08);
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;
+}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item .gallery-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:.8rem 1rem;
+  background:linear-gradient(0deg,rgba(26,22,18,.85) 0%,transparent 100%);
+  font-family:'Cormorant Garamond',serif;font-size:1rem;
+  color:var(--cream);
+  transform:translateY(4px);opacity:0;
+  transition:all .4s ease;
+}
+.gallery-item:hover .gallery-label{transform:translateY(0);opacity:1}
+
+/* ── STATS ── */
+.stat-number{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem;color:var(--gold);line-height:1.1;
+  margin:.3rem 0;
+}
+.stat-label{
+  font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;
+  letter-spacing:.1em;color:var(--gold);opacity:.8;margin-bottom:.5rem;
+}
+
+/* ── SLIDE FOOTER ── */
+.slide-footer{
+  position:absolute;bottom:1rem;left:3rem;right:3rem;z-index:5;
+  display:flex;justify-content:space-between;
+  font-family:'Inter',sans-serif;font-size:.55rem;font-weight:400;
+  letter-spacing:.25em;text-transform:uppercase;color:rgba(237,229,216,.2);
+}
+
+/* ══════════════════════════════════════════════════
+   EXECUTIVE SUMMARY (Slide 2)
+   ══════════════════════════════════════════════════ */
+.exec-summary{
+  background:linear-gradient(180deg,rgba(30,26,20,1) 0%,rgba(26,22,18,1) 100%);
+  border:1px solid var(--gold-dim);border-radius:10px;
+  padding:2.5rem 3rem;margin-top:1.5rem;
+}
+.exec-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding-bottom:1.2rem;border-bottom:1px solid var(--gold-dim);margin-bottom:1.5rem;
+  flex-wrap:wrap;gap:1rem;
+}
+.exec-head .deal-title{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--cream);line-height:1.1}
+.exec-head .deal-sub{font-family:'Inter',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-top:.3rem}
+.exec-head .deal-tag{
+  font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold);padding:.4rem 1rem;border-radius:3px;
+  align-self:flex-start;
+}
+.exec-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;
+}
+.exec-block h4{
+  font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  padding-bottom:.4rem;border-bottom:1px solid var(--gold-dim);margin-bottom:.7rem;
+}
+.exec-block .kv{display:flex;justify-content:space-between;padding:.25rem 0;font-size:.82rem}
+.exec-block .kv .k{opacity:.7}
+.exec-block .kv .v{font-family:'SF Mono',Consolas,monospace;color:var(--cream);font-size:.8rem}
+.exec-block .kv .v.gold{color:var(--gold);font-weight:500}
+.exec-block .kv .v.teal{color:var(--teal-bright)}
+
+.use-of-funds-bar{
+  display:flex;height:34px;border-radius:4px;overflow:hidden;margin-top:.6rem;background:rgba(0,0,0,.3);
+}
+.uof-seg{display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.05em;color:var(--bg)}
+.uof-1{background:var(--gold)}
+.uof-2{background:var(--gold-bright);color:var(--bg)}
+.uof-3{background:var(--teal);color:#fff}
+.uof-4{background:var(--teal-bright);color:#fff}
+.uof-legend{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.5rem;font-size:.7rem}
+.uof-legend .item{display:flex;align-items:center;gap:.35rem}
+.uof-legend .swatch{width:10px;height:10px;border-radius:2px}
+
+/* ══════════════════════════════════════════════════
+   THE MATH (Slide 8) - Charts
+   ══════════════════════════════════════════════════ */
+.charts-grid{
+  display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;
+  margin-top:1.5rem;
+}
+.chart-card{
+  background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;
+  padding:1.5rem;
+}
+.chart-card h3{
+  font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--gold-dim);
+}
+.chart-box{position:relative;height:280px}
+.chart-box--tall{height:340px}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
+
+/* ══════════════════════════════════════════════════
+   ADJUST THE MODEL (Slide 9) - Sliders
+   ══════════════════════════════════════════════════ */
+.sliders-wrap{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;margin-top:1.5rem;
+}
+.sliders-panel{
+  background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;
+  padding:2rem;
+}
+.slider-row{
+  margin-bottom:1.6rem;
+}
+.slider-head{
+  display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem;
+}
+.slider-head .lbl{
+  font-family:'Inter',sans-serif;font-size:.72rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--cream);
+}
+.slider-head .val{
+  font-family:'SF Mono',Consolas,monospace;font-size:.95rem;color:var(--gold);font-weight:500;
+}
+.slider-head .default-note{
+  font-family:'Inter',sans-serif;font-size:.6rem;opacity:.4;margin-left:.5rem;
+}
+input[type="range"]{
+  -webkit-appearance:none;appearance:none;width:100%;height:4px;
+  background:rgba(201,168,76,.15);border-radius:3px;outline:none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--gold);cursor:pointer;
+  box-shadow:0 0 10px rgba(201,168,76,.4);
+  transition:transform .15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type="range"]::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:pointer;border:none;
+  box-shadow:0 0 10px rgba(201,168,76,.4);
+}
+.slider-scale{
+  display:flex;justify-content:space-between;margin-top:.3rem;
+  font-family:'Inter',sans-serif;font-size:.6rem;opacity:.4;letter-spacing:.05em;
+}
+.btn-reset{
+  display:inline-block;margin-top:.5rem;
+  background:transparent;border:1px solid var(--gold);color:var(--gold);
+  padding:.6rem 1.4rem;border-radius:4px;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  transition:all .3s ease;
+}
+.btn-reset:hover{background:var(--gold);color:var(--bg)}
+
+.live-panel{
+  background:linear-gradient(160deg,rgba(30,26,20,1),rgba(26,22,18,1));
+  border:1px solid var(--gold);border-radius:10px;padding:2rem;
+  box-shadow:0 0 40px rgba(201,168,76,.08);
+}
+.live-panel h3{
+  font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;
+}
+.live-panel .live-sub{font-size:.75rem;opacity:.5;margin-bottom:1.2rem}
+.live-kpi{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:.55rem 0;border-bottom:1px solid rgba(237,229,216,.05);
+}
+.live-kpi:last-child{border-bottom:none}
+.live-kpi .k{font-family:'Inter',sans-serif;font-size:.78rem;opacity:.75}
+.live-kpi .v{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold)}
+.live-kpi .v.teal{color:var(--teal-bright)}
+.live-kpi .v.cream{color:var(--cream)}
+.live-kpi.headline .v{font-size:1.7rem}
+
+/* ══════════════════════════════════════════════════
+   COMPARABLES (Slide 16)
+   ══════════════════════════════════════════════════ */
+.comps-note{
+  margin-top:1.5rem;padding:1rem 1.3rem;
+  background:rgba(201,168,76,.06);border-left:3px solid var(--gold);
+  border-radius:4px;font-size:.85rem;color:var(--cream);
+}
+.comps-note strong{color:var(--gold)}
+
+/* ══════════════════════════════════════════════════
+   RISK & MITIGATION (Slide 17)
+   ══════════════════════════════════════════════════ */
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem}
+.risk-card{
+  background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;
+  padding:1.4rem 1.6rem;position:relative;overflow:hidden;
+}
+.risk-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rose);
+}
+.risk-card.mitigated::before{background:var(--teal)}
+.risk-card .risk-label{
+  font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--rose);
+  margin-bottom:.3rem;
+}
+.risk-card h4{
+  font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--cream);
+  margin-bottom:.6rem;
+}
+.risk-card .mitigation{
+  padding-top:.6rem;border-top:1px solid rgba(58,125,123,.2);
+  font-size:.82rem;opacity:.85;
+}
+.risk-card .mitigation strong{color:var(--teal-bright);font-weight:500}
+
+/* ══════════════════════════════════════════════════
+   THE ASK (Slide 20)
+   ══════════════════════════════════════════════════ */
+.slide--ask{
+  text-align:center;padding:6rem 3rem;
+}
+.slide--ask .kb-bg::before{
+  background-image:url('[BASE64_IMAGE]');
+}
+.ask-card{
+  background:rgba(30,26,20,.88);backdrop-filter:blur(8px);
+  border:1px solid var(--gold);border-radius:10px;
+  padding:2.5rem 3rem;margin:1.5rem auto 0;max-width:900px;text-align:left;
+  box-shadow:0 20px 60px rgba(0,0,0,.5), 0 0 40px rgba(201,168,76,.1);
+}
+.ask-terms{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 3rem;margin-top:1.2rem}
+.ask-terms .term{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid rgba(237,229,216,.06)}
+.ask-terms .term .k{font-family:'Inter',sans-serif;font-size:.75rem;opacity:.65;letter-spacing:.05em}
+.ask-terms .term .v{font-family:'SF Mono',Consolas,monospace;font-size:.85rem;color:var(--cream)}
+.ask-terms .term .v.gold{color:var(--gold);font-weight:500}
+.cta-row{
+  display:flex;justify-content:center;gap:1rem;margin-top:2rem;flex-wrap:wrap;
+}
+.btn-cta{
+  display:inline-block;background:var(--gold);color:var(--bg);
+  padding:.9rem 2rem;border-radius:4px;text-decoration:none;
+  font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;
+  letter-spacing:.25em;text-transform:uppercase;
+  transition:all .3s ease;border:1px solid var(--gold);
+}
+.btn-cta:hover{background:var(--gold-bright);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+.btn-cta--ghost{background:transparent;color:var(--gold)}
+.btn-cta--ghost:hover{background:var(--gold);color:var(--bg)}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════ */
+@media(max-width:900px){
+  .slide--padded{padding:3rem 1.5rem 2rem}
+  .split-layout{grid-template-columns:1fr;min-height:auto}
+  .split-layout--40-60,.split-layout--60-40{grid-template-columns:1fr}
+  .split-text{padding:3rem 1.5rem}
+  .split-image{min-height:40vh}
+  .grid-2,.split,.grid-4,.grid-5{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .gallery-grid .gallery-item:nth-child(1),.gallery-grid .gallery-item:nth-child(4){grid-row:span 1}
+  .top-nav{padding:.6rem 1rem}
+  .top-nav-dots{display:none}
+  .data-table{font-size:.7rem}
+  h1{font-size:2.4rem}
+  h2{font-size:1.6rem}
+  .stat-number{font-size:2rem}
+  .exec-grid{grid-template-columns:1fr 1fr}
+  .sliders-wrap{grid-template-columns:1fr}
+  .charts-grid{grid-template-columns:1fr}
+  .risk-grid{grid-template-columns:1fr}
+  .ask-terms{grid-template-columns:1fr;gap:.3rem}
+  .chart-row{grid-template-columns:1fr}
+  .exec-summary{padding:1.5rem}
+}
+
+/* ══════════════════════════════════════════════════
+   PRINT
+   ══════════════════════════════════════════════════ */
+@media print{
+  html{scroll-snap-type:none}
+  .slide{min-height:auto;page-break-inside:avoid;page-break-after:always;padding:1.5rem !important}
+  .split-layout{display:block}
+  .split-image{display:none}
+  .split-text{padding:1.5rem !important;background:#fff !important}
+  .top-nav,.top-nav-dots,.scroll-progress{display:none !important}
+  body{background:#fff;color:#222;font-size:10pt}
+  .slide:nth-child(odd),.slide:nth-child(even),.slide--hero,.slide--ask{background:#fff !important}
+  .card,.chart-card,.risk-card,.exec-summary,.live-panel,.sliders-panel,.ask-card{border-color:#ccc;background:#f9f9f9 !important;box-shadow:none !important}
+  h1,h2,h3,.gold,.teal,.stat-number,.live-kpi .v,.exec-head .deal-title,.exec-block .kv .v.gold{color:#222 !important}
+  .section-label,.tl-label,.stat-label,.exec-block h4,.chart-card h3,.live-panel h3{color:#666 !important}
+  .data-table th{color:#666 !important}
+  .slide-footer{color:#999 !important}
+  .gallery-item .gallery-label{opacity:1 !important;transform:none !important}
+  .fade-in{opacity:1 !important;transform:none !important}
+  .gold-divider{background:#999 !important}
+  .kb-bg{display:none !important}
+  .kb-bg::after,.kb-bg::before{display:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="top-nav-logo">HEAL HOUSE <span>×</span> NFP</div>
+  <div class="top-nav-dots" id="topNavDots"></div>
+</nav>
+
+<!-- ═══════════ SLIDE 1: HERO ═══════════ -->
+<section class="slide slide--hero" id="s1" data-slide-name="Hero">
+  <div class="kb-bg kb-origin-c"></div>
+  <div class="slide-inner" style="text-align:center">
+    <p class="section-label fade-in" style="border:none">Investment Opportunity</p>
+    <h1 class="fade-in" style="margin:.5rem 0">HEAL HOUSE <span class="gold">×</span> NFP</h1>
+    <p class="fade-in" style="font-family:'Inter',sans-serif;font-size:.85rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-bottom:2.5rem">Lakeshore · Toronto</p>
+    <p class="fade-in" style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-style:italic;color:var(--gold);margin-bottom:1.5rem">Return to Yourself.</p>
+    <div class="gold-divider gold-divider--center fade-in"></div>
+    <p class="fade-in" style="font-size:1.05rem;opacity:.7;max-width:540px;margin:0 auto .8rem;font-weight:300">A new foundation for human health.</p>
+    <p class="fade-in" style="font-family:'Inter',sans-serif;font-size:.75rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;opacity:.4">Measure · Optimize · Thrive</p>
+
+    <div class="fade-in" style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:3rem">
+      <div style="text-align:center">
+        <p class="stat-number" data-counter="220" data-format="int">0</p>
+        <p class="stat-label" style="opacity:.6">Residential Units</p>
+      </div>
+      <div style="text-align:center">
+        <p class="stat-number" data-counter="48" data-format="int">0</p>
+        <p class="stat-label" style="opacity:.6">Hotel Keys</p>
+      </div>
+      <div style="text-align:center">
+        <p class="stat-number" data-counter="252486" data-format="sf">0</p>
+        <p class="stat-label" style="opacity:.6">Gross Floor Area</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>CONFIDENTIAL</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 2: EXECUTIVE SUMMARY ═══════════ -->
+<section class="slide slide--padded" id="s2" style="background:var(--bg-alt)" data-slide-name="Executive Summary">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Executive Summary</p>
+    <h2 class="italic fade-in" style="margin-bottom:.5rem">Investment at a Glance.</h2>
+    <p class="dim small fade-in" style="margin-bottom:.5rem">One-page tombstone for institutional limited partners. All figures shown are for S4 (recommended scenario).</p>
+
+    <div class="exec-summary fade-in">
+      <div class="exec-head">
+        <div>
+          <div class="deal-title">Heal House <span class="gold">×</span> NFP</div>
+          <div class="deal-sub">2300 Lakeshore Blvd W · Toronto, ON</div>
+        </div>
+        <div class="deal-tag">Confidential · For Accredited Investors</div>
+      </div>
+
+      <div class="exec-grid" id="execGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div style="margin-top:1.8rem;padding-top:1.3rem;border-top:1px solid var(--gold-dim)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Use of Funds (Total Project Cost)</h4>
+        <div class="use-of-funds-bar" id="uofBar">
+          <!-- JS fills -->
+        </div>
+        <div class="uof-legend" id="uofLegend"><!-- JS fills --></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>02 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 3: MISSION ═══════════ -->
+<section class="slide" id="s3" data-slide-name="Mission">
+  <div class="split-layout split-layout--60-40">
+    <div class="split-text">
+      <div style="max-width:560px">
+        <p class="section-label fade-in">Mission</p>
+        <h2 class="italic fade-in" style="margin-bottom:1.2rem">This Is Not a Spa.<br>This Is Not a Clinic.</h2>
+        <div class="gold-divider fade-in"></div>
+        <p class="fade-in" style="font-size:1.05rem;line-height:1.9;opacity:.85;margin-bottom:1.2rem">
+          Heal House is an <strong style="font-weight:500">institutional-grade wellness environment</strong> — purpose-built residential living
+          where every system, surface, and service is designed around human optimization.
+        </p>
+        <p class="fade-in" style="opacity:.6;font-size:.95rem;margin-bottom:1.8rem">
+          Air. Water. Light. Movement. Recovery. Community.<br>Not as amenities — as architecture.
+        </p>
+        <p class="fade-in" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1.2rem">
+          For Lakeshore. For Toronto.
+        </p>
+      </div>
+    </div>
+    <div class="split-image split-image--parallax kb-origin-tr" data-parallax="0.82" style="background-image:url('[BASE64_IMAGE]')"></div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>03 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 4: VISION ═══════════ -->
+<section class="slide" id="s4" data-slide-name="Vision">
+  <div class="split-layout">
+    <div class="split-image split-image--parallax" data-parallax="0.82" style="background-image:url('[BASE64_IMAGE]')"></div>
+    <div class="split-text">
+      <div style="max-width:560px">
+        <p class="section-label fade-in">Vision</p>
+        <h2 class="italic fade-in" style="margin-bottom:.8rem">A building built around its residents.</h2>
+        <div class="gold-divider fade-in"></div>
+        <p class="fade-in" style="opacity:.75;margin-bottom:2.5rem;font-size:.95rem;line-height:1.9">
+          Through a <strong style="font-weight:500">non-profit co-ownership model</strong> powered by Build Canada Homes (BCH),
+          Heal House unlocks forgivable government loans, 50-year CMHC financing, and a legacy asset
+          that transfers to community ownership — while delivering institutional-grade returns to investors.
+        </p>
+        <div class="grid-2 fade-in" style="gap:1rem">
+          <div class="card" style="padding:1.2rem">
+            <span class="tag tag--conv">CMHC MLI</span>
+            <h3 style="font-size:1rem">S1: Mid-Rise</h3>
+            <p class="small dim">90 units · Standard return profile</p>
+          </div>
+          <div class="card" style="padding:1.2rem">
+            <span class="tag tag--bch">BCH + NFP</span>
+            <h3 style="font-size:1rem">S2: Mid-Rise + BCH</h3>
+            <p class="small dim">90 units · Forgivable loan · 60/40</p>
+          </div>
+          <div class="card" style="padding:1.2rem">
+            <span class="tag tag--conv">CMHC MLI</span>
+            <h3 style="font-size:1rem">S3: Full Build-Out</h3>
+            <p class="small dim">220 units + Hotel</p>
+          </div>
+          <div class="card card--recommended" style="padding:1.2rem">
+            <span class="tag tag--rec">★ Recommended</span>
+            <h3 style="font-size:1rem">S4: Full + BCH</h3>
+            <p class="small dim">220 units + Hotel · Legacy exit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>04 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 5: THE SITE ═══════════ -->
+<section class="slide" id="s5" data-slide-name="The Site">
+  <div class="split-layout split-layout--60-40">
+    <div class="split-text">
+      <div style="max-width:560px">
+        <p class="section-label fade-in">The Site</p>
+        <h2 class="italic fade-in" style="margin-bottom:.4rem">The most intentional address in Toronto.</h2>
+        <p class="fade-in" style="font-size:1.15rem;color:var(--gold);margin-bottom:1.5rem;font-family:'Cormorant Garamond',serif">2300 Lakeshore Blvd West</p>
+        <div class="gold-divider fade-in"></div>
+        <div class="fade-in">
+          <h3 style="font-size:1.05rem;margin-bottom:1rem;color:var(--gold)">Land Stack — $20M Assembled</h3>
+          <div class="line-item"><span class="label">Existing property (2300 Lakeshore)</span><span class="val">$5,000,000</span></div>
+          <div class="line-item"><span class="label">Green P parcel acquisition</span><span class="val">$6,000,000</span></div>
+          <div class="line-item"><span class="label">New lot acquisition</span><span class="val">$6,000,000</span></div>
+          <div class="line-item"><span class="label">Assemblage uplift / closing</span><span class="val">$3,000,000</span></div>
+          <div class="line-item subtotal"><span class="label">Total Assembled Land Value</span><span class="val gold">$20,000,000</span></div>
+        </div>
+        <div class="fade-in" style="margin-top:1.8rem">
+          <h3 style="font-size:1.05rem;margin-bottom:.8rem;color:var(--gold)">Lot Composition</h3>
+          <div class="line-item"><span class="label">2294 Lakeshore Blvd W</span><span class="val">6,499 SF</span></div>
+          <div class="line-item"><span class="label">2304 Lakeshore Blvd W</span><span class="val">7,965 SF</span></div>
+          <div class="line-item subtotal"><span class="label">Total lot area</span><span class="val">14,464 SF</span></div>
+        </div>
+        <div class="card fade-in" style="padding:1.2rem;margin-top:1.5rem">
+          <p class="small" style="opacity:.8">
+            <strong style="font-weight:500">S1/S2 (Mid-Rise):</strong> Existing $5M land only · ~96,864 SF GFA · 90 units<br><br>
+            <strong style="font-weight:500">S3/S4 (Full Build-Out):</strong> Full $20M assembled site · ~252,486 SF GFA · 220 units + 48-key hotel
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="split-image split-image--parallax kb-origin-bl" data-parallax="0.82" style="background-image:url('[BASE64_IMAGE]')"></div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>05 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 6: 4 SCENARIOS OVERVIEW ═══════════ -->
+<section class="slide slide--padded" id="s6" style="background:var(--bg)" data-slide-name="Scenarios">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Investment Scenarios</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">Four paths. One site. Your choice.</h2>
+    <p class="dim fade-in" style="margin-bottom:2.5rem;font-size:.9rem">Each scenario is modelled with live financials. BCH scenarios include forgivable government loans and non-profit partnership.</p>
+    <div class="grid-2 fade-in" id="scenarioCards">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>06 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 7: COMPARISON TABLE ═══════════ -->
+<section class="slide slide--padded" id="s7" style="background:var(--bg-alt)" data-slide-name="Comparison">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Side-by-Side Comparison</p>
+    <h2 class="italic fade-in" style="font-size:1.8rem;margin-bottom:1.8rem">The Numbers at a Glance</h2>
+    <div class="fade-in" style="overflow-x:auto">
+      <table class="data-table" id="compTable">
+        <thead><tr><th style="width:22%">Metric</th><th class="num">S1: Mid-Rise</th><th class="num">S2: Mid-Rise + BCH</th><th class="num">S3: Full Build</th><th class="num rec-col">S4: Full + BCH ★</th></tr></thead>
+        <tbody id="compBody"><!-- JS --></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>07 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 8: THE MATH ═══════════ -->
+<section class="slide slide--padded" id="s8" style="background:var(--bg)" data-slide-name="The Math">
+  <div class="slide-inner">
+    <p class="section-label fade-in">The Math</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">Show your work.</h2>
+    <p class="dim fade-in" style="margin-bottom:1.5rem;font-size:.9rem">Every projection visualized. All charts recalculate live when you adjust assumptions on the next slide.</p>
+
+    <div class="charts-grid fade-in">
+      <div class="chart-card">
+        <h3>20-Year Cumulative Investor Cash Flow (by Scenario)</h3>
+        <div class="chart-box chart-box--tall"><canvas id="chartCF"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Scenario Comparison — 20-Year Total Investor Return</h3>
+        <div class="chart-box chart-box--tall"><canvas id="chartReturns"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-row fade-in">
+      <div class="chart-card">
+        <h3>S4 Capital Stack — Where the Money Comes From</h3>
+        <div class="chart-box"><canvas id="chartStack"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>S4 Year-1 Revenue Breakdown</h3>
+        <div class="chart-box"><canvas id="chartRev"></canvas></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>08 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 9: ADJUST THE MODEL ═══════════ -->
+<section class="slide slide--padded" id="s9" style="background:var(--bg-alt)" data-slide-name="Adjust the Model">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Adjust the Model</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">Stress-test every assumption.</h2>
+    <p class="dim fade-in" style="margin-bottom:1.5rem;font-size:.9rem">Tweak any driver. The entire deck — every table, every chart, every KPI — recalculates instantly.</p>
+
+    <div class="sliders-wrap fade-in">
+      <div class="sliders-panel">
+
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="lbl">Annual Rent Growth</span>
+            <span><span class="val" id="valRentGrowth">2.5%</span><span class="default-note">default 2.5%</span></span>
+          </div>
+          <input type="range" id="sldRentGrowth" min="0" max="5" step="0.1" value="2.5">
+          <div class="slider-scale"><span>0%</span><span>5%</span></div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="lbl">Vacancy Rate</span>
+            <span><span class="val" id="valVacancy">3.0%</span><span class="default-note">default 3%</span></span>
+          </div>
+          <input type="range" id="sldVacancy" min="0" max="10" step="0.1" value="3">
+          <div class="slider-scale"><span>0%</span><span>10%</span></div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="lbl">Exit Cap Rate</span>
+            <span><span class="val" id="valCapRate">4.75%</span><span class="default-note">default 4.75%</span></span>
+          </div>
+          <input type="range" id="sldCapRate" min="3.5" max="6" step="0.05" value="4.75">
+          <div class="slider-scale"><span>3.5%</span><span>6%</span></div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="lbl">Hotel Occupancy</span>
+            <span><span class="val" id="valHotelOcc">72%</span><span class="default-note">default 72%</span></span>
+          </div>
+          <input type="range" id="sldHotelOcc" min="50" max="85" step="1" value="72">
+          <div class="slider-scale"><span>50%</span><span>85%</span></div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="lbl">Hotel ADR</span>
+            <span><span class="val" id="valHotelADR">$189</span><span class="default-note">default $189</span></span>
+          </div>
+          <input type="range" id="sldHotelADR" min="150" max="250" step="1" value="189">
+          <div class="slider-scale"><span>$150</span><span>$250</span></div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="lbl">Affordable Rent Discount (below market)</span>
+            <span><span class="val" id="valAffordDisc">30%</span><span class="default-note">default 30%</span></span>
+          </div>
+          <input type="range" id="sldAffordDisc" min="20" max="40" step="1" value="30">
+          <div class="slider-scale"><span>20%</span><span>40%</span></div>
+        </div>
+
+        <button class="btn-reset" id="btnReset">↻ Reset to Defaults</button>
+      </div>
+
+      <div class="live-panel">
+        <h3>Live Readout — S4 Recommended</h3>
+        <p class="live-sub">These numbers update instantly with your inputs.</p>
+
+        <div class="live-kpi headline"><span class="k">20yr Equity Multiple</span><span class="v" id="liveEqMult">—</span></div>
+        <div class="live-kpi"><span class="k">Year 1 NOI</span><span class="v cream" id="liveNOI">—</span></div>
+        <div class="live-kpi"><span class="k">Year 1 Cash-on-Cash (investor)</span><span class="v cream" id="liveCoc">—</span></div>
+        <div class="live-kpi"><span class="k">DCR</span><span class="v cream" id="liveDCR">—</span></div>
+        <div class="live-kpi"><span class="k">Equity Required</span><span class="v cream" id="liveEquity">—</span></div>
+        <div class="live-kpi"><span class="k">Property Value (Year 1 cap)</span><span class="v cream" id="livePropVal">—</span></div>
+        <div class="live-kpi"><span class="k">20yr Cum. Investor CF (60%)</span><span class="v" id="liveCumInv">—</span></div>
+        <div class="live-kpi"><span class="k">20yr Cum. NFP CF (40%)</span><span class="v teal" id="liveCumNfp">—</span></div>
+        <div class="live-kpi"><span class="k">20yr Total Investor Return</span><span class="v" id="liveTotalReturn">—</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>09 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 10: GALLERY — THE SPACE ═══════════ -->
+<section class="slide slide--padded" id="s10" style="background:var(--bg)" data-slide-name="The Space">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Renderings</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">The Space</h2>
+    <p class="fade-in" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1.1rem;margin-bottom:.5rem">Where wellness meets architecture.</p>
+    <div class="gold-divider fade-in"></div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-item">
+        <img src="[BASE64_IMAGE]" alt="The Living Atrium">
+        <div class="gallery-label">The Living Atrium</div>
+      </div>
+      <div class="gallery-item">
+        <img src="[BASE64_IMAGE]" alt="The Secret Garden">
+        <div class="gallery-label">The Secret Garden</div>
+      </div>
+      <div class="gallery-item">
+        <img src="[BASE64_IMAGE]" alt="Wellness & Biohacking Suite">
+        <div class="gallery-label">Wellness &amp; Biohacking Suite</div>
+      </div>
+      <div class="gallery-item">
+        <img src="[BASE64_IMAGE]" alt="Building Exterior">
+        <div class="gallery-label">Building Exterior</div>
+      </div>
+      <div class="gallery-item">
+        <img src="[BASE64_IMAGE]" alt="Aerial View — Lakeshore">
+        <div class="gallery-label">Aerial View — Lakeshore</div>
+      </div>
+      <div class="gallery-item">
+        <img src="[BASE64_IMAGE]" alt="Neighbourhood Context">
+        <div class="gallery-label">Neighbourhood Context</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>10 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 11: DEEP DIVE S1 & S2 ═══════════ -->
+<section class="slide slide--padded" id="s11" style="background:var(--bg-alt)" data-slide-name="Deep Dive S1/S2">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Scenario Deep Dive</p>
+    <h2 class="italic fade-in" style="font-size:1.8rem;margin-bottom:1.8rem">S1 vs S2 — Mid-Rise (90 Units)</h2>
+    <div class="split fade-in" id="deepDive12"><!-- JS --></div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>11 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 12: DEEP DIVE S3 & S4 ═══════════ -->
+<section class="slide slide--padded" id="s12" style="background:var(--bg)" data-slide-name="Deep Dive S3/S4">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Scenario Deep Dive</p>
+    <h2 class="italic fade-in" style="font-size:1.8rem;margin-bottom:1.8rem">S3 vs S4 — Full Build-Out (220 Units + Hotel)</h2>
+    <div class="split fade-in" id="deepDive34"><!-- JS --></div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>12 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 13: 20-YEAR PROJECTIONS ═══════════ -->
+<section class="slide slide--padded" id="s13" style="background:var(--bg-alt)" data-slide-name="20-Year Projection">
+  <div class="slide-inner">
+    <p class="section-label fade-in">20-Year Projections — S4 Recommended</p>
+    <h2 class="italic fade-in" style="font-size:1.8rem;margin-bottom:1rem">Growth Trajectory &amp; Cumulative Returns</h2>
+    <p class="dim small fade-in" style="margin-bottom:1.5rem" id="projSubhead">2.5% annual rent growth · 3.5% land appreciation · CMHC 50yr amortization</p>
+    <div class="fade-in" style="overflow-x:auto">
+      <table class="data-table" id="projTable">
+        <thead><tr>
+          <th>Year</th><th class="num">NOI</th><th class="num">Investor CF (60%)</th><th class="num">NFP CF (40%)</th>
+          <th class="num">Cum. Investor</th><th class="num">Cum. NFP</th><th class="num">Principal Paid</th>
+        </tr></thead>
+        <tbody id="projBody"><!-- JS --></tbody>
+      </table>
+    </div>
+    <div id="exitSummary" style="margin-top:2rem" class="card card--recommended fade-in"><!-- JS --></div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>13 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 14: NON-PROFIT BENEFIT ═══════════ -->
+<section class="slide slide--padded" id="s14" style="background:var(--bg)" data-slide-name="Non-Profit Benefit">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Social Impact — Non-Profit Partner</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">Building a Legacy. Not Just a Building.</h2>
+    <p class="dim fade-in" style="margin-bottom:2.5rem;max-width:700px;font-size:.9rem">In BCH scenarios, 40% of net cash flow accrues to the Non-Profit Partner. At Year 20, the entire asset transfers to community ownership.</p>
+    <div class="grid-2">
+      <div class="fade-in">
+        <div class="card" style="margin-bottom:1.2rem">
+          <h3 style="color:var(--teal);font-size:1.1rem">20-Year NFP Income (S4)</h3>
+          <p id="nfpCumIncome" class="stat-number" style="color:var(--teal)">—</p>
+          <p class="small dim">Cumulative 40% share of net cash flow over 20 years</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--gold);font-size:1.1rem">Legacy Asset Value at Year 20</h3>
+          <p id="nfpAssetValue" class="stat-number">—</p>
+          <p class="small dim">Building + land transfers in full to the Non-Profit Partner</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="fade-in" style="font-size:1.05rem;color:var(--teal);margin-bottom:1rem">What the 40% Funds</h3>
+        <div class="card fade-in" style="margin-bottom:.7rem"><p class="small">🏠 <strong style="font-weight:500">Affordable housing preservation</strong> — Maintaining below-market units for essential workers and seniors</p></div>
+        <div class="card fade-in" style="margin-bottom:.7rem"><p class="small">🤝 <strong style="font-weight:500">Community programming</strong> — Wellness workshops, mental health services, youth mentorship</p></div>
+        <div class="card fade-in" style="margin-bottom:.7rem"><p class="small">🏥 <strong style="font-weight:500">Tenant services</strong> — On-site health coordination, preventative care access, community kitchen</p></div>
+        <div class="card fade-in" style="margin-bottom:.7rem"><p class="small">🌱 <strong style="font-weight:500">Environmental stewardship</strong> — Green building maintenance, urban agriculture, sustainability initiatives</p></div>
+        <div class="fade-in" style="margin-top:1.8rem">
+          <p class="small" style="margin-bottom:.5rem;opacity:.6">Income Split — 60% Investor / 40% Non-Profit</p>
+          <div class="bar-wrap" style="height:32px">
+            <div class="bar-seg bar-inv" style="width:60%">60% INVESTOR</div>
+            <div class="bar-seg bar-nfp" style="width:40%">40% NFP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>14 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 15: MARKET GAP ═══════════ -->
+<section class="slide slide--padded" id="s15" style="background:var(--bg-alt)" data-slide-name="Market Gap">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Market Opportunity</p>
+    <h2 class="italic fade-in" style="margin-bottom:2rem">The market is ready. The need is undeniable.</h2>
+    <div class="grid-3">
+      <div class="card fade-in">
+        <p class="stat-number"><span data-counter="5.6" data-format="trillion">0</span></p>
+        <p class="stat-label">Global Longevity Economy</p>
+        <p class="small dim">The fastest-growing consumer segment on Earth. By 2030, adults 60+ will drive $5.6 trillion in annual spending.</p>
+      </div>
+      <div class="card fade-in">
+        <p class="stat-number"><span data-counter="89" data-format="pct">0</span></p>
+        <p class="stat-label">Burnout Crisis</p>
+        <p class="small dim">89% of Canadian workers report burnout. Mental health claims are up 300% since 2019. Prevention, not treatment, is the future.</p>
+      </div>
+      <div class="card fade-in">
+        <p class="stat-number" data-counter="0" data-format="int">0</p>
+        <p class="stat-label">Direct Competitors</p>
+        <p class="small dim">No purpose-built wellness-integrated residential asset exists in Canada. Not condo. Not co-living. A new category.</p>
+      </div>
+    </div>
+    <div class="fade-in" style="margin-top:2.5rem;text-align:center">
+      <p style="font-size:1rem;opacity:.7;max-width:650px;margin:0 auto;line-height:1.9">
+        Healthcare systems are collapsing under treatment costs. Heal House is a <strong style="font-weight:500">prevention infrastructure</strong> —
+        residential living that reduces hospital visits, improves outcomes, and generates returns for investors and communities alike.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>15 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 16: COMPARABLES ═══════════ -->
+<section class="slide slide--padded" id="s16" style="background:var(--bg)" data-slide-name="Comparables">
+  <div class="slide-inner">
+    <p class="section-label fade-in">The Comparables</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">Toronto's wellness &amp; mixed-use benchmark set.</h2>
+    <p class="dim fade-in" style="margin-bottom:1.8rem;font-size:.9rem;max-width:720px">
+      Heal House sits within a well-defined institutional segment. The following assets frame pricing, quality, and positioning for the Lakeshore corridor.
+    </p>
+    <div class="fade-in" style="overflow-x:auto">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:20%">Project</th>
+            <th>Location</th>
+            <th>Type</th>
+            <th class="num">$/SF</th>
+            <th class="num">Completed</th>
+            <th>Key Feature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--cream);font-weight:500">Concord Sky</strong></td>
+            <td>98 Blue Jays Way, Toronto</td>
+            <td>Rental · Wellness amenities</td>
+            <td class="num">$1,420</td>
+            <td class="num">2025</td>
+            <td>$1.2B project · spa-grade wellness floor</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--cream);font-weight:500">Pinnacle Harbourside</strong></td>
+            <td>2230 Lake Shore Blvd W</td>
+            <td>Mid-rise rental</td>
+            <td class="num">$1,080</td>
+            <td class="num">2024</td>
+            <td>Direct Lakeshore comparable · 8 blocks from site</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--cream);font-weight:500">The Well</strong></td>
+            <td>Front &amp; Spadina, Toronto</td>
+            <td>Mixed-use destination</td>
+            <td class="num">$1,580</td>
+            <td class="num">2023</td>
+            <td>Office + retail + residential · benchmark for quality</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--cream);font-weight:500">Minto Yorkville</strong></td>
+            <td>89 Avenue Rd, Toronto</td>
+            <td>Luxury rental</td>
+            <td class="num">$1,650</td>
+            <td class="num">2022</td>
+            <td>Peak rent achievement ~$5.50/SF/mo · white-glove services</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong class="gold" style="font-weight:600">Heal House (projected)</strong></td>
+            <td>2300 Lakeshore Blvd W</td>
+            <td>Wellness-integrated rental + hotel</td>
+            <td class="num gold">$1,500</td>
+            <td class="num">2029</td>
+            <td>Only purpose-built wellness asset · 20yr legacy transfer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comps-note fade-in">
+      <strong>Positioning:</strong> Heal House prices at a <strong>premium tier</strong>, differentiated through wellness-integrated architecture, a non-profit ownership structure, and a 40% forgivable construction loan that structurally reduces capital intensity versus every listed comp.
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>16 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 17: RISK & MITIGATION ═══════════ -->
+<section class="slide slide--padded" id="s17" style="background:var(--bg-alt)" data-slide-name="Risk &amp; Mitigation">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Risk &amp; Mitigation</p>
+    <h2 class="italic fade-in" style="margin-bottom:.4rem">Every risk. Mapped, priced, and structurally mitigated.</h2>
+    <p class="dim fade-in" style="margin-bottom:1rem;font-size:.9rem;max-width:720px">
+      Institutional capital requires a transparent risk framework. Below are the five principal risk categories for this transaction, each with a specific, contractual or structural mitigant.
+    </p>
+
+    <div class="risk-grid fade-in">
+      <div class="risk-card mitigated">
+        <div class="risk-label">Construction Cost Risk</div>
+        <h4>Hard-cost escalation during build</h4>
+        <p class="small dim">Fluctuations in labour, steel, and concrete pricing during the 2028 build window.</p>
+        <div class="mitigation">
+          <strong>Mitigation:</strong> Fixed-price contract with <strong style="color:var(--cream);font-weight:500">Cube Building Systems</strong>. Offsite prefab (CLT/CFS hybrid) removes ~60% of onsite variability and accelerates schedule.
+        </div>
+      </div>
+
+      <div class="risk-card mitigated">
+        <div class="risk-label">Lease-Up Risk</div>
+        <h4>Absorption velocity on delivery</h4>
+        <p class="small dim">Delivering 220 units in Q4 2029 without pre-leasing would pressure cash flow.</p>
+        <div class="mitigation">
+          <strong>Mitigation:</strong> CMHC MLI 10-year rent guarantee mechanism + affordable units leased first via BCH waiting list. Market rents at $1,080/SF against $1,500/SF projected sell-out — <strong style="color:var(--cream);font-weight:500">substantial margin of safety</strong>.
+        </div>
+      </div>
+
+      <div class="risk-card mitigated">
+        <div class="risk-label">Regulatory Risk</div>
+        <h4>Zoning, rent control, or NFP rule changes</h4>
+        <p class="small dim">Ontario rental legislation or BCH program terms could shift post-close.</p>
+        <div class="mitigation">
+          <strong>Mitigation:</strong> NFP structure + signed BCH funding agreement locks affordability in a federal framework. Zoning secured by Q1 2027 — <strong style="color:var(--cream);font-weight:500">before any capital call</strong>.
+        </div>
+      </div>
+
+      <div class="risk-card mitigated">
+        <div class="risk-label">Interest Rate Risk</div>
+        <h4>Rate environment at loan renewal</h4>
+        <p class="small dim">50-year amortization means multiple renewal windows across the hold.</p>
+        <div class="mitigation">
+          <strong>Mitigation:</strong> CMHC MLI at 3.40% (5-yr term, 50-yr amort), 95% LTV — the <strong style="color:var(--cream);font-weight:500">lowest-cost institutional debt available in Canada</strong>. Lock available for 12 mo pre-funding.
+        </div>
+      </div>
+
+      <div class="risk-card mitigated">
+        <div class="risk-label">Market Risk</div>
+        <h4>Toronto rental softening</h4>
+        <p class="small dim">Broader GTA oversupply narrative, particularly in downtown core.</p>
+        <div class="mitigation">
+          <strong>Mitigation:</strong> Lakeshore corridor outperforms GTA average by <strong style="color:var(--cream);font-weight:500">~120 bps of annual rent growth</strong>. 501 streetcar + Mimico GO + planned Ontario Line stop at Park Lawn anchor transit access for decades.
+        </div>
+      </div>
+
+      <div class="risk-card mitigated">
+        <div class="risk-label">Sponsor / Execution Risk</div>
+        <h4>Alignment of operator, NFP, and LPs</h4>
+        <p class="small dim">First-of-kind structures require disciplined governance.</p>
+        <div class="mitigation">
+          <strong>Mitigation:</strong> GP/LP waterfall; <strong style="color:var(--cream);font-weight:500">Integrity Tree Financial</strong> structuring; independent trustee over NFP 40% distribution; quarterly reporting; annual independent audit.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>17 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 18: TEAM ═══════════ -->
+<section class="slide slide--padded" id="s18" style="background:var(--bg)" data-slide-name="Team">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Team</p>
+    <h2 class="italic fade-in" style="margin-bottom:2.5rem">The People Behind the Vision</h2>
+    <div class="grid-2">
+      <div class="card fade-in">
+        <h3 style="font-size:1.2rem;color:var(--gold)">Joe Lu</h3>
+        <p class="small" style="color:var(--gold);margin-bottom:.6rem;font-weight:400">Chief Visionary Officer</p>
+        <p class="small dim">Founder of Heal House. Visionary behind the integration of wellness science into residential real estate architecture.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 style="font-size:1.2rem;color:var(--gold)">Jason Allen John</h3>
+        <p class="small" style="color:var(--gold);margin-bottom:.6rem;font-weight:400">Strategic Advisor — Integrity Tree Financial</p>
+        <p class="small dim">Financial structuring, investor relations, and capital stack design across all four scenarios.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 style="font-size:1.2rem;color:var(--teal)">Non-Profit Partner</h3>
+        <p class="small" style="color:var(--teal);margin-bottom:.6rem;font-weight:400">Community Co-Owner (TBD)</p>
+        <p class="small dim">To be confirmed. Will serve as the registered non-profit co-owner under BCH scenarios (S2 &amp; S4), receiving 40% of cash flow and full asset ownership at Year 20.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 style="font-size:1.2rem;color:var(--gold)">Cube Building Systems</h3>
+        <p class="small" style="color:var(--gold);margin-bottom:.6rem;font-weight:400">Construction &amp; Building Systems Partner</p>
+        <p class="small dim">Offsite prefabrication specialists. CLT/CFS/hybrid construction proven up to 11 storeys. Accelerated timelines, reduced waste. <span style="opacity:.5">cubebuildingsystems.ca</span></p>
+      </div>
+    </div>
+    <p class="fade-in" style="text-align:center;margin-top:2.5rem;font-size:.85rem;opacity:.5;font-family:'Inter',sans-serif;letter-spacing:.15em">healhouse.ca</p>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>18 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 19: TIMELINES ═══════════ -->
+<section class="slide slide--padded" id="s19" style="background:var(--bg-alt)" data-slide-name="Timeline">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Timeline</p>
+    <h2 class="italic fade-in" style="margin-bottom:3rem">A clear path to delivery.</h2>
+    <div class="timeline fade-in">
+      <div class="tl-node">
+        <div class="tl-dot"></div>
+        <p class="tl-label">Q1 2027</p>
+        <p class="tl-text">City Approvals</p>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot"></div>
+        <p class="tl-label">Fall 2027</p>
+        <p class="tl-text">Construction Begins</p>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot"></div>
+        <p class="tl-label">Q2 2029</p>
+        <p class="tl-text">Pre-Leasing Opens</p>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot"></div>
+        <p class="tl-label">Q4 2029</p>
+        <p class="tl-text">Occupancy</p>
+      </div>
+    </div>
+    <div class="fade-in" style="text-align:center;margin-top:3.5rem">
+      <img src="[BASE64_IMAGE]" alt="Atrium" style="max-width:700px;width:100%;border-radius:8px;opacity:.6">
+    </div>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>19 / 20</span></div>
+</section>
+
+<!-- ═══════════ SLIDE 20: THE ASK ═══════════ -->
+<section class="slide slide--ask" id="s20" data-slide-name="The Ask">
+  <div class="kb-bg kb-origin-bl"></div>
+  <div class="slide-inner">
+    <p class="section-label fade-in" style="border:none">The Ask</p>
+    <h2 class="italic fade-in" style="font-size:2.4rem;margin-bottom:.6rem">Partner with us to build the future<br>foundation of human health.</h2>
+    <div class="gold-divider gold-divider--center fade-in"></div>
+
+    <div class="ask-card fade-in">
+      <h3 style="font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem">Investment Terms</h3>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);margin-bottom:1rem;font-style:italic">Heal House × NFP — S4 Recommended Scenario</p>
+
+      <div class="ask-terms" id="askTerms">
+        <!-- JS fills -->
+      </div>
+
+      <div class="cta-row">
+        <a class="btn-cta" href="mailto:jason@k0re.ai?subject=Heal%20House%20%E2%80%94%20Site%20Visit%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20schedule%20a%20site%20visit%20to%20the%20Heal%20House%20location%20at%202300%20Lakeshore%20Blvd%20W.%0A%0AName%3A%0ADate%20preferences%3A%0AInvestment%20range%3A%0A%0AThanks%21">Schedule a Site Visit</a>
+        <a class="btn-cta btn-cta--ghost" href="mailto:jason@k0re.ai?subject=Heal%20House%20%E2%80%94%20Data%20Room%20Access">Request Data Room Access</a>
+      </div>
+    </div>
+
+    <p class="fade-in" style="font-size:.95rem;opacity:.7;margin-top:2rem">healhouse.ca · jason@k0re.ai</p>
+    <p class="fade-in" style="font-family:'Inter',sans-serif;font-size:.75rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;opacity:.4;margin-top:1rem">Measure · Optimize · Thrive</p>
+  </div>
+  <div class="slide-footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>20 / 20</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CALCULATION ENGINE & INTERACTIVITY
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+"use strict";
+
+/* ── HELPERS ── */
+const $ = (s,p) => (p||document).querySelector(s);
+const $$ = (s,p) => [...(p||document).querySelectorAll(s)];
+const fmt = n => {
+  if(!isFinite(n)) return '—';
+  if(Math.abs(n)>=1e9) return '$'+( n/1e9).toFixed(2)+'B';
+  if(Math.abs(n)>=1e6) return '$'+(n/1e6).toFixed(1)+'M';
+  if(Math.abs(n)>=1e3) return '$'+Math.round(n/1e3).toLocaleString()+'K';
+  return '$'+Math.round(n).toLocaleString();
+};
+const fmtFull = n => '$'+Math.round(n).toLocaleString();
+const pct = (n,d=1) => (n*100).toFixed(d)+'%';
+const fmtX = n => isFinite(n) ? n.toFixed(2)+'×' : '—';
+
+/* ══════════════════════════════════════════════════
+   PARAMS (mutable via sliders)
+   ══════════════════════════════════════════════════ */
+const P_DEFAULTS = {
+  hardCostPSF: 325, softPct: 0.18, opexPct: 0.35,
+  vacancyPct: 0.03, capRate: 0.0475,
+  rentGrowth: 0.025, landAppreciation: 0.035,
+  marketRents: {studio:1650,'1br':2100,'1br_den':2400,'2br':2850,'3br':3500},
+  hotelKeys: 48, hotelADR: 189, hotelOcc: 0.72,
+  affordDiscount: 0.30,
+};
+
+// Copy defaults to mutable P
+const P = JSON.parse(JSON.stringify(P_DEFAULTS));
+
+// Build affordable rents live from marketRents * (1 - affordDiscount)
+function rebuildAffordRents(){
+  P.affordRents = {};
+  Object.keys(P.marketRents).forEach(k => {
+    P.affordRents[k] = P.marketRents[k] * (1 - P.affordDiscount);
+  });
+}
+rebuildAffordRents();
+
+/* ══════════════════════════════════════════════════
+   UNIT MIX
+   ══════════════════════════════════════════════════ */
+const mixSmall = [
+  {type:'studio',count:15},{type:'1br',count:30},{type:'1br_den',count:20},
+  {type:'2br',count:18},{type:'3br',count:7}
+]; // 90 total
+const mixFull = [
+  {type:'studio',count:40},{type:'1br',count:70},{type:'1br_den',count:45},
+  {type:'2br',count:45},{type:'3br',count:20}
+]; // 220 total
+
+function calcRevenue(mix, affordPct){
+  let market = 0, afford = 0;
+  const aCount = Math.round(mix.reduce((a,u)=>a+u.count,0) * affordPct);
+  let assigned = 0;
+  mix.forEach(u => {
+    const affUnits = Math.min(u.count, Math.max(0, aCount - assigned));
+    assigned += affUnits;
+    const mktUnits = u.count - affUnits;
+    market += mktUnits * P.marketRents[u.type] * 12;
+    afford += affUnits * P.affordRents[u.type] * 12;
+  });
+  return {market, afford, total: market + afford};
+}
+
+function calcHotelRevenue(){
+  return P.hotelKeys * P.hotelADR * P.hotelOcc * 365;
+}
+
+/* ── DEBT SERVICE ── */
+function annualDebtService(principal, rate, amortYrs){
+  if(principal<=0||rate<=0) return 0;
+  const r = rate/12;
+  const n = amortYrs*12;
+  const monthly = principal * (r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+  return monthly * 12;
+}
+
+function principalPaidYear(principal, rate, amortYrs, year){
+  if(!principal || !rate || !amortYrs) return 0;
+  const r = rate/12;
+  const n = amortYrs*12;
+  const monthly = principal * (r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+  let bal = principal;
+  let totalPrincipal = 0;
+  const endMonth = year * 12;
+  for(let m=1; m<=endMonth && m<=n; m++){
+    const intPmt = bal * r;
+    const prinPmt = monthly - intPmt;
+    totalPrincipal += prinPmt;
+    bal -= prinPmt;
+  }
+  return totalPrincipal;
+}
+
+/* ══════════════════════════════════════════════════
+   SCENARIO MODELS
+   ══════════════════════════════════════════════════ */
+
+function modelS1(){
+  const gfa = 96864, land = 5000000, existingDebt = 3000000;
+  const hardCost = gfa * P.hardCostPSF;
+  const softCost = hardCost * P.softPct;
+  const totalConstruction = hardCost + softCost;
+  const totalCost = totalConstruction + land;
+
+  const rev = calcRevenue(mixSmall, 0);
+  const egi = rev.total * (1 - P.vacancyPct);
+  const opex = egi * P.opexPct;
+  const noi = egi - opex;
+
+  const cmhcLoan = totalCost * 0.95;
+  const cmhcRate = 0.034, cmhcAmort = 50;
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
+  const equity = totalCost - cmhcLoan;
+
+  const cashFlow = noi - ds;
+  const propValue = noi / P.capRate;
+  const dcr = noi / ds;
+  const coc = cashFlow / equity;
+
+  let cumCF = 0;
+  for(let y=1;y<=20;y++){
+    const yNoi = noi * Math.pow(1+P.rentGrowth, y-1);
+    cumCF += yNoi - ds;
+  }
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
+  const totalReturn20 = cumCF + prinPaid + equity;
+  const eqMult = totalReturn20 / equity;
+
+  return {
+    id:'S1', name:'S1: Mid-Rise, CMHC MLI', tag:'CMHC MLI', tagClass:'tag--bch',
+    units:90, gfa, hotel:false, land, totalConstruction, totalCost,
+    forgivable:0, convLoan:0, convRate:0, convAmort:50, mezzLoan:0, mezzRate:0, mezzAmort:0,
+    cmhcLoan, cmhcRate, cmhcAmort,
+    totalDebt: cmhcLoan, equity, existingDebt,
+    revMarket: rev.market, revAfford: 0, revHotel: 0, egi, opex, noi, ds,
+    cashFlow, investorCF: cashFlow, nfpCF: 0,
+    propValue, dcr, coc, cumCF20: cumCF, prinPaid20: prinPaid,
+    totalReturn20, eqMult, bch: false, split: false,
+    hardCost, softCost
+  };
+}
+
+function modelS2(){
+  const gfa = 96864, land = 5000000, existingDebt = 3000000;
+  const hardCost = gfa * P.hardCostPSF;
+  const softCost = hardCost * P.softPct;
+  const totalConstruction = hardCost + softCost;
+  const forgivable = totalConstruction * 0.40;
+  const totalCost = totalConstruction + land;
+
+  const rev = calcRevenue(mixSmall, 0.30);
+  const egi = rev.total * (1 - P.vacancyPct);
+  const opex = egi * P.opexPct;
+  const noi = egi - opex;
+
+  const cmhcLoan = (totalCost - forgivable) * 0.95;
+  const cmhcRate = 0.034, cmhcAmort = 50;
+  const totalDebt = cmhcLoan;
+  const equity = totalCost - forgivable - totalDebt;
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
+
+  const cashFlow = noi - ds;
+  const investorCF = cashFlow * 0.60;
+  const nfpCF = cashFlow * 0.40;
+  const propValue = noi / P.capRate;
+  const dcr = noi / ds;
+  const coc = investorCF / equity;
+
+  let cumInv = 0, cumNfp = 0;
+  for(let y=1;y<=20;y++){
+    const yNoi = noi * Math.pow(1+P.rentGrowth, y-1);
+    const yCF = yNoi - ds;
+    cumInv += yCF * 0.60;
+    cumNfp += yCF * 0.40;
+  }
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
+  const totalReturn20 = cumInv + prinPaid + equity;
+  const eqMult = totalReturn20 / equity;
+
+  return {
+    id:'S2', name:'S2: Mid-Rise + BCH', tag:'BCH + NFP', tagClass:'tag--bch',
+    units:90, gfa, hotel:false, land, totalConstruction, totalCost,
+    forgivable, convLoan:0, convRate:0, convAmort:50,
+    mezzLoan:0, mezzRate:0, mezzAmort:50,
+    cmhcLoan, cmhcRate, cmhcAmort,
+    totalDebt, equity, existingDebt,
+    revMarket: rev.market, revAfford: rev.afford, revHotel: 0, egi, opex, noi, ds,
+    cashFlow, investorCF, nfpCF,
+    propValue, dcr, coc, cumCF20: cumInv, cumNfp20: cumNfp, prinPaid20: prinPaid,
+    totalReturn20, eqMult, bch: true, split: true,
+    hardCost, softCost, affordPct: 0.30
+  };
+}
+
+function modelS3(){
+  const gfa = 252486, land = 20000000;
+  const hardCost = gfa * P.hardCostPSF;
+  const softCost = hardCost * P.softPct;
+  const totalConstruction = hardCost + softCost;
+  const totalCost = totalConstruction + land;
+
+  const rev = calcRevenue(mixFull, 0);
+  const hotelRev = calcHotelRevenue();
+  const egi = (rev.total + hotelRev) * (1 - P.vacancyPct);
+  const opex = egi * P.opexPct;
+  const noi = egi - opex;
+
+  const cmhcLoan = totalCost * 0.95;
+  const cmhcRate = 0.034, cmhcAmort = 50;
+  const totalDebt = cmhcLoan;
+  const equity = totalCost - cmhcLoan;
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
+
+  const cashFlow = noi - ds;
+  const propValue = noi / P.capRate;
+  const dcr = noi / ds;
+  const coc = cashFlow / equity;
+
+  let cumCF = 0;
+  for(let y=1;y<=20;y++){
+    const yRev = rev.total * Math.pow(1+P.rentGrowth,y-1);
+    const yHotel = hotelRev * Math.pow(1+P.rentGrowth,y-1);
+    const yEgi = (yRev + yHotel) * (1-P.vacancyPct);
+    const yNoi = yEgi - yEgi*P.opexPct;
+    cumCF += yNoi - ds;
+  }
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
+  const totalReturn20 = cumCF + prinPaid + equity;
+  const eqMult = totalReturn20 / equity;
+
+  return {
+    id:'S3', name:'S3: Full Build-Out, CMHC MLI', tag:'CMHC MLI', tagClass:'tag--bch',
+    units:220, gfa, hotel:true, land, totalConstruction, totalCost,
+    forgivable:0, convLoan:0, convRate:0, convAmort:50,
+    mezzLoan:0, mezzRate:0, mezzAmort:50,
+    cmhcLoan, cmhcRate, cmhcAmort,
+    totalDebt, equity,
+    revMarket: rev.market, revAfford: 0, revHotel: hotelRev, egi, opex, noi, ds,
+    cashFlow, investorCF: cashFlow, nfpCF: 0,
+    propValue, dcr, coc, cumCF20: cumCF, prinPaid20: prinPaid,
+    totalReturn20, eqMult, bch: false, split: false,
+    hardCost, softCost
+  };
+}
+
+function modelS4(){
+  const gfa = 252486, land = 20000000;
+  const hardCost = gfa * P.hardCostPSF;
+  const softCost = hardCost * P.softPct;
+  const totalConstruction = hardCost + softCost;
+  const forgivable = totalConstruction * 0.40;
+  const totalCost = totalConstruction + land;
+
+  const rev = calcRevenue(mixFull, 0.30);
+  const hotelRev = calcHotelRevenue();
+  const egi = (rev.total + hotelRev) * (1 - P.vacancyPct);
+  const opex = egi * P.opexPct;
+  const noi = egi - opex;
+
+  const cmhcLoan = (totalCost - forgivable) * 0.95;
+  const cmhcRate = 0.034, cmhcAmort = 50;
+  const totalDebt = cmhcLoan;
+  const equity = totalCost - forgivable - totalDebt;
+  const ds = annualDebtService(cmhcLoan, cmhcRate, cmhcAmort);
+
+  const cashFlow = noi - ds;
+  const investorCF = cashFlow * 0.60;
+  const nfpCF = cashFlow * 0.40;
+  const propValue = noi / P.capRate;
+  const dcr = noi / ds;
+  const coc = investorCF / equity;
+
+  let cumInv=0, cumNfp=0;
+  for(let y=1;y<=20;y++){
+    const yRev = rev.total * Math.pow(1+P.rentGrowth,y-1);
+    const yHotel = hotelRev * Math.pow(1+P.rentGrowth,y-1);
+    const yEgi = (yRev + yHotel) * (1-P.vacancyPct);
+    const yNoi = yEgi - yEgi*P.opexPct;
+    const yCF = yNoi - ds;
+    cumInv += yCF * 0.60;
+    cumNfp += yCF * 0.40;
+  }
+  const prinPaid = principalPaidYear(cmhcLoan, cmhcRate, cmhcAmort, 20);
+  const totalReturn20 = cumInv + prinPaid + equity;
+  const eqMult = totalReturn20 / equity;
+
+  return {
+    id:'S4', name:'S4: Full Build-Out + BCH', tag:'★ Recommended', tagClass:'tag--rec',
+    units:220, gfa, hotel:true, land, totalConstruction, totalCost,
+    forgivable, convLoan:0, convRate:0, convAmort:50,
+    mezzLoan:0, mezzRate:0, mezzAmort:50,
+    cmhcLoan, cmhcRate, cmhcAmort,
+    totalDebt, equity,
+    revMarket: rev.market, revAfford: rev.afford, revHotel: hotelRev, egi, opex, noi, ds,
+    cashFlow, investorCF, nfpCF,
+    propValue, dcr, coc, cumCF20: cumInv, cumNfp20: cumNfp, prinPaid20: prinPaid,
+    totalReturn20, eqMult, bch: true, split: true,
+    hardCost, softCost, affordPct: 0.30
+  };
+}
+
+/* ══════════════════════════════════════════════════
+   CUMULATIVE CF SERIES (for charts)
+   ══════════════════════════════════════════════════ */
+function cumCFSeries(s){
+  // Returns [y1..y20] of cumulative investor CF (60% if split, else 100%)
+  const rev0 = s.revMarket + s.revAfford;
+  const hotel0 = s.revHotel || 0;
+  const share = s.split ? 0.60 : 1.0;
+  const arr = [];
+  let cum = 0;
+  for(let y=1;y<=20;y++){
+    const yRev = rev0 * Math.pow(1+P.rentGrowth, y-1);
+    const yHotel = hotel0 * Math.pow(1+P.rentGrowth, y-1);
+    const yEgi = (yRev + yHotel) * (1-P.vacancyPct);
+    const yNoi = yEgi - yEgi*P.opexPct;
+    const yCF = yNoi - s.ds;
+    cum += yCF * share;
+    arr.push(cum);
+  }
+  return arr;
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: SCENARIO CARDS (Slide 6)
+   ══════════════════════════════════════════════════ */
+function renderScenarioCards(scenarios){
+  $('#scenarioCards').innerHTML = scenarios.map((s,i) => `
+    <div class="card ${i===3?'card--recommended':''}">
+      <span class="tag ${s.tagClass}">${s.tag}</span>
+      <h3>${s.name}</h3>
+      <div style="margin:.8rem 0">
+        <div class="line-item"><span class="label">Units</span><span class="val">${s.units}</span></div>
+        <div class="line-item"><span class="label">GFA</span><span class="val">${s.gfa.toLocaleString()} SF</span></div>
+        <div class="line-item"><span class="label">Hotel</span><span class="val">${s.hotel?'48 keys':'—'}</span></div>
+        <div class="line-item"><span class="label">Total Cost</span><span class="val">${fmt(s.totalCost)}</span></div>
+        ${s.forgivable>0?`<div class="line-item"><span class="label" style="color:var(--teal)">Forgivable Loan</span><span class="val" style="color:var(--teal)">(${fmt(s.forgivable)})</span></div>`:''}
+        <div class="line-item"><span class="label">Equity Required</span><span class="val">${fmt(s.equity)}</span></div>
+        <div class="line-item subtotal"><span class="label">NOI (Year 1)</span><span class="val gold">${fmt(s.noi)}</span></div>
+        <div class="line-item"><span class="label">Cash-on-Cash</span><span class="val">${pct(s.coc)}</span></div>
+        ${s.split?`<div class="line-item"><span class="label teal">60/40 Split</span><span class="val teal">Yes</span></div>`:''}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: COMPARISON TABLE (Slide 7)
+   ══════════════════════════════════════════════════ */
+function renderComparison(scenarios){
+  const metrics = [
+    ['Units', s => s.units],
+    ['GFA (SF)', s => s.gfa.toLocaleString()],
+    ['Hotel', s => s.hotel ? '48 keys' : '—'],
+    ['Land Cost', s => fmt(s.land)],
+    ['Construction Cost', s => fmt(s.totalConstruction)],
+    ['Total Project Cost', s => fmt(s.totalCost)],
+    ['Forgivable Loan (BCH)', s => s.forgivable>0 ? fmt(s.forgivable) : '—'],
+    ['Total Debt', s => fmt(s.totalDebt)],
+    ['Equity Required', s => fmt(s.equity)],
+    ['Year 1 NOI', s => fmt(s.noi), true],
+    ['Property Value', s => fmt(s.propValue)],
+    ['DCR', s => s.dcr.toFixed(2)+'×'],
+    ['Cash-on-Cash (Inv.)', s => pct(s.coc)],
+    ['20yr Cumulative CF (Inv.)', s => fmt(s.cumCF20)],
+    ['20yr Equity Multiple', s => fmtX(s.eqMult), true],
+    ['NOI Split', s => s.split ? '60% Inv / 40% NFP' : '100% Investor'],
+  ];
+  $('#compBody').innerHTML = metrics.map(([label, fn, hl]) => {
+    const cls = hl ? ' class="highlight"' : '';
+    return `<tr${cls}><td>${label}</td>${scenarios.map((s,i) =>
+      `<td class="num${i===3?' rec-col':''}">${fn(s)}</td>`
+    ).join('')}</tr>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: DEEP DIVE (Slides 11 & 12)
+   ══════════════════════════════════════════════════ */
+function renderDeepDive(s){
+  let html = `<h3><span class="tag ${s.tagClass}" style="font-size:.6rem;vertical-align:middle;margin-right:.5rem">${s.tag}</span>${s.name}</h3>`;
+
+  html += `<p style="font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin:.8rem 0 .3rem">Cost Structure</p>`;
+  html += `<div class="line-item"><span class="label">Hard costs (${s.gfa.toLocaleString()} SF × $${P.hardCostPSF})</span><span class="val">${fmt(s.hardCost)}</span></div>`;
+  html += `<div class="line-item"><span class="label">Soft costs (${(P.softPct*100)}%)</span><span class="val">${fmt(s.softCost)}</span></div>`;
+  html += `<div class="line-item"><span class="label">Land</span><span class="val">${fmt(s.land)}</span></div>`;
+  if(s.forgivable>0) html += `<div class="line-item"><span class="label teal">Forgivable loan (40% construction)</span><span class="val teal">(${fmt(s.forgivable)})</span></div>`;
+  html += `<div class="line-item subtotal"><span class="label">Total project cost</span><span class="val">${fmt(s.totalCost)}</span></div>`;
+
+  html += `<p style="font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin:1rem 0 .3rem">Financing</p>`;
+  if(s.cmhcLoan>0) html += `<div class="line-item"><span class="label">CMHC MLI (${(s.cmhcRate*100).toFixed(2)}% / ${s.cmhcAmort}yr / 95% LTV)</span><span class="val">${fmt(s.cmhcLoan)}</span></div>`;
+  html += `<div class="line-item subtotal"><span class="label">Equity required</span><span class="val gold">${fmt(s.equity)}</span></div>`;
+
+  html += `<p style="font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin:1rem 0 .3rem">Annual Revenue (Year 1)</p>`;
+  html += `<div class="line-item"><span class="label">Market rental income</span><span class="val">${fmt(s.revMarket)}</span></div>`;
+  if(s.revAfford>0) html += `<div class="line-item"><span class="label">Affordable rental income (${(P.affordDiscount*100).toFixed(0)}% below market)</span><span class="val">${fmt(s.revAfford)}</span></div>`;
+  if(s.revHotel>0) html += `<div class="line-item"><span class="label">Hotel revenue (48 keys · ${(P.hotelOcc*100).toFixed(0)}% occ · $${P.hotelADR} ADR)</span><span class="val">${fmt(s.revHotel)}</span></div>`;
+  html += `<div class="line-item"><span class="label">Vacancy (${(P.vacancyPct*100).toFixed(1)}%)</span><span class="val dim">(${fmt((s.revMarket+s.revAfford+(s.revHotel||0))*P.vacancyPct)})</span></div>`;
+  html += `<div class="line-item"><span class="label">EGI</span><span class="val">${fmt(s.egi)}</span></div>`;
+  html += `<div class="line-item"><span class="label">OpEx (${(P.opexPct*100)}%)</span><span class="val dim">(${fmt(s.opex)})</span></div>`;
+  html += `<div class="line-item subtotal"><span class="label">NOI</span><span class="val gold">${fmt(s.noi)}</span></div>`;
+
+  html += `<p style="font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin:1rem 0 .3rem">Cash Flow</p>`;
+  html += `<div class="line-item"><span class="label">Annual debt service</span><span class="val">(${fmt(s.ds)})</span></div>`;
+  html += `<div class="line-item subtotal"><span class="label">Net cash flow</span><span class="val">${fmt(s.cashFlow)}</span></div>`;
+
+  if(s.split){
+    html += `<div class="cf-split">
+      <h4>60/40 Cash Flow Split</h4>
+      <div class="line-item"><span class="label">Investor receives (60%)</span><span class="val" style="color:var(--gold)">${fmt(s.investorCF)}</span></div>
+      <div class="line-item"><span class="label">Non-Profit receives (40%)</span><span class="val" style="color:var(--teal)">${fmt(s.nfpCF)}</span></div>
+      <div class="bar-wrap" style="margin-top:.5rem">
+        <div class="bar-seg bar-inv" style="width:60%">60%</div>
+        <div class="bar-seg bar-nfp" style="width:40%">40%</div>
+      </div>
+    </div>`;
+  }
+
+  html += `<p style="font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin:1rem 0 .3rem">Key Metrics</p>`;
+  html += `<div class="line-item"><span class="label">DCR</span><span class="val">${s.dcr.toFixed(2)}×</span></div>`;
+  html += `<div class="line-item"><span class="label">Cash-on-Cash (investor)</span><span class="val">${pct(s.coc)}</span></div>`;
+  html += `<div class="line-item"><span class="label">Property value (Year 1 cap)</span><span class="val">${fmt(s.propValue)}</span></div>`;
+  html += `<div class="line-item"><span class="label">20yr equity multiple</span><span class="val gold">${fmtX(s.eqMult)}</span></div>`;
+  return html;
+}
+
+function renderDeepDives(scenarios){
+  const [S1,S2,S3,S4] = scenarios;
+  $('#deepDive12').innerHTML = `
+    <div class="split-col">${renderDeepDive(S1)}</div>
+    <div class="split-col">${renderDeepDive(S2)}</div>
+  `;
+  $('#deepDive34').innerHTML = `
+    <div class="split-col">${renderDeepDive(S3)}</div>
+    <div class="split-col">${renderDeepDive(S4)}</div>
+  `;
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: 20-YEAR PROJECTION (Slide 13)
+   ══════════════════════════════════════════════════ */
+function renderProjection(S4){
+  const s = S4;
+  const rev0 = s.revMarket + s.revAfford;
+  const hotel0 = s.revHotel;
+  const showYears = [1,2,3,5,7,10,15,20];
+  let cumInv=0, cumNfp=0, rows='';
+
+  for(let y=1;y<=20;y++){
+    const yRev = rev0 * Math.pow(1+P.rentGrowth,y-1);
+    const yHotel = hotel0 * Math.pow(1+P.rentGrowth,y-1);
+    const yEgi = (yRev + yHotel) * (1-P.vacancyPct);
+    const yNoi = yEgi - yEgi*P.opexPct;
+    const yCF = yNoi - s.ds;
+    cumInv += yCF * 0.60;
+    cumNfp += yCF * 0.40;
+    const pp = principalPaidYear(s.cmhcLoan,s.cmhcRate,s.cmhcAmort,y);
+    if(showYears.includes(y)){
+      const hl = y===20 ? ' class="highlight"' : '';
+      rows += `<tr${hl}><td>${y}</td><td class="num">${fmt(yNoi)}</td><td class="num">${fmt(yCF*0.6)}</td><td class="num">${fmt(yCF*0.4)}</td><td class="num">${fmt(cumInv)}</td><td class="num">${fmt(cumNfp)}</td><td class="num">${fmt(pp)}</td></tr>`;
+    }
+  }
+  $('#projBody').innerHTML = rows;
+  $('#projSubhead').textContent = `${(P.rentGrowth*100).toFixed(1)}% annual rent growth · ${(P.landAppreciation*100).toFixed(1)}% land appreciation · CMHC MLI 50yr amortization @ ${(s.cmhcRate*100).toFixed(2)}%`;
+
+  const prinPaid20 = principalPaidYear(s.cmhcLoan,s.cmhcRate,s.cmhcAmort,20);
+  const exitTotal = cumInv + prinPaid20 + s.equity;
+  $('#exitSummary').innerHTML = `
+    <h3 style="font-size:1.1rem;color:var(--gold);margin-bottom:1rem">S4 — 20-Year Investor Exit Summary</h3>
+    <div style="display:flex;gap:2.5rem;flex-wrap:wrap">
+      <div><p class="small dim">Cumulative Cash Flow (60%)</p><p style="font-size:1.4rem;font-family:'Cormorant Garamond',serif">${fmt(cumInv)}</p></div>
+      <div><p class="small dim">Principal Paid Down</p><p style="font-size:1.4rem;font-family:'Cormorant Garamond',serif">${fmt(prinPaid20)}</p></div>
+      <div><p class="small dim">Equity Returned</p><p style="font-size:1.4rem;font-family:'Cormorant Garamond',serif">${fmt(s.equity)}</p></div>
+      <div><p class="small dim">Total Investor Return</p><p style="font-size:1.4rem;font-family:'Cormorant Garamond',serif;color:var(--gold)">${fmt(exitTotal)}</p></div>
+      <div><p class="small dim">Equity Multiple</p><p style="font-size:1.4rem;font-family:'Cormorant Garamond',serif;color:var(--gold)">${fmtX(exitTotal/s.equity)}</p></div>
+    </div>
+    <p class="small dim" style="margin-top:1rem">After Year 20 exit, the entire asset (building + land) transfers to the Non-Profit Partner.</p>
+  `;
+
+  const assetYear20 = (s.noi * Math.pow(1+P.rentGrowth,19)) / P.capRate;
+  $('#nfpCumIncome').textContent = fmt(cumNfp);
+  $('#nfpAssetValue').textContent = fmt(assetYear20);
+
+  return { cumInv, cumNfp, prinPaid20, exitTotal, assetYear20 };
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: EXECUTIVE SUMMARY (Slide 2)
+   ══════════════════════════════════════════════════ */
+function renderExecSummary(S4){
+  const s = S4;
+  const targetClose = 'Q3 2027';
+  const minInvest = 250000;
+  // Total raise = equity (round up to nearest $1M for display)
+  const totalRaise = Math.ceil(s.equity / 1e6) * 1e6;
+  const targetIRRLo = 15, targetIRRHi = 18;
+
+  $('#execGrid').innerHTML = `
+    <div class="exec-block">
+      <h4>Return Profile</h4>
+      <div class="kv"><span class="k">Target IRR</span><span class="v gold">${targetIRRLo}–${targetIRRHi}%</span></div>
+      <div class="kv"><span class="k">Equity Multiple</span><span class="v gold">${fmtX(s.eqMult)}</span></div>
+      <div class="kv"><span class="k">Yr1 Cash-on-Cash</span><span class="v">${pct(s.coc)}</span></div>
+      <div class="kv"><span class="k">DCR</span><span class="v">${s.dcr.toFixed(2)}×</span></div>
+      <div class="kv"><span class="k">Horizon</span><span class="v">20 years</span></div>
+    </div>
+    <div class="exec-block">
+      <h4>Capital Ask</h4>
+      <div class="kv"><span class="k">Total Raise</span><span class="v gold">${fmt(totalRaise)}</span></div>
+      <div class="kv"><span class="k">Minimum Investment</span><span class="v">${fmt(minInvest)}</span></div>
+      <div class="kv"><span class="k">Target Close</span><span class="v">${targetClose}</span></div>
+      <div class="kv"><span class="k">Project Cost</span><span class="v">${fmt(s.totalCost)}</span></div>
+      <div class="kv"><span class="k">Property Value</span><span class="v">${fmt(s.propValue)}</span></div>
+    </div>
+    <div class="exec-block">
+      <h4>Key Terms</h4>
+      <div class="kv"><span class="k">Income Split</span><span class="v">60/40 Inv/NFP</span></div>
+      <div class="kv"><span class="k">Senior Debt</span><span class="v">CMHC MLI</span></div>
+      <div class="kv"><span class="k">Rate / Amort</span><span class="v">3.40% / 50yr</span></div>
+      <div class="kv"><span class="k">Forgivable Loan</span><span class="v teal">${fmt(s.forgivable)}</span></div>
+      <div class="kv"><span class="k">Structure</span><span class="v">GP / LP · NFP co-own</span></div>
+    </div>
+    <div class="exec-block">
+      <h4>Expected Returns (S4)</h4>
+      <div class="kv"><span class="k">Yr1 NOI</span><span class="v gold">${fmt(s.noi)}</span></div>
+      <div class="kv"><span class="k">20yr Cum. CF (Inv.)</span><span class="v">${fmt(s.cumCF20)}</span></div>
+      <div class="kv"><span class="k">Principal Paid (Yr20)</span><span class="v">${fmt(s.prinPaid20)}</span></div>
+      <div class="kv"><span class="k">Equity Returned</span><span class="v">${fmt(s.equity)}</span></div>
+      <div class="kv"><span class="k">Total Return</span><span class="v gold">${fmt(s.totalReturn20)}</span></div>
+    </div>
+  `;
+
+  // Use of funds bar
+  const tc = s.totalCost;
+  const hard = s.hardCost;
+  const soft = s.softCost;
+  const land = s.land;
+  const contingency = 0; // bundled in soft
+  const hardPct = (hard/tc)*100;
+  const softPct = (soft/tc)*100;
+  const landPct = (land/tc)*100;
+  $('#uofBar').innerHTML = `
+    <div class="uof-seg uof-1" style="width:${hardPct.toFixed(1)}%">${hardPct.toFixed(0)}% Hard</div>
+    <div class="uof-seg uof-2" style="width:${softPct.toFixed(1)}%">${softPct.toFixed(0)}% Soft</div>
+    <div class="uof-seg uof-3" style="width:${landPct.toFixed(1)}%">${landPct.toFixed(0)}% Land</div>
+  `;
+  $('#uofLegend').innerHTML = `
+    <div class="item"><span class="swatch" style="background:var(--gold)"></span> Hard Costs · ${fmt(hard)}</div>
+    <div class="item"><span class="swatch" style="background:var(--gold-bright)"></span> Soft Costs · ${fmt(soft)}</div>
+    <div class="item"><span class="swatch" style="background:var(--teal)"></span> Land · ${fmt(land)}</div>
+    <div class="item" style="margin-left:auto;opacity:.75"><strong>Total Project Cost:</strong> ${fmt(tc)}</div>
+  `;
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: THE ASK (Slide 20)
+   ══════════════════════════════════════════════════ */
+function renderAsk(S4){
+  const s = S4;
+  const totalRaise = Math.ceil(s.equity / 1e6) * 1e6;
+  $('#askTerms').innerHTML = `
+    <div class="term"><span class="k">Target Close Date</span><span class="v">Q3 2027</span></div>
+    <div class="term"><span class="k">Total Raise</span><span class="v gold">${fmt(totalRaise)}</span></div>
+    <div class="term"><span class="k">Minimum Investment</span><span class="v">$250,000</span></div>
+    <div class="term"><span class="k">Target IRR</span><span class="v gold">15–18%</span></div>
+    <div class="term"><span class="k">Equity Multiple</span><span class="v gold">2.0× – 2.5×</span></div>
+    <div class="term"><span class="k">Horizon</span><span class="v">20 years</span></div>
+    <div class="term"><span class="k">Income Split</span><span class="v">60% Investor / 40% NFP</span></div>
+    <div class="term"><span class="k">Senior Debt</span><span class="v">CMHC MLI · 3.40% · 50yr · 95% LTV</span></div>
+    <div class="term"><span class="k">Forgivable Loan (BCH)</span><span class="v">${fmt(s.forgivable)}</span></div>
+    <div class="term"><span class="k">Liquidity</span><span class="v">Annual redemption after Yr 5</span></div>
+    <div class="term"><span class="k">Tax Treatment</span><span class="v">Flow-through GP/LP</span></div>
+    <div class="term"><span class="k">Reporting</span><span class="v">Quarterly · annual audit</span></div>
+  `;
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER: LIVE READOUT (Slide 9)
+   ══════════════════════════════════════════════════ */
+function renderLiveReadout(S4){
+  const s = S4;
+  const totalReturn = s.cumCF20 + s.prinPaid20 + s.equity;
+  $('#liveEqMult').textContent = fmtX(s.eqMult);
+  $('#liveNOI').textContent = fmt(s.noi);
+  $('#liveCoc').textContent = pct(s.coc);
+  $('#liveDCR').textContent = s.dcr.toFixed(2)+'×';
+  $('#liveEquity').textContent = fmt(s.equity);
+  $('#livePropVal').textContent = fmt(s.propValue);
+  $('#liveCumInv').textContent = fmt(s.cumCF20);
+  $('#liveCumNfp').textContent = fmt(s.cumNfp20);
+  $('#liveTotalReturn').textContent = fmt(totalReturn);
+}
+
+/* ══════════════════════════════════════════════════
+   CHART.JS SETUP
+   ══════════════════════════════════════════════════ */
+const COLORS = {
+  gold: '#C9A84C',
+  goldBright: '#E0BE5C',
+  teal: '#3A7D7B',
+  tealBright: '#4FA39F',
+  cream: '#EDE5D8',
+  rose: '#B76E52',
+  charcoal: '#1A1612',
+  muted: 'rgba(237,229,216,0.4)',
+  grid: 'rgba(237,229,216,0.08)',
+};
+
+// Shared Chart.js defaults
+if (typeof Chart !== 'undefined') {
+  Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = COLORS.cream;
+  Chart.defaults.borderColor = COLORS.grid;
+}
+
+const charts = {};
+
+function buildCharts(scenarios){
+  const [S1,S2,S3,S4] = scenarios;
+  const years = Array.from({length:20}, (_,i)=>i+1);
+
+  // Chart 1: 20-year cumulative CF line chart
+  const cfData = {
+    labels: years.map(y => 'Y'+y),
+    datasets: [
+      { label: 'S1: Mid-Rise', data: cumCFSeries(S1), borderColor: COLORS.muted, backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 0, pointHoverRadius: 5 },
+      { label: 'S2: Mid-Rise + BCH', data: cumCFSeries(S2), borderColor: COLORS.tealBright, backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 0, pointHoverRadius: 5 },
+      { label: 'S3: Full Build', data: cumCFSeries(S3), borderColor: COLORS.rose, backgroundColor: 'transparent', borderWidth: 2, tension: 0.3, pointRadius: 0, pointHoverRadius: 5 },
+      { label: 'S4: Full + BCH ★', data: cumCFSeries(S4), borderColor: COLORS.gold, backgroundColor: 'rgba(201,168,76,.08)', borderWidth: 3, tension: 0.3, pointRadius: 0, pointHoverRadius: 6, fill: true },
+    ]
+  };
+  charts.cf = new Chart($('#chartCF'), {
+    type: 'line',
+    data: cfData,
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: COLORS.cream, boxWidth: 14, padding: 10, font: { size: 10 } } },
+        tooltip: {
+          backgroundColor: 'rgba(30,26,20,.98)', borderColor: COLORS.gold, borderWidth: 1,
+          titleColor: COLORS.gold, bodyColor: COLORS.cream,
+          callbacks: { label: ctx => `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}` }
+        }
+      },
+      scales: {
+        x: { ticks: { color: 'rgba(237,229,216,.5)' }, grid: { color: COLORS.grid } },
+        y: { ticks: { color: 'rgba(237,229,216,.5)', callback: v => fmt(v) }, grid: { color: COLORS.grid } }
+      }
+    }
+  });
+
+  // Chart 2: Scenario comparison bar - total return
+  const returnsData = {
+    labels: ['S1: Mid-Rise', 'S2: Mid-Rise + BCH', 'S3: Full Build', 'S4: Full + BCH ★'],
+    datasets: [{
+      label: '20yr Total Investor Return',
+      data: scenarios.map(s => s.totalReturn20),
+      backgroundColor: [COLORS.muted, COLORS.tealBright, COLORS.rose, COLORS.gold],
+      borderWidth: 0,
+      borderRadius: 4,
+    }]
+  };
+  charts.returns = new Chart($('#chartReturns'), {
+    type: 'bar',
+    data: returnsData,
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(30,26,20,.98)', borderColor: COLORS.gold, borderWidth: 1,
+          titleColor: COLORS.gold, bodyColor: COLORS.cream,
+          callbacks: {
+            label: ctx => {
+              const s = scenarios[ctx.dataIndex];
+              return [
+                `Total Return: ${fmt(s.totalReturn20)}`,
+                `Equity Multiple: ${fmtX(s.eqMult)}`,
+                `Equity: ${fmt(s.equity)}`
+              ];
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: 'rgba(237,229,216,.6)', font: { size: 10 } }, grid: { display: false } },
+        y: { ticks: { color: 'rgba(237,229,216,.5)', callback: v => fmt(v) }, grid: { color: COLORS.grid } }
+      }
+    }
+  });
+
+  // Chart 3: S4 Capital Stack waterfall
+  const stack = [
+    { label: 'Forgivable Loan', value: S4.forgivable, color: COLORS.tealBright },
+    { label: 'CMHC MLI Senior Debt', value: S4.cmhcLoan, color: COLORS.teal },
+    { label: 'Investor Equity', value: S4.equity, color: COLORS.gold },
+  ];
+  charts.stack = new Chart($('#chartStack'), {
+    type: 'bar',
+    data: {
+      labels: stack.map(x => x.label),
+      datasets: [{
+        data: stack.map(x => x.value),
+        backgroundColor: stack.map(x => x.color),
+        borderWidth: 0,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(30,26,20,.98)', borderColor: COLORS.gold, borderWidth: 1,
+          titleColor: COLORS.gold, bodyColor: COLORS.cream,
+          callbacks: {
+            label: ctx => {
+              const total = S4.totalCost;
+              const pct = ((ctx.parsed.x / total) * 100).toFixed(1);
+              return `${fmt(ctx.parsed.x)} (${pct}% of total cost)`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: 'rgba(237,229,216,.5)', callback: v => fmt(v) }, grid: { color: COLORS.grid } },
+        y: { ticks: { color: COLORS.cream, font: { size: 11 } }, grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 4: Revenue breakdown pie
+  charts.rev = new Chart($('#chartRev'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Market Residential', 'Affordable Residential', 'Hotel'],
+      datasets: [{
+        data: [S4.revMarket, S4.revAfford, S4.revHotel],
+        backgroundColor: [COLORS.gold, COLORS.goldBright, COLORS.teal],
+        borderColor: COLORS.charcoal,
+        borderWidth: 3,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '55%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: COLORS.cream, boxWidth: 14, padding: 10, font: { size: 10 } } },
+        tooltip: {
+          backgroundColor: 'rgba(30,26,20,.98)', borderColor: COLORS.gold, borderWidth: 1,
+          titleColor: COLORS.gold, bodyColor: COLORS.cream,
+          callbacks: {
+            label: ctx => {
+              const total = S4.revMarket + S4.revAfford + S4.revHotel;
+              const pct = ((ctx.parsed / total) * 100).toFixed(1);
+              return `${ctx.label}: ${fmt(ctx.parsed)} (${pct}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function updateCharts(scenarios){
+  const [S1,S2,S3,S4] = scenarios;
+  if (!charts.cf) return;
+
+  charts.cf.data.datasets[0].data = cumCFSeries(S1);
+  charts.cf.data.datasets[1].data = cumCFSeries(S2);
+  charts.cf.data.datasets[2].data = cumCFSeries(S3);
+  charts.cf.data.datasets[3].data = cumCFSeries(S4);
+  charts.cf.update('none');
+
+  charts.returns.data.datasets[0].data = scenarios.map(s => s.totalReturn20);
+  charts.returns.update('none');
+
+  charts.stack.data.datasets[0].data = [S4.forgivable, S4.cmhcLoan, S4.equity];
+  charts.stack.update('none');
+
+  charts.rev.data.datasets[0].data = [S4.revMarket, S4.revAfford, S4.revHotel];
+  charts.rev.update('none');
+}
+
+/* ══════════════════════════════════════════════════
+   RECALCULATE ALL
+   ══════════════════════════════════════════════════ */
+let currentScenarios = null;
+
+function recalculate(){
+  rebuildAffordRents();
+  const S1 = modelS1();
+  const S2 = modelS2();
+  const S3 = modelS3();
+  const S4 = modelS4();
+  const scenarios = [S1, S2, S3, S4];
+  currentScenarios = scenarios;
+
+  renderScenarioCards(scenarios);
+  renderComparison(scenarios);
+  renderDeepDives(scenarios);
+  renderProjection(S4);
+  renderExecSummary(S4);
+  renderAsk(S4);
+  renderLiveReadout(S4);
+  if (typeof Chart !== 'undefined') {
+    if (!charts.cf) buildCharts(scenarios);
+    else updateCharts(scenarios);
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   SLIDER WIRE-UP
+   ══════════════════════════════════════════════════ */
+function setupSliders(){
+  const sliders = [
+    { id:'sldRentGrowth', valId:'valRentGrowth', set: v => { P.rentGrowth = v/100; }, fmt: v => v.toFixed(1)+'%' },
+    { id:'sldVacancy',    valId:'valVacancy',    set: v => { P.vacancyPct = v/100; }, fmt: v => v.toFixed(1)+'%' },
+    { id:'sldCapRate',    valId:'valCapRate',    set: v => { P.capRate = v/100; }, fmt: v => v.toFixed(2)+'%' },
+    { id:'sldHotelOcc',   valId:'valHotelOcc',   set: v => { P.hotelOcc = v/100; }, fmt: v => v.toFixed(0)+'%' },
+    { id:'sldHotelADR',   valId:'valHotelADR',   set: v => { P.hotelADR = v; },     fmt: v => '$'+v.toFixed(0) },
+    { id:'sldAffordDisc', valId:'valAffordDisc', set: v => { P.affordDiscount = v/100; }, fmt: v => v.toFixed(0)+'%' },
+  ];
+
+  sliders.forEach(s => {
+    const el = $('#'+s.id);
+    const valEl = $('#'+s.valId);
+    const handler = () => {
+      const v = parseFloat(el.value);
+      s.set(v);
+      valEl.textContent = s.fmt(v);
+      recalculate();
+    };
+    el.addEventListener('input', handler);
+  });
+
+  $('#btnReset').addEventListener('click', () => {
+    // Restore defaults
+    P.rentGrowth = P_DEFAULTS.rentGrowth;
+    P.vacancyPct = P_DEFAULTS.vacancyPct;
+    P.capRate = P_DEFAULTS.capRate;
+    P.hotelOcc = P_DEFAULTS.hotelOcc;
+    P.hotelADR = P_DEFAULTS.hotelADR;
+    P.affordDiscount = P_DEFAULTS.affordDiscount;
+
+    $('#sldRentGrowth').value = 2.5; $('#valRentGrowth').textContent = '2.5%';
+    $('#sldVacancy').value = 3;      $('#valVacancy').textContent = '3.0%';
+    $('#sldCapRate').value = 4.75;   $('#valCapRate').textContent = '4.75%';
+    $('#sldHotelOcc').value = 72;    $('#valHotelOcc').textContent = '72%';
+    $('#sldHotelADR').value = 189;   $('#valHotelADR').textContent = '$189';
+    $('#sldAffordDisc').value = 30;  $('#valAffordDisc').textContent = '30%';
+
+    recalculate();
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   ANIMATED COUNTERS
+   ══════════════════════════════════════════════════ */
+function easeOutQuart(t){ return 1 - Math.pow(1-t, 4); }
+
+function animateCounter(el){
+  if (el.dataset.animated === '1') return;
+  el.dataset.animated = '1';
+  const target = parseFloat(el.dataset.counter);
+  const format = el.dataset.format || 'int';
+  const duration = 1500;
+  const start = performance.now();
+
+  function formatVal(v){
+    switch(format){
+      case 'int': return Math.round(v).toLocaleString();
+      case 'sf': return Math.round(v).toLocaleString() + ' SF';
+      case 'pct': return Math.round(v)+'%';
+      case 'trillion': return '$'+v.toFixed(1)+'T';
+      case 'currency': return fmt(v);
+      default: return Math.round(v).toLocaleString();
+    }
+  }
+
+  function step(now){
+    const t = Math.min(1, (now - start) / duration);
+    const eased = easeOutQuart(t);
+    el.textContent = formatVal(target * eased);
+    if (t < 1) requestAnimationFrame(step);
+    else el.textContent = formatVal(target);
+  }
+  requestAnimationFrame(step);
+}
+
+function setupCounters(){
+  const counters = $$('[data-counter]');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(el => io.observe(el));
+}
+
+/* ══════════════════════════════════════════════════
+   PROGRESS INDICATOR
+   ══════════════════════════════════════════════════ */
+function setupProgress(){
+  const bar = $('#scrollProgress');
+  function update(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (scrolled / max) * 100 : 0;
+    bar.style.width = pct+'%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+/* ══════════════════════════════════════════════════
+   PARALLAX
+   ══════════════════════════════════════════════════ */
+function setupParallax(){
+  const elements = $$('.split-image--parallax');
+  if (!elements.length) return;
+  let raf = null;
+
+  function apply(){
+    raf = null;
+    const vh = window.innerHeight;
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const factor = parseFloat(el.dataset.parallax || '0.8');
+      // offset relative to viewport center; scale at 0.8x speed
+      const center = rect.top + rect.height / 2 - vh / 2;
+      const offset = center * (1 - factor); // negative factor effect
+      el.style.transform = `translate3d(0, ${(-offset).toFixed(1)}px, 0)`;
+    });
+  }
+  function onScroll(){
+    if (!raf) raf = requestAnimationFrame(apply);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  apply();
+}
+
+/* ══════════════════════════════════════════════════
+   NAV DOTS + SCROLL TRACKING
+   ══════════════════════════════════════════════════ */
+function setupNav(){
+  const slides = $$('.slide');
+  const topDotsNav = $('#topNavDots');
+  slides.forEach((sl,i) => {
+    const btn = document.createElement('button');
+    btn.className = 'top-nav-dot';
+    const name = sl.dataset.slideName || `Slide ${i+1}`;
+    btn.title = name;
+    btn.onclick = () => sl.scrollIntoView({behavior:'smooth'});
+    const tip = document.createElement('span');
+    tip.className = 'tooltip';
+    tip.textContent = (i+1).toString().padStart(2,'0') + ' · ' + name;
+    btn.appendChild(tip);
+    topDotsNav.appendChild(btn);
+  });
+  const topDots = $$('.top-nav-dot');
+  const slideObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = slides.indexOf(e.target);
+        topDots.forEach((d,i) => d.classList.toggle('active', i===idx));
+      }
+    });
+  }, {threshold: 0.3});
+  slides.forEach(s => slideObserver.observe(s));
+}
+
+/* ══════════════════════════════════════════════════
+   FADE-IN
+   ══════════════════════════════════════════════════ */
+function setupFades(){
+  const fadeEls = $$('.fade-in');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const parent = entry.target.parentElement;
+        const siblings = [...parent.querySelectorAll('.fade-in')];
+        const sibIdx = siblings.indexOf(entry.target);
+        const delay = sibIdx >= 0 ? sibIdx * 100 : 0;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
+  fadeEls.forEach(el => fadeObserver.observe(el));
+}
+
+/* ══════════════════════════════════════════════════
+   BOOT
+   ══════════════════════════════════════════════════ */
+function boot(){
+  recalculate();          // initial calc + render + build charts
+  setupSliders();
+  setupCounters();
+  setupProgress();
+  setupParallax();
+  setupNav();
+  setupFades();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', boot);
+} else {
+  boot();
+}
+
+})();
+</script>
+
+<!-- ASSESSMENT_MODEL_V2_START -->
+<style>
+.assessment-slide{background:#1E1A14;color:#F5F0E8}
+.assessment-slide h2,.assessment-slide h3{color:#F5F0E8}
+.assessment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0}
+.assessment-card{border:1px solid rgba(201,168,76,.25);background:rgba(42,33,24,.78);padding:18px}
+.assessment-card .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C}
+.assessment-card .v{font-family:Georgia,serif;font-size:28px;color:#F5F0E8;margin-top:6px}
+.table-wrap{overflow:auto;border:1px solid rgba(201,168,76,.22);margin-top:22px;max-height:62vh}
+.assessment-table{width:100%;border-collapse:collapse;font-size:12px;min-width:900px}
+.assessment-table th{position:sticky;top:0;background:#2A2118;color:#C9A84C;text-align:left;padding:10px;border-bottom:1px solid rgba(201,168,76,.35)}
+.assessment-table td{padding:9px 10px;border-bottom:1px solid rgba(201,168,76,.12);color:rgba(245,240,232,.86)}
+.assessment-table tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+.positive{color:#9FE6B8!important}.negative{color:#FF9E9E!important}
+.note{font-size:13px;color:rgba(245,240,232,.62);max-width:900px;margin-top:18px}
+</style>
+
+<section class="slide assessment-slide">
+  <div class="slide-inner">
+    <span class="section-label">Assessment Model</span>
+    <h2>Two-Phase Scenario Comparison</h2>
+    <p class="note">Phase 1 and Phase 2 are isolated first, then combined only as a summary. All outputs below compare cash flow <strong>after mortgage payment</strong>, then split BCH surplus 60% investors / 40% NFP.</p>
+    <div class="assessment-grid">
+      <div class="assessment-card"><div class="k">Phase 1 / 2304</div><div class="v">100,000 GFA</div></div>
+      <div class="assessment-card"><div class="k">Phase 2 / 2294</div><div class="v">200,000 GFA</div></div>
+      <div class="assessment-card"><div class="k">Combined</div><div class="v">300,000 GFA</div></div>
+      <div class="assessment-card"><div class="k">Construction Basis</div><div class="v">$383.50/SF</div></div>
+    </div>
+    <p class="note">Revenue assumptions are taken from the original deck where available: market rent $2,800/mo, affordable rent $1,400/mo, 30% affordable mix, 5% vacancy, hotel ADR $189, 72% occupancy, 2.5% annual growth. Retirement uses a working comp assumption: $5,500/mo, 90% occupancy, 700 GFA/resident.</p>
+  </div>
+</section>
+
+<section class="slide assessment-slide"><div class="slide-inner"><span class="section-label">Phase 1</span><h2>2304 — Scenario Summary</h2><div id="summary-p1"></div><div class="table-wrap"><table class="assessment-table" id="yearly-p1"></table></div></div></section>
+<section class="slide assessment-slide"><div class="slide-inner"><span class="section-label">Phase 2</span><h2>2294 — Scenario Summary</h2><div id="summary-p2"></div><div class="table-wrap"><table class="assessment-table" id="yearly-p2"></table></div></div></section>
+<section class="slide assessment-slide"><div class="slide-inner"><span class="section-label">Combined</span><h2>Combined 300,000 GFA Summary</h2><div id="summary-combined"></div><div class="table-wrap"><table class="assessment-table" id="yearly-combined"></table></div></div></section>
+
+<section class="slide assessment-slide">
+  <div class="slide-inner">
+    <span class="section-label">Decision Read</span>
+    <h2>What the model says</h2>
+    <div id="decision-read"></div>
+    <p class="note">Hotel-only remains weak under the original deck ADR/occupancy assumptions unless pricing, key density, or operating structure improves. Retirement is strongest if the $5,500/month assumption is defensible. Rental/hotel BCH is the strongest deck-native mixed-use option.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+ const baseGfa=252486, units=220, affordableRatio=.30, marketRent=2800, affordableRent=1400, vacancy=.05;
+ const hotelKeys=48, adr=189, hotelOcc=.72, growth=.025;
+ const costSf=383.50, bchForgivable=.40, bchRate=.0415, bchAm=50, convRate=.0499, convAm=30;
+ const rentalExp=.25, hotelExp=.35, retireExp=.42;
+ const marketUnits=Math.round(units*(1-affordableRatio)), affUnits=units-marketUnits;
+ const rentalNoiSf=(((marketUnits*marketRent)+(affUnits*affordableRent))*12*(1-vacancy)*(1-rentalExp))/baseGfa;
+ const hotelNoiSf=(hotelKeys*adr*hotelOcc*365*(1-hotelExp))/baseGfa;
+ const retireNoiSf=(5500*12*.90/700)*(1-retireExp);
+ const scenarios=[
+  ["Rental only", rentalNoiSf],
+  ["Hotel only", hotelNoiSf],
+  ["Retirement", retireNoiSf],
+  ["Rental / hotel", rentalNoiSf+hotelNoiSf]
+ ];
+ const phases=[
+  ["p1","2304 / Phase 1",100000],
+  ["p2","2294 / Phase 2",200000],
+  ["combined","Combined",300000]
+ ];
+ function fmt(n){let neg=n<0;n=Math.abs(n);let v=n>=1e6?"$"+(n/1e6).toFixed(2)+"M":"$"+Math.round(n/1000)+"K";return neg?"-"+v:v}
+ function cls(n){return n<0?"negative":"positive"}
+ function debt(p,r,y){let m=r/12,n=y*12;return p*(m*Math.pow(1+m,n))/(Math.pow(1+m,n)-1)*12}
+ function calc(gfa,noiSf,year,bch){
+   const cost=gfa*costSf;
+   const principal=bch?cost*(1-bchForgivable):cost;
+   const ds=debt(principal,bch?bchRate:convRate,bch?bchAm:convAm);
+   const noi=gfa*noiSf*Math.pow(1+growth,year-1);
+   const cf=noi-ds;
+   return {noi,ds,cf,inv:cf>0?(bch?cf*.60:cf):0,nfp:cf>0&&bch?cf*.40:0};
+ }
+ function cumulative(gfa,noiSf,bch){
+   let c={cf:0,inv:0,nfp:0};
+   for(let y=1;y<=20;y++){let r=calc(gfa,noiSf,y,bch);c.cf+=r.cf;c.inv+=r.inv;c.nfp+=r.nfp}
+   return c;
+ }
+ function renderPhase(id,name,gfa){
+   let cards='<div class="assessment-grid">';
+   scenarios.forEach(([label,noiSf])=>{
+     [true,false].forEach(bch=>{
+       let y20=calc(gfa,noiSf,20,bch), cum=cumulative(gfa,noiSf,bch);
+       cards+=`<div class="assessment-card"><div class="k">${label} · ${bch?'BCH':'No BCH'}</div><div class="v ${cls(y20.cf)}">${fmt(y20.cf)}</div><div class="note">Y20 after mortgage · Investors ${fmt(y20.inv)} · NFP ${fmt(y20.nfp)} · 20yr cum investor ${fmt(cum.inv)}</div></div>`;
+     });
+   });
+   cards+='</div>';
+   document.getElementById('summary-'+id).innerHTML=cards;
+   let html='<thead><tr><th>Year</th><th>Scenario</th><th>Financing</th><th>NOI</th><th>Mortgage</th><th>After Mortgage</th><th>Investor Payout</th><th>NFP Payout</th></tr></thead><tbody>';
+   for(let y=1;y<=20;y++){
+     scenarios.forEach(([label,noiSf])=>{
+       [true,false].forEach(bch=>{
+        let r=calc(gfa,noiSf,y,bch);
+        html+=`<tr><td>${y}</td><td>${label}</td><td>${bch?'BCH 40% forgivable / CMHC 50yr':'No BCH / Conventional 30yr'}</td><td>${fmt(r.noi)}</td><td>${fmt(r.ds)}</td><td class="${cls(r.cf)}">${fmt(r.cf)}</td><td>${fmt(r.inv)}</td><td>${fmt(r.nfp)}</td></tr>`;
+       });
+     });
+   }
+   html+='</tbody>';
+   document.getElementById('yearly-'+id).innerHTML=html;
+ }
+ phases.forEach(p=>renderPhase(...p));
+ const best=scenarios.map(([label,noiSf])=>({label, r:calc(300000,noiSf,20,true)})).sort((a,b)=>b.r.cf-a.r.cf);
+ document.getElementById('decision-read').innerHTML=`<div class="assessment-grid">
+  <div class="assessment-card"><div class="k">Strongest BCH Y20 Surplus</div><div class="v">${best[0].label}</div><div class="note">${fmt(best[0].r.cf)} after mortgage · Investors ${fmt(best[0].r.inv)} · NFP ${fmt(best[0].r.nfp)}</div></div>
+  <div class="assessment-card"><div class="k">Best deck-native option</div><div class="v">Rental / hotel BCH</div><div class="note">Uses original deck rental + hotel assumptions and creates both investor and NFP payout.</div></div>
+  <div class="assessment-card"><div class="k">Weakest option</div><div class="v">Hotel only / No BCH</div><div class="note">Negative after mortgage under current ADR and occupancy assumptions.</div></div>
+ </div>`;
+})();
+</script>
+<!-- ASSESSMENT_MODEL_V2_END -->
+
+</body>
+</html>
