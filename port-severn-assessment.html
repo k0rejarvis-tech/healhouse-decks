@@ -9,24 +9,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-primary: #F4F7F4;
-  --bg-secondary: #EBF0EB;
-  --bg-card: #FFFFFF;
-  --bg-dark: #1A2D1A;
-  --accent-green: #2E7D32;
-  --accent-mid: #43A047;
-  --accent-light: #A5D6A7;
-  --accent-gold: #F9A825;
-  --accent-red: #B71C1C;
-  --accent-orange: #E65100;
-  --text-primary: #1A2D1A;
-  --text-secondary: #3A5A3A;
-  --text-light: #5A7A5A;
-  --border: #C8D8C8;
-  --success: #2E7D32;
-  --warning: #F9A825;
-  --danger: #B71C1C;
-  --shadow: 0 2px 16px rgba(30,60,30,0.08);
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #161616;
+  --bg-card: #1C1C1C;
+  --bg-card-alt: #222222;
+  --bg-header: #080808;
+  --gold: #C9A96E;
+  --gold-light: #E8C987;
+  --gold-dark: #9A7840;
+  --gold-muted: rgba(201,169,110,0.12);
+  --gold-border: rgba(201,169,110,0.25);
+  --text-primary: #F0EDE8;
+  --text-secondary: #B8B0A0;
+  --text-light: #7A7060;
+  --border: #2A2520;
+  --border-gold: rgba(201,169,110,0.3);
+  --red: #CF4444;
+  --red-bg: rgba(207,68,68,0.12);
+  --orange: #D4763A;
+  --orange-bg: rgba(212,118,58,0.12);
+  --blue: #4A8CC4;
+  --blue-bg: rgba(74,140,196,0.12);
+  --green: #5A9E6A;
+  --green-bg: rgba(90,158,106,0.12);
+  --shadow: 0 2px 20px rgba(0,0,0,0.4);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,163 +45,291 @@ body {
   line-height: 1.65;
 }
 
+/* ── HEADER ── */
 header {
-  background: var(--bg-dark);
-  padding: 20px 36px;
+  background: var(--bg-header);
+  padding: 18px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 3px 16px rgba(0,0,0,0.25);
+  border-bottom: 1px solid var(--border-gold);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
 }
 .logo-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 22px; font-weight: 700;
-  color: #FFFFFF; letter-spacing: 0.2em;
+  font-size: 24px; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.25em;
 }
 .logo-tagline {
-  font-size: 10px; color: var(--accent-light);
-  letter-spacing: 0.12em; margin-top: 2px; text-transform: uppercase;
+  font-size: 10px; color: var(--text-light);
+  letter-spacing: 0.15em; margin-top: 2px; text-transform: uppercase;
 }
 .header-badge {
-  background: var(--accent-green);
-  color: #fff; font-family: 'Space Grotesk', sans-serif;
+  background: transparent;
+  border: 1px solid var(--gold-border);
+  color: var(--gold); font-family: 'Space Grotesk', sans-serif;
   font-size: 10px; font-weight: 600;
-  letter-spacing: 0.14em; padding: 6px 14px;
-  border-radius: 4px; text-transform: uppercase;
+  letter-spacing: 0.14em; padding: 6px 16px;
+  border-radius: 3px; text-transform: uppercase;
 }
 
+/* ── HERO ── */
 .hero {
-  background: linear-gradient(135deg, #1A2D1A 0%, #2E4A2E 60%, #1B3A2A 100%);
-  padding: 56px 36px 44px;
-  color: #fff;
+  background: linear-gradient(135deg, #080808 0%, #111111 50%, #0A0808 100%);
+  padding: 60px 36px 48px;
+  border-bottom: 1px solid var(--border-gold);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+  pointer-events: none;
 }
 .hero-eyebrow {
-  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--accent-light); margin-bottom: 12px;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
 }
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 36px; font-weight: 700; line-height: 1.15;
-  margin-bottom: 10px;
+  font-size: 38px; font-weight: 700; line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 12px;
 }
+.hero-title span { color: var(--gold); }
 .hero-sub {
-  font-size: 15px; color: #C8E6C9; margin-bottom: 28px; max-width: 680px;
+  font-size: 14px; color: var(--text-secondary);
+  margin-bottom: 32px; max-width: 660px; line-height: 1.7;
 }
-.hero-meta { display: flex; gap: 28px; flex-wrap: wrap; }
-.hero-meta-item { display: flex; flex-direction: column; gap: 2px; }
-.hero-meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); }
-.hero-meta-value { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #fff; }
+.hero-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+.hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+.hero-meta-label {
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-light);
+}
+.hero-meta-value {
+  font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600;
+  color: var(--text-primary);
+}
+.hero-meta-value.gold { color: var(--gold); }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 36px 24px 80px; }
+/* ── CONTAINER ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px 100px; }
 
-.section { margin-bottom: 40px; }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-.section-num { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--accent-green); text-transform: uppercase; }
-.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); }
-.divider { height: 2px; flex: 1; background: var(--border); }
+/* ── SECTION ── */
+.section { margin-bottom: 48px; }
+.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.section-num {
+  font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase;
+  white-space: nowrap;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+  color: var(--text-primary);
+}
+.divider { height: 1px; flex: 1; background: var(--border-gold); }
 
-.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px 24px; box-shadow: var(--shadow); }
+/* ── CARDS ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px 26px;
+  box-shadow: var(--shadow);
+}
 .card + .card { margin-top: 14px; }
+.card.gold-border { border-color: var(--border-gold); }
 
-.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 14px; }
-.stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow); }
-.stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+/* ── STAT GRID ── */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.stat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 18px 20px; box-shadow: var(--shadow);
+}
+.stat-label { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; }
 .stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text-primary); }
-.stat-note { font-size: 11px; color: var(--text-light); margin-top: 3px; }
-.stat-card.green { border-left: 3px solid var(--accent-green); }
-.stat-card.gold { border-left: 3px solid var(--accent-gold); }
-.stat-card.red { border-left: 3px solid var(--accent-red); }
-.stat-card.blue { border-left: 3px solid #1565C0; }
+.stat-note { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+.stat-card.gold { border-left: 3px solid var(--gold); }
+.stat-card.red { border-left: 3px solid var(--red); }
+.stat-card.blue { border-left: 3px solid var(--blue); }
+.stat-card.green { border-left: 3px solid var(--green); }
 
+/* ── TABLE ── */
 .data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-.data-table th { background: var(--bg-secondary); color: var(--text-secondary); font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 14px; text-align: left; border-bottom: 2px solid var(--border); }
-.data-table td { padding: 9px 14px; border-bottom: 1px solid #EEF2EE; vertical-align: top; }
+.data-table th {
+  background: #111111; color: var(--gold);
+  font-family: 'Space Grotesk', sans-serif; font-size: 9px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-gold);
+}
+.data-table td {
+  padding: 10px 14px; border-bottom: 1px solid #222222;
+  vertical-align: top; color: var(--text-secondary);
+}
 .data-table tr:last-child td { border-bottom: none; }
-.data-table tr:hover td { background: #F4F8F4; }
-.data-table .total-row td { font-weight: 600; background: var(--bg-secondary); font-family: 'Space Grotesk', sans-serif; font-size: 13px; border-top: 2px solid var(--border); }
-.data-table .highlight-row td { background: #E8F5E9; }
-.mono { font-family: 'Space Grotesk', sans-serif; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+.data-table .total-row td {
+  font-weight: 600; background: #111111;
+  color: var(--gold); font-family: 'Space Grotesk', sans-serif;
+  border-top: 1px solid var(--border-gold);
+}
+.data-table .highlight-row td { background: rgba(201,169,110,0.07); color: var(--text-primary); }
+.mono { font-family: 'Space Grotesk', sans-serif; color: var(--text-primary); }
 .right { text-align: right; }
 .center { text-align: center; }
 
-.alert { border-radius: 7px; padding: 14px 18px; margin-bottom: 14px; font-size: 12.5px; border-left: 4px solid; }
-.alert-green { background: #E8F5E9; border-color: var(--accent-green); color: #1B5E20; }
-.alert-gold { background: #FFFDE7; border-color: var(--accent-gold); color: #6D4C00; }
-.alert-red { background: #FFEBEE; border-color: var(--accent-red); color: #7F0000; }
-.alert-orange { background: #FFF3E0; border-color: var(--accent-orange); color: #7A3100; }
-.alert-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
-
-.tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
-.tag-green { background: #E8F5E9; color: var(--accent-green); }
-.tag-gold { background: #FFFDE7; color: #7A6000; }
-.tag-red { background: #FFEBEE; color: var(--accent-red); }
-.tag-orange { background: #FFF3E0; color: var(--accent-orange); }
-.tag-gray { background: #F0F0F0; color: #555; }
-.tag-blue { background: #E3F2FD; color: #0D47A1; }
-
-.stack-visual { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
-.stack-bar { display: flex; align-items: center; gap: 12px; }
-.stack-fill { height: 36px; border-radius: 5px; display: flex; align-items: center; padding: 0 14px; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap; }
-.stack-fill.bch { background: var(--accent-green); width: 40%; }
-.stack-fill.cmhc { background: #1565C0; width: 50%; }
-.stack-fill.muni { background: #F57F17; width: 5%; }
-.stack-fill.land { background: #6A1520; width: 5%; }
-.stack-meta { font-size: 11.5px; color: var(--text-secondary); }
-
-.risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
-.risk-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 7px; padding: 16px 18px; }
-.risk-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 7px; }
-.risk-dot { width: 10px; height: 10px; border-radius: 50%; }
-.risk-dot.low { background: var(--accent-green); }
-.risk-dot.med { background: var(--accent-gold); }
-.risk-dot.high { background: var(--accent-red); }
-
-.rec-box { background: linear-gradient(135deg, #1A3A1A 0%, #2E5A2E 100%); border-radius: 10px; padding: 30px 32px; color: #fff; margin-bottom: 14px; }
-.rec-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-.rec-score { font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; color: var(--accent-light); line-height: 1; }
-.rec-score-label { font-size: 12px; color: #A5D6A7; letter-spacing: 0.1em; text-transform: uppercase; }
-
-.step-list { list-style: none; }
-.step-list li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #EEF2EE; align-items: flex-start; }
-.step-list li:last-child { border-bottom: none; }
-.step-num { min-width: 26px; height: 26px; background: var(--accent-green); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; margin-top: 2px; }
-.step-content { flex: 1; }
-.step-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 3px; }
-.step-body { font-size: 12px; color: var(--text-secondary); }
-
-footer { background: var(--bg-dark); color: #6a906a; padding: 24px 36px; font-size: 11px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 680px) {
-  .two-col { grid-template-columns: 1fr; }
-  .hero-title { font-size: 26px; }
-  .hero-meta { flex-direction: column; gap: 14px; }
-  .stack-fill.cmhc { font-size: 9px; }
+/* ── ALERTS ── */
+.alert { border-radius: 7px; padding: 14px 20px; margin-bottom: 14px; font-size: 12.5px; border-left: 3px solid; }
+.alert-gold { background: var(--gold-muted); border-color: var(--gold); color: var(--text-secondary); }
+.alert-red { background: var(--red-bg); border-color: var(--red); color: #E8A0A0; }
+.alert-orange { background: var(--orange-bg); border-color: var(--orange); color: #E8B090; }
+.alert-green { background: var(--green-bg); border-color: var(--green); color: #90C8A0; }
+.alert-blue { background: var(--blue-bg); border-color: var(--blue); color: #90B8D8; }
+.alert-title {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;
+  color: var(--text-primary);
 }
 
+/* ── TAGS ── */
+.tag { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; }
+.tag-gold { background: var(--gold-muted); color: var(--gold); border: 1px solid var(--gold-border); }
+.tag-red { background: var(--red-bg); color: var(--red); }
+.tag-orange { background: var(--orange-bg); color: var(--orange); }
+.tag-green { background: var(--green-bg); color: var(--green); }
+.tag-gray { background: #222; color: #888; }
+.tag-blue { background: var(--blue-bg); color: var(--blue); }
+
+/* ── CAPITAL STACK BARS ── */
+.stack-visual { display: flex; flex-direction: column; gap: 7px; margin-top: 16px; }
+.stack-bar { display: flex; align-items: center; gap: 14px; }
+.stack-fill {
+  height: 38px; border-radius: 4px; display: flex; align-items: center;
+  padding: 0 14px; font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 700; color: #000; white-space: nowrap;
+}
+.stack-fill.bch { background: var(--gold); width: 40%; min-width: 120px; }
+.stack-fill.cmhc { background: var(--blue); color: #fff; width: 50%; min-width: 140px; }
+.stack-fill.muni { background: var(--orange); color: #fff; min-width: 46px; width: 5%; }
+.stack-fill.land { background: #4A3A2A; color: var(--gold); border: 1px solid var(--gold-border); min-width: 46px; width: 5%; }
+.stack-meta { font-size: 11.5px; color: var(--text-secondary); }
+
+/* ── STAKEHOLDER STRUCTURE ── */
+.stakeholder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.stakeholder-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden; box-shadow: var(--shadow);
+}
+.stakeholder-header {
+  padding: 12px 18px;
+  font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+}
+.stakeholder-header.kore { background: var(--gold); color: #000; }
+.stakeholder-header.builder { background: #1A2A3A; color: var(--blue); border-bottom: 1px solid var(--blue); }
+.stakeholder-header.ubuntu { background: #1A1A2A; color: #9090E0; border-bottom: 1px solid #4A4AAA; }
+.stakeholder-header.owner { background: #2A1A10; color: var(--orange); border-bottom: 1px solid var(--orange); }
+.stakeholder-body { padding: 16px 18px; font-size: 12px; color: var(--text-secondary); }
+.stakeholder-body ul { padding-left: 16px; }
+.stakeholder-body li { margin-bottom: 5px; }
+.stakeholder-body strong { color: var(--text-primary); }
+
+/* ── DISTRIBUTION TABLE ── */
+.dist-bar-wrap { margin-top: 14px; }
+.dist-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.dist-label { font-size: 11px; color: var(--text-secondary); min-width: 180px; }
+.dist-fill-wrap { flex: 1; background: #222; border-radius: 3px; height: 22px; overflow: hidden; }
+.dist-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; padding: 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; }
+.dist-fill.kore-fill { background: var(--gold); color: #000; }
+.dist-fill.builder-fill { background: var(--blue); color: #fff; }
+.dist-fill.owner-fill { background: var(--orange); color: #fff; }
+.dist-fill.land-fill { background: #4A3A2A; color: var(--gold); }
+.dist-pct { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--text-primary); min-width: 42px; text-align: right; }
+
+/* ── RISK GRID ── */
+.risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.risk-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 7px; padding: 16px 18px; }
+.risk-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; color: var(--text-primary); }
+.risk-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.risk-dot.low { background: var(--green); }
+.risk-dot.med { background: var(--gold); }
+.risk-dot.high { background: var(--red); }
+
+/* ── VERDICT BOX ── */
+.rec-box {
+  background: #111111; border: 1px solid var(--border-gold);
+  border-radius: 10px; padding: 32px 36px;
+  position: relative; overflow: hidden;
+}
+.rec-box::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%; background: var(--gold);
+}
+.rec-title { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--gold); }
+.rec-score { font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 700; color: var(--gold); line-height: 1; }
+.rec-score-label { font-size: 11px; color: var(--text-light); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── STEP LIST ── */
+.step-list { list-style: none; }
+.step-list li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #1E1E1E; align-items: flex-start; }
+.step-list li:last-child { border-bottom: none; }
+.step-num {
+  min-width: 28px; height: 28px; background: transparent;
+  border: 1px solid var(--gold); color: var(--gold);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700;
+  margin-top: 1px; flex-shrink: 0;
+}
+.step-content { flex: 1; }
+.step-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--text-primary); }
+.step-body { font-size: 12px; color: var(--text-secondary); }
+
+/* ── FOOTER ── */
+footer {
+  background: #060606; color: var(--text-light);
+  padding: 24px 36px; font-size: 11px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  border-top: 1px solid var(--border-gold);
+}
+
+/* ── UTILS ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 700px) {
+  .two-col { grid-template-columns: 1fr; }
+  .hero-title { font-size: 28px; }
+  .hero-meta { flex-direction: column; gap: 16px; }
+  .stakeholder-grid { grid-template-columns: 1fr; }
+}
 p { margin-bottom: 9px; }
 ul, ol { padding-left: 18px; margin-bottom: 9px; }
-li { margin-bottom: 4px; }
-strong { font-weight: 600; }
+li { margin-bottom: 5px; }
+strong { font-weight: 600; color: var(--text-primary); }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div>
     <div class="logo-name">K0RE</div>
-    <div class="logo-tagline">Deal Intelligence · GROUNDWORK Division</div>
+    <div class="logo-tagline">GROUNDWORK · Ubuntu Deal Assessment Division</div>
   </div>
   <div class="header-badge">Confidential — For Calvin / Builder Partner</div>
 </header>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">K0RE Deal Assessment · Port Severn · May 1, 2026</div>
-  <div class="hero-title">74 Honey Harbour Drive<br>Port Severn, Township of Georgian Bay</div>
-  <div class="hero-sub">K0RE intervention assessment — four-phase, 416-unit affordable housing project under distress. Court-ordered resolution required. K0RE steps in via BCH/Ubuntu structure with builder partner to take the project forward.</div>
+  <div class="hero-eyebrow">K0RE · GROUNDWORK Assessment · Port Severn · May 1, 2026</div>
+  <div class="hero-title">74 <span>Honey Harbour</span> Drive<br>Port Severn, Township of Georgian Bay</div>
+  <div class="hero-sub">K0RE intervention assessment — four-phase, 416-unit affordable housing project under distress. Court-ordered resolution required. K0RE steps in via BCH/Ubuntu structure with builder partner to take project control and carry it forward.</div>
   <div class="hero-meta">
     <div class="hero-meta-item">
       <span class="hero-meta-label">Site Total Units</span>
@@ -203,30 +337,30 @@ strong { font-weight: 600; }
     </div>
     <div class="hero-meta-item">
       <span class="hero-meta-label">Capital to Raise Now</span>
-      <span class="hero-meta-value">~$5.5M Bridge</span>
+      <span class="hero-meta-value gold">~$5.5M Bridge</span>
     </div>
     <div class="hero-meta-item">
       <span class="hero-meta-label">Total Project Value</span>
-      <span class="hero-meta-value">$171.1M (All Phases)</span>
+      <span class="hero-meta-value">$171.1M</span>
     </div>
     <div class="hero-meta-item">
       <span class="hero-meta-label">Phase 1 BCH Ask</span>
-      <span class="hero-meta-value">$24.68M</span>
+      <span class="hero-meta-value gold">$24.68M</span>
     </div>
     <div class="hero-meta-item">
       <span class="hero-meta-label">Deal Status</span>
-      <span class="hero-meta-value">⚠ Court Order — Urgent</span>
+      <span class="hero-meta-value" style="color:var(--red);">⚠ Court Order — Urgent</span>
     </div>
     <div class="hero-meta-item">
       <span class="hero-meta-label">K0RE Verdict</span>
-      <span class="hero-meta-value">✅ PROCEED</span>
+      <span class="hero-meta-value gold">✅ PROCEED</span>
     </div>
   </div>
 </div>
 
 <div class="container">
 
-  <!-- 01 SITUATION -->
+  <!-- ══ 01 SITUATION ══ -->
   <div class="section">
     <div class="section-header">
       <span class="section-num">01</span>
@@ -236,27 +370,27 @@ strong { font-weight: 600; }
 
     <div class="alert alert-red">
       <div class="alert-title">⚠ Court Order / Distressed Lender Position</div>
-      The current owner/borrower at 74 Honey Harbour Drive is operating under a court order and cannot satisfy obligations to the first-position lender (K0RE or K0RE-affiliated). An immediate capital solution of approximately <strong>$5.5M</strong> is required to discharge or restructure the first charge. Without intervention the project faces receivership or forced sale — destroying long-term value for everyone.
+      The current owner/borrower at 74 Honey Harbour Drive is operating under a court order and cannot satisfy obligations to the first-position lender (K0RE or K0RE-affiliated). An immediate capital solution of approximately <strong>$5.5M</strong> is required to discharge or restructure the first charge. Without intervention the project faces receivership or forced sale — destroying long-term value for all parties.
     </div>
 
     <div class="alert alert-gold">
-      <div class="alert-title">📌 What's Already In Place</div>
-      This is not a blank-sheet deal. A full BCH submission package was prepared (Cover Memo April 25, 2026) under <strong>Ubuntu Land Trust &amp; Developments</strong> as NFP sponsor, with <strong>Cube Building Systems</strong> (Brampton volumetric modular factory) as construction partner. An executed landowner MOU is on file. The BCH application is live or near-submission. K0RE's intervention <em>saves</em> this structure — it doesn't restart from scratch.
+      <div class="alert-title">📌 What's Already In Place — This Is Not a Restart</div>
+      A full BCH submission package was prepared (Cover Memo April 25, 2026) under <strong>Ubuntu Land Trust &amp; Developments</strong> as NFP sponsor, with <strong>Cube Building Systems</strong> (Brampton volumetric modular) as construction partner. An executed landowner MOU is on file. The BCH application is live or near-submission. K0RE's intervention <em>saves</em> this structure — it takes it over and pushes it forward.
     </div>
 
-    <div class="card">
-      <p><strong>The Opportunity:</strong> K0RE steps in as bridge capital provider, takes control of the deal structure, brings in the builder partner as equity co-participant, and carries the deal forward through the BCH/CMHC stack. In return, K0RE and the builder partner capture the project economics across a 5–10 year horizon that includes:</p>
+    <div class="card gold-border">
+      <p><strong>K0RE's Play:</strong> K0RE steps in as bridge capital provider, assumes project control through Ubuntu LTD sponsorship, brings in a builder-partner as equity co-participant, and carries the deal forward through the BCH/CMHC stack. The existing owner remains in the structure but in a subordinated recovery position — treated fairly, not exploited. In return, K0RE and the builder partner capture the project economics across a 5–10 year horizon:</p>
       <ul>
         <li>Developer/sponsor fees across 416 units (~$68.4M total BCH grant deployed)</li>
         <li>60% NOI participation during the 20-year affordability period via Ubuntu LTD ground lease</li>
         <li>Year-20 land repurchase event at formula price ($16.64M original land value + inflation)</li>
-        <li>Construction volume for the builder: 416 modular units over 4 phases = significant backlog fill</li>
-        <li>First-lender recovery on the K0RE-held charge</li>
+        <li>Construction volume for the builder: 416 modular units over 4 phases</li>
+        <li>First-lender recovery + origination fee on the K0RE bridge</li>
       </ul>
     </div>
   </div>
 
-  <!-- 02 PROPERTY -->
+  <!-- ══ 02 PROPERTY ══ -->
   <div class="section">
     <div class="section-header">
       <span class="section-num">02</span>
@@ -265,12 +399,12 @@ strong { font-weight: 600; }
     </div>
 
     <div class="stat-grid">
-      <div class="stat-card green">
+      <div class="stat-card gold">
         <div class="stat-label">Address</div>
         <div class="stat-value" style="font-size:15px;">74 Honey Harbour Dr</div>
-        <div class="stat-note">Port Severn, Township of Georgian Bay, Muskoka District</div>
+        <div class="stat-note">Port Severn, Township of Georgian Bay, Muskoka</div>
       </div>
-      <div class="stat-card green">
+      <div class="stat-card gold">
         <div class="stat-label">Total Entitlement</div>
         <div class="stat-value">416 Units</div>
         <div class="stat-note">BCH Typology B — Regional Master-Planned Community</div>
@@ -280,15 +414,15 @@ strong { font-weight: 600; }
         <div class="stat-value">$16.64M</div>
         <div class="stat-note">Current-market appraisal (pre-approval)</div>
       </div>
-      <div class="stat-card green">
-        <div class="stat-label">Construction Status</div>
-        <div class="stat-value" style="font-size:14px;">Start &lt;12 Months</div>
-        <div class="stat-note">BCH pipeline designation · Phase 1 active submission</div>
-      </div>
       <div class="stat-card gold">
+        <div class="stat-label">BCH Pipeline Status</div>
+        <div class="stat-value" style="font-size:14px;">Start &lt;12 Mo</div>
+        <div class="stat-note">Construction Start &lt;12 Months · Phase 1 active</div>
+      </div>
+      <div class="stat-card red">
         <div class="stat-label">1st Charge (VTB)</div>
         <div class="stat-value">$6.0M</div>
-        <div class="stat-note">Vendor Take-Back mortgage · Must discharge</div>
+        <div class="stat-note">Must discharge via K0RE bridge</div>
       </div>
       <div class="stat-card red">
         <div class="stat-label">2nd Charge</div>
@@ -297,14 +431,10 @@ strong { font-weight: 600; }
       </div>
     </div>
 
-    <div class="card">
-      <strong>Site Character:</strong> Regional master-planned parcel in Muskoka District within the Township of Georgian Bay. At 416 units it sits in BCH's preferred Typology B format — a complete-community anchor capable of supporting industrialized supply chains (Cube's factory model), multi-year crew utilization, and full municipal servicing. The surrounding Muskoka corridor supports rural/regional rental demand. A third-party SvN Architects plan (458 homes) and Cushman &amp; Wakefield appraisal deck (May 2025) are on file, providing independent validation.
-    </div>
-
-    <div class="two-col" style="margin-top:14px;">
+    <div class="two-col">
       <div class="card">
         <strong>Title Encumbrances</strong>
-        <table class="data-table" style="margin-top:10px;">
+        <table class="data-table" style="margin-top:12px;">
           <thead><tr><th>Position</th><th>Amount</th><th>Status</th></tr></thead>
           <tbody>
             <tr>
@@ -327,28 +457,28 @@ strong { font-weight: 600; }
       </div>
       <div class="card">
         <strong>Phasing / Unit Topology</strong>
-        <table class="data-table" style="margin-top:10px;">
-          <thead><tr><th>Phase</th><th>Units</th><th>Activation</th></tr></thead>
+        <table class="data-table" style="margin-top:12px;">
+          <thead><tr><th>Phase</th><th class="center">Units</th><th>Activation</th></tr></thead>
           <tbody>
             <tr class="highlight-row">
               <td><strong>Phase 1 — Active</strong></td>
               <td class="mono center"><strong>150</strong></td>
-              <td><span class="tag tag-green">Now</span></td>
+              <td><span class="tag tag-gold">Now</span></td>
             </tr>
             <tr>
               <td>Phase 2 — Step-Down</td>
               <td class="mono center">110</td>
-              <td><span class="tag tag-gray">P1 Stabilize ~2029</span></td>
+              <td><span class="tag tag-gray">~2029</span></td>
             </tr>
             <tr>
               <td>Phase 3 — Mid-Cycle</td>
               <td class="mono center">80</td>
-              <td><span class="tag tag-gray">P2 Stabilize ~2031</span></td>
+              <td><span class="tag tag-gray">~2031</span></td>
             </tr>
             <tr>
               <td>Phase 4 — Final Build</td>
               <td class="mono center">76</td>
-              <td><span class="tag tag-gray">P3 Stabilize ~2033</span></td>
+              <td><span class="tag tag-gray">~2033</span></td>
             </tr>
             <tr class="total-row">
               <td>Full Site</td>
@@ -361,34 +491,189 @@ strong { font-weight: 600; }
     </div>
   </div>
 
-  <!-- 03 CAPITAL STACK -->
+  <!-- ══ 03 OWNERSHIP & STAKEHOLDER STRUCTURE ══ -->
   <div class="section">
     <div class="section-header">
       <span class="section-num">03</span>
+      <span class="section-title">Ownership &amp; Stakeholder Structure — Who Gets What</span>
+      <div class="divider"></div>
+    </div>
+
+    <div class="alert alert-gold">
+      <div class="alert-title">🏗 The Core Mechanism — K0RE Controls Via the Non-Profit</div>
+      The <strong>key strategic position is the Ubuntu LTD non-profit sponsorship.</strong> Whoever controls the NFP controls the BCH grant application, the CMHC mortgage, the NOI distribution, and the Year-20 land repurchase. K0RE, through its GROUNDWORK/Ubuntu sponsorship role, holds that seat. The builder partner, existing owner, and new investors all participate through defined positions within or adjacent to this structure — but K0RE drives the deal.
+    </div>
+
+    <div class="stakeholder-grid">
+      <div class="stakeholder-card">
+        <div class="stakeholder-header kore">🏆 K0RE (Lead Sponsor &amp; NFP Controller)</div>
+        <div class="stakeholder-body">
+          <strong>Role:</strong> Ubuntu LTD NFP sponsor, bridge lender, project control
+          <ul style="margin-top:8px;">
+            <li>Controls BCH application &amp; CMHC mortgage as NFP sponsor</li>
+            <li>Earns 3–5% developer/sponsor fees per phase</li>
+            <li>Receives share of 60% NOI via Ubuntu LTD</li>
+            <li>Participates in Year-20 land repurchase event</li>
+            <li>Recovers bridge capital + origination fee (first out)</li>
+          </ul>
+          <div style="margin-top:10px; padding: 8px 10px; background: var(--gold-muted); border-radius:4px; border: 1px solid var(--gold-border);">
+            <strong style="color:var(--gold);">K0RE is the quarterback.</strong> All deal flow, all decisions, all relationships run through K0RE.
+          </div>
+        </div>
+      </div>
+
+      <div class="stakeholder-card">
+        <div class="stakeholder-header builder">🔨 Builder Partner (Cal's Contact)</div>
+        <div class="stakeholder-body">
+          <strong>Role:</strong> Construction delivery + equity co-investor
+          <ul style="margin-top:8px;">
+            <li>Fixed-price construction contracts at $411,343/unit</li>
+            <li>50% performance bond + 2-year warranty</li>
+            <li>Co-invests in $5.5M bridge (equity or deferred fees)</li>
+            <li>Earns construction margin (~10–15% on $61.7M Phase 1)</li>
+            <li>Equity stake in sponsor entity = share of NOI + Year-20 event</li>
+          </ul>
+          <div style="margin-top:10px; padding: 8px 10px; background: var(--blue-bg); border-radius:4px;">
+            <strong style="color:var(--blue);">Builder's LOI is the unlock.</strong> Without it, the bridge can't be papered. This is Cal's Week 1 action.
+          </div>
+        </div>
+      </div>
+
+      <div class="stakeholder-card">
+        <div class="stakeholder-header ubuntu">🏛 Ubuntu LTD (NFP Vehicle)</div>
+        <div class="stakeholder-body">
+          <strong>Role:</strong> BCH-compliant non-profit borrower of record
+          <ul style="margin-top:8px;">
+            <li>Applies for $24.68M BCH Phase 1 forgivable grant</li>
+            <li>Holds CMHC MLI Select mortgage ($30.85M)</li>
+            <li>Owns the ground lease under Common Ground Initiative</li>
+            <li>Receives 60% of project NOI</li>
+            <li>Distributes sponsor fees &amp; NOI to K0RE + builder per agreed split</li>
+          </ul>
+          <div style="margin-top:10px; padding: 8px 10px; background: rgba(90,90,160,0.12); border-radius:4px;">
+            <strong style="color:#9090E0;">The legal &amp; financial container.</strong> K0RE's sponsorship means K0RE controls what Ubuntu does.
+          </div>
+        </div>
+      </div>
+
+      <div class="stakeholder-card">
+        <div class="stakeholder-header owner">🤝 Existing Owner (Recovery Position)</div>
+        <div class="stakeholder-body">
+          <strong>Role:</strong> Landowner partner — transitioning to subordinated recovery
+          <ul style="margin-top:8px;">
+            <li>Court order limits leverage — K0RE holds the first-lender position</li>
+            <li>Landowner MOU already executed — existing relationship preserved</li>
+            <li>Receives 40% NOI share per Ubuntu ground lease during affordability period</li>
+            <li>K0RE commits to recover owner's invested capital over 3–5 years from fees/NOI</li>
+            <li>No further decision-making authority — K0RE assumes project control</li>
+          </ul>
+          <div style="margin-top:10px; padding: 8px 10px; background: var(--orange-bg); border-radius:4px;">
+            <strong style="color:var(--orange);">Fair exit, not a windfall.</strong> The goal is to make the owner whole on capital invested — not to give them the upside they forfeited.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card gold-border" style="margin-top:14px;">
+      <strong style="color:var(--gold);">How the 40% BCH Grant Flows — Stakeholder Distribution Model</strong>
+      <p style="margin-top:10px; color:var(--text-secondary);">The BCH forgivable grant vests into Ubuntu LTD's equity over 20 years. Within Ubuntu LTD's economics, the value distributes across stakeholders through fees, NOI, and the Year-20 land event. A proposed allocation framework:</p>
+
+      <div class="dist-bar-wrap">
+        <div class="dist-bar-row">
+          <div class="dist-label">K0RE (Sponsor / NFP Control)</div>
+          <div class="dist-fill-wrap">
+            <div class="dist-fill kore-fill" style="width:45%;">45%</div>
+          </div>
+          <div class="dist-pct" style="color:var(--gold);">45%</div>
+        </div>
+        <div class="dist-bar-row">
+          <div class="dist-label">Builder Partner (Equity Stake)</div>
+          <div class="dist-fill-wrap">
+            <div class="dist-fill builder-fill" style="width:30%;">30%</div>
+          </div>
+          <div class="dist-pct" style="color:var(--blue);">30%</div>
+        </div>
+        <div class="dist-bar-row">
+          <div class="dist-label">Land Equity (Existing Owner / Ubuntu MOU)</div>
+          <div class="dist-fill-wrap">
+            <div class="dist-fill land-fill" style="width:15%;">15%</div>
+          </div>
+          <div class="dist-pct" style="color:var(--gold-dark);">15%</div>
+        </div>
+        <div class="dist-bar-row">
+          <div class="dist-label">Existing Owner Recovery Fund</div>
+          <div class="dist-fill-wrap">
+            <div class="dist-fill owner-fill" style="width:10%;">10%</div>
+          </div>
+          <div class="dist-pct" style="color:var(--orange);">10%</div>
+        </div>
+      </div>
+
+      <p style="margin-top:14px; font-size:11.5px; color:var(--text-light);"><em>Note: These are illustrative allocation percentages for discussion. Actual splits to be negotiated and documented in the Ubuntu LTD sponsor agreement, builder LOI/equity agreement, and existing owner recovery note. Legal counsel required before finalizing.</em></p>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <strong>Existing Owner Recovery — The Mechanism</strong>
+      <p style="margin-top:10px; color:var(--text-secondary);">The existing owner is under court order and K0RE holds the lender position — they have limited leverage. However, treating them fairly is the right call for three reasons: (1) avoids litigation drag that could delay the BCH application, (2) maintains goodwill with a party who has an executed Ubuntu MOU and local relationships, (3) the deal economics are strong enough to make everyone whole.</p>
+      <table class="data-table" style="margin-top:12px;">
+        <thead><tr><th>Recovery Mechanism</th><th>Timing</th><th>Estimated Amount</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Ongoing NOI Share (40% per MOU)</td>
+            <td>Yr 3–20 (post-stabilization)</td>
+            <td class="mono">~$956K/yr (Phase 1)</td>
+            <td>Per Ubuntu ground lease structure — already in the model</td>
+          </tr>
+          <tr>
+            <td>Capital Recovery Note (K0RE structured)</td>
+            <td>Yr 1–5 (from Phase 1 fees)</td>
+            <td class="mono">Owner's invested capital</td>
+            <td>K0RE commits to return owner's invested $ from sponsor fees, no interest</td>
+          </tr>
+          <tr>
+            <td>Year-20 Land Buyout (Phase 1 slice)</td>
+            <td>~2047</td>
+            <td class="mono">$6.0M+ at formula price</td>
+            <td>Original Phase 1 land slice + inflation per Common Ground Initiative</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2">Owner's Total Recovery Over Project Life</td>
+            <td class="mono">Fully made whole</td>
+            <td>Capital back in Yr 1–5; ongoing NOI; land buyout at Year-20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ 04 CAPITAL STACK ══ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
       <span class="section-title">Capital Structure — The $5.5M Bridge &amp; Full Project Stack</span>
       <div class="divider"></div>
     </div>
 
     <div class="alert alert-orange">
       <div class="alert-title">🔑 Immediate Capital Need: ~$5.5M Bridge</div>
-      To satisfy the court order and discharge/restructure the first-lender position, K0RE needs to raise approximately <strong>$5.5M in bridge capital</strong> — enough to cover the first-lender obligation plus carry costs through BCH/CMHC closing. The <strong>builder partner's equity commitment or LOI</strong> is the anchor that makes this bridge raise viable to third-party capital sources.
+      To satisfy the court order and discharge/restructure the first-lender position, K0RE needs approximately <strong>$5.5M in bridge capital</strong>. The builder partner's equity commitment or LOI is the anchor that makes this bridge raise viable to third-party capital sources.
     </div>
 
     <div class="stat-grid">
       <div class="stat-card red">
         <div class="stat-label">Bridge Capital Needed</div>
         <div class="stat-value">~$5.5M</div>
-        <div class="stat-note">Discharge first lender, carry to BCH close</div>
+        <div class="stat-note">Discharge first lender, carry to BCH/CMHC close</div>
       </div>
-      <div class="stat-card green">
+      <div class="stat-card gold">
         <div class="stat-label">Phase 1 Total Cost</div>
         <div class="stat-value">$61.7M</div>
         <div class="stat-note">150 units · $411,343/unit · Keele-benchmarked</div>
       </div>
-      <div class="stat-card green">
+      <div class="stat-card gold">
         <div class="stat-label">BCH Grant (Phase 1)</div>
         <div class="stat-value">$24.68M</div>
-        <div class="stat-note">40% of project cost · forgivable · vests 20yr</div>
+        <div class="stat-note">40% forgivable · vests 20yr · KEY LICK</div>
       </div>
       <div class="stat-card blue">
         <div class="stat-label">CMHC MLI Select</div>
@@ -400,49 +685,34 @@ strong { font-weight: 600; }
         <div class="stat-value">1.59x</div>
         <div class="stat-note">Target 1.25x · Floor 1.10x · Wide headroom</div>
       </div>
-      <div class="stat-card green">
+      <div class="stat-card gold">
         <div class="stat-label">Full Site BCH (4 Phases)</div>
         <div class="stat-value">$68.4M</div>
-        <div class="stat-note">Forgivable grant · 122% fiscal recapture by Yr 17</div>
+        <div class="stat-note">Total forgivable grant · 122% fiscal recapture Yr 17</div>
       </div>
     </div>
 
-    <div class="card">
-      <strong>Phase 1 Capital Stack — The 40/50/5/5 BCH Template</strong>
+    <div class="card gold-border">
+      <strong style="color:var(--gold);">Phase 1 Capital Stack — The 40/50/5/5 BCH Template</strong>
       <div class="stack-visual">
         <div class="stack-bar">
           <div class="stack-fill bch">BCH Grant 40% · $24.68M</div>
-          <div class="stack-meta">Forgivable, vests over 20 years · Ubuntu LTD applies</div>
+          <div class="stack-meta">Forgivable, vests 20yr · Ubuntu LTD applies · K0RE controls</div>
         </div>
         <div class="stack-bar">
           <div class="stack-fill cmhc">CMHC MLI Select 50% · $30.85M</div>
           <div class="stack-meta">50yr amort · 4.3% · leasehold structured</div>
         </div>
         <div class="stack-bar">
-          <div class="stack-fill muni" style="min-width:52px;">5%</div>
-          <div class="stack-meta">$3.09M Municipal · Township DC waiver + incentives</div>
+          <div class="stack-fill muni" style="font-size:9px;">5%</div>
+          <div class="stack-meta">$3.09M Municipal · Township of Georgian Bay DC waiver + incentives</div>
         </div>
         <div class="stack-bar">
-          <div class="stack-fill land" style="min-width:52px;">5%</div>
-          <div class="stack-meta">$3.09M Landowner Land Equity · pro-rata Phase 1 slice of $16.64M site</div>
+          <div class="stack-fill land" style="font-size:9px;">5%</div>
+          <div class="stack-meta">$3.09M Land Equity · pro-rata Phase 1 slice of $16.64M site value</div>
         </div>
       </div>
-      <p style="margin-top:14px; font-size:12px; color:var(--text-light);">
-        The 40/50/5/5 stack is the BCH textbook template — no solver flex, no aggressive rent assumptions. Phase 1 clears the 1.25x DSCR target at a clean 1.59x on Year-1 stabilized NOI of $2,389,725. LTV sits at 50.0% — CMHC's preferred leasehold envelope (0.3% historical foreclosure rate across 1,200+ leasehold projects).
-      </p>
-    </div>
-
-    <div class="card" style="margin-top:14px;">
-      <strong>Builder Partner Equity Role — What We Need From Cal's Contact</strong>
-      <p style="margin-top:10px;">The builder partner needs to provide at minimum a <strong>Letter of Intent (LOI)</strong> confirming:</p>
-      <ul>
-        <li>Willingness to provide fixed-price construction contracts on Phase 1 (150 units)</li>
-        <li>Commitment to the $411,343/unit construction envelope (Cube volumetric modular rate)</li>
-        <li>50% performance bond capacity (Cube standard)</li>
-        <li>Equity co-investment in the bridge raise, or willingness to defer a portion of mobilization fees as equity</li>
-        <li>Schedule guarantee with liquidated damages</li>
-      </ul>
-      <p style="margin-top:10px;"><strong>Why this LOI is the unlock:</strong> A builder LOI transforms a distressed land deal into a bankable construction-ready project. It's the document that lets K0RE approach bridge lenders, mezzanine providers, or private debt funds with confidence. Without it, it's just a land play with a court order. With it, it's a fully-structured BCH submission waiting to close.</p>
+      <p style="margin-top:14px; font-size:12px; color:var(--text-light);">The 40/50/5/5 stack is the BCH textbook template. No solver flex. No aggressive rent assumptions. Phase 1 clears 1.59x DSCR on Year-1 stabilized NOI of $2,389,725 at $2,150 blended AMR with 5% vacancy and 35% opex.</p>
     </div>
 
     <div class="card" style="margin-top:14px;">
@@ -458,7 +728,7 @@ strong { font-weight: 600; }
             <td class="mono">$61,701,450</td>
             <td class="mono right">$24,680,580</td>
             <td class="mono right">$30,850,725</td>
-            <td><span class="tag tag-green">Now</span></td>
+            <td><span class="tag tag-gold">Now</span></td>
           </tr>
           <tr>
             <td>Phase 2 — Step-Down</td>
@@ -497,39 +767,41 @@ strong { font-weight: 600; }
     </div>
   </div>
 
-  <!-- 04 BCH / UBUNTU -->
+  <!-- ══ 05 BCH / UBUNTU ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title">BCH / Ubuntu Non-Profit Structure — How We Save This Application</span>
+      <span class="section-num">05</span>
+      <span class="section-title">BCH / Ubuntu Non-Profit Structure — The Key Lick</span>
       <div class="divider"></div>
+    </div>
+
+    <div class="alert alert-gold">
+      <div class="alert-title">💡 Why the Non-Profit Is the Key Lick</div>
+      The BCH forgivable grant requires a non-profit ownership vehicle. K0RE bringing Ubuntu LTD as that vehicle is what unlocks $68.4M in forgivable federal capital across 4 phases. No NFP = no BCH grant = no deal. K0RE's GROUNDWORK division sponsors and controls Ubuntu LTD — that control position is the most valuable seat at the table.
     </div>
 
     <div class="two-col">
       <div class="card">
         <strong>Ubuntu Land Trust &amp; Developments (NFP)</strong>
-        <p style="margin-top:8px;">Ubuntu LTD is the BCH-compliant non-profit ownership vehicle. Already established as NFP sponsor and borrower of record across all four phases. This entity:</p>
+        <p style="margin-top:8px;">Already established as BCH NFP sponsor and borrower of record. K0RE-controlled via sponsorship. Ubuntu LTD:</p>
         <ul style="margin-top:8px;">
-          <li>Applies for BCH forgivable grants</li>
+          <li>Applies for BCH forgivable grants ($24.68M Phase 1)</li>
           <li>Holds the CMHC MLI Select mortgage</li>
           <li>Owns the ground lease (Common Ground Initiative)</li>
-          <li>Receives 60% NOI (landowner gets 40% during 20-yr period)</li>
-          <li>Executes the Year-20 land repurchase at formula price</li>
+          <li>Receives 60% of NOI — flows to K0RE + builder per agreement</li>
+          <li>Executes Year-20 land repurchase at formula price</li>
         </ul>
-        <p style="margin-top:8px; font-size:12px; color:var(--text-light);"><strong>K0RE's play:</strong> K0RE backs/sponsors Ubuntu LTD to carry this application. The NFP structure is already built into the BCH submission — we don't create it from scratch.</p>
       </div>
       <div class="card">
-        <strong>BCH / VCH Program Path</strong>
-        <p style="margin-top:8px;">Key mechanics of the BCH grant that make this deal work:</p>
+        <strong>BCH Program Mechanics</strong>
         <ul style="margin-top:8px;">
           <li>40% forgivable loan, vests as equity over 20 years</li>
           <li>Site designated <strong>Construction Start &lt;12 Months</strong> — time-sensitive</li>
-          <li>Phase 1 submission: $24.68M — the number we're locking in now</li>
-          <li>Non-profit ownership required — Ubuntu LTD is the vehicle</li>
+          <li>Phase 1 submission: $24.68M — the immediate target</li>
+          <li>Non-profit ownership required — Ubuntu LTD is the compliant vehicle</li>
           <li>No ongoing operating subsidy needed post-stabilization</li>
-          <li>Fiscal net-neutral by Year 17 (122% recapture via GST, payroll, corporate, property tax)</li>
+          <li>Fiscal net-neutral by Year 17 (122% recapture via tax revenue)</li>
         </ul>
-        <p style="margin-top:8px; font-size:12px; color:var(--text-light);">Getting the BCH commitment locked <em>before</em> any forced-sale event is the entire strategic point. K0RE's bridge capital buys the runway to close it.</p>
       </div>
     </div>
 
@@ -542,7 +814,7 @@ strong { font-weight: 600; }
             <td>Phase 1</td>
             <td class="center">150 / 416</td>
             <td class="mono">$6,000,000</td>
-            <td>Today's pre-approval current-market appraisal</td>
+            <td>Today's pre-approval appraisal</td>
           </tr>
           <tr>
             <td>Phase 2</td>
@@ -570,15 +842,14 @@ strong { font-weight: 600; }
           </tr>
         </tbody>
       </table>
-      <p style="margin-top:10px; font-size:12px; color:var(--text-light);">Each phase stands on its own re-appraisal and actual operating data from prior phases. If a post-phase re-appraisal doesn't support the next slice, that phase doesn't proceed — earlier BCH commitments are insulated by design.</p>
     </div>
   </div>
 
-  <!-- 05 OPERATING ECONOMICS -->
+  <!-- ══ 06 OPERATING ECONOMICS ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-title">Operating Economics — Why This Pays Off Over 5–10 Years</span>
+      <span class="section-num">06</span>
+      <span class="section-title">Operating Economics — Why This Pays Off</span>
       <div class="divider"></div>
     </div>
 
@@ -589,17 +860,17 @@ strong { font-weight: 600; }
         <div class="stat-note">$2,150 blended AMR · 5% vacancy · 35% opex</div>
       </div>
       <div class="stat-card green">
-        <div class="stat-label">Annual Debt Service (P1)</div>
+        <div class="stat-label">Annual Debt Service</div>
         <div class="stat-value">$1.50M</div>
         <div class="stat-note">CMHC MLI Select · 50yr · 4.3%</div>
       </div>
-      <div class="stat-card green">
-        <div class="stat-label">DSCR — Phase 1</div>
+      <div class="stat-card gold">
+        <div class="stat-label">DSCR (All 4 Phases)</div>
         <div class="stat-value">1.59x</div>
-        <div class="stat-note">vs 1.25x target · 1.10x floor · Holds all 4 phases</div>
+        <div class="stat-note">Consistent · Target 1.25x · Floor 1.10x</div>
       </div>
-      <div class="stat-card green">
-        <div class="stat-label">Full Site Stabilized NOI</div>
+      <div class="stat-card gold">
+        <div class="stat-label">Full Site NOI (Stabilized)</div>
         <div class="stat-value">$6.63M/yr</div>
         <div class="stat-note">All 416 units at stabilization</div>
       </div>
@@ -609,28 +880,28 @@ strong { font-weight: 600; }
         <div class="stat-note">CMHC preferred leasehold envelope</div>
       </div>
       <div class="stat-card gold">
-        <div class="stat-label">Per-Unit Cost</div>
+        <div class="stat-label">Per-Unit Construction Cost</div>
         <div class="stat-value">$411,343</div>
         <div class="stat-note">Cube modular · Keele &amp; Eglinton benchmarked</div>
       </div>
     </div>
 
     <div class="card">
-      <strong>NOI Distribution — Ubuntu Ground Lease Structure</strong>
+      <strong>NOI Distribution — Phase 1 at Stabilization</strong>
       <table class="data-table" style="margin-top:12px;">
-        <thead><tr><th>Recipient</th><th>Share</th><th>Phase 1 Annual</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Recipient</th><th>Share</th><th>Annual (Phase 1)</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr>
-            <td>Ubuntu LTD (NFP / K0RE-backed)</td>
-            <td class="mono">60%</td>
-            <td class="mono">~$1.43M/yr</td>
-            <td>After debt service and opex</td>
+          <tr class="highlight-row">
+            <td><strong>Ubuntu LTD (K0RE-controlled)</strong></td>
+            <td class="mono"><strong>60%</strong></td>
+            <td class="mono" style="color:var(--gold);"><strong>~$1.43M/yr</strong></td>
+            <td>Flows to K0RE + builder per agreed internal split</td>
           </tr>
           <tr>
-            <td>Landowner</td>
+            <td>Landowner (Existing Owner per MOU)</td>
             <td class="mono">40%</td>
-            <td class="mono">~$0.96M/yr</td>
-            <td>Suspends if Year-20 refi unavailable (accrues Prime+2%)</td>
+            <td class="mono">~$956K/yr</td>
+            <td>Part of owner's recovery plan · per Ubuntu MOU</td>
           </tr>
           <tr class="total-row">
             <td>Total NOI (Phase 1)</td>
@@ -640,24 +911,14 @@ strong { font-weight: 600; }
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <div class="card" style="margin-top:14px;">
-      <strong>Why Cube Building Systems Is the Right Builder</strong>
-      <ul style="margin-top:8px;">
-        <li><strong>±3% budget variance</strong> vs ±15–25% for site-built — eliminates construction overrun risk</li>
-        <li><strong>30–50% timeline compression</strong> — first occupancies 18–24 months post-closing</li>
-        <li>100,000 sq ft Brampton volumetric modular facility — 80%+ of structure built in factory</li>
-        <li>Fixed-price contracts · 50% performance bond · 2-year comprehensive warranty · LDs for schedule delays</li>
-        <li>This is what makes CMHC comfortable and BCH reviewers confident in delivery</li>
-      </ul>
+      <p style="margin-top:12px; font-size:12px; color:var(--text-light);">At full site stabilization (all 416 units), the 60% Ubuntu LTD share grows to ~$3.98M/year. K0RE and the builder partner split this per their internal agreement — a significant recurring income stream on a 20-year horizon.</p>
     </div>
   </div>
 
-  <!-- 06 RISK -->
+  <!-- ══ 07 RISK ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">06</span>
+      <span class="section-num">07</span>
       <span class="section-title">Risk Assessment</span>
       <div class="divider"></div>
     </div>
@@ -665,64 +926,64 @@ strong { font-weight: 600; }
     <div class="risk-grid">
       <div class="risk-card">
         <div class="risk-card-title"><div class="risk-dot high"></div>Court Order / Lender Default Risk</div>
-        <p>Highest-priority risk. Every day without resolution increases the chance of receivership or forced sale that voids the BCH application. K0RE's bridge capital is the only mitigant. Speed of execution is critical.</p>
+        <p style="color:var(--text-secondary);">Highest-priority risk. Every day without resolution increases receivership/forced-sale risk that voids the BCH application. K0RE's bridge capital is the only mitigant. Speed of execution is critical.</p>
       </div>
       <div class="risk-card">
         <div class="risk-card-title"><div class="risk-dot med"></div>Builder Partner Commitment Risk</div>
-        <p>The entire bridge raise hinges on the builder's LOI. Without it, bridge lenders can't see a construction-ready project. <strong>This is Cal's immediate action item.</strong> Once the LOI is in hand, everything else sequences cleanly.</p>
+        <p style="color:var(--text-secondary);">The bridge raise hinges on the builder's LOI. Without it, bridge lenders see distressed land. With it, they see a $171M construction-ready deal. <strong>Cal's Week 1 action item.</strong></p>
       </div>
       <div class="risk-card">
-        <div class="risk-card-title"><div class="risk-dot med"></div>BCH Application Timing Risk</div>
-        <p>The "Construction Start &lt;12 Months" designation is time-sensitive. Losing it through delay or receivership would set back Phase 1 approval materially. The Cover Memo is dated April 25, 2026 — file immediately if not already done.</p>
+        <div class="risk-card-title"><div class="risk-dot med"></div>BCH Timing Risk</div>
+        <p style="color:var(--text-secondary);">"Construction Start &lt;12 Months" designation is time-sensitive. Losing it through delay could push Phase 1 approval back by a full program cycle. Cover Memo is April 25, 2026 — file immediately if not done.</p>
       </div>
       <div class="risk-card">
         <div class="risk-card-title"><div class="risk-dot low"></div>Construction / Cost Risk</div>
-        <p>Cube's fixed-price contracts, performance bonds, and ±3% variance history effectively mitigate this. Lowest construction risk profile available in Canadian affordable housing at this scale.</p>
+        <p style="color:var(--text-secondary);">Cube's fixed-price contracts, ±3% variance history, performance bonds, and factory model effectively eliminate traditional construction overrun risk. Lowest-risk delivery method available.</p>
       </div>
       <div class="risk-card">
         <div class="risk-card-title"><div class="risk-dot low"></div>Underwriting / DSCR Risk</div>
-        <p>1.59x DSCR is 27% above the 1.25x target and 45% above the 1.10x hard floor. Meaningful headroom under stress. $2,150 blended AMR is not aggressive for the Muskoka rural market. Same DSCR holds clean across all 4 phases.</p>
+        <p style="color:var(--text-secondary);">1.59x DSCR is 27% above target and 45% above hard floor. Meaningful stress headroom. $2,150 blended AMR is not aggressive for the Muskoka corridor. Same numbers hold clean across all 4 phases.</p>
       </div>
       <div class="risk-card">
         <div class="risk-card-title"><div class="risk-dot low"></div>Land / Phasing Risk</div>
-        <p>Sequential appraisals eliminate double-pledging concern. Phases 2–4 are structurally insulated from Phase 1 — each stands on its own re-appraisal and prior-phase operating data. If any re-appraisal fails, earlier BCH commitments are protected.</p>
+        <p style="color:var(--text-secondary);">Sequential appraisals eliminate double-pledging concern. Each phase stands on its own re-appraisal and prior-phase operating data. Earlier BCH commitments are fully insulated from later-phase assumptions.</p>
       </div>
       <div class="risk-card">
-        <div class="risk-card-title"><div class="risk-dot med"></div>Year-20 Refinancing Risk</div>
-        <p>If credit markets are unavailable at Year-20, the contractual extension activates: lease extends 5–10 years, landowner distributions suspend (accrue Prime+2%), non-profit retains 100% of NOI to build reserves. CMHC mortgage fully amortizes by Year 25 regardless.</p>
+        <div class="risk-card-title"><div class="risk-dot med"></div>Existing Owner Litigation Risk</div>
+        <p style="color:var(--text-secondary);">If owner feels squeezed out unfairly, they could challenge the deal structure, creating delay. Mitigant: the capital recovery note and ongoing NOI participation keep them whole — removing the incentive to litigate.</p>
       </div>
       <div class="risk-card">
-        <div class="risk-card-title"><div class="risk-dot low"></div>Municipal / Approvals Risk</div>
-        <p>Township of Georgian Bay is a supportive partner. DC waiver ($3.09M) is part of the Phase 1 stack — needs written confirmation as part of close, but the relationship is established through Ubuntu LTD's landowner MOU.</p>
+        <div class="risk-card-title"><div class="risk-dot low"></div>Municipal Approvals Risk</div>
+        <p style="color:var(--text-secondary);">Township of Georgian Bay is supportive. DC waiver ($3.09M) needs written confirmation — existing Ubuntu LTD relationship makes this achievable. Target confirmation within 30 days of bridge close.</p>
       </div>
     </div>
   </div>
 
-  <!-- 07 VERDICT -->
+  <!-- ══ 08 VERDICT ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">07</span>
+      <span class="section-num">08</span>
       <span class="section-title">K0RE Deal Score &amp; Verdict</span>
       <div class="divider"></div>
     </div>
 
     <div class="rec-box">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px;">
-        <div style="flex:1; min-width:280px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:28px;">
+        <div style="flex:1; min-width:260px;">
           <div class="rec-title">K0RE GROUNDWORK Assessment</div>
-          <p style="color:#C8E6C9; margin-bottom:18px; font-size:13px; max-width:560px;">
-            74 Honey Harbour Drive is a structurally sound, BCH-ready deal in distress due to a lender/court-order situation — <em>not</em> due to underlying project weakness. The site is entitled. The BCH application is prepared. The NFP vehicle (Ubuntu LTD) is in place. The construction partner (Cube) is identified. K0RE's capital intervention on the bridge is the unlock that saves an otherwise excellent long-term project.
+          <p style="color:var(--text-secondary); margin-bottom:18px; font-size:13px; max-width:560px;">
+            74 Honey Harbour Drive is a structurally sound, BCH-ready deal in distress due to a lender/court-order situation — not due to project weakness. The site is entitled. The BCH application is prepared. Ubuntu LTD is in place. Cube is identified. K0RE's $5.5M bridge is the unlock that saves a $171M deal. The non-profit sponsorship position is the key lick — whoever controls Ubuntu LTD controls the grant, the mortgage, and the 20-year income stream.
           </p>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="tag tag-green" style="font-size:11px; padding:6px 14px;">✅ PROCEED — HIGH CONVICTION</span>
-            <span class="tag tag-gold" style="font-size:11px; padding:6px 14px;">⚡ URGENT — Court Order Active</span>
-            <span class="tag tag-blue" style="font-size:11px; padding:6px 14px;">🏗 Builder LOI — Cal's Action Item</span>
+            <span class="tag tag-gold" style="font-size:11px; padding:5px 14px;">✅ PROCEED — HIGH CONVICTION</span>
+            <span class="tag tag-red" style="font-size:11px; padding:5px 14px;">⚡ URGENT — Court Order Active</span>
+            <span class="tag tag-blue" style="font-size:11px; padding:5px 14px;">🏗 Builder LOI — Cal's Action</span>
           </div>
         </div>
-        <div style="text-align:center; min-width:120px;">
+        <div style="text-align:center; min-width:110px;">
           <div class="rec-score">83</div>
           <div class="rec-score-label">/ 100 · K0RE Deal Score</div>
-          <div style="font-size:11px; color:#81C784; margin-top:6px;">−17 pts: court order urgency + builder LOI pending</div>
+          <div style="font-size:11px; color:var(--text-light); margin-top:5px;">−17: court order + builder LOI pending</div>
         </div>
       </div>
     </div>
@@ -743,28 +1004,28 @@ strong { font-weight: 600; }
         </table>
       </div>
       <div class="card">
-        <strong>What Moves This Score to 95+</strong>
+        <strong>What Gets Us to 95+</strong>
         <ul style="margin-top:10px;">
-          <li>Builder partner signs LOI / equity commitment <strong>→ +8 pts</strong></li>
-          <li>Court order discharged / bridge close confirmed <strong>→ +5 pts</strong></li>
-          <li>Township confirms DC waiver commitment in writing <strong>→ +3 pts</strong></li>
-          <li>BCH Phase 1 submission formally acknowledged <strong>→ +2 pts</strong></li>
+          <li>Builder partner signs LOI / equity commitment → <strong style="color:var(--gold);">+8 pts</strong></li>
+          <li>Court order discharged / bridge confirmed → <strong style="color:var(--gold);">+5 pts</strong></li>
+          <li>Township DC waiver confirmed in writing → <strong style="color:var(--gold);">+3 pts</strong></li>
+          <li>BCH Phase 1 submission acknowledged → <strong style="color:var(--gold);">+2 pts</strong></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- 08 NEXT STEPS -->
+  <!-- ══ 09 NEXT STEPS ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">08</span>
+      <span class="section-num">09</span>
       <span class="section-title">Next Steps — Action Plan for Calvin &amp; Builder Partner</span>
       <div class="divider"></div>
     </div>
 
-    <div class="alert alert-green">
+    <div class="alert alert-gold">
       <div class="alert-title">🎯 Critical Path</div>
-      <strong>Builder LOI → Bridge Capital Stack → Court Order Discharge → BCH Close → Phase 1 Construction Start.</strong> Everything flows from the builder's commitment. Calvin owns Step 1.
+      <strong>Builder LOI → Bridge Capital Stack → Court Order Discharge → BCH Close → Phase 1 Construction.</strong> Calvin owns Step 1. Everything else sequences from there.
     </div>
 
     <div class="card">
@@ -773,176 +1034,170 @@ strong { font-weight: 600; }
           <div class="step-num">1</div>
           <div class="step-content">
             <div class="step-title">Builder LOI — Cal's Action (This Week)</div>
-            <div class="step-body">Share this assessment with the builder partner. Request a signed Letter of Intent covering: (a) fixed-price contract at $411,343/unit, (b) 50% performance bond, (c) equity or deferred-fee participation in the $5.5M bridge, (d) 18–24 month first-occupancy timeline from close. This document is the unlock for everything else.</div>
+            <div class="step-body">Share this assessment with the builder partner. Get a signed Letter of Intent covering: (a) fixed-price construction at $411,343/unit, (b) 50% performance bond capacity, (c) equity or deferred-fee participation in the $5.5M bridge raise, (d) 18–24 month first-occupancy commitment from close. Even a 2-paragraph email confirmation works as a starting point. This is the unlock.</div>
           </div>
         </li>
         <li>
           <div class="step-num">2</div>
           <div class="step-content">
             <div class="step-title">K0RE Internal Go Decision + Bridge Structure</div>
-            <div class="step-body">Jason/Cal confirm K0RE's participation level in the bridge (first-in lender, equity co-investor, fee sponsor). Once builder LOI is in hand, K0RE legal counsel structures the bridge instrument — new first-charge assignment, preferred equity note, or mezzanine bridge tranche against eventual BCH proceeds.</div>
+            <div class="step-body">Jason and Cal confirm K0RE's participation level in the bridge. Legal counsel structures the bridge instrument — new first-charge assignment, preferred equity note, or mezzanine bridge tranche against eventual BCH proceeds. K0RE is bridge lender-of-record; builder is co-participant.</div>
           </div>
         </li>
         <li>
           <div class="step-num">3</div>
           <div class="step-content">
-            <div class="step-title">Confirm Ubuntu LTD Sponsorship + BCH Filing</div>
-            <div class="step-body">Confirm Ubuntu Land Trust &amp; Developments is fully on-side for K0RE's sponsorship role. Verify Phase 1 BCH submission ($24.68M) is filed or queued — the Cover Memo is dated April 25, 2026. If not yet formally filed, expedite immediately. "Construction Start &lt;12 Months" designation is time-sensitive.</div>
+            <div class="step-title">Structure the Existing Owner Recovery Note</div>
+            <div class="step-body">Have legal counsel draft the capital recovery note for the existing owner — documents K0RE's commitment to return their invested capital from Phase 1 sponsor fees within 3–5 years, with no interest. Pair this with the existing Ubuntu LTD MOU acknowledgment that the owner retains their 40% NOI share per the ground lease. This keeps them off the litigation path.</div>
           </div>
         </li>
         <li>
           <div class="step-num">4</div>
           <div class="step-content">
-            <div class="step-title">Discharge First Lender / Resolve Court Order</div>
-            <div class="step-body">Use bridge capital to satisfy the court order. Legal counsel structures the discharge to clean up the $6M VTB first charge and $3M second charge — rolling both into the new K0RE-structured first-lender position secured against future BCH grant proceeds and CMHC mortgage at close.</div>
+            <div class="step-title">Confirm Ubuntu LTD Sponsorship + File BCH Phase 1</div>
+            <div class="step-body">Confirm K0RE's sponsorship agreement with Ubuntu LTD is in place. Verify Phase 1 BCH submission ($24.68M) is formally filed — Cover Memo is April 25, 2026. If not yet filed, expedite immediately. "Construction Start &lt;12 Months" designation is time-sensitive.</div>
           </div>
         </li>
         <li>
           <div class="step-num">5</div>
           <div class="step-content">
-            <div class="step-title">Township of Georgian Bay — Confirm Municipal Contribution</div>
-            <div class="step-body">Get the $3.085M municipal contribution (DC waiver + incentives) confirmed in writing. This is a formal BCH requirement — it cannot be assumed. Schedule a meeting with Georgian Bay Planning &amp; Economic Development within 30 days of bridge close.</div>
+            <div class="step-title">Discharge First Lender / Resolve Court Order</div>
+            <div class="step-body">Deploy bridge capital to satisfy the court order. Legal structures the discharge to clean up both the $6M VTB first charge and $3M second charge — rolling them into the new K0RE-structured position secured against future BCH proceeds and CMHC mortgage at close.</div>
           </div>
         </li>
         <li>
           <div class="step-num">6</div>
           <div class="step-content">
-            <div class="step-title">CMHC MLI Select Pre-Application</div>
-            <div class="step-body">With bridge secured and builder LOI in hand, initiate CMHC MLI Select pre-application — 50-year leasehold structure, $30.85M Phase 1 mortgage. Target formal close within 90–120 days of bridge execution.</div>
+            <div class="step-title">Township of Georgian Bay — Confirm Municipal Contribution</div>
+            <div class="step-body">Get the $3.085M DC waiver + municipal incentives confirmed in writing. BCH requires it. Schedule a meeting with Georgian Bay Planning &amp; Economic Development within 30 days of bridge close.</div>
           </div>
         </li>
         <li>
           <div class="step-num">7</div>
           <div class="step-content">
-            <div class="step-title">Phase 1 Construction Mobilization — 2026/2027</div>
-            <div class="step-body">Post-close, Cube mobilizes. Factory production begins on the first 150 modular units. Site servicing, internal roads, water/wastewater go in first. First occupancies targeted 18–24 months after close (~mid-2028). Phase 1 rent roll begins building toward the 1.59x DSCR.</div>
+            <div class="step-title">CMHC MLI Select Pre-Application + Project Close</div>
+            <div class="step-body">With bridge secured, builder LOI in hand, and BCH filed, initiate CMHC MLI Select pre-application ($30.85M, 50yr, 4.3%). Target formal project close within 90–120 days of bridge execution. Phase 1 construction mobilizes immediately post-close.</div>
           </div>
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- 09 RETURNS -->
+  <!-- ══ 10 RETURNS ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">09</span>
-      <span class="section-title">K0RE's Return — Dividends Over 5–10 Years</span>
+      <span class="section-num">10</span>
+      <span class="section-title">K0RE's Return — Significant Dividends Over 5–10 Years</span>
       <div class="divider"></div>
     </div>
 
-    <div class="card">
+    <div class="card gold-border">
       <table class="data-table">
         <thead><tr><th>Value Driver</th><th>Timing</th><th>K0RE Est. Return</th><th>Mechanism</th></tr></thead>
         <tbody>
           <tr>
             <td>Bridge Interest + Origination Fee</td>
             <td>0–18 months</td>
-            <td class="mono">~$275–550K</td>
+            <td class="mono" style="color:var(--gold);">~$275–550K</td>
             <td>12–18% bridge rate on $5.5M for 6–12 months</td>
           </tr>
           <tr>
             <td>Sponsor / Developer Fee (Phase 1)</td>
             <td>At BCH close (12–24 mo)</td>
-            <td class="mono">~$1.5–3.0M</td>
+            <td class="mono" style="color:var(--gold);">~$1.5–3.0M</td>
             <td>3–5% of $61.7M project cost via Ubuntu LTD</td>
           </tr>
           <tr class="highlight-row">
-            <td>NOI Participation — Phase 1 (60%)</td>
+            <td>NOI Share — Phase 1 (60% Ubuntu split)</td>
             <td>Ongoing Yr 3–20</td>
-            <td class="mono">~$1.43M/yr</td>
-            <td>60% of $2.39M NOI via Ubuntu LTD ground lease</td>
-          </tr>
-          <tr>
-            <td>Year-20 Land Repurchase (Phase 1)</td>
-            <td>~2047</td>
-            <td class="mono">$6.0M+ (formula)</td>
-            <td>Original $6M slice + inflation, funded from NOI accumulation</td>
+            <td class="mono" style="color:var(--gold);">~$860K–$1.43M/yr</td>
+            <td>K0RE share of Ubuntu LTD's 60% NOI slice</td>
           </tr>
           <tr>
             <td>Phases 2–4 Sponsor Fees</td>
             <td>2029–2034</td>
-            <td class="mono">~$3.3–5.5M</td>
+            <td class="mono" style="color:var(--gold);">~$3.3–5.5M</td>
             <td>3–5% across $109M in future phases</td>
           </tr>
           <tr class="highlight-row">
-            <td>Phases 2–4 NOI Participation</td>
+            <td>Full-Site NOI Share (All 416 units)</td>
             <td>Post-stabilization</td>
-            <td class="mono">~$2.6M+/yr</td>
-            <td>60% of $6.63M full-site NOI at stabilization</td>
+            <td class="mono" style="color:var(--gold);">~$2.4M+/yr</td>
+            <td>K0RE share of 60% of $6.63M full-site NOI</td>
+          </tr>
+          <tr>
+            <td>Year-20 Land Events (All Phases)</td>
+            <td>2047–2053</td>
+            <td class="mono" style="color:var(--gold);">$16.64M+ (formula)</td>
+            <td>Land repurchase at original value + inflation; funded from accumulated NOI</td>
           </tr>
           <tr class="total-row">
-            <td colspan="2"><strong>Total K0RE Value (5–10yr, conservative)</strong></td>
-            <td class="mono">$15–25M+</td>
-            <td>Fees + NOI + land events across all phases</td>
+            <td colspan="2">Total K0RE Value (5–10yr horizon, conservative)</td>
+            <td class="mono" style="color:var(--gold);">$20–30M+</td>
+            <td>Fees + NOI income + land events across all phases</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="alert alert-green" style="margin-top:14px;">
+    <div class="alert alert-gold" style="margin-top:14px;">
       <div class="alert-title">💡 The Big Picture</div>
-      K0RE deploys ~$5.5M in bridge capital into a $171M project that generates <strong>$68.4M in forgivable government grant, $85.5M in CMHC mortgage, 416 affordable homes, $6.63M/year in stabilized NOI, and permanent non-profit ownership</strong> of a significant Muskoka District site. The bridge capital is the smallest check K0RE writes — and the one that makes everything else possible.
+      K0RE deploys ~$5.5M in bridge capital to take control of a $171M project that generates <strong>$68.4M in forgivable federal grants, $85.5M in CMHC financing, 416 affordable homes, $6.63M/year in stabilized NOI, and permanent non-profit ownership</strong> of a significant Muskoka District site. The bridge is the smallest check K0RE writes — and the one that makes all of it possible. The non-profit position is where the long money lives.
     </div>
   </div>
 
-  <!-- 10 DOCUMENTS -->
+  <!-- ══ 11 DOCUMENTS ══ -->
   <div class="section">
     <div class="section-header">
-      <span class="section-num">10</span>
+      <span class="section-num">11</span>
       <span class="section-title">Source Document Inventory</span>
       <div class="divider"></div>
     </div>
     <div class="card">
       <table class="data-table">
-        <thead><tr><th>Document</th><th>Type</th><th>Review Status</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Document</th><th>Type</th><th>Status</th><th>Notes</th></tr></thead>
         <tbody>
           <tr>
             <td>BCH Cover Memo — 74 Honey Harbour Dr</td>
             <td>Word Doc</td>
-            <td><span class="tag tag-green">Fully Reviewed ✓</span></td>
-            <td>Full 4-phase submission memo · Apr 25, 2026 · Primary basis of this assessment</td>
+            <td><span class="tag tag-gold">Fully Reviewed ✓</span></td>
+            <td>4-phase BCH submission · Apr 25, 2026 · Primary basis of this assessment</td>
           </tr>
           <tr>
             <td>2026 Proforma — 74 Honey Harbour Rd</td>
             <td>Excel</td>
-            <td><span class="tag tag-green">Reviewed ✓</span></td>
+            <td><span class="tag tag-gold">Reviewed ✓</span></td>
             <td>NorthStone Capital Partners / M. Leone P.Eng · 458-unit master pro forma</td>
           </tr>
           <tr>
             <td>$6M VTB 1st Charge (I-MT264645)</td>
-            <td>PDF · Title Doc</td>
-            <td><span class="tag tag-orange">Partial (encrypted)</span></td>
-            <td>First-position encumbrance to be discharged</td>
+            <td>PDF · Title</td>
+            <td><span class="tag tag-orange">Partial</span></td>
+            <td>First-position encumbrance to be discharged via bridge</td>
           </tr>
           <tr>
             <td>$3M 2nd Charge · Nov 2023</td>
-            <td>PDF · Title Doc</td>
-            <td><span class="tag tag-orange">Partial (encrypted)</span></td>
-            <td>Registered Nov 17, 2023 · Subordinated position</td>
+            <td>PDF · Title</td>
+            <td><span class="tag tag-orange">Partial</span></td>
+            <td>Registered Nov 17, 2023 · Subordinated</td>
           </tr>
           <tr>
             <td>Revised Plan — 458 Homes (SvN Architects)</td>
             <td>PDF · Plans</td>
             <td><span class="tag tag-gray">On File</span></td>
-            <td>May 2025 · Architecture/site plan · full entitlement basis</td>
+            <td>May 2025 · Third-party architecture/site plan</td>
           </tr>
           <tr>
             <td>Cushman &amp; Wakefield Deck (May 2025)</td>
             <td>PDF · Appraisal</td>
             <td><span class="tag tag-gray">On File</span></td>
-            <td>Third-party market/appraisal context for 74 Honey Harbour Rd</td>
+            <td>Third-party market context for 74 Honey Harbour Rd</td>
           </tr>
           <tr>
             <td>Phase 1–4 Lender One-Pagers</td>
             <td>PDFs</td>
-            <td><span class="tag tag-green">On File ✓</span></td>
+            <td><span class="tag tag-gold">On File ✓</span></td>
             <td>Lender-facing summaries per phase</td>
-          </tr>
-          <tr>
-            <td>Phase 1 Landowner One-Pager</td>
-            <td>PDF</td>
-            <td><span class="tag tag-green">On File ✓</span></td>
-            <td>Landowner-facing summary for Phase 1</td>
           </tr>
         </tbody>
       </table>
@@ -952,7 +1207,7 @@ strong { font-weight: 600; }
 </div>
 
 <footer>
-  <div><strong style="color:#8BC98B;">K0RE · GROUNDWORK Division</strong> — Deal Assessment: 74 Honey Harbour Drive, Port Severn</div>
+  <div><strong style="color:var(--gold);">K0RE · GROUNDWORK Division</strong> — Deal Assessment: 74 Honey Harbour Drive, Port Severn</div>
   <div>Prepared by K0RE-01 (Jarvis) · May 1, 2026 · Confidential — For Internal Use &amp; Builder Partner Distribution</div>
 </footer>
 
