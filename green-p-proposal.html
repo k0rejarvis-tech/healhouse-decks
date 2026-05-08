@@ -4,31 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heal House × City of Toronto — Green P Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#050505;--bg2:#0b0a08;--panel:#111;--panel2:#17120a;--gold:#d4af37;--gold2:#f4df8a;--cream:#f8f1df;--muted:#a9a294;--line:rgba(212,175,55,.28);--teal:#77d0ba;
+      --bg:#1A1612;--bg2:#1E1A14;--panel:#1E1A14;--panel2:#2A2118;--gold:#C9A84C;--gold2:#E0BE5C;--cream:#EDE5D8;--muted:#9f9688;--line:rgba(201,168,76,.14);--teal:#3A7D7B;
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;overflow-x:hidden} a{color:inherit}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 20% 10%,rgba(212,175,55,.13),transparent 26%),radial-gradient(circle at 85% 80%,rgba(119,208,186,.08),transparent 28%),linear-gradient(135deg,rgba(255,255,255,.035),transparent 24%,transparent 76%,rgba(212,175,55,.05));}
-    .deck{width:100%;position:relative;z-index:1}.slide{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(212,175,55,.12);background:linear-gradient(135deg,#050505,#0c0a07)}
-    .slide:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(212,175,55,.13),transparent 34%),linear-gradient(90deg,rgba(0,0,0,.25),transparent 60%);pointer-events:none}.slide.alt{background:linear-gradient(135deg,#090909,#11100d)}
-    .inner{position:relative;z-index:1;width:min(1180px,92vw);margin:0 auto;padding:72px 0}.eyebrow{display:inline-flex;gap:10px;align-items:center;text-transform:uppercase;letter-spacing:.2em;color:var(--gold2);font-size:.72rem;font-weight:800;margin-bottom:18px}.eyebrow:before{content:"";width:44px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-    h1,h2,h3,p{margin:0} h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(3.2rem,8.2vw,7.8rem);line-height:.86;letter-spacing:-.065em;max-width:1080px;text-shadow:0 18px 70px rgba(0,0,0,.45)} h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.25rem,5vw,4.9rem);line-height:.94;letter-spacing:-.045em;max-width:1020px} h3{font-size:1.03rem;color:var(--gold2);letter-spacing:.04em;margin-bottom:10px;text-transform:uppercase}.lead{font-size:clamp(1.08rem,2vw,1.5rem);color:#ded6c4;max-width:850px;margin-top:26px}.muted{color:var(--muted)}.gold{color:var(--gold2)}.green{color:var(--teal)}
-    .grid{display:grid;gap:18px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(8px)}.card.big{padding:34px}.card p{color:#d9d0bd}.divider{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:28px 0}.pill{display:inline-block;border:1px solid rgba(212,175,55,.48);border-radius:999px;color:var(--gold2);padding:8px 12px;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;margin:6px 6px 0 0;background:rgba(212,175,55,.07)}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}.step{border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(255,255,255,.04)}.step .n{color:var(--gold2);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}.image-card{overflow:hidden;padding:0}.image-card img{width:100%;height:320px;object-fit:cover;display:block;filter:saturate(.88) contrast(1.08)}.caption{padding:14px 18px;color:#d8cdb7;font-size:.86rem;background:rgba(0,0,0,.36)}.footer{position:absolute;left:4vw;right:4vw;bottom:22px;display:flex;justify-content:space-between;color:#8d846f;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;z-index:2}.quote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3.8vw,4rem);line-height:1.05;color:var(--cream)}.small-list{display:grid;gap:12px;margin-top:20px}.small-list div{padding:14px 0;border-top:1px solid rgba(255,255,255,.09);color:#ddd4c1}.ask{font-size:clamp(2rem,4vw,4.4rem);font-family:Georgia,"Times New Roman",serif;line-height:1.02;max-width:980px}.buttons{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}.btn{border:1px solid var(--gold);border-radius:999px;padding:13px 18px;text-decoration:none;color:var(--gold2);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;background:rgba(0,0,0,.26)}.btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808}.hero-img{position:absolute;right:0;top:0;bottom:0;width:48%;opacity:.28;background:url('assets/renderings/rendering-5.jpg') center/cover no-repeat;mask-image:linear-gradient(90deg,transparent,black 28%);-webkit-mask-image:linear-gradient(90deg,transparent,black 28%)}.image-band{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:34px}.image-band .image-card img{height:430px}.image-band .stack{display:grid;gap:18px}.image-band .stack img{height:206px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,-apple-system,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden} a{color:inherit}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 20% 10%,rgba(201,168,76,.08),transparent 26%),radial-gradient(circle at 85% 80%,rgba(58,125,123,.07),transparent 28%);}
+    .deck{width:100%;position:relative;z-index:1}.slide{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,.08);background:var(--bg)}
+    .slide:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(201,168,76,.08),transparent 34%),linear-gradient(90deg,rgba(0,0,0,.18),transparent 60%);pointer-events:none}.slide.alt{background:var(--bg2)}
+    .inner{position:relative;z-index:1;width:min(1200px,92vw);margin:0 auto;padding:6rem 0 4rem}.eyebrow{display:inline-flex;gap:10px;align-items:center;text-transform:uppercase;letter-spacing:.3em;color:var(--gold);font-size:.7rem;font-weight:500;margin-bottom:.75rem}.eyebrow:before{content:"";width:44px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+    h1,h2,h3,p{margin:0} h1{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(3.2rem,8.2vw,7.8rem);line-height:.86;letter-spacing:-.065em;max-width:1080px;text-shadow:0 18px 70px rgba(0,0,0,.45)} h2{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2.25rem,5vw,4.9rem);line-height:.94;letter-spacing:-.045em;max-width:1020px} h3{font-size:1.03rem;color:var(--gold2);letter-spacing:.04em;margin-bottom:10px;text-transform:uppercase}.lead{font-size:clamp(1.08rem,2vw,1.5rem);color:#ded6c4;max-width:850px;margin-top:26px}.muted{color:var(--muted)}.gold{color:var(--gold2)}.green{color:var(--teal)}
+    .grid{display:grid;gap:18px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:rgba(30,26,20,.95);border:1px solid var(--line);border-radius:8px;padding:1.8rem;box-shadow:none;backdrop-filter:none}.card.big{padding:34px}.card p{color:#d9d0bd}.divider{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:28px 0}.pill{display:inline-block;border:1px solid rgba(212,175,55,.48);border-radius:3px;color:var(--gold);padding:5px 10px;font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;margin:6px 6px 0 0;background:rgba(201,168,76,.1)}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}.step{border:1px solid var(--line);border-radius:8px;padding:1.4rem;background:rgba(30,26,20,.95)}.step .n{color:var(--gold2);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}.image-card{overflow:hidden;padding:0}.image-card img{width:100%;height:320px;object-fit:cover;display:block;filter:saturate(.88) contrast(1.08)}.caption{padding:14px 18px;color:#d8cdb7;font-size:.86rem;background:rgba(0,0,0,.36)}.footer{position:absolute;left:4vw;right:4vw;bottom:22px;display:flex;justify-content:space-between;color:#8d846f;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;z-index:2}.quote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3.8vw,4rem);line-height:1.05;color:var(--cream)}.small-list{display:grid;gap:12px;margin-top:20px}.small-list div{padding:14px 0;border-top:1px solid rgba(255,255,255,.09);color:#ddd4c1}.ask{font-size:clamp(2rem,4vw,4.4rem);font-family:Georgia,"Times New Roman",serif;line-height:1.02;max-width:980px}.buttons{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}.btn{border:1px solid var(--gold);border-radius:3px;padding:12px 18px;text-decoration:none;color:var(--gold2);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;background:rgba(0,0,0,.26)}.btn.primary{background:var(--gold);color:var(--bg)}.hero-img{position:absolute;right:0;top:0;bottom:0;width:48%;opacity:.28;background:url('assets/renderings/rendering-5.jpg') center/cover no-repeat;mask-image:linear-gradient(90deg,transparent,black 28%);-webkit-mask-image:linear-gradient(90deg,transparent,black 28%)}.image-band{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:34px}.image-band .image-card img{height:430px}.image-band .stack{display:grid;gap:18px}.image-band .stack img{height:206px}
+    .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:300;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 0 8px rgba(201,168,76,.5)}.top-nav{position:fixed;top:3px;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.8rem 2.5rem;background:linear-gradient(180deg,rgba(26,22,18,.9),rgba(26,22,18,0));pointer-events:none}.top-nav-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:.12em;color:var(--cream);opacity:.72}.top-nav-logo span{color:var(--gold)}.top-nav-note{font-size:.62rem;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;opacity:.75}.gold-divider{width:60px;height:1.5px;background:var(--gold);opacity:.6;margin:1.5rem 0}
     @media(max-width:850px){.grid.two,.grid.three,.flow,.image-band{grid-template-columns:1fr}.inner{padding:58px 0}.footer{position:static;margin-top:40px}.image-card img,.image-band .image-card img,.image-band .stack img{height:240px}.hero-img{display:none}}
 </style>
 </head>
 <body>
 <main class="deck">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="top-nav"><div class="top-nav-logo">HEAL <span>HOUSE</span></div><div class="top-nav-note">STAFF CIRCULATION DRAFT</div></div>
   <section class="slide" id="s1">
     <div class="hero-img"></div>
     <div class="inner">
       <div class="eyebrow">Heal House × City of Toronto</div>
       <h1>Green P into affordable housing.</h1>
-      <p class="lead">A short proposal for a City-supported land transaction that lets Heal House secure the Green P parcel and deliver affordable housing through a dedicated non-profit partner.</p>
+      <p class="lead">A short staff-circulation deck to help City colleagues understand why transferring Green P into the Heal House assembly creates a stronger affordable housing and community-benefit outcome.</p>
       <div class="buttons"><a class="btn primary" href="#s10">The Ask</a><a class="btn" href="#s6">Delivery Model</a></div>
     </div>
-    <div class="footer"><span>Confidential working draft</span><span>Slide 01</span></div>
+    <div class="footer"><span>Staff circulation draft</span><span>Slide 01</span></div>
   </section>
 
   <section class="slide alt" id="s2">
@@ -141,7 +147,7 @@
       <div class="grid three">
         <div class="card"><h3>Simple</h3><p>A focused land conversation centred on public benefit.</p></div>
         <div class="card"><h3>Mission-Aligned</h3><p>Affordable housing, wellness, and community benefit at the centre.</p></div>
-        <div class="card"><h3>Actionable</h3><p>Start with a City working session on the Green P pathway.</p></div>
+        <div class="card"><h3>Actionable</h3><p>Equip City colleagues with a clear rationale to support the Green P pathway.</p></div>
       </div>
     </div>
     <div class="footer"><span>The story in one sentence</span><span>Slide 09</span></div>
@@ -150,17 +156,18 @@
   <section class="slide alt" id="s10">
     <div class="inner">
       <div class="eyebrow">The Ask</div>
-      <p class="ask">Open a City working session to define the Green P land pathway.</p>
-      <p class="lead">Heal House is asking the City to explore a land transfer, sale, or land-swap equivalent that allows the Green P parcel to be secured for the complete-site affordable housing vision, with non-profit delivery and public-benefit protections built into the transaction.</p>
+      <p class="ask">A staff-aligned case for supporting the Green P pathway.</p>
+      <p class="lead">This deck is designed for City staff to circulate internally: a concise rationale for why the Green P parcel should be made available to Heal House as part of a broader affordable housing and community-benefit solution, delivered with a non-profit partner and clear public protections.</p>
       <div class="grid three" style="margin-top:34px">
         <div class="card"><h3>Review options</h3><p>Compare the two-corner-lot baseline, the Green P pathway, and the full-block vision.</p></div>
         <div class="card"><h3>Confirm pathway</h3><p>Identify the right City process for Green P disposition or land exchange.</p></div>
         <div class="card"><h3>Define benefits</h3><p>Translate land value into affordable housing and community commitments.</p></div>
       </div>
-      <div class="buttons"><a class="btn primary" href="mailto:info@healhouse.ca?subject=Heal%20House%20Green%20P%20Working%20Session">Open Working Session</a></div>
+      <div class="buttons"><span class="btn primary">Internal Staff Briefing</span><span class="btn">Green P Support Rationale</span></div>
     </div>
     <div class="footer"><span>HEAL HOUSE · HEALHOUSE.CA</span><span>Slide 10</span></div>
   </section>
 </main>
+<script>window.addEventListener("scroll",()=>{const h=document.documentElement;const pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;const el=document.getElementById("scrollProgress");if(el)el.style.width=pct+"%";});</script>
 </body>
 </html>
