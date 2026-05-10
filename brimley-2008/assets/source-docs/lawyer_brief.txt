@@ -1,0 +1,253 @@
+Ubuntu Land Trust  ·  2008 Brimley Road  ·  Legal Briefing
+UBUNTU LAND TRUST & DEVELOPMENTS  ·  Common Ground Initiative
+BCH Common Ground Initiative — Legal Briefing
+Re: 2008 Brimley Road, Toronto (Scarborough), ON
+Purpose of This Brief
+This document summarizes the proposed transaction structure for 2008 Brimley Road under the Common
+Ground Initiative — a non-profit affordable housing model utilizing Build Canada Homes (BCH) federal grant
+funding and CMHC MLI Select mortgage insurance. It is intended to orient your client's legal counsel to the deal
+architecture in advance of definitive documentation.
+The structure is materially different from a conventional land sale and warrants careful review of the documents
+that govern the long-term relationship between the landowner and the non-profit operating entity.
+Transaction Overview
+Rather than transferring fee simple title to the non-profit at closing, the landowner contributes the land as
+equity into a single-purpose entity that develops and operates a purpose-built rental project. The landowner
+receives staged cash payments and a 60% share of project net cash flow over a 20-year term, with a guaranteed
+buyout at Year 20.
+Key Commercial Terms
+Term
+Description
+Project
+30-unit, 6-storey purpose-built rental apartment (Office Ou Option 1 —
+Two Stairs).
+Land Valuation
+$2,000,000 (negotiable). Represents Ubuntu's underwritten land value
+for capital stack purposes.
+Day 1 Cash to Landowner
+$1,400,000, paid at first construction draw.
+Retained Landowner Equity
+$600,000 (~4.86% of project cost) remains as the landowner's equity
+stake in the project.
+Year 20 Equity Return
+$600,000 returned at Year 20 buyout (formula-based, original equity
+amount).
+Net Cash Flow Share
+60% of project net cash flow (after senior debt service) for 20 years.
+Estimated $106,500 in Year 1, escalating at 2% annually with rent
+growth.
+Term
+20 years from project stabilization, with automatic extension provisions
+if Year 20 refinancing markets are unavailable.
+Affordability Covenant
+Minimum 30% of units priced below 80% of CMHC Median Market Rent
+for 20 years.
+Landowner IRR (Base Case)
+22.04% time-weighted return over the 20-year term, with a 2.68×
+equity multiple on the $2,000,000 land contribution.
+Page 1 of 5
+
+---PAGE---
+
+Ubuntu Land Trust  ·  2008 Brimley Road  ·  Legal Briefing
+Capital Stack & Project Funding
+The transaction is funded through the following sources, secured against the project (not personally against the
+landowner):
+Source
+%
+Amount
+Treatment
+BCH Federal Grant
+40%
+$4,936,116
+Forgivable, vests over 20
+yrs
+CMHC MLI Select Mortgage
+50%
+$6,170,145
+50-yr amortization,
+~4.3%
+Municipal Incentives (DC waivers,
+property tax)
+5.14%
+$634,029
+Subject to City of
+Toronto
+Landowner Equity (land contribution)
+4.86%
+$600,000
+Land contribution at
+appraised value
+TOTAL DEVELOPMENT COST
+100%
+$12,340,290
+The landowner's exposure is limited to the equity value of the land. There is no personal guarantee carried beyond project
+stabilization (24–36 months from closing).
+Documents Your Client's Counsel Will Review
+The transaction will be governed by a coordinated package of agreements. The principal documents are:
+•
+Purchase & Sale Agreement (PSA): Conditional on BCH approval and CMHC commitment. Provides for
+Day 1 cash payment at first construction draw and Year 20 final payment.
+•
+Land Lease / Ground Lease: 99-year lease subordinated to the CMHC mortgage. Provides Ubuntu LTD
+operational control of the building from Day 1 while landowner retains beneficial interest in the land
+until Year 20.
+•
+Joint Venture / Operating Agreement: Governs the 60/40 net cash flow split, distribution mechanics,
+reporting obligations, and reserve requirements.
+•
+CMHC Loan & Security Documentation: Standard CMHC MLI Select forms. Mortgage holds first-position
+security; ground lease is subordinated. CMHC has non-disturbance rights.
+•
+BCH Funding Agreement: Governs the 40% federal grant including affordability covenants, reporting,
+and forgiveness terms over the 20-year vesting period.
+•
+Step-In Rights & Default Cure Provisions: Reciprocal step-in rights between landowner and Ubuntu LTD.
+Landowner can cure defaults, assume operations, or replace the operator (subject to CMHC approval) if
+material covenants are breached.
+Landowner Protections — Highlights for Counsel
+Specific provisions that materially de-risk the structure for the landowner:
+•
+Personal guarantee release at stabilization. Personal guarantees provided during construction are
+automatically released upon project stabilization (90% occupancy + 1.15× DSCR for 3 consecutive
+months). Typical timeline: 24–36 months from closing.
+•
+Construction risk allocated to project, not landowner. Fixed-price modular construction contracts with
+performance bonds and liquidated damages. Cost overruns flow to the contractor and bonding
+company, not the landowner.
+Page 2 of 5
+
+---PAGE---
+
+Ubuntu Land Trust  ·  2008 Brimley Road  ·  Legal Briefing
+•
+Year 20 buyout is contractually obligated. Ubuntu LTD has a contractual obligation to acquire the land
+at Year 20 at the formula-based price. The vested BCH grant ($4.94M) plus mortgage paydown funds
+this purchase.
+•
+Refinancing risk is structurally mitigated. If credit markets are unavailable at Year 20, an automatic
+ground lease extension activates (5–10 years). Landowner distributions accrue interest at prime + 2%
+during the extension. The land purchase is then funded from accumulated operations.
+•
+Affordability covenants are enforceable against both parties. Both Ubuntu LTD and the landowner are
+bound by the affordability covenants. Government enforcement rights apply throughout the 20-year
+term.
+•
+DSCR-triggered cash flow waterfall protection. If DSCR falls below 1.15× for two consecutive quarters,
+landowner net cash flow share automatically increases from 60% to 80% until reserves are replenished.
+Tax Considerations & Market Context
+Counsel should review with the client's tax advisor:
+•
+The property is the landowner's principal residence and qualifies for the principal residence exemption
+(PRE), meaning a conventional sale would generate no capital gains tax.
+•
+Current market conditions value a cash sale of this property in the range of $1,200,000 – $1,600,000. A
+vendor take-back (VTB) financing structure may stretch the headline price to ~$2,000,000, but the VTB
+carries buyer-default risk and the seller becomes a creditor for the deferred portion.
+•
+Under the Common Ground structure, the landowner receives $1,400,000 cash at first construction
+draw — equal to or greater than a strong cash sale outcome — without exposure to a buyer's payment
+performance.
+•
+The principal residence is contributed to the project at the start of construction. Counsel should review
+whether the principal residence designation can be preserved through year of contribution, and how the
+change-in-use rules (subsection 45(2) ITA election) may apply to defer or eliminate any deemed
+disposition.
+•
+The 60% net cash flow distributions to the landowner over 20 years are passive rental income, taxed at
+the landowner's marginal rate. This is a different tax profile than the lump-sum sale proceeds.
+•
+If structured through a holdco or family trust, additional planning options around income splitting and
+estate planning become available — worth a separate consultation.
+Note: Ubuntu LTD does not provide tax advice. The above is informational only. Counsel and the landowner's tax advisor
+should structure for optimal tax outcomes given the principal residence status.
+Economic Comparison — At a Glance
+The realistic comparison is not BCH vs a hypothetical $2M sale — it is BCH vs the actual market sale outcomes
+available to the landowner today.
+Cash Sale Today
+Sale + VTB
+BCH Common Ground
+$1,200,000 – $1,600,000 cash
+Up to ~$2,000,000 (VTB risk)
+$1,400,000 Day 1 cash
+No future income
+Interest on VTB note only
+$3,362,302 income over 20 yrs
+No retained equity
+No retained equity
+$600,000 equity returned at Yr 20
+$1.2M – $1.6M total
+~$1.8M – $2.2M total
+$5,362,302 total
+IRR: — | Multiple: 1.0×
+IRR: ~5–7% | Multiple: ~1.1×
+IRR: 22.04% | Multiple: 2.68×
+Page 3 of 5
+
+---PAGE---
+
+Ubuntu Land Trust  ·  2008 Brimley Road  ·  Legal Briefing
+BCH Day 1 cash equals or exceeds a strong cash sale, with no buyer-default risk. The 20-year income stream and Year 20
+equity return generate a 22.04% IRR and 2.68× equity multiple on the land contribution — return metrics that no sale
+outcome can match.
+Indicative Timeline
+Now → Month 1
+Letter of Intent (LOI) signed; 12-month exclusivity period begins.
+Months 1–6
+Definitive documentation: PSA, ground lease, JV agreement, CMHC submission,
+BCH application.
+Months 6–12
+BCH approval, CMHC underwriting, municipal approvals.
+Month 12 (Closing)
+First construction draw — landowner receives $1,400,000 cash payment.
+Months 12–30
+Construction (Cube modular delivery).
+Month 30+
+Project stabilization; landowner net cash flow distributions begin.
+Year 20
+$600,000 equity returned to landowner; land transferred to Ubuntu LTD;
+affordability covenant continues in perpetuity.
+Questions Your Counsel Will Likely Ask
+•
+How is the Year 20 buyout price determined? Formula-based on the original landowner equity
+contribution ($600,000), not market value at Year 20. This protects against speculative inflation but also
+caps upside.
+•
+What happens if Ubuntu LTD becomes insolvent or fails to perform? Landowner step-in rights allow
+assumption of operations or replacement of operator (subject to CMHC approval). CMHC also has
+independent step-in rights as senior lender.
+•
+Can the landowner sell or assign their interest before Year 20? Subject to non-profit and CMHC
+consent. Estate succession and corporate restructuring are permitted; speculative resale is contractually
+prohibited.
+•
+What is the personal guarantee exposure? Limited to construction phase (~24–36 months). Released
+automatically upon project stabilization criteria (90% occupancy + 1.15× DSCR for 3 consecutive
+months).
+•
+What is the affordability covenant's practical impact? Minimum 30% of units priced below 80% CMHC
+Median Market Rent. The remaining 70% can be at market rents. The blended economics are reflected
+in the underwriting.
+•
+What if BCH funding is not approved? LOI and PSA are conditional on BCH approval. If declined, the deal
+does not proceed and there is no obligation on either side. Ubuntu LTD bears the application costs.
+Next Steps
+•
+Counsel reviews this briefing and the underlying financial summary.
+•
+Counsel poses any threshold questions to Ubuntu LTD's legal advisors.
+•
+Letter of Intent (LOI) negotiated and executed — this triggers Ubuntu LTD's commitment of resources to
+BCH/CMHC submission.
+•
+Definitive documentation drafted in parallel with regulatory approvals.
+Contact
+Page 4 of 5
+
+---PAGE---
+
+Ubuntu Land Trust  ·  2008 Brimley Road  ·  Legal Briefing
+Jason Allen John
+Ubuntu Land Trust & Developments — Common Ground Initiative
+ubuntu-ltd.ca
+Confidential — prepared for counsel review only. April 2026.
+Page 5 of 5

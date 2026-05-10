@@ -3,75 +3,200 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>2008 Brimley Road — Visual Opportunity Deck</title>
+<title>2008 Brimley Road — Common Ground Opportunity Deck</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-snap-type:y mandatory}body{background:#110e0a;color:#eee5d7;font-family:'DM Sans',system-ui,sans-serif;font-weight:300;line-height:1.55;overflow-x:hidden}:root{--ink:#110e0a;--espresso:#19140e;--charcoal:#241c14;--card:rgba(32,25,17,.72);--card2:rgba(238,229,215,.08);--cream:#eee5d7;--muted:#a89883;--faint:rgba(238,229,215,.48);--line:rgba(205,171,88,.20);--gold:#cdaa58;--gold2:#e4c36b;--sage:#809173;--terracotta:#a66245;--shadow:0 40px 120px rgba(0,0,0,.45)}h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;color:var(--cream);text-wrap:balance}h1{font-size:clamp(4.8rem,10vw,11rem);line-height:.82;letter-spacing:-.065em}h2{font-size:clamp(3.2rem,6.4vw,7rem);line-height:.93;letter-spacing:-.05em}h3{font-size:clamp(1.55rem,2.1vw,2.45rem);line-height:1.04;letter-spacing:-.025em}p{color:var(--muted);font-size:clamp(1rem,1.15vw,1.18rem)}strong{font-weight:600;color:var(--cream)}.label{font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}.mono{font-variant-numeric:tabular-nums}.nav{position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.35rem;padding:.42rem;border:1px solid rgba(205,171,88,.16);border-radius:999px;background:rgba(17,14,10,.56);backdrop-filter:blur(22px) saturate(140%);box-shadow:0 20px 70px rgba(0,0,0,.26)}.nav a{display:flex;align-items:center;justify-content:center;width:2.15rem;height:2.15rem;border-radius:999px;color:rgba(238,229,215,.65);text-decoration:none;font-size:.64rem;letter-spacing:.08em;border:1px solid transparent;transition:.2s ease}.nav a:hover,.nav a.active{color:#110e0a;background:var(--gold2);border-color:var(--gold2)}.brand{position:fixed;z-index:99;top:26px;left:32px;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(238,229,215,.58)}.utility{position:fixed;z-index:99;top:21px;right:28px;display:flex;gap:.55rem}.utility button{height:34px;padding:0 .85rem;border-radius:999px;border:1px solid rgba(205,171,88,.22);background:rgba(238,229,215,.07);color:rgba(238,229,215,.72);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}.slide{position:relative;min-height:100vh;padding:7.4rem 6vw 4.4rem;display:flex;align-items:center;scroll-snap-align:start;overflow:hidden}.slide:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 18%,rgba(205,171,88,.10),transparent 28%),radial-gradient(circle at 82% 72%,rgba(128,145,115,.10),transparent 30%);pointer-events:none}.slide>*{position:relative}.deck-id{position:absolute;left:6vw;bottom:2.15rem;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(238,229,215,.38)}.slide-no{position:absolute;right:6vw;bottom:2.15rem;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(205,171,88,.62)}.hero{background:linear-gradient(90deg,rgba(17,14,10,.92),rgba(17,14,10,.40),rgba(17,14,10,.92)),url('assets/renders/exterior-hero-gpt-image-2-v01.png') center/cover no-repeat}.hero-content{width:min(1180px,92vw);margin:auto;text-align:center}.eyebrow-line{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem}.eyebrow-line:before,.eyebrow-line:after{content:"";height:1px;width:min(160px,18vw);background:linear-gradient(90deg,transparent,var(--gold),transparent)}.tagline{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold2);font-size:clamp(1.65rem,3.3vw,3.6rem);line-height:1;margin:1.4rem auto 0}.lead{font-size:clamp(1.05rem,1.38vw,1.35rem);max-width:850px;margin:1.35rem auto 0;color:rgba(238,229,215,.72)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:3.2rem auto 0;max-width:980px;border:1px solid var(--line);background:var(--line);box-shadow:var(--shadow)}.metric{background:rgba(17,14,10,.72);padding:1.35rem 1.1rem}.metric strong{display:block;font-family:'Cormorant Garamond',serif;color:var(--gold2);font-size:clamp(2.2rem,4.2vw,4.8rem);font-weight:400;line-height:.9}.metric span{display:block;margin-top:.55rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(238,229,215,.56)}.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:min(6vw,88px);align-items:center;width:min(1440px,100%);margin:auto}.copy{max-width:760px}.copy p{margin-top:1.25rem}.rule{width:96px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.4rem 0 1.65rem}.media{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(238,229,215,.08),rgba(238,229,215,.025));padding:.7rem;box-shadow:var(--shadow);overflow:hidden}.media img{display:block;width:100%;height:min(68vh,720px);object-fit:cover;background:#efe8dc}.media.contain img{object-fit:contain}.media:after{content:attr(data-caption);position:absolute;left:1.3rem;bottom:1.25rem;padding:.42rem .7rem;background:rgba(17,14,10,.68);border:1px solid rgba(205,171,88,.16);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,229,215,.75);backdrop-filter:blur(10px)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(36,28,20,.78),rgba(19,15,10,.82));padding:1.35rem;min-height:170px;box-shadow:0 24px 80px rgba(0,0,0,.22)}.card .k{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(205,171,88,.75);margin-bottom:.75rem}.card .v{font-family:'Cormorant Garamond',serif;color:var(--cream);font-size:2.7rem;line-height:.9}.scenario-wrap{width:min(1500px,100%);margin:auto}.scenario-head{text-align:center;max-width:920px;margin:0 auto 2.6rem}.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.scenario{min-height:470px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.scenario:before{content:attr(data-num);position:absolute;right:1rem;top:.2rem;font-family:'Cormorant Garamond',serif;font-size:8rem;color:rgba(205,171,88,.08);line-height:1}.scenario ul{list-style:none;margin-top:1.4rem}.scenario li{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid rgba(238,229,215,.09);padding:.75rem 0;color:var(--muted);font-size:.9rem}.scenario b{color:var(--cream);font-weight:500;text-align:right}.table-card{width:min(1180px,100%);margin:auto}.table{width:100%;border-collapse:collapse;margin-top:2.2rem}.table th,.table td{padding:1.05rem .9rem;border-bottom:1px solid rgba(238,229,215,.10);text-align:left;vertical-align:top}.table th{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}.table td{color:var(--muted)}.callout{border:1px solid rgba(205,171,88,.32);background:rgba(205,171,88,.08);padding:1.35rem;margin-top:1.4rem;color:rgba(238,229,215,.72)}.ask{width:min(1100px,100%);margin:auto;text-align:center}.ask h2{max-width:1000px;margin:auto}.cta-row{display:flex;justify-content:center;gap:.8rem;margin-top:2.4rem;flex-wrap:wrap}.cta{border:1px solid rgba(205,171,88,.35);padding:.95rem 1.35rem;border-radius:999px;color:var(--cream);text-decoration:none;background:rgba(238,229,215,.06);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}.cta.primary{background:var(--gold2);color:#17130f;border-color:var(--gold2);font-weight:700}.small{font-size:.84rem;color:rgba(238,229,215,.54)}@media(max-width:1000px){html{scroll-snap-type:none}.nav{display:none}.brand,.utility{display:none}.slide{padding:4.4rem 1.2rem 3.5rem}.split,.metrics,.cards,.scenario-grid{grid-template-columns:1fr}.hero-content{text-align:left}.eyebrow-line{justify-content:flex-start}.deck-id,.slide-no{display:none}h1{font-size:4.6rem}h2{font-size:3.4rem}.media img{height:auto}.scenario{min-height:auto}.metric{padding:1.1rem}.table{font-size:.85rem}}@media print{@page{size:16in 9in;margin:0}.nav,.brand,.utility{display:none!important}html,body{width:16in;background:#110e0a;-webkit-print-color-adjust:exact;print-color-adjust:exact}.slide{width:16in;height:9in;min-height:9in;max-height:9in;padding:.62in .86in .5in;page-break-after:always;break-after:page;scroll-snap-align:none;overflow:hidden}.slide:before{display:none}.deck-id{left:.86in;bottom:.28in}.slide-no{right:.86in;bottom:.28in}.media img{height:5.75in}.hero{height:9in}.hero-content{transform:scale(.88);transform-origin:center center}.metrics{margin-top:.30in}.metric{padding:.72rem .8rem}.metric strong{font-size:38pt}.metric span{font-size:6.8pt}.tagline{margin-top:.18in}.lead{font-size:13.5pt;margin-top:.18in}.scenario{min-height:4.05in}.card{box-shadow:none}.copy p{font-size:12.2pt}.table th,.table td{padding:.65rem .65rem}.cta-row{display:none}}
+:root{--ink:#f8efe1;--muted:#c9bca6;--gold:#d9ad62;--gold2:#f1cf85;--bg:#100d0a;--panel:#1a1510;--panel2:#241b13;--line:rgba(217,173,98,.28);--green:#8fcf9c;--red:#e98b7b;--blue:#87b7e8;--shadow:0 30px 90px rgba(0,0,0,.48)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 12% 5%,rgba(217,173,98,.17),transparent 30%),radial-gradient(circle at 85% 12%,rgba(143,207,156,.08),transparent 28%),linear-gradient(180deg,#15100c,#080706 80%);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden}.brand{position:fixed;z-index:20;top:22px;left:26px;display:flex;gap:10px;align-items:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,239,225,.78)}.brand:before{content:'';width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 22px rgba(217,173,98,.8)}.nav{position:fixed;z-index:20;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}.nav a{width:32px;height:32px;border:1px solid rgba(248,239,225,.18);display:grid;place-items:center;border-radius:999px;color:rgba(248,239,225,.55);text-decoration:none;font-size:11px;background:rgba(10,8,6,.45);backdrop-filter:blur(12px)}.nav a:hover{border-color:var(--gold);color:var(--gold);background:rgba(217,173,98,.08)}.utility{position:fixed;z-index:20;right:24px;top:20px;display:flex;gap:10px}.btn{border:1px solid rgba(217,173,98,.38);background:rgba(217,173,98,.12);color:var(--ink);border-radius:999px;padding:10px 14px;font-size:12px;text-decoration:none;letter-spacing:.06em;text-transform:uppercase}.btn:hover{background:rgba(217,173,98,.22)}.slide{min-height:100vh;position:relative;padding:7.3rem clamp(1.3rem,5vw,6rem) 4.2rem;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(217,173,98,.12)}.slide:before{content:attr(data-kicker);position:absolute;left:clamp(1.3rem,5vw,6rem);top:5.2rem;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);z-index:2}.slide-no{position:absolute;right:clamp(1.3rem,5vw,6rem);bottom:2rem;color:rgba(248,239,225,.34);font-size:.75rem;letter-spacing:.18em}.wrap{width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:2}h1,h2,h3{font-family:'Fraunces',Georgia,serif;margin:0;font-weight:650}h1{font-size:clamp(4.7rem,9.4vw,10rem);line-height:.82;letter-spacing:-.065em;max-width:980px}h2{font-size:clamp(3.2rem,6.2vw,6.8rem);line-height:.9;letter-spacing:-.05em;max-width:1030px}h3{font-size:clamp(1.45rem,2.05vw,2.35rem);line-height:1.03;letter-spacing:-.025em}.lead{font-size:clamp(1.05rem,1.45vw,1.45rem);line-height:1.54;color:var(--muted);max-width:760px;margin:1.2rem 0 0}.eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:900}.grid{display:grid;gap:1rem}.g2{grid-template-columns:1.05fr .95fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:1.25rem;box-shadow:var(--shadow);backdrop-filter:blur(18px)}.card.soft{box-shadow:none;background:rgba(255,255,255,.035)}.metric{padding:1.1rem;border-radius:22px;background:rgba(217,173,98,.1);border:1px solid rgba(217,173,98,.28)}.metric .k{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,239,225,.62);font-weight:900}.metric .v{font-family:'Fraunces';font-size:clamp(1.75rem,3.2vw,3.35rem);line-height:1;color:var(--gold2);margin:.42rem 0}.metric p,.small{font-size:.88rem;line-height:1.45;color:rgba(248,239,225,.68);margin:.25rem 0 0}.hero{background:linear-gradient(90deg,rgba(10,8,6,.92) 0%,rgba(10,8,6,.68) 40%,rgba(10,8,6,.24) 100%),url('assets/renders/exterior-hero-gpt-image-2-v01.png') center/cover no-repeat}.hero .metrics{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:.8rem;margin-top:2.2rem;max-width:940px}.render{min-height:560px;border-radius:34px;overflow:hidden;border:1px solid rgba(217,173,98,.25);box-shadow:var(--shadow);background:#231b13 center/cover no-repeat;position:relative}.render:after{content:attr(data-caption);position:absolute;left:18px;bottom:18px;right:18px;background:rgba(10,8,6,.55);border:1px solid rgba(217,173,98,.2);border-radius:16px;padding:12px 14px;color:rgba(248,239,225,.86);font-size:.82rem}.exterior{background-image:url('assets/renders/exterior-hero-gpt-image-2-v01.png')}.lobby{background-image:url('assets/renders/lobby-arrival-gpt-image-2-v01.png')}.source-img{min-height:520px;background:#fff center/contain no-repeat;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow)}.onepager{background-image:url('assets/landowner_onepager_page_01.png')}.lawyer{background-image:url('assets/lawyer_brief_page_01.png')}.feas{background-image:url('assets/page-04.png')}.stack{display:grid;gap:.75rem}.row{display:grid;grid-template-columns:1.1fr .7fr .9fr;gap:.85rem;align-items:center;padding:.8rem .9rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}.row b{color:var(--ink)}.row span{color:var(--muted);font-size:.92rem}.pill{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .65rem;border-radius:999px;border:1px solid rgba(217,173,98,.3);background:rgba(217,173,98,.08);color:var(--gold2);font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.table{width:100%;border-collapse:separate;border-spacing:0 .55rem}.table th{text-align:left;color:var(--gold);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem .75rem}.table td{padding:.82rem .75rem;background:rgba(255,255,255,.045);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);color:rgba(248,239,225,.86)}.table td:first-child{border-left:1px solid rgba(255,255,255,.08);border-radius:14px 0 0 14px}.table td:last-child{border-right:1px solid rgba(255,255,255,.08);border-radius:0 14px 14px 0}.good{color:var(--green)!important}.warn{color:var(--gold2)!important}.bad{color:var(--red)!important}.quote{font-family:'Fraunces';font-size:clamp(2rem,4.2vw,4.8rem);line-height:.96;letter-spacing:-.045em;color:var(--ink)}.timeline{position:relative;display:grid;gap:.75rem}.timeline:before{content:'';position:absolute;left:20px;top:20px;bottom:20px;width:1px;background:rgba(217,173,98,.28)}.time{position:relative;display:grid;grid-template-columns:58px 1fr;gap:1rem;align-items:start}.dot{width:40px;height:40px;border-radius:50%;background:rgba(217,173,98,.15);border:1px solid rgba(217,173,98,.5);display:grid;place-items:center;color:var(--gold);font-weight:900}.time .body{padding:.75rem 1rem;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}.body b{display:block}.body span{display:block;color:var(--muted);font-size:.92rem;margin-top:.2rem}.split-title{display:grid;grid-template-columns:.9fr 1.1fr;gap:2rem;align-items:end;margin-bottom:1.6rem}.disclaimer{font-size:.78rem;line-height:1.45;color:rgba(248,239,225,.48)}.watermark{position:absolute;right:-6vw;bottom:-8vh;font-family:'Fraunces';font-size:22vw;color:rgba(217,173,98,.035);letter-spacing:-.08em;pointer-events:none}.cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.4rem}.print-note{display:none}.source-note{font-size:.76rem;color:rgba(248,239,225,.45);line-height:1.4;margin-top:.6rem}
+@media(max-width:900px){.nav{display:none}.utility{display:none}.slide{padding:6.5rem 1.1rem 3rem}.g2,.g3,.g4,.split-title{grid-template-columns:1fr}.hero .metrics{grid-template-columns:1fr 1fr}.render,.source-img{min-height:360px}h1{font-size:4rem}}
+@media print{@page{size:16in 9in;margin:0}.nav,.brand,.utility,.cta-row{display:none!important}html,body{width:16in;background:#100d0a;-webkit-print-color-adjust:exact;print-color-adjust:exact}.slide{width:16in;height:9in;min-height:9in;max-height:9in;padding:.78in .82in .5in;page-break-after:always;break-after:page;overflow:hidden;border-bottom:0;display:flex;align-items:flex-start}.slide:before{top:.36in;left:.82in}.slide-no{right:.82in;bottom:.24in}.wrap{max-width:14.2in}.hero{align-items:center}.hero .metrics{grid-template-columns:repeat(4,1fr);gap:.13in;margin-top:.25in}.metric{padding:.12in}.metric .v{font-size:.34in}.metric p,.small{font-size:.115in}.lead{font-size:.18in;line-height:1.3;margin:.12in 0 0;max-width:8.2in}h1{font-size:.88in;line-height:.82}h2{font-size:.56in;line-height:.9}h3{font-size:.25in}.card{padding:.15in;border-radius:.18in;box-shadow:none}.render{min-height:5.15in;border-radius:.22in}.source-img{min-height:5.25in}.g2{gap:.24in}.g3,.g4{gap:.13in}.row{padding:.1in}.table{border-spacing:0 .04in}.table th,.table td{padding:.06in;font-size:.108in}.quote{font-size:.46in}.timeline{gap:.07in}.time{grid-template-columns:.42in 1fr}.dot{width:.32in;height:.32in}.time .body{padding:.075in .11in}.source-note,.disclaimer{font-size:.095in}.print-note{display:block}#s4 h2{font-size:.5in}#s4 .lead{font-size:.17in;line-height:1.24}#s4 .econ-metrics{grid-template-columns:repeat(3,1fr);gap:.11in}#s4 .metric{padding:.09in}#s4 .metric .v{font-size:.29in}#s6 .grid.g2{grid-template-columns:1fr 1fr;gap:.16in}#s6 h2{font-size:.48in}#s6 .lead{font-size:.16in;line-height:1.22}#s6 .card{padding:.12in}#s6 h3{font-size:.22in}}
 </style>
 </head>
 <body>
-<div class="brand">TRMIG · Visual Opportunity Deck</div>
-<nav class="nav" aria-label="Slide navigation">
-  <a href="#s1" class="active">01</a><a href="#s2">02</a><a href="#s3">03</a><a href="#s4">04</a><a href="#s5">05</a><a href="#s6">06</a><a href="#s7">07</a><a href="#s8">08</a><a href="#s9">09</a><a href="#s10">10</a>
-</nav>
-<div class="utility"><button onclick="window.print()">Export PDF</button></div>
+<div class="brand">Ubuntu Land Trust · Common Ground Initiative</div>
+<div class="utility"><a class="btn" href="2008-brimley-web-deck-v3.pdf">PDF</a><a class="btn" href="2008 Brimley BCH Model.xlsx">Model</a></div>
+<nav class="nav"> <a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a><a href="#s9">9</a><a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a></nav>
 
-<section class="slide hero" id="s1">
-  <div class="hero-content">
-    <div class="eyebrow-line"><span class="label">2008 Brimley Road · Scarborough</span></div>
-    <h1>Visual<br/>Opportunity</h1>
-    <div class="tagline">A compact infill site with a calm residential future.</div>
-    <p class="lead">A concept deck translating the feasibility envelope into an investor-readable story: six-storey mid-rise housing, premium arrival experience, and optional wellness / independent-living positioning.</p>
+<section id="s1" class="slide hero" data-kicker="01 · Landowner opportunity">
+  <div class="wrap">
+    <div class="eyebrow">2008 Brimley Road · Toronto / Scarborough</div>
+    <h1>A better way to sell the land.</h1>
+    <p class="lead">A Common Ground structure designed to match a strong cash-sale outcome on Day 1, while preserving a 20-year income stream for the family and creating permanent affordable rental housing.</p>
     <div class="metrics">
-      <div class="metric"><strong>6</strong><span>Storeys</span></div><div class="metric"><strong>19m</strong><span>Height basis</span></div><div class="metric"><strong>1,080</strong><span>m² site area</span></div><div class="metric"><strong>2,600</strong><span>m² proposed GFA</span></div>
+      <div class="metric"><div class="k">Day 1 cash</div><div class="v">$1.4M</div><p>Paid at first construction draw.</p></div>
+      <div class="metric"><div class="k">Total family return</div><div class="v">$5.36M</div><p>Base 30-unit scenario over 20 years.</p></div>
+      <div class="metric"><div class="k">Landowner IRR</div><div class="v">22.0%</div><p>2.68× equity multiple on $2.0M land contribution.</p></div>
+      <div class="metric"><div class="k">Project basis</div><div class="v">30 units</div><p>6-storey purpose-built rental concept.</p></div>
     </div>
-  </div><div class="deck-id">Conceptual visualization</div><div class="slide-no">01 / 10</div>
+  </div><div class="slide-no">01 / 12</div>
 </section>
 
-<section class="slide" id="s2">
-  <div class="split"><div class="copy"><div class="label">Executive thesis</div><h2>The opportunity is small enough to be legible — and strong enough to carry a premium story.</h2><div class="rule"></div><p>2008 Brimley can be positioned as a disciplined Scarborough infill residential project rather than a speculative mega-development. The strongest narrative is a practical mid-rise building with a hospitality-grade arrival sequence and amenity language that supports rental, senior independent living, or wellness-oriented residence scenarios.</p><p>The objective at this stage is not to overstate approvals. It is to make the feasible future visible enough for partners, investors, and operators to react.</p></div><div class="media" data-caption="Exterior concept"><img src="assets/renders/exterior-hero-gpt-image-2-v01.png" alt="Exterior concept render"></div></div><div class="deck-id">Executive thesis</div><div class="slide-no">02 / 10</div>
+<section id="s2" class="slide" data-kicker="02 · Executive thesis">
+  <div class="wrap g2 grid">
+    <div>
+      <h2>The pitch is not a sale. It is a participation structure.</h2>
+      <p class="lead">Rather than selling fee simple title and ending the family’s economics, the land is contributed into a single-purpose affordable housing structure: cash now, retained equity, and a defined share of net cash flow.</p>
+    </div>
+    <div class="stack">
+      <div class="row"><b>Market-sale alternative</b><span>$1.2M–$1.6M cash today; up to ~$2.0M with vendor-take-back risk.</span><span class="bad">Land gone</span></div>
+      <div class="row"><b>Common Ground Day 1</b><span>$1.4M cash at first construction draw with no buyer-payment performance risk.</span><span class="good">Cash matched</span></div>
+      <div class="row"><b>Long-term upside</b><span>60% of project net cash flow for 20 years + $600K equity return at Year 20.</span><span class="good">Income retained</span></div>
+      <div class="row"><b>Public-purpose layer</b><span>Minimum 30% of units below 80% of CMHC Median Market Rent for 20 years.</span><span class="warn">Affordable housing</span></div>
+    </div>
+  </div><div class="slide-no">02 / 12</div>
 </section>
 
-<section class="slide" id="s3">
-  <div class="split"><div class="media contain" data-caption="Source feasibility"><img src="assets/page-04.png" alt="Feasibility source page"></div><div class="copy"><div class="label">Feasibility basis</div><h2>The source drawings are the guardrail.</h2><div class="rule"></div><p>The concept imagery should stay tethered to the feasibility material: a compact six-storey envelope, approximately 19 metres in height, on a constrained urban/suburban infill site.</p><div class="cards"><div class="card"><div class="k">Scale</div><div class="v">Infill</div></div><div class="card"><div class="k">Massing</div><div class="v">6F</div></div><div class="card"><div class="k">Use</div><div class="v">Res.</div></div></div><p class="small" style="margin-top:1rem">Final massing, setbacks, parking/loading, fire route, materiality, and unit count require architectural and municipal review.</p></div></div><div class="deck-id">Architectural basis</div><div class="slide-no">03 / 10</div>
+<section id="s3" class="slide" data-kicker="03 · Known source basis">
+  <div class="wrap split-title">
+    <div><h2>Now the deck has real source evidence.</h2><p class="lead">The v3 narrative is grounded in the landowner one-pager, lawyer briefing, BCH model, and feasibility pages — not just the visual render.</p></div>
+    <div class="card"><div class="eyebrow">Known facts vs concept</div><p class="small">Financial values are extracted from the supplied BCH model / landowner one-pager / lawyer brief. Architectural visuals remain conceptual and require municipal, architectural, engineering, BCH and CMHC review.</p></div>
+  </div>
+  <div class="wrap g3 grid">
+    <div class="card"><h3>Landowner proposal</h3><p class="lead">Summarizes the family economics, 30-unit primary scenario, 24-unit alternative, and BCH vs cash sale comparison.</p><div class="source-note">Source: 2008_Brimley_Landowner_OnePager.pdf</div></div>
+    <div class="card"><h3>Lawyer brief</h3><p class="lead">Defines the transaction architecture, document package, landowner protections, tax flags, timeline, and counsel questions.</p><div class="source-note">Source: 2008_Brimley_Lawyer_Brief.pdf</div></div>
+    <div class="card"><h3>BCH model</h3><p class="lead">Formula-driven financial model with assumptions, pro forma, sensitivity, landowner waterfall, and 24-unit alternative.</p><div class="source-note">Source: 2008 Brimley BCH Model.xlsx</div></div>
+  </div><div class="slide-no">03 / 12</div>
 </section>
 
-<section class="slide" id="s4">
-  <div class="split"><div class="copy"><div class="label">Street presence</div><h2>Contextual, warm, and defensible.</h2><div class="rule"></div><p>The exterior language should avoid glass-tower fantasy. The stronger pitch is brick, stone, bronze, planted edges, and a ground floor that feels welcoming without implying impossible retail or civic-scale amenities.</p><p>For investors, this says: premium enough to differentiate; grounded enough to underwrite.</p></div><div class="media" data-caption="Street-level future state"><img src="assets/renders/exterior-hero-gpt-image-2-v01.png" alt="Street-level future state render"></div></div><div class="deck-id">Street presence</div><div class="slide-no">04 / 10</div>
+<section id="s4" class="slide" data-kicker="04 · The offer economics">
+  <div class="wrap g2 grid">
+    <div>
+      <h2>$5.36M total return to family in the primary case.</h2>
+      <p class="lead">The central landowner argument is simple: Day 1 cash is competitive with today’s realistic market, while the family keeps a materially larger long-term economics package.</p>
+      <div class="cta-row"><span class="pill">30-unit primary</span><span class="pill">60% NCF share</span><span class="pill">Year 20 buyout</span></div>
+    </div>
+    <div class="grid g2 econ-metrics">
+      <div class="metric"><div class="k">Day 1 cash</div><div class="v">$1.4M</div><p>At first construction draw.</p></div>
+      <div class="metric"><div class="k">Year 1 income</div><div class="v">$106K</div><p>60% of net cash flow.</p></div>
+      <div class="metric"><div class="k">20-year income</div><div class="v">$3.36M</div><p>Cumulative family income.</p></div>
+      <div class="metric"><div class="k">Equity returned</div><div class="v">$600K</div><p>Formula-based Year 20 return.</p></div>
+      <div class="metric"><div class="k">IRR</div><div class="v">22.0%</div><p>Time-weighted return.</p></div>
+      <div class="metric"><div class="k">Multiple</div><div class="v">2.68×</div><p>On $2.0M land contribution.</p></div>
+    </div>
+  </div><div class="slide-no">04 / 12</div>
 </section>
 
-<section class="slide" id="s5">
-  <div class="split"><div class="media" data-caption="Arrival + lobby concept"><img src="assets/renders/lobby-arrival-gpt-image-2-v01.png" alt="Lobby arrival render"></div><div class="copy"><div class="label">Arrival experience</div><h2>The ground floor is where the positioning becomes real.</h2><div class="rule"></div><p>A premium lobby changes the read of the whole asset. It supports conventional rental uplift, makes independent-living positioning more believable, and gives any wellness-residence story a tangible first impression.</p><div class="callout"><strong>Design cue:</strong> quiet hospitality, accessible circulation, natural materials, warm light, indoor planting, and a concierge-like sense of care — without overbuilding the story.</div></div></div><div class="deck-id">Amenity thesis</div><div class="slide-no">05 / 10</div>
+<section id="s5" class="slide" data-kicker="05 · Capital stack">
+  <div class="wrap g2 grid">
+    <div>
+      <h2>The economics work because the capital stack is not conventional.</h2>
+      <p class="lead">The model relies on a blended public/non-profit structure: BCH grant, CMHC MLI debt, municipal incentives, and a retained landowner equity contribution.</p>
+      <p class="disclaimer">Funding values shown from supplied lawyer brief / one-pager. BCH approval, CMHC commitment, municipal incentives and final documentation remain conditions to proceed.</p>
+    </div>
+    <div class="card">
+      <table class="table"><thead><tr><th>Source</th><th>%</th><th>Amount</th><th>Treatment</th></tr></thead><tbody>
+        <tr><td>BCH Federal Grant</td><td>40%</td><td>$4.936M</td><td>Forgivable; vests over 20 years</td></tr>
+        <tr><td>CMHC MLI Mortgage</td><td>50%</td><td>$6.170M</td><td>50-year amortization; ~4.3%</td></tr>
+        <tr><td>Municipal Incentives</td><td>5.14%</td><td>$634K</td><td>DC waivers / tax relief, subject to City</td></tr>
+        <tr><td>Landowner Equity</td><td>4.86%</td><td>$600K</td><td>Retained equity from land contribution</td></tr>
+        <tr><td><b>Total development cost</b></td><td><b>100%</b></td><td><b>$12.340M</b></td><td><b>30-unit primary scenario</b></td></tr>
+      </tbody></table>
+    </div>
+  </div><div class="slide-no">05 / 12</div>
 </section>
 
-<section class="slide" id="s6">
-  <div class="scenario-wrap"><div class="scenario-head"><div class="label">Positioning scenarios</div><h2>Three investor-readable paths.</h2><p>Same envelope. Different operating thesis, amenity burden, and diligence questions.</p></div><div class="scenario-grid"><div class="card scenario" data-num="01"><div><h3>Conventional Rental</h3><p>Lowest complexity. Lead with infill housing, calm design, efficient units, and market rent execution.</p></div><ul><li>Complexity <b>Low</b></li><li>Proof needed <b>Rents + cost</b></li><li>Visual need <b>Exterior / suite</b></li></ul></div><div class="card scenario" data-num="02"><div><h3>Independent Living</h3><p>Stronger story if demographic demand, accessibility, and operator assumptions support it.</p></div><ul><li>Complexity <b>Medium</b></li><li>Proof needed <b>Demand + ops</b></li><li>Visual need <b>Lobby / lounge</b></li></ul></div><div class="card scenario" data-num="03"><div><h3>Wellness-Oriented Residence</h3><p>Highest narrative upside. Requires discipline: wellness should sharpen the offer, not inflate the program.</p></div><ul><li>Complexity <b>Med–High</b></li><li>Proof needed <b>Pricing + program</b></li><li>Visual need <b>Amenity set</b></li></ul></div></div></div><div class="deck-id">Positioning logic</div><div class="slide-no">06 / 10</div>
+<section id="s6" class="slide" data-kicker="06 · Scenario comparison">
+  <div class="wrap">
+    <div class="split-title"><div><h2>Two build scenarios. Same family-first structure.</h2></div><p class="lead">The 30-unit version has stronger total returns; the 24-unit alternative preserves a reduced-footprint path if feasibility, approvals, or design refinement require it.</p></div>
+    <div class="grid g2">
+      <div class="card"><span class="pill">Scenario A · Primary</span><h3>30 units · 6 storeys</h3><table class="table"><tbody>
+        <tr><td>Avg monthly rent</td><td>$2,150 / unit</td></tr><tr><td>Total project cost</td><td>$12.34M</td></tr><tr><td>DSCR</td><td class="good">1.59× fundable</td></tr><tr><td>Break-even occupancy</td><td>72.1%</td></tr><tr><td>Total family return</td><td><b>$5.36M</b></td></tr><tr><td>IRR / Multiple</td><td><b>22.0% · 2.68×</b></td></tr>
+      </tbody></table></div>
+      <div class="card"><span class="pill">Scenario B · Alternative</span><h3>24 units · reduced footprint</h3><table class="table"><tbody>
+        <tr><td>Avg monthly rent</td><td>$2,200 / unit</td></tr><tr><td>Total project cost</td><td>$9.87M</td></tr><tr><td>DSCR</td><td class="good">1.63× fundable</td></tr><tr><td>Break-even occupancy</td><td>71.2%</td></tr><tr><td>Total family return</td><td><b>$4.82M</b></td></tr><tr><td>IRR / Multiple</td><td><b>19.0% · 2.41×</b></td></tr>
+      </tbody></table></div>
+    </div>
+  </div><div class="slide-no">06 / 12</div>
 </section>
 
-<section class="slide" id="s7">
-  <div class="table-card"><div class="label">Decision matrix</div><h2>What each path has to prove.</h2><table class="table"><thead><tr><th>Path</th><th>Best reason to pursue</th><th>Main risk</th><th>Next validation</th></tr></thead><tbody><tr><td><strong>Conventional rental</strong></td><td>Most financeable and easiest to explain.</td><td>May not create enough differentiation.</td><td>Rent comps, unit efficiency, construction budget.</td></tr><tr><td><strong>Independent living</strong></td><td>Better emotional thesis and aging-demand narrative.</td><td>Operational and design expectations rise.</td><td>Operator feedback, accessibility/program review.</td></tr><tr><td><strong>Wellness residence</strong></td><td>Most aligned with K0RE/TRMIG strategic direction.</td><td>Can overpromise if not tightly scoped.</td><td>Amenity model, price premium, service design.</td></tr></tbody></table><div class="callout">Recommended next move: keep the base building underwritable as residential, then test whether hospitality/wellness programming increases appeal without adding unfinanceable complexity.</div></div><div class="deck-id">Decision matrix</div><div class="slide-no">07 / 10</div>
+<section id="s7" class="slide" data-kicker="07 · Landowner protections">
+  <div class="wrap g2 grid">
+    <div><h2>The legal brief turns the pitch into a reviewable structure.</h2><p class="lead">Counsel will not care that the render is beautiful. They will care whether the documents allocate risk, define cash flow, protect against default, and make the Year 20 mechanics clear.</p></div>
+    <div class="stack">
+      <div class="row"><b>Conditional PSA</b><span>Conditional on BCH approval and CMHC commitment; no forced deal if funding fails.</span><span class="good">Conditioned</span></div>
+      <div class="row"><b>Ground lease / JV agreement</b><span>Defines operating control, 60/40 net cash flow split, reporting, reserves, and distribution mechanics.</span><span class="warn">Documented</span></div>
+      <div class="row"><b>Step-in rights</b><span>Landowner can cure defaults, assume operations, or replace operator subject to CMHC approval.</span><span class="good">Protection</span></div>
+      <div class="row"><b>DSCR waterfall</b><span>If DSCR is below 1.15× for two consecutive quarters, landowner NCF share rises from 60% to 80% until reserves are replenished.</span><span class="good">Downside guard</span></div>
+      <div class="row"><b>Construction risk</b><span>Fixed-price modular contracts, performance bonds, liquidated damages; overruns flow to contractor/bonding, not landowner.</span><span class="good">Allocated</span></div>
+    </div>
+  </div><div class="slide-no">07 / 12</div>
 </section>
 
-<section class="slide" id="s8">
-  <div class="split"><div class="copy"><div class="label">Numbers at a glance</div><h2>Simple enough for first-pass capital review.</h2><div class="rule"></div><p>The early model should stay honest: site size, GFA, height, likely unit logic, cost range, and positioning premium. Avoid pretending the visual concept is a final pro forma.</p><p>What matters next is the delta between a standard rental execution and an amenity-led residential concept that can support stronger rents, occupancy, or strategic operator interest.</p></div><div class="cards" style="grid-template-columns:1fr 1fr"><div class="card"><div class="k">Development basis</div><div class="v">2,600m²</div><p class="small">Proposed GFA basis from feasibility material.</p></div><div class="card"><div class="k">Capital question</div><div class="v">Δ</div><p class="small">Does premium positioning create enough value to justify added design/program cost?</p></div><div class="card"><div class="k">Near-term need</div><div class="v">3</div><p class="small">Rent comps, cost order-of-magnitude, operator feedback.</p></div><div class="card"><div class="k">Next visual set</div><div class="v">2+</div><p class="small">Suite and courtyard/amenity views complete the full pitch package.</p></div></div></div><div class="deck-id">Economic framing</div><div class="slide-no">08 / 10</div>
+<section id="s8" class="slide" data-kicker="08 · What counsel will ask">
+  <div class="wrap">
+    <h2>Answer the hard questions before they become objections.</h2>
+    <p class="lead">The lawyer brief already identifies the questions that matter. v3 brings those objections forward rather than burying them.</p>
+    <div class="grid g3" style="margin-top:1.4rem">
+      <div class="card soft"><h3>Year 20 buyout</h3><p class="small">Formula-based on the original $600K retained equity amount, not speculative market value. Protects certainty; caps upside.</p></div>
+      <div class="card soft"><h3>Insolvency / default</h3><p class="small">Landowner and CMHC step-in rights; operator replacement subject to CMHC approval.</p></div>
+      <div class="card soft"><h3>Assignment</h3><p class="small">Estate succession and corporate restructuring permitted; speculative resale restricted.</p></div>
+      <div class="card soft"><h3>Guarantee exposure</h3><p class="small">Limited to construction phase and released at stabilization: 90% occupancy + 1.15× DSCR for 3 months.</p></div>
+      <div class="card soft"><h3>Affordability covenant</h3><p class="small">Minimum 30% of units below 80% CMHC Median Market Rent; remaining 70% at market rents in underwriting.</p></div>
+      <div class="card soft"><h3>Funding failure</h3><p class="small">LOI/PSA conditional on BCH approval. If declined, no obligation on either side; Ubuntu bears application costs.</p></div>
+    </div>
+  </div><div class="slide-no">08 / 12</div>
 </section>
 
-<section class="slide" id="s9">
-  <div class="split"><div class="media contain" data-caption="Plan / source evidence"><img src="assets/page-06.png" alt="Plan source page"></div><div class="copy"><div class="label">Credibility layer</div><h2>The deck should sell the vision without hiding the work.</h2><div class="rule"></div><p>AI visuals are useful because they collapse imagination time. They become dangerous when they imply a level of certainty the feasibility does not yet support.</p><p>For this reason, every pitch version should include source drawings, validation notes, and a plain-language disclaimer.</p><div class="callout"><strong>Conceptual visualization only.</strong> Final massing, unit count, gross floor area, zoning, parking, code compliance, materials, and design are subject to architectural, engineering, and municipal review.</div></div></div><div class="deck-id">Risk & mitigation</div><div class="slide-no">09 / 10</div>
+<section id="s9" class="slide" data-kicker="09 · Visual future">
+  <div class="wrap g2 grid">
+    <div class="render exterior" data-caption="Conceptual exterior visualization — not architectural approval, massing approval, or final materials."></div>
+    <div>
+      <h2>Use the render to make the future legible — not to replace diligence.</h2>
+      <p class="lead">The exterior visual helps a landowner, counsel, and partner understand what the site could become: a permanent housing asset with dignified street presence rather than a one-time land disposition.</p>
+      <div class="grid g2" style="margin-top:1.2rem"><div class="metric"><div class="k">Design role</div><div class="v">Vision</div><p>Explains the opportunity emotionally.</p></div><div class="metric"><div class="k">Evidence role</div><div class="v">Source</div><p>Feasibility, legal docs and model carry the proof.</p></div></div>
+    </div>
+  </div><div class="slide-no">09 / 12</div>
 </section>
 
-<section class="slide" id="s10">
-  <div class="ask"><div class="label">Recommended next step</div><h2>Pick the asset thesis. Build the full visual package. Then decide who sees it.</h2><p class="lead">For Brimley, the next pass should add suite and courtyard/amenity views, then convert this into either an investor version, an operator version, or an internal acquisition-review version.</p><div class="cards"><div class="card"><div class="k">Decision 01</div><h3>Primary positioning</h3><p>Rental, independent living, or wellness-oriented residence.</p></div><div class="card"><div class="k">Decision 02</div><h3>Audience</h3><p>Investor, operator, landowner, or internal review.</p></div><div class="card"><div class="k">Decision 03</div><h3>Output</h3><p>Shareable web link, PDF export, or full pitch deck.</p></div></div><div class="cta-row"><a class="cta primary" href="opportunity-board.html">View Board</a><a class="cta" href="archivinci-render-kit.md">Render Kit</a></div></div><div class="deck-id">TRMIG Visual Opportunity Brief</div><div class="slide-no">10 / 10</div>
+<section id="s10" class="slide" data-kicker="10 · Arrival experience">
+  <div class="wrap g2 grid">
+    <div>
+      <h2>A credible lobby is part of the landowner story.</h2>
+      <p class="lead">The family is not just giving up land; they are anchoring a place that should feel permanent, cared for, and socially legitimate. The arrival experience supports that emotional argument.</p>
+      <div class="card" style="margin-top:1.2rem"><h3>Next visual set</h3><p class="small">To make the deck client-ready, add suite interior and courtyard / amenity views once image generation credits are available again.</p></div>
+    </div>
+    <div class="render lobby" data-caption="Conceptual lobby / arrival visualization for positioning; final design subject to architect and code review."></div>
+  </div><div class="slide-no">10 / 12</div>
+</section>
+
+<section id="s11" class="slide" data-kicker="11 · Timeline & decision path">
+  <div class="wrap g2 grid">
+    <div><h2>The next decision is LOI, not final closing.</h2><p class="lead">The proposed process gives the family and counsel a staged path: review, LOI, documentation, BCH/CMHC approvals, then closing at first construction draw.</p></div>
+    <div class="timeline">
+      <div class="time"><div class="dot">1</div><div class="body"><b>Now → Month 1</b><span>LOI signed; 12-month exclusivity period begins.</span></div></div>
+      <div class="time"><div class="dot">2</div><div class="body"><b>Months 1–6</b><span>PSA, ground lease, JV agreement, CMHC submission, BCH application.</span></div></div>
+      <div class="time"><div class="dot">3</div><div class="body"><b>Months 6–12</b><span>BCH approval, CMHC underwriting, municipal approvals.</span></div></div>
+      <div class="time"><div class="dot">4</div><div class="body"><b>Month 12</b><span>Closing / first construction draw; family receives $1.4M cash.</span></div></div>
+      <div class="time"><div class="dot">5</div><div class="body"><b>Months 12–30</b><span>Cube modular delivery and construction.</span></div></div>
+      <div class="time"><div class="dot">6</div><div class="body"><b>Month 30+</b><span>Stabilization; distributions begin. Year 20 equity return / transfer mechanics follow definitive docs.</span></div></div>
+    </div>
+  </div><div class="slide-no">11 / 12</div>
+</section>
+
+<section id="s12" class="slide" data-kicker="12 · Recommendation">
+  <div class="wrap g2 grid">
+    <div>
+      <div class="quote">Move from concept pitch to counsel-reviewed LOI package.</div>
+      <p class="lead">The deck is now strong enough to support a serious next conversation. The next upgrade is not more styling — it is completing the diligence package around the legal documents, tax treatment, BCH path, CMHC underwriting and modular cost certainty.</p>
+      <div class="cta-row"><a class="btn" href="2008-brimley-web-deck-v3.pdf">Download PDF</a><a class="btn" href="2008 Brimley BCH Model.xlsx">Download model</a></div>
+    </div>
+    <div class="card">
+      <h3>Recommended next actions</h3>
+      <table class="table"><tbody>
+        <tr><td>1</td><td>Confirm intended audience: landowner family, counsel, BCH/CMHC, or partner/operator.</td></tr>
+        <tr><td>2</td><td>Have counsel review the transaction architecture and threshold tax/guarantee questions.</td></tr>
+        <tr><td>3</td><td>Validate 30-unit vs 24-unit feasibility with planner/architect and municipal assumptions.</td></tr>
+        <tr><td>4</td><td>Prepare LOI + source appendix: model, lawyer brief, one-pager, feasibility pages.</td></tr>
+        <tr><td>5</td><td>Generate final suite/courtyard visuals before any public/client-facing package.</td></tr>
+      </tbody></table>
+      <p class="disclaimer">Conceptual visualization only. Final massing, unit count, GFA, zoning, parking, code compliance, affordability terms, tax treatment, funding approvals, materials, construction price and design are subject to legal, tax, architectural, engineering, municipal, BCH and CMHC review.</p>
+    </div>
+  </div><div class="watermark">Ubuntu</div><div class="slide-no">12 / 12</div>
 </section>
 <script>
-const links=[...document.querySelectorAll('.nav a')];
-const slides=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const setActive=()=>{let idx=0;let min=Infinity;slides.forEach((s,i)=>{const d=Math.abs(s.getBoundingClientRect().top);if(d<min){min=d;idx=i}});links.forEach((a,i)=>a.classList.toggle('active',i===idx));localStorage.setItem('brimleyDeckSlide',idx)};
-addEventListener('scroll',()=>requestAnimationFrame(setActive),{passive:true});
-addEventListener('keydown',e=>{const current=Number(localStorage.getItem('brimleyDeckSlide')||0);if(['ArrowDown','ArrowRight','PageDown'].includes(e.key)){e.preventDefault();(slides[Math.min(slides.length-1,current+1)]||slides[0]).scrollIntoView()}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();(slides[Math.max(0,current-1)]||slides[0]).scrollIntoView()}if(e.key==='Home'){slides[0].scrollIntoView()}if(e.key==='End'){slides[slides.length-1].scrollIntoView()}});
-setActive();
+document.addEventListener('keydown',e=>{const ids=[...document.querySelectorAll('.slide')].map(s=>s.id);const y=window.scrollY;let idx=ids.findIndex(id=>document.getElementById(id).offsetTop>y+80)-1;if(idx<0)idx=ids.length-1;if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();document.getElementById(ids[Math.min(ids.length-1,idx+1)]).scrollIntoView()}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();document.getElementById(ids[Math.max(0,idx-1)]).scrollIntoView()}})
 </script>
 </body>
 </html>
