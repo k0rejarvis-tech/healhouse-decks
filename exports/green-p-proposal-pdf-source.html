@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <base href="file:///Users/k0rejarvis/Projects/healhouse-decks/">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEAL HOUSE × City of Toronto — Green P Staff Briefing</title>
@@ -22,167 +23,172 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
 @media(max-width:900px){.slide--padded{padding:5rem 1.5rem 3rem}.split-layout,.split-layout--40-60,.grid-2,.grid-3,.gallery-grid{grid-template-columns:1fr}.split-image{min-height:45vh}.split-text{padding:5rem 1.5rem}.slide-footer{position:static;margin:2rem 1.5rem}.top-nav{padding:.7rem 1rem}.top-nav-dots{display:none}}
 </style>
 
-<style id="pdf-export-fix">
+<style id="pdf-export-polish">
 @media print {
   @page { size: 16in 9in; margin: 0; }
-  html, body { width: 16in; height: 9in; margin: 0 !important; padding: 0 !important; overflow: visible !important; background: #1A1612 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { width: 16in; margin: 0 !important; padding: 0 !important; background: #1A1612 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   .scroll-progress, .top-nav { display: none !important; }
   .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
   .slide { width: 16in !important; height: 9in !important; min-height: 9in !important; page-break-after: always !important; break-after: page !important; page-break-inside: avoid !important; break-inside: avoid !important; overflow: hidden !important; scroll-snap-align: none !important; }
   .slide:last-of-type { page-break-after: auto !important; break-after: auto !important; }
-  .slide--padded { padding: .7in .75in .55in !important; }
-  .slide--hero { padding: 1.2in .75in !important; }
+  .slide--padded { padding: .62in .72in .52in !important; }
+  .slide--hero { padding: 1.15in .8in !important; }
   .split-layout, .split-layout--40-60 { height: 9in !important; min-height: 9in !important; }
   .split-text { padding: .85in .7in !important; }
   .slide-footer { position: absolute !important; bottom: .22in !important; left: .55in !important; right: .55in !important; }
-  .hero-title { font-size: 64pt !important; }
-  h1 { font-size: 46pt !important; }
-  h2 { font-size: 34pt !important; }
-  h3 { font-size: 18pt !important; }
-  .lead { font-size: 13pt !important; line-height: 1.65 !important; }
-  .small { font-size: 9.5pt !important; line-height: 1.45 !important; }
-  .grid-3 { gap: .25in !important; }
-  .card { padding: .22in !important; }
-  .option-card { min-height: 5.9in !important; }
-  .option-number { font-size: 34pt !important; margin-bottom: .08in !important; }
-  .option-drawing { height: 1.55in !important; margin: .08in 0 .12in !important; }
-  .line-list div { padding: .08in 0 !important; }
-  .quote { font-size: 46pt !important; }
+  h1 { font-size: 45pt !important; } h2 { font-size: 32pt !important; } h3 { font-size: 17pt !important; }
+  .hero-title { font-size: 62pt !important; }
+  .lead { font-size: 12.5pt !important; line-height: 1.5 !important; }
+  .small { font-size: 9.2pt !important; line-height: 1.35 !important; }
+  .quote { font-size: 45pt !important; }
+  #s3.slide--padded { padding: .48in .55in .45in !important; }
+  #s3 .slide-inner { max-width: none !important; height: 7.9in !important; }
+  #s3 h2 { font-size: 30pt !important; margin-bottom: .08in !important; }
+  #s3 .lead { max-width: 12.5in !important; margin-bottom: .22in !important; font-size: 11.5pt !important; line-height: 1.35 !important; }
+  #s3 .grid-3 { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: .2in !important; align-items: stretch !important; }
+  #s3 .option-card { min-height: 0 !important; height: 5.95in !important; padding: .18in !important; display: flex !important; flex-direction: column !important; }
+  #s3 .option-card .tag { font-size: 7pt !important; padding: 2px 7px !important; margin-bottom: .05in !important; width: max-content !important; }
+  #s3 .option-number { font-size: 28pt !important; margin-bottom: .03in !important; }
+  #s3 .option-card h3 { font-size: 16pt !important; line-height: 1.05 !important; margin-bottom: .08in !important; min-height: .38in !important; }
+  #s3 .option-drawing { width: 100% !important; height: 2.15in !important; object-fit: contain !important; margin: .02in 0 .1in !important; background: #f3f0e7 !important; }
+  #s3 .line-list { margin-top: 0 !important; }
+  #s3 .line-list div { padding: .055in 0 !important; font-size: 9.5pt !important; line-height: 1.25 !important; }
+  #s3 .option-card p { margin-top: .1in !important; font-size: 8.6pt !important; line-height: 1.32 !important; }
 }
 </style>
 </head>
 <body>
-<div class="visible scroll-progress" id="scrollProgress"></div>
-<nav class="visible top-nav"><div class="visible top-nav-logo">HEAL <span>HOUSE</span></div><div class="visible top-nav-note">Staff Circulation Draft</div><div class="visible top-nav-dots" id="navDots"></div></nav>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav"><div class="top-nav-logo">HEAL <span>HOUSE</span></div><div class="top-nav-note">Staff Circulation Draft</div><div class="top-nav-dots" id="navDots"></div></nav>
 
-<section class="visible slide slide--hero" id="s1" data-slide-name="Opening">
-  <div class="visible kb-bg hero-bg"></div>
-  <div class="visible slide-inner">
-    <p class="visible section-label fade-in" style="border:none">City of Toronto Staff Briefing</p>
-    <h1 class="visible hero-title fade-in">Green P into affordable housing.</h1>
-    <p class="visible hero-subtitle fade-in">A short internal deck to help colleagues get on side.</p>
-    <div class="visible gold-divider gold-divider--center fade-in"></div>
-    <p class="visible hero-copy fade-in">Heal House is asking the City to support a pathway for the Green P parcel to become part of a broader affordable housing and community-wellness solution, delivered with a non-profit partner and clear public-benefit protections.</p>
+<section class="slide slide--hero" id="s1" data-slide-name="Opening">
+  <div class="kb-bg hero-bg"></div>
+  <div class="slide-inner">
+    <p class="section-label fade-in" style="border:none">City of Toronto Staff Briefing</p>
+    <h1 class="hero-title fade-in">Green P into affordable housing.</h1>
+    <p class="hero-subtitle fade-in">A short internal deck to help colleagues get on side.</p>
+    <div class="gold-divider gold-divider--center fade-in"></div>
+    <p class="hero-copy fade-in">Heal House is asking the City to support a pathway for the Green P parcel to become part of a broader affordable housing and community-wellness solution, delivered with a non-profit partner and clear public-benefit protections.</p>
   </div>
-  <div class="visible slide-footer"><span>HEAL HOUSE · GREEN P PROPOSAL</span><span>01 / 08</span></div>
+  <div class="slide-footer"><span>HEAL HOUSE · GREEN P PROPOSAL</span><span>01 / 08</span></div>
 </section>
 
-<section class="visible slide" id="s2" data-slide-name="The Opportunity">
-  <div class="visible split-layout split-layout--40-60">
-    <div class="visible split-text">
-      <p class="visible section-label fade-in">The Opportunity</p>
-      <h2 class="visible italic fade-in">A parking parcel can unlock a deeper civic outcome.</h2>
-      <div class="visible gold-divider fade-in"></div>
-      <p class="visible lead fade-in">The Green P lands sit inside a larger Lakeshore opportunity. On their own, they serve a narrow civic function. As part of the Heal House assembly, they can become affordable housing, wellness infrastructure, and a permanent neighbourhood benefit.</p>
-      <div class="visible line-list fade-in">
-        <div><strong class="visible gold">Today:</strong> limited use as a standalone municipal parcel.</div>
-        <div><strong class="visible gold">Unlocked:</strong> part of a complete site plan with housing and services.</div>
-        <div><strong class="visible gold">Outcome:</strong> public land value converted into visible community benefit.</div>
+<section class="slide" id="s2" data-slide-name="The Opportunity">
+  <div class="split-layout split-layout--40-60">
+    <div class="split-text">
+      <p class="section-label fade-in">The Opportunity</p>
+      <h2 class="italic fade-in">A parking parcel can unlock a deeper civic outcome.</h2>
+      <div class="gold-divider fade-in"></div>
+      <p class="lead fade-in">The Green P lands sit inside a larger Lakeshore opportunity. On their own, they serve a narrow civic function. As part of the Heal House assembly, they can become affordable housing, wellness infrastructure, and a permanent neighbourhood benefit.</p>
+      <div class="line-list fade-in">
+        <div><strong class="gold">Today:</strong> limited use as a standalone municipal parcel.</div>
+        <div><strong class="gold">Unlocked:</strong> part of a complete site plan with housing and services.</div>
+        <div><strong class="gold">Outcome:</strong> public land value converted into visible community benefit.</div>
       </div>
     </div>
-    <div class="visible split-image" style="background-image:url('assets/renderings/rendering-4.jpg')"></div>
+    <div class="split-image" style="background-image:url('assets/renderings/rendering-4.jpg')"></div>
   </div>
-  <div class="visible slide-footer"><span>Green P conversion opportunity</span><span>02 / 08</span></div>
+  <div class="slide-footer"><span>Green P conversion opportunity</span><span>02 / 08</span></div>
 </section>
 
-<section class="visible slide slide--padded" id="s3" style="background:var(--bg-alt)" data-slide-name="Three Options">
-  <div class="visible slide-inner">
-    <p class="visible section-label fade-in">Available Site Paths</p>
-    <h2 class="visible italic fade-in" style="margin-bottom:.8rem">Three options are available to Heal House.</h2>
-    <p class="visible lead fade-in" style="margin-bottom:2.2rem">The City does not need to evaluate a financial model to understand the choice. The question is which site path produces the strongest housing, parking, and community-benefit outcome. Unit counts to be confirmed.</p>
-    <div class="visible grid-3">
-      <div class="visible card option-card fade-in">
-        <span class="visible tag tag--gold">Option One</span>
-        <div class="visible option-number">01</div>
+<section class="slide slide--padded" id="s3" style="background:var(--bg-alt)" data-slide-name="Three Options">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Available Site Paths</p>
+    <h2 class="italic fade-in" style="margin-bottom:.8rem">Three options are available to Heal House.</h2>
+    <p class="lead fade-in" style="margin-bottom:2.2rem">The City does not need to evaluate a financial model to understand the choice. The question is which site path produces the strongest affordable housing and community-benefit outcome. Remaining unit counts to be confirmed.</p>
+    <div class="grid-3">
+      <div class="pdf-option card option-card visible fade-in">
+        <span class="tag tag--gold">Option One</span>
+        <div class="option-number">01</div>
         <h3>Build the two corner lots</h3>
-        <img class="visible option-drawing" src="assets/site-options/option-1-two-corner-lots.png" alt="Option one two corner lots drawing">
-        <div class="visible line-list small" style="margin-top:.2rem"><div><strong class="visible gold">Affordable housing:</strong> 0%</div><div><strong class="visible gold">Units:</strong> placeholder — to be confirmed</div></div>
-        <p class="visible small dim">Heal House proceeds on the two corner parcels only. This is the baseline path, but it leaves the Green P public-benefit opportunity largely unrealized.</p>
+        <img class="option-drawing" src="assets/site-options/option-1-two-corner-lots.png" alt="Option one two corner lots drawing">
+        <div class="line-list small" style="margin-top:.2rem"><div><strong class="gold">Affordable housing:</strong> 0%</div><div><strong class="gold">Units:</strong> placeholder — to be confirmed</div></div>
+        <p class="small dim">Heal House proceeds on the two corner parcels only. This is the baseline path, but it leaves the Green P public-benefit opportunity largely unrealized.</p>
       </div>
-      <div class="visible card option-card fade-in">
-        <span class="visible tag tag--teal">Option Two</span>
-        <div class="visible option-number">02</div>
+      <div class="pdf-option card option-card visible fade-in">
+        <span class="tag tag--teal">Option Two</span>
+        <div class="option-number">02</div>
         <h3>Corner lot + Green P + one lot</h3>
-        <img class="visible option-drawing" src="assets/site-options/uploads/option-2-green-p-updated.jpg" alt="Option two Green P plus one lot drawing">
-        <div class="visible line-list small" style="margin-top:.2rem"><div><strong class="visible gold">Affordable housing:</strong> 20% · 53 affordable units</div><div><strong class="visible gold">Units:</strong> placeholder — total to be confirmed</div></div>
-        <p class="visible small dim">A City-supported Green P pathway creates a stronger housing plan, a better neighbourhood edge, and a clearer public-benefit story.</p>
+        <img class="option-drawing" src="assets/site-options/uploads/option-2-green-p-updated.jpg" alt="Option two Green P plus one lot drawing">
+        <div class="line-list small" style="margin-top:.2rem"><div><strong class="gold">Affordable housing:</strong> 20%</div><div><strong class="gold">Affordable units:</strong> 53</div><div><strong class="gold">Total units:</strong> placeholder — to be confirmed</div></div>
+        <p class="small dim">A City-supported Green P pathway creates a stronger housing plan, a better neighbourhood edge, and a clearer public-benefit story.</p>
       </div>
-      <div class="visible card card--recommended option-card fade-in">
-        <span class="visible tag tag--rec">Option Three · Preferred</span>
-        <div class="visible option-number">03</div>
+      <div class="pdf-option card card--recommended option-card visible fade-in">
+        <span class="tag tag--rec">Option Three · Preferred</span>
+        <div class="option-number">03</div>
         <h3>Assemble the entire block</h3>
-        <img class="visible option-drawing" src="assets/site-options/uploads/option-3-full-block-updated.jpg" alt="Option three full block drawing">
-        <div class="visible line-list small" style="margin-top:.2rem"><div><strong class="visible gold">Total units:</strong> 254</div><div><strong class="visible gold">Affordable housing:</strong> 77 affordable units</div></div>
-        <p class="visible small dim">The complete-site vision: the full block becomes one coordinated affordable housing, wellness, and community-serving destination.</p>
+        <img class="option-drawing" src="assets/site-options/uploads/option-3-full-block-updated.jpg" alt="Option three full block drawing">
+        <div class="line-list small" style="margin-top:.2rem"><div><strong class="gold">Affordable housing:</strong> 30%</div><div><strong class="gold">Total units:</strong> 254</div><div><strong class="gold">Affordable units:</strong> 77</div></div>
+        <p class="small dim">The complete-site vision: the full block becomes one coordinated affordable housing, wellness, and community-serving destination.</p>
       </div>
     </div>
   </div>
-  <div class="visible slide-footer"><span>Three available options</span><span>03 / 08</span></div>
+  <div class="slide-footer"><span>Three available options</span><span>03 / 08</span></div>
 </section>
 
-<section class="visible slide slide--padded" id="s4" data-slide-name="Proposal">
-  <div class="visible slide-inner">
-    <p class="visible section-label fade-in">The Proposal</p>
-    <h2 class="visible italic fade-in" style="max-width:1050px">Heal House secures Green P. The City secures affordable housing outcomes.</h2>
-    <div class="visible gold-divider fade-in"></div>
-    <p class="visible lead fade-in">This is a public-benefit proposal. The Green P transfer, sale, or land-swap-equivalent should be structured around the affordable housing outcome Toronto wants delivered — with Heal House assembling the site and a non-profit partner stewarding affordability.</p>
-    <div class="visible cta-band fade-in"><span class="visible cta">Housing-first framing</span><span class="visible cta">Green P pathway</span><span class="visible cta">Non-profit delivery</span><span class="visible cta">City public benefit</span></div>
+<section class="slide slide--padded" id="s4" data-slide-name="Proposal">
+  <div class="slide-inner">
+    <p class="section-label fade-in">The Proposal</p>
+    <h2 class="italic fade-in" style="max-width:1050px">Heal House secures Green P. The City secures affordable housing outcomes.</h2>
+    <div class="gold-divider fade-in"></div>
+    <p class="lead fade-in">This is a public-benefit proposal. The Green P transfer, sale, or land-swap-equivalent should be structured around the affordable housing outcome Toronto wants delivered — with Heal House assembling the site and a non-profit partner stewarding affordability.</p>
+    <div class="cta-band fade-in"><span class="cta">Housing-first framing</span><span class="cta">Green P pathway</span><span class="cta">Non-profit delivery</span><span class="cta">City public benefit</span></div>
   </div>
-  <div class="visible slide-footer"><span>Land transaction in service of housing</span><span>04 / 08</span></div>
+  <div class="slide-footer"><span>Land transaction in service of housing</span><span>04 / 08</span></div>
 </section>
 
-<section class="visible slide" id="s5" data-slide-name="Why It Fits">
-  <div class="visible split-layout">
-    <div class="visible split-image" style="background-image:url('assets/renderings/rendering-2.jpg')"></div>
-    <div class="visible split-text" style="background:var(--bg-alt)">
-      <p class="visible section-label fade-in">Why It Fits Toronto</p>
-      <h2 class="visible italic fade-in">The City gets mission-aligned housing without becoming the developer.</h2>
-      <div class="visible gold-divider fade-in"></div>
-      <div class="visible grid-2 fade-in" style="gap:1rem">
-        <div class="visible card"><h3>Toronto priorities</h3><p class="visible small dim">More affordable homes, public land value converted into public benefit, and community-serving uses at grade.</p></div>
-        <div class="visible card"><h3>Heal House role</h3><p class="visible small dim">Lead the site vision, coordinate the land pathway, and partner with a non-profit to deliver affordability.</p></div>
+<section class="slide" id="s5" data-slide-name="Why It Fits">
+  <div class="split-layout">
+    <div class="split-image" style="background-image:url('assets/renderings/rendering-2.jpg')"></div>
+    <div class="split-text" style="background:var(--bg-alt)">
+      <p class="section-label fade-in">Why It Fits Toronto</p>
+      <h2 class="italic fade-in">The City gets mission-aligned housing without becoming the developer.</h2>
+      <div class="gold-divider fade-in"></div>
+      <div class="grid-2 fade-in" style="gap:1rem">
+        <div class="card"><h3>Toronto priorities</h3><p class="small dim">More affordable homes, public land value converted into public benefit, and community-serving uses at grade.</p></div>
+        <div class="card"><h3>Heal House role</h3><p class="small dim">Lead the site vision, coordinate the land pathway, and partner with a non-profit to deliver affordability.</p></div>
       </div>
     </div>
   </div>
-  <div class="visible slide-footer"><span>City priorities aligned</span><span>05 / 08</span></div>
+  <div class="slide-footer"><span>City priorities aligned</span><span>05 / 08</span></div>
 </section>
 
-<section class="visible slide slide--padded" id="s6" style="background:var(--bg-alt)" data-slide-name="Land Exchange Logic">
-  <div class="visible slide-inner">
-    <p class="visible section-label fade-in">The Land Exchange Logic</p>
-    <h2 class="visible italic fade-in">A land swap in spirit: public land value exchanged for affordable housing delivery.</h2>
-    <div class="visible gold-divider fade-in"></div>
-    <p class="visible staff-note fade-in">The City can treat Green P as a public-benefit lever. Rather than viewing the parcel only as a parking asset, staff can frame it as a contribution toward affordable housing, wellness services, and a stronger complete-community outcome.</p>
-    <div class="visible grid-3" style="margin-top:2rem">
-      <div class="visible card fade-in"><h3>City</h3><p class="visible small dim">Defines the land pathway and public-benefit conditions.</p></div>
-      <div class="visible card fade-in"><h3>Heal House</h3><p class="visible small dim">Secures the parcel and integrates it into the complete-site plan.</p></div>
-      <div class="visible card fade-in"><h3>Non-profit</h3><p class="visible small dim">Delivers and stewards the affordable housing commitment.</p></div>
+<section class="slide slide--padded" id="s6" style="background:var(--bg-alt)" data-slide-name="Land Exchange Logic">
+  <div class="slide-inner">
+    <p class="section-label fade-in">The Land Exchange Logic</p>
+    <h2 class="italic fade-in">A land swap in spirit: public land value exchanged for affordable housing delivery.</h2>
+    <div class="gold-divider fade-in"></div>
+    <p class="staff-note fade-in">The City can treat Green P as a public-benefit lever. Rather than viewing the parcel only as a parking asset, staff can frame it as a contribution toward affordable housing, wellness services, and a stronger complete-community outcome.</p>
+    <div class="grid-3" style="margin-top:2rem">
+      <div class="card fade-in"><h3>City</h3><p class="small dim">Defines the land pathway and public-benefit conditions.</p></div>
+      <div class="card fade-in"><h3>Heal House</h3><p class="small dim">Secures the parcel and integrates it into the complete-site plan.</p></div>
+      <div class="card fade-in"><h3>Non-profit</h3><p class="small dim">Delivers and stewards the affordable housing commitment.</p></div>
     </div>
   </div>
-  <div class="visible slide-footer"><span>Land value → public benefit</span><span>06 / 08</span></div>
+  <div class="slide-footer"><span>Land value → public benefit</span><span>06 / 08</span></div>
 </section>
 
 
-<section class="visible slide slide--padded" id="s8" style="background:var(--bg-alt)" data-slide-name="Public Protections">
-  <div class="visible slide-inner">
-    <p class="visible section-label fade-in">Public Protections</p>
-    <h2 class="visible italic fade-in" style="margin-bottom:2rem">The City can make land available without losing accountability.</h2>
-    <div class="visible grid-2">
-      <div class="visible card fade-in"><h3>Possible safeguards</h3><div class="visible line-list"><div>Affordable housing covenant registered against the project.</div><div>Non-profit role documented in the delivery structure.</div><div>Public-benefit reporting back to the City.</div><div>Milestones tied to planning and delivery progress.</div></div></div>
-      <div class="visible card fade-in"><h3>What this avoids</h3><div class="visible line-list"><div>No City operating burden.</div><div>No complicated ownership partnership.</div><div>No unnecessary complexity in the first conversation.</div><div>No dilution of the core public outcome.</div></div></div>
+<section class="slide slide--padded" id="s8" style="background:var(--bg-alt)" data-slide-name="Public Protections">
+  <div class="slide-inner">
+    <p class="section-label fade-in">Public Protections</p>
+    <h2 class="italic fade-in" style="margin-bottom:2rem">The City can make land available without losing accountability.</h2>
+    <div class="grid-2">
+      <div class="card fade-in"><h3>Possible safeguards</h3><div class="line-list"><div>Affordable housing covenant registered against the project.</div><div>Non-profit role documented in the delivery structure.</div><div>Public-benefit reporting back to the City.</div><div>Milestones tied to planning and delivery progress.</div></div></div>
+      <div class="card fade-in"><h3>What this avoids</h3><div class="line-list"><div>No City operating burden.</div><div>No complicated ownership partnership.</div><div>No unnecessary complexity in the first conversation.</div><div>No dilution of the core public outcome.</div></div></div>
     </div>
   </div>
-  <div class="visible slide-footer"><span>Accountability without complexity</span><span>07 / 08</span></div>
+  <div class="slide-footer"><span>Accountability without complexity</span><span>07 / 08</span></div>
 </section>
 
-<section class="visible slide" id="s9" data-slide-name="Short Story">
-  <div class="visible kb-bg atrium-bg"></div>
-  <div class="visible slide-inner" style="padding:0 4rem;text-align:center">
-    <p class="visible section-label fade-in" style="border:none">The Short Story</p>
-    <p class="visible quote fade-in">Toronto can turn a parking parcel into affordable housing by letting Heal House secure Green P, integrate it into the complete site, and deliver affordability through a non-profit partner.</p>
-    <div class="visible gold-divider gold-divider--center fade-in"></div>
+<section class="slide" id="s9" data-slide-name="Short Story">
+  <div class="kb-bg atrium-bg"></div>
+  <div class="slide-inner" style="padding:0 4rem;text-align:center">
+    <p class="section-label fade-in" style="border:none">The Short Story</p>
+    <p class="quote fade-in">Toronto can turn a parking parcel into affordable housing by letting Heal House secure Green P, integrate it into the complete site, and deliver affordability through a non-profit partner.</p>
+    <div class="gold-divider gold-divider--center fade-in"></div>
   </div>
-  <div class="visible slide-footer"><span>The story in one sentence</span><span>08 / 08</span></div>
+  <div class="slide-footer"><span>The story in one sentence</span><span>08 / 08</span></div>
 </section>
 
 
