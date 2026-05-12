@@ -17,7 +17,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
 .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:300;background:linear-gradient(90deg,var(--gold),var(--gold-bright));box-shadow:0 0 8px rgba(201,168,76,.5);transition:width .1s linear}.top-nav{position:fixed;top:3px;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.8rem 2.5rem;background:linear-gradient(180deg,rgba(26,22,18,.9),rgba(26,22,18,0));pointer-events:none}.top-nav-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:.12em;color:var(--cream);opacity:.7}.top-nav-logo span{color:var(--gold)}.top-nav-note{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.75}.top-nav-dots{display:flex;gap:.5rem;align-items:center;pointer-events:auto}.top-nav-dot{width:7px;height:7px;border-radius:50%;background:rgba(237,229,216,.2);border:none;cursor:pointer;transition:all .3s ease;padding:0}.top-nav-dot.active{background:var(--gold);transform:scale(1.5)}
 .slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;scroll-snap-align:start;overflow:hidden}.slide--padded{padding:6rem 4rem 4rem}.slide-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:2}.section-label{font-family:'Inter',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:inline-block}.gold-divider{width:60px;height:1.5px;background:var(--gold);opacity:.6;margin:1.5rem 0}.gold-divider--center{margin:1.5rem auto}.slide-footer{position:absolute;bottom:1.5rem;left:4rem;right:4rem;display:flex;justify-content:space-between;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,229,216,.36);z-index:10}
 .kb-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.kb-bg::before{content:'';position:absolute;inset:-4%;background-size:cover;background-position:center;animation:kenBurns 28s ease-in-out infinite alternate;will-change:transform}.kb-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,22,18,.68),rgba(26,22,18,.76))}@keyframes kenBurns{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(-1%,-.8%,0)}}.hero-bg::before{background-image:url('assets/renderings/rendering-5.jpg')}.ext-bg::before{background-image:url('assets/renderings/rendering-4.jpg')}.garden-bg::before{background-image:url('assets/renderings/rendering-2.jpg')}.atrium-bg::before{background-image:url('assets/renderings/rendering-1.jpg')}
-.slide--hero{text-align:center;padding:6rem 3rem}.hero-title{font-size:clamp(3.2rem,8vw,6.5rem);letter-spacing:-.03em;line-height:.95;max-width:1050px;margin:0 auto}.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.45rem;color:var(--gold);margin-top:1.4rem}.hero-copy{max-width:760px;margin:1.4rem auto 0;color:rgba(237,229,216,.78);font-size:1rem;line-height:1.9}.split-layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;position:relative}.split-layout--40-60{grid-template-columns:2fr 3fr}.split-text{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;background:var(--bg);position:relative;z-index:2}.split-image{background-size:cover;background-position:center;min-height:100%}.split-image::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,22,18,.12),rgba(26,22,18,.42));pointer-events:none}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem}.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;padding:1.8rem;transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease}.card:hover{border-color:rgba(201,168,76,.25);box-shadow:0 0 30px var(--gold-glow);transform:translateY(-2px)}.card--recommended{border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,.12)}.card h3{font-size:1.2rem;margin-bottom:.7rem}.card .tag{display:inline-block;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:.6rem}.tag--gold{background:rgba(201,168,76,.12);color:var(--gold)}.tag--teal{background:rgba(58,125,123,.15);color:var(--teal-bright)}.tag--rec{background:var(--gold);color:var(--bg);font-weight:600}.pill{display:inline-block;font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--gold-dim);color:var(--gold);padding:5px 10px;border-radius:3px;margin:.35rem .35rem 0 0;background:rgba(201,168,76,.06)}.lead{font-size:1.02rem;line-height:1.9;color:rgba(237,229,216,.76);max-width:850px}.quote{font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,4.4vw,4.8rem);line-height:1.04;font-style:italic;max-width:1080px}.line-list{display:grid;gap:0;margin-top:1rem}.line-list div{border-top:1px solid rgba(237,229,216,.06);padding:1rem 0;color:rgba(237,229,216,.76)}.option-card{min-height:360px;display:flex;flex-direction:column}.option-card p{margin-top:auto}.drawings-grid{align-items:stretch}.drawing-card{display:flex;flex-direction:column;min-height:520px}.drawing-card img{width:100%;height:285px;object-fit:contain;background:#f3f0e7;border:1px solid rgba(201,168,76,.18);border-radius:8px;margin:.9rem 0 1.2rem}.drawing-card h3{font-size:1.35rem}.drawing-card p{margin-top:auto}.site-options-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.25rem 0 1.2rem}.site-option-mini{background:rgba(30,26,20,.95);border:1px solid var(--card-border);border-radius:8px;padding:.85rem}.site-option-mini img{width:100%;height:150px;object-fit:contain;background:#f3f0e7;border-radius:6px}.beauty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.beauty-card{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:8px;border:1px solid var(--card-border);background:var(--charcoal)}.beauty-card img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.06)}.beauty-card .gallery-label{font-size:.66rem}.option-drawing{width:100%;height:168px;object-fit:contain;background:#f3f0e7;border:1px solid rgba(201,168,76,.18);border-radius:8px;margin:.7rem 0 1rem;padding:0}.sheet-feature{background:#f3f0e7;border:1px solid var(--card-border);border-radius:6px;padding:.65rem;margin-bottom:1.4rem}.sheet-feature img{width:100%;display:block}.option-number{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:1;color:var(--gold);opacity:.42;margin-bottom:1rem}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--charcoal);border:1px solid var(--card-border)}.gallery-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.06);transition:transform .6s ease}.gallery-item:hover img{transform:scale(1.04)}.gallery-label{position:absolute;left:0;right:0;bottom:0;padding:1rem;background:linear-gradient(0deg,rgba(26,22,18,.9),transparent);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}.staff-note{border-left:2px solid var(--gold);padding-left:1.3rem;color:rgba(237,229,216,.76);max-width:820px}.cta-band{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}.cta{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--gold-dim);padding:.8rem 1rem;color:var(--gold);background:rgba(201,168,76,.06)}.options-clean-lead{margin-bottom:1.6rem;max-width:980px}.options-clean-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem}.option-card--clean{min-height:0;padding:1.25rem;display:flex;flex-direction:column}.option-card--clean h3{font-size:1.45rem;margin:.25rem 0 .7rem}.option-drawing--clean{height:225px;margin:.2rem 0 1rem}.metric-block{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,229,216,.08);padding:.75rem 0}.metric-block span{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,229,216,.6)}.metric-block strong{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold)}
+.slide--hero{text-align:center;padding:6rem 3rem}.hero-title{font-size:clamp(3.2rem,8vw,6.5rem);letter-spacing:-.03em;line-height:.95;max-width:1050px;margin:0 auto}.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.45rem;color:var(--gold);margin-top:1.4rem}.hero-copy{max-width:760px;margin:1.4rem auto 0;color:rgba(237,229,216,.78);font-size:1rem;line-height:1.9}.split-layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;position:relative}.split-layout--40-60{grid-template-columns:2fr 3fr}.split-text{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;background:var(--bg);position:relative;z-index:2}.split-image{background-size:cover;background-position:center;min-height:100%}.split-image::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,22,18,.12),rgba(26,22,18,.42));pointer-events:none}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem}.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;padding:1.8rem;transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease}.card:hover{border-color:rgba(201,168,76,.25);box-shadow:0 0 30px var(--gold-glow);transform:translateY(-2px)}.card--recommended{border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,.12)}.card h3{font-size:1.2rem;margin-bottom:.7rem}.card .tag{display:inline-block;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:.6rem}.tag--gold{background:rgba(201,168,76,.12);color:var(--gold)}.tag--teal{background:rgba(58,125,123,.15);color:var(--teal-bright)}.tag--rec{background:var(--gold);color:var(--bg);font-weight:600}.pill{display:inline-block;font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--gold-dim);color:var(--gold);padding:5px 10px;border-radius:3px;margin:.35rem .35rem 0 0;background:rgba(201,168,76,.06)}.lead{font-size:1.02rem;line-height:1.9;color:rgba(237,229,216,.76);max-width:850px}.quote{font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,4.4vw,4.8rem);line-height:1.04;font-style:italic;max-width:1080px}.line-list{display:grid;gap:0;margin-top:1rem}.line-list div{border-top:1px solid rgba(237,229,216,.06);padding:1rem 0;color:rgba(237,229,216,.76)}.option-card{min-height:360px;display:flex;flex-direction:column}.option-card p{margin-top:auto}.drawings-grid{align-items:stretch}.drawing-card{display:flex;flex-direction:column;min-height:520px}.drawing-card img{width:100%;height:285px;object-fit:contain;background:#f3f0e7;border:1px solid rgba(201,168,76,.18);border-radius:8px;margin:.9rem 0 1.2rem}.drawing-card h3{font-size:1.35rem}.drawing-card p{margin-top:auto}.site-options-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.25rem 0 1.2rem}.site-option-mini{background:rgba(30,26,20,.95);border:1px solid var(--card-border);border-radius:8px;padding:.85rem}.site-option-mini img{width:100%;height:150px;object-fit:contain;background:#f3f0e7;border-radius:6px}.beauty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.beauty-card{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:8px;border:1px solid var(--card-border);background:var(--charcoal)}.beauty-card img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.06)}.beauty-card .gallery-label{font-size:.66rem}.option-drawing{width:100%;height:168px;object-fit:contain;background:#f3f0e7;border:1px solid rgba(201,168,76,.18);border-radius:8px;margin:.7rem 0 1rem;padding:0}.sheet-feature{background:#f3f0e7;border:1px solid var(--card-border);border-radius:6px;padding:.65rem;margin-bottom:1.4rem}.sheet-feature img{width:100%;display:block}.option-number{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:1;color:var(--gold);opacity:.42;margin-bottom:1rem}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--charcoal);border:1px solid var(--card-border)}.gallery-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.06);transition:transform .6s ease}.gallery-item:hover img{transform:scale(1.04)}.gallery-label{position:absolute;left:0;right:0;bottom:0;padding:1rem;background:linear-gradient(0deg,rgba(26,22,18,.9),transparent);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}.staff-note{border-left:2px solid var(--gold);padding-left:1.3rem;color:rgba(237,229,216,.76);max-width:820px}.cta-band{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}.cta{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--gold-dim);padding:.8rem 1rem;color:var(--gold);background:rgba(201,168,76,.06)}.options-clean-lead{margin-bottom:1.6rem;max-width:980px}.options-clean-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem}.option-card--clean{min-height:0;padding:1.25rem;display:flex;flex-direction:column}.option-card--clean h3{font-size:1.45rem;margin:.25rem 0 .7rem}.option-drawing--clean{height:225px;margin:.2rem 0 1rem}.metric-block{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,229,216,.08);padding:.75rem 0}.metric-block span{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(237,229,216,.6)}.metric-block strong{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold)}.option-detail{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}.option-detail-card{padding:2rem}.option-detail-card .tag{margin-bottom:.9rem}.option-detail-card h2{font-size:2.6rem;margin-bottom:1rem}.option-detail-image{background:#f3f0e7;border:1px solid rgba(201,168,76,.18);border-radius:10px;padding:1rem;min-height:520px;display:flex;align-items:center;justify-content:center}.option-detail-image img{width:100%;height:100%;max-height:500px;object-fit:contain}.metric-stack{display:grid;gap:.85rem;margin-top:1.4rem}.metric-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(237,229,216,.08);padding:.85rem 0}.metric-row span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,229,216,.62)}.metric-row strong{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold)}
 @media(max-width:900px){.slide--padded{padding:5rem 1.5rem 3rem}.split-layout,.split-layout--40-60,.grid-2,.grid-3,.gallery-grid{grid-template-columns:1fr}.split-image{min-height:45vh}.split-text{padding:5rem 1.5rem}.slide-footer{position:static;margin:2rem 1.5rem}.top-nav{padding:.7rem 1rem}.top-nav-dots{display:none}}
 </style>
 </head>
@@ -34,7 +34,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
     <div class="gold-divider gold-divider--center fade-in"></div>
     <p class="hero-copy fade-in">Heal House is asking the City to support a pathway for the Green P parcel to become part of a broader affordable housing and community-wellness solution, delivered with a non-profit partner and clear public-benefit protections.</p>
   </div>
-  <div class="slide-footer"><span>HEAL HOUSE · GREEN P PROPOSAL</span><span>01 / 08</span></div>
+  <div class="slide-footer"><span>HEAL HOUSE · GREEN P PROPOSAL</span><span>01 / 10</span></div>
 </section>
 
 <section class="slide" id="s2" data-slide-name="The Opportunity">
@@ -52,42 +52,58 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
     </div>
     <div class="split-image" style="background-image:url('assets/renderings/rendering-4.jpg')"></div>
   </div>
-  <div class="slide-footer"><span>Green P conversion opportunity</span><span>02 / 08</span></div>
+  <div class="slide-footer"><span>Green P conversion opportunity</span><span>02 / 10</span></div>
 </section>
 
-<section class="slide slide--padded options-clean-slide" id="s3" style="background:var(--bg-alt)" data-slide-name="Three Options">
-  <div class="slide-inner">
-    <p class="section-label fade-in">Available Site Paths</p>
-    <h2 class="italic fade-in" style="margin-bottom:.55rem">Three site paths are available for review.</h2>
-    <p class="lead fade-in options-clean-lead">At this stage, the key comparison is the public-benefit outcome of each site path. All unit counts, affordability levels, and site assumptions remain subject to planning review, due diligence, and City process.</p>
-    <div class="options-clean-grid">
-      <div class="card option-card option-card--clean fade-in">
-        <span class="tag tag--gold">Option One</span>
-        <h3>Two corner lots</h3>
-        <img class="option-drawing option-drawing--clean" src="assets/site-options/option-1-two-corner-lots.png" alt="Option one two corner lots drawing">
-        <div class="metric-block"><span>Affordable housing</span><strong>0%</strong></div>
-        <div class="metric-block"><span>Total units</span><strong>TBD</strong></div>
-        <div class="metric-block"><span>Affordable units</span><strong>0</strong></div>
-      </div>
-      <div class="card option-card option-card--clean fade-in">
-        <span class="tag tag--teal">Option Two</span>
-        <h3>Partial assembly with Green P</h3>
-        <img class="option-drawing option-drawing--clean" src="assets/site-options/uploads/option-2-green-p-updated.jpg" alt="Option two Green P plus one lot drawing">
-        <div class="metric-block"><span>Affordable housing</span><strong>20%</strong></div>
-        <div class="metric-block"><span>Total units</span><strong>TBD</strong></div>
-        <div class="metric-block"><span>Affordable units</span><strong>53</strong></div>
-      </div>
-      <div class="card card--recommended option-card option-card--clean fade-in">
-        <span class="tag tag--rec">Option Three · Highest Public-Benefit Scenario</span>
-        <h3>Full block assembly</h3>
-        <img class="option-drawing option-drawing--clean" src="assets/site-options/uploads/option-3-full-block-updated.jpg" alt="Option three full block drawing">
-        <div class="metric-block"><span>Affordable housing</span><strong>30%</strong></div>
-        <div class="metric-block"><span>Total units</span><strong>254</strong></div>
-        <div class="metric-block"><span>Affordable units</span><strong>77</strong></div>
+<section class="slide slide--padded option-detail-slide" id="s3" style="background:var(--bg-alt)" data-slide-name="Option 1">
+  <div class="slide-inner option-detail">
+    <div class="option-detail-card card fade-in">
+      <span class="tag tag--gold">Option One</span>
+      <h2 class="italic">Two corner lots</h2>
+      <p class="lead">Baseline path using the two corner parcels only.</p>
+      <div class="metric-stack">
+        <div class="metric-row"><span>Affordable housing</span><strong>0%</strong></div>
+        <div class="metric-row"><span>Total units</span><strong>TBD</strong></div>
+        <div class="metric-row"><span>Affordable units</span><strong>0</strong></div>
       </div>
     </div>
+    <div class="option-detail-image fade-in"><img src="assets/site-options/option-1-two-corner-lots.png" alt="Option one two corner lots drawing"></div>
   </div>
-  <div class="slide-footer"><span>Three available options</span><span>03 / 08</span></div>
+  <div class="slide-footer"><span>Option 1 · Baseline</span><span>03 / 10</span></div>
+</section>
+
+<section class="slide slide--padded option-detail-slide" id="s4-option" style="background:var(--bg-alt)" data-slide-name="Option 2">
+  <div class="slide-inner option-detail">
+    <div class="option-detail-card card fade-in">
+      <span class="tag tag--teal">Option Two</span>
+      <h2 class="italic">Partial assembly with Green P</h2>
+      <p class="lead">Green P is integrated into a stronger affordable housing and community-benefit path.</p>
+      <div class="metric-stack">
+        <div class="metric-row"><span>Affordable housing</span><strong>20%</strong></div>
+        <div class="metric-row"><span>Total units</span><strong>TBD</strong></div>
+        <div class="metric-row"><span>Affordable units</span><strong>53</strong></div>
+      </div>
+    </div>
+    <div class="option-detail-image fade-in"><img src="assets/site-options/uploads/option-2-green-p-updated.jpg" alt="Option two Green P plus one lot drawing"></div>
+  </div>
+  <div class="slide-footer"><span>Option 2 · Partial assembly</span><span>04 / 10</span></div>
+</section>
+
+<section class="slide slide--padded option-detail-slide" id="s5-option" style="background:var(--bg-alt)" data-slide-name="Option 3">
+  <div class="slide-inner option-detail">
+    <div class="option-detail-card card card--recommended fade-in">
+      <span class="tag tag--rec">Option Three · Highest Public-Benefit Scenario</span>
+      <h2 class="italic">Full block assembly</h2>
+      <p class="lead">The complete-site scenario produces the clearest measurable affordable housing outcome.</p>
+      <div class="metric-stack">
+        <div class="metric-row"><span>Affordable housing</span><strong>30%</strong></div>
+        <div class="metric-row"><span>Total units</span><strong>254</strong></div>
+        <div class="metric-row"><span>Affordable units</span><strong>77</strong></div>
+      </div>
+    </div>
+    <div class="option-detail-image fade-in"><img src="assets/site-options/uploads/option-3-full-block-updated.jpg" alt="Option three full block drawing"></div>
+  </div>
+  <div class="slide-footer"><span>Option 3 · Highest public benefit</span><span>05 / 10</span></div>
 </section>
 
 <section class="slide slide--padded" id="s4" data-slide-name="Proposal">
@@ -99,7 +115,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
     <div class="cta-band fade-in"><span class="cta">Housing-first framing</span><span class="cta">Green P pathway</span><span class="cta">Non-profit delivery</span><span class="cta">City public benefit</span></div>
     <p class="staff-note fade-in" style="margin-top:1.5rem">This briefing does not ask staff to pre-approve a transaction. It asks staff to identify the appropriate City pathway for evaluating whether Green P can be converted into a measurable affordable housing and community-benefit outcome.</p>
   </div>
-  <div class="slide-footer"><span>Land transaction in service of housing</span><span>04 / 08</span></div>
+  <div class="slide-footer"><span>Land transaction in service of housing</span><span>06 / 10</span></div>
 </section>
 
 <section class="slide" id="s5" data-slide-name="Why It Fits">
@@ -115,7 +131,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>City priorities aligned</span><span>05 / 08</span></div>
+  <div class="slide-footer"><span>City priorities aligned</span><span>07 / 10</span></div>
 </section>
 
 <section class="slide slide--padded" id="s6" style="background:var(--bg-alt)" data-slide-name="Land Exchange Logic">
@@ -130,7 +146,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
       <div class="card fade-in"><h3>Non-profit</h3><p class="small dim">Delivers and stewards the affordable housing commitment.</p></div>
     </div>
   </div>
-  <div class="slide-footer"><span>Land value → public benefit</span><span>06 / 08</span></div>
+  <div class="slide-footer"><span>Land value → public benefit</span><span>08 / 10</span></div>
 </section>
 
 
@@ -143,7 +159,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
       <div class="card fade-in"><h3>What this avoids</h3><div class="line-list"><div>No City operating burden.</div><div>No complicated ownership partnership.</div><div>No unnecessary complexity in the first conversation.</div><div>No dilution of the core public outcome.</div></div></div>
     </div>
   </div>
-  <div class="slide-footer"><span>Accountability without complexity</span><span>07 / 08</span></div>
+  <div class="slide-footer"><span>Accountability without complexity</span><span>09 / 10</span></div>
 </section>
 
 <section class="slide" id="s9" data-slide-name="Short Story">
@@ -153,7 +169,7 @@ h1{font-size:3.4rem;line-height:1.15}h2{font-size:2.2rem;line-height:1.25}h3{fon
     <p class="quote fade-in">Toronto can turn a parking parcel into affordable homes by creating a clear process for Heal House to integrate Green P into the complete site and deliver affordability through a non-profit partner.</p>
     <div class="gold-divider gold-divider--center fade-in"></div>
   </div>
-  <div class="slide-footer"><span>The story in one sentence</span><span>08 / 08</span></div>
+  <div class="slide-footer"><span>The story in one sentence</span><span>10 / 10</span></div>
 </section>
 
 
