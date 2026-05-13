@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ElmVillage / EASR — Private Financing Budget</title>
+<style>
+:root{--bg:#080806;--panel:#11100d;--panel2:#17150f;--ink:#f5eddd;--muted:#b8ad99;--gold:#d4af37;--line:rgba(212,175,55,.28);--soft:rgba(212,175,55,.13);--bad:#ef9a9a;--good:#b8f2c2}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0%,rgba(212,175,55,.14),transparent 34%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}.page{max-width:1100px;margin:0 auto;padding:46px 24px 80px}.badge{display:inline-flex;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--gold);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(0,0,0,.22)}h1{font-size:clamp(34px,5vw,58px);line-height:1.03;letter-spacing:-.04em;margin:18px 0 12px}.sub{max-width:860px;color:var(--muted);font-size:18px;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0}.card,section{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015)),var(--panel);border:1px solid rgba(255,255,255,.11);border-radius:20px;box-shadow:0 20px 70px rgba(0,0,0,.24)}.card{padding:16px}.label{display:block;color:var(--gold);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}.metric{font-size:25px;font-weight:800;letter-spacing:-.03em}.muted{color:var(--muted)}section{padding:26px;margin:18px 0}h2{font-size:24px;color:var(--gold);margin:0 0 14px;letter-spacing:-.02em}h3{font-size:17px;margin:18px 0 8px}table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:14px;overflow:hidden}th,td{border:1px solid rgba(255,255,255,.12);padding:12px 13px;text-align:left;vertical-align:top}th{background:var(--soft);color:var(--gold);font-size:12px;letter-spacing:.08em;text-transform:uppercase}td.money,td.pct{text-align:right;font-variant-numeric:tabular-nums}input{width:100%;background:#070706;border:1px solid var(--line);border-radius:12px;color:var(--ink);font:inherit;padding:11px 12px;text-align:right}input:focus{outline:2px solid rgba(212,175,55,.45)}.input-row{display:grid;grid-template-columns:1.25fr .75fr;gap:12px;align-items:center;margin:10px 0}.callout{border:1px solid var(--line);background:var(--soft);border-radius:16px;padding:16px 18px;margin:14px 0}.warning{border-color:rgba(239,154,154,.45);background:rgba(239,154,154,.08)}.good{border-color:rgba(184,242,194,.35);background:rgba(184,242,194,.07)}ul{margin:8px 0 0 22px;padding:0}li{margin:5px 0}.footer{border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin-top:28px;color:var(--muted);font-size:13px}.no-print{display:inline-flex;gap:10px;align-items:center;margin-top:10px}button{background:var(--gold);color:#111;border:0;border-radius:999px;padding:10px 16px;font-weight:800;cursor:pointer}@media(max-width:860px){.grid,.cards{grid-template-columns:1fr}.page{padding:32px 16px 60px}}@media print{body{background:#fff;color:#111}.page{max-width:none;padding:18px}.card,section{box-shadow:none;background:#fff;border-color:#ddd}h2,.label,.badge,th{color:#8b6f13}th{background:#f7f0d7}.muted,.sub,.footer{color:#555}.no-print{display:none}input{border:0;background:#fff;color:#111;padding:0}}
+</style>
+</head>
+<body>
+<main class="page">
+  <span class="badge">K0RE.AI · Private Financing Discussion Sheet</span>
+  <h1>ElmVillage / EASR Private Financing Budget</h1>
+  <p class="sub">Draft structure for a one-year private financing bridge to complete the immediate pre-development / SPA workstream, excluding Garden Towns / Garden Suites monetization. The model assumes interest and fees are prepaid from the financing proceeds.</p>
+
+  <div class="cards">
+    <div class="card"><span class="label">Private Rate</span><div class="metric">10.0%</div><div class="muted">1-year prepaid interest reserve</div></div>
+    <div class="card"><span class="label">Lender Fee</span><div class="metric">2.0%</div><div class="muted">paid from proceeds</div></div>
+    <div class="card"><span class="label">Broker Fee</span><div class="metric">2.5%</div><div class="muted">paid from proceeds</div></div>
+    <div class="card"><span class="label">K0RE Arranging Fee</span><div class="metric">2.5%</div><div class="muted">Diana + Calvin / K0RE JV group</div></div>
+  </div>
+
+  <section>
+    <h2>1. Source Costs to Fund</h2>
+    <p class="muted">Enter the architect email total and the Word document financial requirement. Municipal securities are shown separately as a bond/security item only — not cash due now and not included in the private facility.</p>
+    <div class="grid">
+      <div>
+        <div class="input-row"><label>Architect / Invizij email total</label><input id="architect" type="number" min="0" step="1000" value="475000"></div>
+        <div class="input-row"><label>Word doc — financial requirement</label><input id="spa" type="number" min="0" step="1000" value="232800"></div>
+        <div class="input-row"><label>Word doc — municipal securities requirement</label><input id="securities" type="number" min="0" step="1000" value="1281495"></div>
+        <div class="input-row"><label>EASR group raise for Meridian payout</label><input id="easrRaise" type="number" min="0" step="1000" value="800000"></div>
+      </div>
+      <div class="callout warning">
+        <strong>Source note:</strong> Architect / Invizij number inserted at <strong>$475,000</strong>. Word document financial requirement inserted at <strong>$232,800</strong>. Municipal securities of <strong>$1,281,495</strong> are shown as a potential bond/security item only and are excluded from the cash bridge.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Private Financing Gross-Up</h2>
+    <p>If the private financing must cover the cash costs <em>and</em> prepay one year of interest and all fees, the loan must be grossed up. Total carry/fee stack is <strong>17.0%</strong> of the private facility. Municipal securities are excluded because they are not cash due now and may be satisfied by bond/security.</p>
+    <table>
+      <tbody>
+        <tr><td>Direct cost requirement</td><td class="money" id="directNeed">$0</td></tr>
+        <tr><td>Net proceeds percentage after prepaid interest + fees</td><td class="pct">83.0%</td></tr>
+        <tr><td><strong>Required private facility / principal</strong></td><td class="money"><strong id="principal">$0</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout good"><strong>Formula:</strong> Required private facility = Direct cost requirement ÷ 83%. This ensures the borrower receives enough net proceeds after the one-year interest reserve, lender fee, broker fee, and K0RE arranging fee.</div>
+  </section>
+
+  <section>
+    <h2>3. Use of Funds — Private Facility</h2>
+    <table>
+      <thead><tr><th>Use</th><th>Rate / Basis</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Architect / Invizij email total</td><td>Source document</td><td class="money" id="uArchitect">$0</td></tr>
+        <tr><td>Word doc — financial requirement</td><td>Source document total</td><td class="money" id="uSpa">$0</td></tr>
+        <tr><td>Word doc — municipal securities requirement</td><td>Potential bond/security only — excluded from cash bridge</td><td class="money" id="uSecurities">$0</td></tr>
+        <tr><td>Prepaid private interest reserve</td><td>10.0% × private facility</td><td class="money" id="interest">$0</td></tr>
+        <tr><td>Lender fee</td><td>2.0% × private facility</td><td class="money" id="lenderFee">$0</td></tr>
+        <tr><td>Broker fee</td><td>2.5% × private facility</td><td class="money" id="brokerFee">$0</td></tr>
+        <tr><td>K0RE arranging fee — Diana / Calvin group</td><td>2.5% × private facility</td><td class="money" id="arrangingFee">$0</td></tr>
+        <tr><td><strong>Total private facility uses</strong></td><td>Should equal facility principal</td><td class="money"><strong id="totalUses">$0</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. EASR Group Raise + First Land Draw Repayment</h2>
+    <p>EASR is expected to raise approximately <strong>$800,000</strong> from its own group to deal with the Meridian loan / immediate internal requirement. This should sit beside the private facility as a repayable bridge source. Municipal securities are not included in the repayment requirement unless cash is actually posted instead of a bond.</p>
+    <table>
+      <thead><tr><th>Repayment on First Land Draw</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Repay private facility principal</td><td class="money" id="repayPrivate">$0</td></tr>
+        <tr><td>Repay EASR group raise / Meridian bridge</td><td class="money" id="repayEasr">$800,000</td></tr>
+        <tr><td><strong>Total first-draw repayment requirement</strong></td><td class="money"><strong id="firstDrawTotal">$800,000</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>Recommended condition:</strong> First land draw / construction financing advance should include a clear repayment waterfall that pays out (1) the private bridge facility and (2) the EASR group/Meridian bridge funds before discretionary project distributions or non-approved uses.</div>
+  </section>
+
+  <section>
+    <h2>5. Discussion Position</h2>
+    <ul>
+      <li>This is a short-term bridge to preserve momentum and get the SPA / pre-development work completed.</li>
+      <li>One year of private interest is prepaid up front, reducing monthly cash pressure during the bridge period.</li>
+      <li>All financing fees are transparent: 2.0% lender, 2.5% broker, 2.5% K0RE arranging/JV support.</li>
+      <li>The repayment source should be the first land draw / construction financing advance, not future Garden Towns or Garden Suites monetization.</li>
+      <li>Garden Towns / Garden Suites strategy is intentionally excluded and should be handled as a separate capital conversation.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Scenario Reference</h2>
+    <p class="muted">Illustrative only. Current cash inputs: architect $475,000; Word financial requirement $232,800. Municipal securities $1,281,495 are tracked separately as a potential bond/security item.</p>
+    <table>
+      <thead><tr><th>Direct Cost Need</th><th>Private Facility Required</th><th>Prepaid Interest</th><th>Total Fees</th><th>First Draw Repayment incl. $800K EASR Raise</th></tr></thead>
+      <tbody id="scenarios"></tbody>
+    </table>
+  </section>
+
+  <p class="footer">Draft discussion budget only. Not a lending commitment, legal advice, securities advice, mortgage brokerage advice, tax advice, or construction-financing approval. Confirm source totals, enforceability, fee treatment, security, priority, repayment rights, and land-draw payout mechanics with counsel, lender, broker, EASR governance, and construction-financing parties.</p>
+  <div class="no-print"><button onclick="window.print()">Print / Save PDF</button><span class="muted">Fields recalculate automatically.</span></div>
+</main>
+<script>
+const fmt = n => new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(isFinite(n)?n:0);
+const rates={interest:.10,lender:.02,broker:.025,arrange:.025};
+function set(id,v){document.getElementById(id).textContent=fmt(v)}
+function calc(){
+  const architect=+document.getElementById('architect').value||0;
+  const spa=+document.getElementById('spa').value||0;
+  const securities=+document.getElementById('securities').value||0;
+  const easr=+document.getElementById('easrRaise').value||0;
+  const direct=architect+spa;
+  const totalRate=rates.interest+rates.lender+rates.broker+rates.arrange;
+  const principal=direct>0?direct/(1-totalRate):0;
+  const interest=principal*rates.interest, lender=principal*rates.lender, broker=principal*rates.broker, arrange=principal*rates.arrange;
+  set('directNeed',direct); set('principal',principal); set('uArchitect',architect); set('uSpa',spa); set('uSecurities',securities);
+  set('interest',interest); set('lenderFee',lender); set('brokerFee',broker); set('arrangingFee',arrange); set('totalUses',direct+interest+lender+broker+arrange);
+  set('repayPrivate',principal); set('repayEasr',easr); set('firstDrawTotal',principal+easr);
+  renderScenarios();
+}
+function scenarioRow(direct){
+  const principal=direct/.83, interest=principal*.10, fees=principal*(.02+.025+.025), repay=principal+(+document.getElementById('easrRaise').value||800000);
+  return `<tr><td class="money">${fmt(direct)}</td><td class="money">${fmt(principal)}</td><td class="money">${fmt(interest)}</td><td class="money">${fmt(fees)}</td><td class="money">${fmt(repay)}</td></tr>`;
+}
+function renderScenarios(){document.getElementById('scenarios').innerHTML=[500000,700000,900000,1100000].map(scenarioRow).join('')}
+for(const id of ['architect','spa','securities','easrRaise']) document.getElementById(id).addEventListener('input',calc);
+calc();
+</script>
+</body>
+</html>
