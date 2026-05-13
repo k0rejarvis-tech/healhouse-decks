@@ -52,6 +52,44 @@ body.light-version .section-label{color:#8A681F}
 
 
 
+/* TYPOGRAPHY NORMALIZATION — preserve original deck fonts on light pages */
+body.light-version{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:300}
+body.light-version h1,
+body.light-version h2,
+body.light-version h3,
+body.light-version .quote,
+body.light-version .option-number,
+body.light-version .metric-row strong,
+body.light-version .metric-block strong{
+  font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif!important;
+  font-weight:400;
+}
+body.light-version h1,body.light-version .hero-title{font-weight:600!important}
+body.light-version .section-label,
+body.light-version .tag,
+body.light-version .pill,
+body.light-version .cta,
+body.light-version .metric-row span,
+body.light-version .metric-block span,
+body.light-version .gallery-label,
+body.light-version .top-nav-note{
+  font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;
+  font-weight:700;
+}
+body.light-version .card p,
+body.light-version .line-list div,
+body.light-version .lead,
+body.light-version .staff-note,
+body.light-version .comparison-table td{
+  font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;
+  font-weight:400;
+  letter-spacing:0;
+}
+body.light-version h2{font-size:clamp(2rem,3.4vw,3.05rem);line-height:1.12}
+body.light-version h3{line-height:1.2}
+body.light-version .quote{font-weight:400!important;line-height:1.06}
+
+
 /* PAGE 1 RESTORE — keep original cinematic hero/photo + original typography */
 body.light-version .slide--hero{background:#1A1612;color:#EDE5D8;text-align:center;padding:6rem 3rem;overflow:hidden}
 body.light-version .slide--hero::before{display:none!important}
