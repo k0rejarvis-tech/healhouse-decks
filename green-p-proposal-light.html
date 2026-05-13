@@ -136,6 +136,22 @@ body.light-version .final-points span{font-family:'Inter',system-ui,-apple-syste
   .fade-in{opacity:1!important;transform:none!important}.kb-bg::before,.kb-bg::after{animation:none!important}.slide-footer{position:absolute!important;bottom:1.1rem!important;left:2rem!important;right:2rem!important}.option-detail-image img,.site-option-mini img,.drawing-card img{opacity:1!important;visibility:visible!important;display:block!important}.option-detail{grid-template-columns:1fr 1fr!important}.option-detail-image{min-height:440px!important}.option-detail-image img{max-height:420px!important}.final-card{box-shadow:none!important}
 }
 
+
+
+/* OPTIONS SUMMARY FIX — readable metrics + visible drawings */
+body.light-version .options-summary .slide-inner{max-width:1180px}
+body.light-version .options-summary .lead{font-size:1rem;line-height:1.55;margin-bottom:1rem;color:rgba(35,28,20,.76)}
+body.light-version .options-summary .options-grid{gap:1.05rem;margin-top:1.35rem;align-items:stretch}
+body.light-version .option-summary-card{min-height:0;padding:1.05rem 1.05rem 1rem;background:rgba(255,253,248,.94);border-color:rgba(167,125,34,.22);box-shadow:0 18px 45px rgba(78,52,12,.08)}
+body.light-version .option-summary-card h3{font-size:1.42rem!important;line-height:1.05!important;margin:.18rem 0 .75rem!important;color:#231C14}
+body.light-version .summary-thumb{display:block!important;opacity:1!important;visibility:visible!important;width:100%;height:145px;object-fit:contain;background:#fff;border:1px solid rgba(167,125,34,.18);border-radius:10px;margin:.15rem 0 .8rem;padding:.35rem;box-shadow:0 8px 22px rgba(78,52,12,.06)}
+body.light-version .summary-metric{display:grid!important;grid-template-columns:1fr auto;align-items:center;gap:.75rem;border:1px solid rgba(167,125,34,.13)!important;border-radius:10px;background:rgba(255,255,255,.58);padding:.58rem .7rem!important;margin:.35rem 0;color:#231C14!important;line-height:1.15!important}
+body.light-version .summary-metric span{font-size:.72rem!important;letter-spacing:.06em!important;text-transform:uppercase;font-weight:850!important;color:rgba(35,28,20,.66)!important;white-space:normal!important}
+body.light-version .summary-metric strong{font-size:1.06rem!important;letter-spacing:-.02em!important;font-weight:900!important;color:#7E5A13!important;text-align:right;white-space:nowrap!important}
+body.light-version .option-summary-card p.note{font-size:.82rem!important;line-height:1.38!important;color:rgba(35,28,20,.66)!important;padding-top:.65rem;margin-top:.5rem!important}
+@media(max-width:900px){body.light-version .options-summary .options-grid{grid-template-columns:1fr!important}body.light-version .summary-thumb{height:auto;max-height:220px}body.light-version .summary-metric{grid-template-columns:1fr!important;gap:.25rem!important}body.light-version .summary-metric strong{text-align:left!important;font-size:1.2rem!important}}
+@media print{body.light-version .summary-thumb{height:110px!important}body.light-version .options-summary .options-grid{grid-template-columns:repeat(3,1fr)!important;gap:.75rem!important}body.light-version .option-summary-card{padding:.8rem!important}body.light-version .summary-metric{padding:.42rem .55rem!important;margin:.25rem 0!important}body.light-version .option-summary-card p.note{font-size:.68rem!important;line-height:1.25!important}body.light-version .option-summary-card h3{font-size:1.16rem!important}}
+
 </style>
 </head>
 <body class="light-version">
@@ -183,6 +199,7 @@ body.light-version .final-points span{font-family:'Inter',system-ui,-apple-syste
       <div class="option-summary-card">
         <span class="tag tag--gold">Option One</span>
         <h3 class="italic">Two corner lots</h3>
+        <img class="summary-thumb" src="assets/site-options/option-1-two-corner-lots.png" alt="Option one site drawing">
         <div class="summary-metric"><span>Affordable housing</span><strong>0%</strong></div>
         <div class="summary-metric"><span>Total units</span><strong>90</strong></div>
         <div class="summary-metric"><span>Affordable units</span><strong>0</strong></div>
@@ -191,6 +208,7 @@ body.light-version .final-points span{font-family:'Inter',system-ui,-apple-syste
       <div class="option-summary-card">
         <span class="tag tag--teal">Option Two</span>
         <h3 class="italic">Corner lot + Green P + one lot</h3>
+        <img class="summary-thumb" src="assets/site-options/uploads/option-2-green-p-updated.jpg" alt="Option two site drawing">
         <div class="summary-metric"><span>Affordable housing</span><strong>20%</strong></div>
         <div class="summary-metric"><span>Total units</span><strong>206</strong></div>
         <div class="summary-metric"><span>Affordable units</span><strong>42</strong></div>
@@ -199,6 +217,7 @@ body.light-version .final-points span{font-family:'Inter',system-ui,-apple-syste
       <div class="option-summary-card recommended">
         <span class="tag tag--gold">Option Three · Preferred</span>
         <h3 class="italic">Assemble the entire block</h3>
+        <img class="summary-thumb" src="assets/site-options/uploads/option-3-full-block-updated.jpg" alt="Option three site drawing">
         <div class="summary-metric"><span>Affordable housing</span><strong>30%</strong></div>
         <div class="summary-metric"><span>Total units</span><strong>254</strong></div>
         <div class="summary-metric"><span>Affordable units</span><strong>77</strong></div>
