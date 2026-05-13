@@ -152,6 +152,18 @@ body.light-version .option-summary-card p.note{font-size:.82rem!important;line-h
 @media(max-width:900px){body.light-version .options-summary .options-grid{grid-template-columns:1fr!important}body.light-version .summary-thumb{height:auto;max-height:220px}body.light-version .summary-metric{grid-template-columns:1fr!important;gap:.25rem!important}body.light-version .summary-metric strong{text-align:left!important;font-size:1.2rem!important}}
 @media print{body.light-version .summary-thumb{height:110px!important}body.light-version .options-summary .options-grid{grid-template-columns:repeat(3,1fr)!important;gap:.75rem!important}body.light-version .option-summary-card{padding:.8rem!important}body.light-version .summary-metric{padding:.42rem .55rem!important;margin:.25rem 0!important}body.light-version .option-summary-card p.note{font-size:.68rem!important;line-height:1.25!important}body.light-version .option-summary-card h3{font-size:1.16rem!important}}
 
+
+
+/* BACKGROUND PRESENCE PASS — stronger imagery with readable text */
+body.light-version .kb-bg::before{opacity:.46;filter:saturate(1.02) contrast(1.02) brightness(1.04)}
+body.light-version .kb-bg::after{background:linear-gradient(180deg,rgba(255,253,248,.66),rgba(248,241,230,.76))}
+body.light-version .split-image{position:relative;filter:saturate(1.08) contrast(1.04) brightness(1.04)}
+body.light-version .split-image::after{background:linear-gradient(90deg,rgba(248,241,230,.08),rgba(248,241,230,.18))!important}
+body.light-version .final-slide .kb-bg::before{opacity:.54;filter:saturate(1.08) contrast(1.05) brightness(1.02)}
+body.light-version .final-slide .kb-bg::after{background:linear-gradient(180deg,rgba(255,253,248,.68),rgba(248,241,230,.80))}
+body.light-version .slide--hero .kb-bg::before{opacity:1;filter:none}
+body.light-version .slide--hero .kb-bg::after{background:linear-gradient(180deg,rgba(26,22,18,.68),rgba(26,22,18,.76))}
+
 </style>
 </head>
 <body class="light-version">
