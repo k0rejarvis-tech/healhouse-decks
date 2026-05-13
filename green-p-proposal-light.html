@@ -103,6 +103,39 @@ body.light-version .slide--hero .hero-copy{max-width:760px;margin:1.4rem auto 0;
 body.light-version .slide--hero .gold-divider--center{margin:1.5rem auto;background:#C9A84C}
 body.light-version .slide--hero .slide-footer{color:rgba(237,229,216,.36)}
 
+
+
+/* FINAL PASS — images, mobile, comparison typography, PDF safety */
+body.light-version .option-detail-slide{background:#FFF9EF!important}
+body.light-version .option-detail{grid-template-columns:minmax(360px,.9fr) minmax(420px,1.1fr);gap:2.25rem;align-items:center}
+body.light-version .option-detail-card h2{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif!important;font-weight:600!important;line-height:1.05;font-size:clamp(2.25rem,3.6vw,3.15rem)}
+body.light-version .metric-stack{gap:.65rem;margin-top:1.2rem}
+body.light-version .metric-row{background:rgba(255,255,255,.58);border:1px solid rgba(167,125,34,.12);border-radius:10px;padding:.85rem 1rem}
+body.light-version .metric-row span{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;font-size:.7rem;font-weight:800;letter-spacing:.12em;color:rgba(35,28,20,.62)}
+body.light-version .metric-row strong{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;font-size:1.45rem;font-weight:850!important;letter-spacing:-.02em;color:#7E5A13;white-space:nowrap}
+body.light-version .summary-metric span{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;font-weight:700;color:rgba(35,28,20,.66)}
+body.light-version .summary-metric strong{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;font-weight:850;color:#231C14}
+body.light-version .option-summary-card h3{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif!important;font-weight:600!important}
+body.light-version .option-detail-image{background:#fff;border:1px solid rgba(167,125,34,.26);box-shadow:0 24px 70px rgba(78,52,12,.12);min-height:560px;padding:1.25rem;overflow:hidden}
+body.light-version .option-detail-image img{display:block!important;opacity:1!important;visibility:visible!important;width:100%;height:auto;max-height:520px;object-fit:contain;background:#fff}
+body.light-version .site-option-mini img,body.light-version .drawing-card img,body.light-version .option-drawing{display:block!important;opacity:1!important;visibility:visible!important}
+body.light-version .final-slide::before{background:linear-gradient(180deg,rgba(255,253,248,.88),rgba(248,241,230,.92))}
+body.light-version .final-card{max-width:980px;margin:0 auto;padding:3rem 3.25rem;text-align:center;background:rgba(255,253,248,.90);border:1px solid rgba(167,125,34,.20);border-radius:24px;box-shadow:0 26px 80px rgba(78,52,12,.12);position:relative;z-index:2}
+body.light-version .final-card .quote{font-size:clamp(2.35rem,4.6vw,4.8rem);color:#231C14;max-width:860px;margin:0 auto}
+body.light-version .final-copy{max-width:780px;margin:1.35rem auto 0;font-size:1.08rem;line-height:1.75;color:rgba(35,28,20,.78);font-weight:400}
+body.light-version .final-points{display:flex;justify-content:center;gap:.65rem;flex-wrap:wrap;margin-top:1.6rem}
+body.light-version .final-points span{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#7E5A13;background:rgba(167,125,34,.10);border:1px solid rgba(167,125,34,.18);border-radius:999px;padding:.55rem .75rem}
+@media(max-width:900px){
+  html{scroll-snap-type:none!important}.slide{min-height:auto!important;overflow:visible!important}.slide--padded{padding:4.5rem 1.15rem 2.5rem!important}.slide-inner{max-width:100%!important}.top-nav{position:sticky;background:rgba(255,253,248,.96)!important;padding:.7rem 1rem!important}.top-nav-note{display:none}.slide-footer{position:static!important;margin:1.8rem 1.15rem 0!important;color:rgba(35,28,20,.42)!important}.split-layout,.split-layout--40-60,.grid-2,.grid-3,.options-summary .options-grid,.option-detail{display:grid!important;grid-template-columns:1fr!important;gap:1.15rem!important;min-height:auto!important}.split-text{padding:4rem 1.15rem 2rem!important}.split-image{min-height:280px!important}.options-summary h2{font-size:2.25rem!important}.option-summary-card{min-height:auto!important}.option-detail-card{padding:1.35rem!important}.option-detail-card h2{font-size:2.25rem!important}.option-detail-image{min-height:0!important;padding:.85rem!important}.option-detail-image img{max-height:none!important}.metric-row{align-items:flex-start!important;flex-direction:column!important;gap:.28rem!important}.metric-row strong{font-size:1.35rem!important}.final-card{margin:4rem 1.1rem!important;padding:2rem 1.25rem!important}.final-card .quote{font-size:2.35rem!important;line-height:1.05!important}.final-copy{font-size:1rem!important;line-height:1.6!important}.hero-title{font-size:clamp(2.65rem,13vw,4.5rem)!important}.slide--hero{padding:5.5rem 1.15rem 4rem!important}.hero-copy{font-size:.98rem!important;line-height:1.65!important}.top-nav-dots{display:none!important}
+}
+@media print{
+  @page{size:landscape;margin:0}
+  html,body{background:#fff!important;scroll-snap-type:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .top-nav,.scroll-progress{display:none!important}
+  .slide{width:100vw!important;height:100vh!important;min-height:100vh!important;page-break-after:always!important;break-after:page!important;overflow:hidden!important}
+  .fade-in{opacity:1!important;transform:none!important}.kb-bg::before,.kb-bg::after{animation:none!important}.slide-footer{position:absolute!important;bottom:1.1rem!important;left:2rem!important;right:2rem!important}.option-detail-image img,.site-option-mini img,.drawing-card img{opacity:1!important;visibility:visible!important;display:block!important}.option-detail{grid-template-columns:1fr 1fr!important}.option-detail-image{min-height:440px!important}.option-detail-image img{max-height:420px!important}.final-card{box-shadow:none!important}
+}
+
 </style>
 </head>
 <body class="light-version">
@@ -285,12 +318,19 @@ body.light-version .slide--hero .slide-footer{color:rgba(237,229,216,.36)}
   <div class="slide-footer"><span>Accountability without complexity</span><span>10 / 11</span></div>
 </section>
 
-<section class="slide" id="s9" data-slide-name="Short Story">
+<section class="slide final-slide" id="s9" data-slide-name="Short Story">
   <div class="kb-bg atrium-bg"></div>
-  <div class="slide-inner" style="padding:0 4rem;text-align:center">
-    <p class="section-label fade-in" style="border:none">The Short Story</p>
-    <p class="quote fade-in">Toronto can turn a parking parcel into affordable homes by creating a clear process for Heal House to integrate Green P into the complete site and deliver affordability through a non-profit partner.</p>
-    <div class="gold-divider gold-divider--center fade-in"></div>
+  <div class="slide-inner final-card fade-in">
+    <p class="section-label" style="border:none">The Short Story</p>
+    <p class="quote">Toronto can turn a parking parcel into affordable homes.</p>
+    <div class="gold-divider gold-divider--center"></div>
+    <p class="final-copy">The ask is simple: create the City pathway for Heal House to integrate Green P into the complete site, then deliver affordability through a non-profit partner with clear public-benefit protections.</p>
+    <div class="final-points">
+      <span>Green P pathway</span>
+      <span>Affordable homes</span>
+      <span>Non-profit stewardship</span>
+      <span>City accountability</span>
+    </div>
   </div>
   <div class="slide-footer"><span>The story in one sentence</span><span>11 / 11</span></div>
 </section>
